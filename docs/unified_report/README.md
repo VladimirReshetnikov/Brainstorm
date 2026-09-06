@@ -16,7 +16,16 @@ MPL, Mosaic, Motive, Outline, Reason, Spine).
 - `tools/audit_results.json`, `tools/audit_summary.txt` — its output on the
   ProveIt `Analysis/FabiusFunction/Lean/FabiusFunction` subtree (1,004 files)
   and on the 23 files sampled by the reports.
+- `tools/sample_manifest.txt`, `tools/run_audit.sh` — the exact 23-file sample
+  and a runner that reproduces both audit groups from a ProveIt root.
 - `build.sh` — builds the PDF with `latexmk`.
+
+Revision note: Section 8 compares this document with the parallel synthesis
+under `docs/synthesis` (Codex), verifies its Leant findings against the local
+working tree, and accepts several of its criticisms (the `says` combinator
+freezes tactic text rather than proof terms; the audit is a lexical
+classification, not removable work; lint notices are distinct from
+obligations; method roles should be keyed by binder name).
 
 ## Building
 
@@ -28,8 +37,12 @@ titlesec, needspace, xurl, tikz, tcolorbox, pifont, hyperref, bookmark.
 
 ## Reproducing the audit
 
+    bash tools/run_audit.sh <ProveIt-root>
+
+which expands to
+
     python tools/audit_proveit.py <ProveIt>/Analysis/FabiusFunction/Lean/FabiusFunction \
-        --sample <the 23 files listed in Appendix C of the report>
+        --sample <the 23 files listed in tools/sample_manifest.txt>
 
 The audit was run against a local ProveIt checkout at commit
 `7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5` (newer than the commit
