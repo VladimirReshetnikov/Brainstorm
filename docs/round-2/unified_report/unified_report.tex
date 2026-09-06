@@ -1,0 +1,768 @@
+% Build: latexmk -pdf -interaction=nonstopmode -halt-on-error unified_report.tex
+% Self-contained: embedded bibliography, no external figures, standard packages only.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx,longtable,array,multirow}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{xurl}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage[most]{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black]{hyperref}
+\usepackage{bookmark}
+
+\definecolor{ink}{HTML}{1F3345}
+\definecolor{muted}{HTML}{55636E}
+\definecolor{panel}{HTML}{F3F5F7}
+\definecolor{rulegray}{HTML}{CCD5DC}
+\hypersetup{pdftitle={Nine Workbenches: Certified Computation in a Mathematician's Proof Language over Lean},pdfauthor={Claude (Anthropic), for Vladimir Reshetnikov},pdfsubject={Unified review and assessment of nine second-round design reports},bookmarksnumbered=true}
+
+\titleformat{\section}{\Large\bfseries\sffamily\color{ink}}{\thesection}{0.65em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily\color{ink}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.6ex plus 1ex}{1.1ex}
+\titlespacing*{\subsection}{0pt}{2.0ex plus .6ex}{.7ex}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\setcounter{tocdepth}{2}
+\setlist{nosep,leftmargin=1.6em}
+\renewcommand{\arraystretch}{1.12}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily Nine workbenches: certified computation in a proof language over Lean}
+\fancyhead[R]{\small\sffamily Unified review, round two}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\lstdefinestyle{code}{basicstyle=\small\ttfamily,columns=fullflexible,keepspaces=true,breaklines=true,showstringspaces=false,backgroundcolor=\color{panel},frame=single,rulecolor=\color{rulegray},framerule=0.35pt,framesep=6pt,xleftmargin=6pt,xrightmargin=6pt,aboveskip=0.8em,belowskip=0.6em,tabsize=2}
+\lstset{style=code}
+\BeforeBeginEnvironment{lstlisting}{\par\noindent\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{lstlisting}{\end{minipage}\par}
+
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\Yy}{$\bullet$}
+\newcommand{\Pp}{$\circ$}
+\newcommand{\Nn}{--}
+\newcommand{\Lc}{\textsc{Locus}}
+\newcommand{\Ac}{\textsc{Accord}}
+\newcommand{\Cd}{\textsc{Cadence}}
+\newcommand{\Cc}{\textsc{Concord}}
+\newcommand{\Fc}{\textsc{Facet}}
+\newcommand{\Md}{\textsc{Meridian}}
+\newcommand{\Nm}{\textsc{Noema}}
+\newcommand{\Pm}{\textsc{Prism}}
+\newcommand{\Vt}{\textsc{Vantage}}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}p{4.0mm}}
+\newtcolorbox{keybox}[1][]{colback=panel,colframe=rulegray,boxrule=0.5pt,arc=1mm,left=8pt,right=8pt,top=6pt,bottom=6pt,breakable,#1}
+\theoremstyle{definition}
+\newtheorem{observation}{Observation}[section]
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+
+\begin{document}
+
+\begin{titlepage}
+\vspace*{4mm}
+{\sffamily\small\color{muted}UNIFIED REVIEW \quad / \quad PROOF-LANGUAGE DESIGN \quad / \quad ROUND TWO\par}
+\vspace{7mm}
+{\sffamily\bfseries\color{ink}\fontsize{28}{34}\selectfont Nine Workbenches:\\Certified Computation in a\\Mathematician's Proof Language\\over Lean\par}
+\vspace{5mm}
+{\sffamily\LARGE A unified review, convergence analysis, toolchain check,\\and assessment of nine second-round design reports\par}
+\vspace{8mm}
+\begin{keybox}
+\textbf{In one paragraph.} Nine agents were asked, independently, to take the architecture that a first design round had converged on for a human-scale proof language over Lean, answer twenty-two open questions left by the two syntheses of that round, and extend the language into a hybrid of proof assistant and computer algebra system built on formally verified algorithms. This document reads all nine reports in full and finds that they converge on one further idea with the same unanimity the first round showed for its architecture: a symbolic computation must return not an expression but an expression together with the exact relation it bears to its input (equality, conditional equality, equality on a domain, a witness, a complete solution set, a finite jet, or an enclosure), and the system must never promote a weaker relation to a stronger one without a theorem. Of fifty-eight design commitments tallied across the reports, forty are unanimous and thirty of those are new to this round; all twenty-two questions receive essentially the same answer from every report that addresses them. The review separates inherited from genuinely new convergence, tests the reports' assumptions by running the Lean toolchain rather than reading its documentation (the consensus contracts exist in the pinned Mathlib, a Gr\"obner tactic already exists and none of the nine noticed, and a kernel-checked polynomial certificate of degree 1280 costs about a second), consolidates the nine adversarial suites into fifty-one mutations with provenance, and closes with a recommendation, questions for a third round, and per-report cards.
+\end{keybox}
+\vfill
+{\sffamily Prepared by Claude (Anthropic) for Vladimir Reshetnikov\par}
+{\sffamily 5 September 2026\par}
+\vspace{3mm}
+{\small\color{muted}Status. A synthesis of design documents, plus small executed Lean experiments on the toolchain the ProveIt corpus pins. No proof language was implemented and no usability claim was measured. The tallies are this reviewer's readings of the nine texts; every mark can be checked against the cited sources, and the data files that generate the tables are shipped beside this document.\par}
+\end{titlepage}
+
+\begin{abstract}
+\noindent Nine second-round reports under \code{docs/round-2/ideas} propose languages named \Lc, \Ac, \Cd, \Cc, \Fc, \Md, \Nm, \Pm, and \Vt. Each was written with access to the two syntheses of the first round, to the same three files of the ProveIt corpus, and to the committed source of Leant, and each was asked to fold a verified computer algebra system into the proof language. This review establishes four things. First, the convergence is again very strong, but it must be read in two parts. The ten commitments the reports inherited from the syntheses are unanimous and prove nothing new. Of the forty-eight commitments that concern the new material (computational result contracts, a two-lane verified CAS, certified representations, a precision calculus for formal series, negative evidence, and the Leant boundary), thirty are unanimous and thirty-four are held by at least seven reports; these were not specified by the syntheses and are evidence of genuine agreement. Second, the twenty-two questions the syntheses posed are answered the same way by every report that answers them, with variation only in which definition package to build first. Third, the reports share blind spots that the first round's blind spots predicted: every report is a specification, none compiled a line of Lean, seven of nine reason from the same three ProveIt files, and none noticed that Mathlib at the pinned revision already ships a \code{grobner} tactic. Running the toolchain confirms the reports' documentation-based claims (native evaluation adds a per-invocation axiom; \code{polyrith} reports its service shut down; \code{Polynomial} is noncomputable) and adds a number they lack: a kernel-checked ideal-membership certificate of degree 1280 costs about one second, so the strict, axiom-free checking lane is viable at realistic sizes. Fourth, three reports independently derive the same residual-certificate theorem for finite jets of an implicitly defined series, and it is the natural first end-to-end slice. The review consolidates the nine adversarial suites (183 rows) into fifty-one canonical mutations, ten of which appear in at least seven suites, and proposes a first implementation ordered by how many consensus contracts each step exercises.
+\end{abstract}
+
+\begingroup
+\small
+\tableofcontents
+\endgroup
+\clearpage
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The task and the material}\label{sec:material}
+This is the second round of a brainstorming campaign about a better language for writing mathematics that Lean can check. In the first round nine agents diagnosed why Lean proofs are longer and less natural than a mathematician's argument and designed languages to fix that; two syntheses of those reports were then written, one by this reviewer and one in parallel by another agent. In the second round nine agents were asked to start from those syntheses and to extend the design in one specific direction: a hybrid of proof assistant and computer algebra system (CAS), in which symbolic computation is available inside the argument and is based on formally verified algorithms. The reports were also asked to answer the twenty-two questions with which the two syntheses closed. The brief itself is not in the repository; this description of it is reconstructed from what the nine reports say they were asked to do, and they agree on it.
+
+The nine reports, their locations, and their executed companions are listed in Table~\ref{tab:material}. Each is a LaTeX article of roughly forty pages with an embedded bibliography, a proposed surface syntax, worked mathematical examples with written proofs, a Leant integration section, an evaluation plan, an adversarial test suite, and a Python program that checks the finite arithmetic of its examples with exact rational numbers. No report compiled Lean; every report says so.
+
+\begin{table}[htbp]
+\centering\small
+\caption{The nine second-round reports. Page counts are of the shipped PDFs; the ``checks'' column is the executed Python companion's own count of passed finite tests. The original directory names of three reports were changed to make the proposal names unique before this review.}
+\label{tab:material}
+\begin{tabularx}{\textwidth}{@{}L{18mm}L{47mm}L{12mm}L{13mm}Y@{}}
+\toprule
+Report & Subtitle & Pages & Checks & Organizing unit\\
+\midrule
+\Lc{} & Mathematical workspaces and certified computation & 41 & 24 tests & A persistent workspace of objects, facts, routes, and policies\\
+\Ac{} & A certified worksheet language for reasoning and symbolic computation & 37 & 25 tests & A mathematical transaction committing a result with its contract\\
+\Cd{} & A mathematical language of certified transformations & 38 & 267 & A transformation record with a declared guarantee\\
+\Cc{} & A query-directed proof language with a verified symbolic core & 37 & 459 & A contracted query with a specification\\
+\Fc{} & Mathematical objects with certified computational presentations & 37 & 1,100 & An object with typed presentations and a relation-returning calculation\\
+\Md{} & A mathematical language with certified computation & 37 & 27 & A computed object accompanied by a theorem about it\\
+\Nm{} & Mathematical objects, scoped relations, and certified computation & 36 & 25 tests & A relation-typed calculation with retained evidence\\
+\Pm{} & A proof language with certified mathematical computation & 38 & 2,475 & A representation anchored to an object; computations return typed claims\\
+\Vt{} & Mathematical objects, explicit views, and certified computation & 43 & 3,013 & A certified change of representation for a specified observation\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Three external artifacts recur in every report and are described here so that this document can be read on its own.
+
+\textbf{ProveIt} is a large Lean~4 development (about 38,000 tracked Lean files at the revision the first round audited, pinned to toolchain v4.32.0 and a fixed Mathlib), the bulk of it machine-generated combinatorics and computability, with a smaller hand-written analysis and algebra part. Both rounds draw their examples from the analysis directory: a binomial-inversion module whose kernel identity is proved by reindexing a finite sum, an autonomous-derivative module whose induction requires equality near a point rather than at it, and an Abel generating-function module whose coefficient theorem holds for any formal series satisfying a functional equation over any commutative $\Q$-algebra. Four second-round reports also inspect a fourth file each: an algebraic-germ module (\Lc), a Lambert-function derivative module (\Md), a floor-square-root sum (\Nm), and Bell-number generating functions (\Vt).
+
+\textbf{Leant} is a Haskell REPL for term synthesis and tactic suggestion over a Lean backend. It abstracts a Lean goal into a structural fragment with opaque atoms and a per-node safety bit, runs two synthesis engines (a complete one for a small logic and a heuristic one), and verifies candidates by asking Lean to elaborate them against the goal. Its committed source states that its \code{Verified} wrapper records acceptance by a callback rather than a kernel proof, that a negative synthesis outcome is qualified by both the engine's completeness claim and the translation's safety information, and that its tactic-suggestion path extracts \code{Try this} text from a successful probe without independently replaying that text. All nine reports read these files and build their provider boundary around exactly these facts.
+
+\textbf{The first round} produced nine languages and two syntheses; Section~\ref{sec:background} summarizes what they established, because the second-round reports assume it throughout.
+
+\subsection{Method of this review}
+All nine reports were read in full, including appendices, test suites, and bibliographies. From the texts a matrix of fifty-eight design commitments was extracted (Section~\ref{sec:convergence}); each report's answers to the twenty-two questions were tallied (Section~\ref{sec:questions}); the nine adversarial suites, 183 rows in all, were deduplicated into fifty-one canonical mutations with provenance (Section~\ref{sec:suite}); and the worked mathematics was checked by hand where it could be (the Catalan and Abel coefficients, the Lambert polynomials, the Sturm chain, the rational root brackets, the ideal-membership counterexample over $\Z[X]$). All of that arithmetic is correct.
+
+Unlike the reports, this review also ran Lean. Four small experiments on the toolchain ProveIt pins (Section~\ref{sec:toolchain}) test the claims the reports make from documentation, check that the Mathlib theorems the consensus contracts would wrap actually exist, and measure the cost of the strict checking lane that every report recommends but none priced. The experiment files and compiler logs are shipped with this document. The Python companions of the nine reports were not rerun; their recorded results are attributed, not verified.
+
+Three data files generated by one script accompany the report: the feature matrix, the consolidated negative suite, and the question tally. Every mark in every table can be traced to a report and disputed at the margin.
+
+\subsection{Summary of findings}
+\begin{itemize}
+\item \textbf{One idea, nine spellings.} Every report makes the same central move: a computation returns a value together with a proof of an exact specification, and the specification is one of a small fixed family of relations that cannot be exchanged for one another without a theorem. The reports name the unit differently (Table~\ref{tab:material}), but Section~\ref{sec:unit} shows the differences are nomenclature.
+\item \textbf{Inherited versus independent convergence.} Ten of the fifty-eight commitments were fixed by the syntheses, and the reports' unanimity on them is expected. Thirty new commitments are unanimous and were not fixed in advance. That is the evidence this round adds.
+\item \textbf{The twenty-two questions are settled by consensus,} with one real spread: which definition package to build first.
+\item \textbf{The toolchain supports the design more than the reports knew.} Every Mathlib theorem the consensus would wrap exists at the pinned revision; a Gr\"obner-basis tactic exists and closes an ideal-membership goal, which no report mentions; and kernel checking of a reflective polynomial certificate is fast enough that the strict, axiom-free lane is practical at degree in the low thousands.
+\item \textbf{The shared blind spots are the same as last round's.} No Lean was compiled; seven of nine reason from the same three files; performance is argued, not measured; and the ``workspace'' the reports design is never compared with what Lean's own sections, local instances, and \code{have} chains already provide.
+\item \textbf{A first slice suggests itself.} Three reports independently prove that a finite jet whose residual vanishes below order $N$ agrees with the implicitly defined series below $N$. That theorem, a polynomial certificate checker, and guarded cancellation exercise most of the consensus contracts with no new mathematics, and the checker cost is now known.
+\end{itemize}
+
+\section{Background: what the first round established}\label{sec:background}
+
+\subsection{The first-round languages and their common architecture}
+The nine first-round languages (Contour, Loom, MathStep, MPL, Mosaic, Motive, Outline, Reason, and Spine) shared a diagnosis: the gap between a Lean proof and a mathematician's argument is one of granularity, not foundations. A mathematician states a claim and a reason; Lean requires the representation work (casts, index bounds, side conditions, normalizations) to be spelled out, and that work is roughly a third of tactic invocations in the corpus. The languages therefore proposed a layer over Lean whose unit is a typed mathematical step with a contract, whose theorem statements are frozen before any search runs, whose omitted work becomes a scoped ledger of obligations, whose changes of representation are certified views, whose synthesis boundary never turns a failed search into a refutation, and whose accepted proofs are retained so that replay does not repeat discovery.
+
+The parallel synthesis (\emph{Mathematical Ideas, Checked Evidence}, by Codex) stated this as six commitments: use Lean as the host, expose mathematical assertions, retain scoped obligations, fix meaning at the search boundary, preserve accepted evidence, and evaluate against a Lean baseline given the same libraries. It added a four-way classification of edits (evidence-only, plan change, object change, statement change), the rule that a document's every asserted formal claim must be checked even if unused, a review of Leant's tactic-suggestion path, and the proposal to compare two frontends over one protocol rather than build nine languages. It closed with ten questions, listed below as S1--S10.
+
+This reviewer's synthesis (\emph{Nine Blueprints for a Mathematician's Proof Language over Lean}) tallied forty commitments across the nine reports (twenty-nine unanimous), audited the whole FabiusFunction corpus rather than the twenty-three files the reports sampled (90,637 tactic-like entries in 1,004 files, 32.3\% in families the reports target, a share that is flat across proof lengths), and added four points: that nearly every proposed method already exists as a Mathlib tactic, so the first deliverable is an accounting layer over existing automation; that Mathlib's \code{says} combinator already freezes discovered tactic text, though not proof terms; that a method's contract should be an ordinary annotated theorem type rather than a separate contract language; and that definitions, not proofs, may be the larger lever. It closed with twelve questions, listed below as B1--B12. Both syntheses were revised after reading each other, and both warn that the corpus percentages are lexical classifications, not measured savings.
+
+\subsection{The twenty-two questions}\label{sec:22}
+The second-round reports were asked to answer these. They are reproduced here in abbreviated form because Section~\ref{sec:questions} tallies the answers.
+
+\begin{keybox}
+\textbf{From \emph{Mathematical Ideas, Checked Evidence}.}
+S1 What is the smallest useful step contract?
+S2 Does a stated reason constrain the proof?
+S3 Which choices may automation make silently?
+S4 What does a verified suggestion guarantee?
+S5 How is infrastructure cost counted fairly?
+S6 How do representation views compose predictably?
+S7 What protects statement fidelity (what must an author inspect in a seal)?
+S8 What retained artifact survives replay and library upgrades?
+S9 How do definitions and observational replacement of witnesses enter?
+S10 What belongs in the published view?
+
+\textbf{From \emph{Nine Blueprints}.}
+B1 Is the language a document view or an input form?
+B2 How much of the ``routine profile'' is actually routine?
+B3 Where does the analysis plumbing belong?
+B4 Does an annotated theorem survive library refactoring?
+B5 How should a statement notice be dismissed?
+B6 What is the unit of replay?
+B7 Should every provider share Leant's three-way outcome?
+B8 Is structural synthesis worth an adapter at all?
+B9 What does a data hole look like in the published document?
+B10 Where does the definition layer start?
+B11 Who owns a method contract when two projects disagree?
+B12 What is the stopping rule for the whole project?
+\end{keybox}
+
+\subsection{Three qualifications every report inherits}
+All nine second-round reports open by restating three cautions from the syntheses, in nearly the same words. The corpus audit counts source shape, not removable work, and licenses no savings estimate. An annotated theorem is the right logical interface for deductions but not the whole interface for a CAS, which also needs a representation, a denotation, an output policy, and a precision or domain contract. And Leant's safety bit, or a list of abstracted nodes, is useful metadata about a search but not a proof that the search's negative answer transfers to the original proposition. The third caution corrects a phrase in the first-round \emph{Nine Blueprints} review that called the safety bit ``the general mechanism the reports need''; the correction is accepted, and Section~\ref{sec:promotion} records how the reports sharpen it.
+
+\section{The second-round unit: a computation that carries its meaning}\label{sec:unit}
+
+\subsection{Nine names for one unit}
+Table~\ref{tab:material} lists what each report calls its organizing abstraction. \Lc{} makes the \emph{workspace} the unit: a record of environment, ordered context, object registry, fact index, selected routes, and policies, with only the first two determining what is well typed. \Ac{} speaks of a \emph{transaction} that commits a result only with its contract. \Cd{} of a \emph{transformation record}. \Cc{} of a \emph{contracted query}. \Fc{} of an object with \emph{presentations}. \Md{} of a \emph{computed object with a specification}. \Nm{} of a \emph{relation-typed calculation}. \Pm{} of a \emph{representation anchored to an object}. \Vt{} of a \emph{certified change of representation for a specified observation}.
+
+Beneath the names the logical content is identical and every report writes it down in the same dependent-type shape. A request $q$ fixes an input, an output family $O$, and a specification $\mathrm{Spec}$; an accepted answer is
+\[
+ (o,p),\qquad o:O(i),\quad p:\mathrm{Spec}(i,o),
+\]
+checked in the exact environment and telescope of the request. \Lc, \Ac, \Cc, \Md, \Pm, and \Vt{} print this structure in Lean-like notation; \Cd, \Fc, and \Nm{} write it as a judgment $E;\Gamma\vdash p:R(x,y)$. Seven of the nine then give an interface for a verified checker of the same shape, $\mathrm{check}(i,o,c)=\mathrm{true}\to\mathrm{Spec}(i,o)$. The differences are in which fields are foregrounded: \Lc{} stresses the persistent context, \Vt{} and \Pm{} the anchor-representation relation, \Cc{} the demand the consumer states, \Md{} the property lattice on results. None of these is incompatible with the others.
+
+\subsection{What the unit forbids}
+The reason all nine reach this unit is that they all start from the same failure of an ordinary CAS: an expression is returned without its relation to the input, and the relation is then guessed by the reader. Each report therefore tabulates the result kinds and, for each, the stronger claim it does not establish. The union of those tables is small and is reproduced as Table~\ref{tab:promotion} in Section~\ref{sec:promotion}. Every report agrees on the forbidden promotions: a witness is not a complete solution set; a product identity is not an irreducible factorization; a conditional identity is not an identity; equality on a domain is not global equality; equality at a point is not equality near it; a finite jet is not a series identity and neither is an analytic statement; an enclosure is not an equality; and non-derivability in a search calculus is not a negation.
+
+\begin{observation}
+Nine reports written from the same brief produced nine names and one interface. This is the same phenomenon the first round showed for proof steps, and it has the same explanation: the brief fixes the constraints (Lean host, verified algorithms, exact specifications) tightly enough that the design space has one natural point. The second-round convergence is therefore strong evidence about that point and weak evidence about the naming, syntax, or workflow the reports wrap around it.
+\end{observation}
+
+\section{Convergence: fifty-eight commitments}\label{sec:convergence}
+
+\subsection{The matrix}
+Table~\ref{tab:matrix} tallies fifty-eight design commitments across the nine reports. A filled mark means the report states the commitment explicitly and in its own design; an open mark means the report assumes or partially states it; a dash means it is absent. The rows are grouped: inherited foundation (ten rows fixed by the syntheses), result contracts, the verified CAS, representations and definitions, negative evidence and the Leant boundary, and worked material.
+
+\begingroup
+\footnotesize
+\begin{longtable}{@{}L{7mm}L{67mm}CCCCCCCCCL{5mm}@{}}
+\caption{Design commitments across the nine reports. \Yy{} explicit; \Pp{} partial or implicit; \Nn{} absent. Columns: \Lc, \Ac, \Cd, \Cc, \Fc, \Md, \Nm, \Pm, \Vt; the last column counts explicit marks. The marks are this reviewer's reading of the texts and are shipped as \code{feature_matrix.csv}.}\label{tab:matrix}\\
+\toprule
+Id & Commitment & Lc & Ac & Cd & Cc & Fc & Md & Nm & Pm & Vt & \#\\
+\midrule
+\endfirsthead
+\toprule
+Id & Commitment & Lc & Ac & Cd & Cc & Fc & Md & Nm & Pm & Vt & \#\\
+\midrule
+\endhead
+\midrule\multicolumn{12}{@{}l}{\emph{Inherited foundation}}\\
+A1 & Lean remains the checking host; no new kernel or logic & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A2 & Statement meaning is fixed before search; a producer cannot instantiate a meaning-bearing hole & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A3 & Obligations are ordered dependent telescopes with witness scope & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A4 & Methods are ordinary theorems with roles behind a project-owned wrapper & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A5 & A named reason constrains the proof; an open search reason does not & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A6 & Publication checks every formal assertion, including unused ones & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A7 & Two frontends over one typed record; a library or document view is a successful outcome & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A8 & Three-treatment evaluation with shared infrastructure and explicit cost accounting & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A9 & The corpus audit is a lexical classification, not a savings estimate & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A10 & Edits are classified as evidence, plan, object, or statement changes & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+\midrule\multicolumn{12}{@{}l}{\emph{Result contracts}}\\
+B1 & A computed answer is a value together with a proof of a fixed specification & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B2 & An explicit taxonomy of result kinds with forbidden promotions & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B3 & A witness is not a complete solution set; coverage is separate evidence & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B4 & A conditional result is an implication; guards are never promoted to hypotheses & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B5 & An enclosure is not an equality; an interval containing zero decides nothing & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B6 & A product identity is not an irreducible factorization & \Yy & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & \Yy & 8\\
+B7 & Finite jet, full series identity, and analytic function are three different claims & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B8 & The mathematical kind of a result is separated from its validation state & \Pp & \Yy & \Yy & \Yy & \Pp & \Yy & \Pp & \Yy & \Yy & 6\\
+\midrule\multicolumn{12}{@{}l}{\emph{Verified CAS}}\\
+C1 & Two lanes: a verified algorithm, and a verified checker of an untrusted certificate & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C2 & A third lane: proof-producing tactics, or a candidate followed by an ordinary proof & \Pp & \Pp & \Pp & \Yy & \Yy & \Yy & \Pp & \Yy & \Pp & 4\\
+C3 & The execution gap: a correctness theorem does not certify a particular native run & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C4 & Native-computation axioms are audited by inventory, not by a blacklisted name & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C5 & Reification is part of the proof boundary; opaque atoms carry exact identities & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C6 & Ideal-membership certificates with their limits stated (no negative result; powers need regularity) & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C7 & Accepted evidence must not depend on a remote service surviving (the \code{polyrith} lesson) & \Nn & \Nn & \Yy & \Yy & \Nn & \Yy & \Yy & \Yy & \Yy & 6\\
+C8 & A small verified core (exact scalars, polynomials, finite sums, jets), not a universal simplifier & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C9 & Search-free replay is not computation-free; checking cost is measured & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C10 & Certificate size, degree, and checker cost are bounded in the protocol & \Yy & \Yy & \Pp & \Pp & \Pp & \Yy & \Yy & \Pp & \Yy & 5\\
+\midrule\multicolumn{12}{@{}l}{\emph{Representations and definitions}}\\
+D1 & The mathematical object is a stable anchor; a representation is a certified relation to it & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D2 & Exact presentations are distinguished from information-losing observations & \Yy & \Yy & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & 8\\
+D3 & Preservation along a map is distinguished from reflection back & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D4 & Guards compose as an ordered dependent telescope at the retained intermediate object & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D5 & Coherence: routes are pinned; agreement is anchor- or observation-relative; conflicts need selection & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D6 & Unit is not nonzero; a CAS may not strengthen a ring to a field & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D7 & Guarded natural subtraction and exact division as the three-view stress test & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D8 & Definition packages or templates generate proof obligations, never hidden axioms & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D9 & A normalized-coefficient (EGF) interface as an early package & \Nn & \Pp & \Yy & \Pp & \Pp & \Nn & \Nn & \Yy & \Yy & 3\\
+D10 & A precision calculus for jets: differentiation loses one order; substitution needs a zero constant & \Yy & \Pp & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & 7\\
+D11 & Demand-driven precision planning; precision is part of the cache key & \Yy & \Nn & \Pp & \Yy & \Pp & \Pp & \Yy & \Yy & \Yy & 5\\
+D12 & A residual certificate identifies a finite jet with an implicitly defined series & \Yy & \Nn & \Pp & \Yy & \Pp & \Yy & \Nn & \Nn & \Nn & 3\\
+D13 & Partial expressions (domain, value) as an explicit opt-in semantics beside total operations & \Yy & \Pp & \Pp & \Pp & \Pp & \Yy & \Pp & \Pp & \Pp & 2\\
+D14 & No global canonical form; CAS results never enter definitional equality & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+\midrule\multicolumn{12}{@{}l}{\emph{Negative evidence and Leant}}\\
+E1 & Fragment exhaustion or a safety flag is not a negation; adequacy needs a theorem & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E2 & Excluded middle as the example separating non-derivability from negation & \Nn & \Nn & \Nn & \Yy & \Yy & \Nn & \Nn & \Nn & \Yy & 3\\
+E3 & The exact displayed edit is replayed; a smaller goal count is not completion & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E4 & Leant stays a Haskell service behind a Lean-owned adapter with opaque handles & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E5 & One budget for the whole request; cancellation; stale origins rejected; disposable workers & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E6 & Shared metavariables are committed transactionally & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & \Yy & \Yy & 8\\
+E7 & A type is not a behavioral specification; finite tests certify only themselves & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E8 & Leant is measured on compositions, separately from single-lemma lookup & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+\midrule\multicolumn{12}{@{}l}{\emph{Worked material}}\\
+F1 & Binomial inversion kernel with additive-group generality preserved & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+F2 & Autonomous derivatives with range-local hypotheses preserved & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+F3 & Abel series coefficients over an arbitrary commutative rational algebra & \Nn & \Yy & \Yy & \Yy & \Yy & \Nn & \Yy & \Yy & \Nn & 6\\
+F4 & Lambert-type derivative polynomials and their recurrence & \Nn & \Nn & \Yy & \Yy & \Nn & \Yy & \Nn & \Yy & \Nn & 4\\
+F5 & Radical denesting with a branch certificate & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+F6 & A certified rational enclosure of an isolated real root & \Yy & \Nn & \Yy & \Pp & \Yy & \Pp & \Yy & \Yy & \Pp & 5\\
+F7 & Parameter-dependent complete solving with branch coverage & \Nn & \Pp & \Yy & \Yy & \Pp & \Yy & \Nn & \Nn & \Yy & 4\\
+F8 & A ProveIt file beyond the three that the round-1 syntheses discussed & \Yy & \Nn & \Nn & \Nn & \Nn & \Yy & \Yy & \Nn & \Yy & 4\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\subsection{Reading the matrix}
+Forty of the fifty-eight rows are unanimous and forty-four are held explicitly by at least seven reports. The ten inherited rows are all unanimous, as they should be: the syntheses stated them and the brief asked the reports to build on them. Of the forty-eight rows about the new material, thirty are unanimous and thirty-four reach seven or more. The syntheses did not specify a result-kind taxonomy, a two-lane CAS, the execution gap, the reification boundary, a precision calculus, or the distinction between preservation and reflection; the reports arrived at each of these separately, from the same three ProveIt files and the same Lean documentation. That is the convergence this round adds.
+
+The spread is concentrated in six rows, and each spread is informative rather than a disagreement. C2 (a third, proof-producing lane) is explicit in four reports and implicit in the rest, which all reuse \code{ring}. C7 (the \code{polyrith} lesson) depends on whether the report consulted current Mathlib documentation; six did. D9 (an EGF interface) is a choice of first package. D11 and D12 (demand-driven precision and the residual certificate) are the deepest technical ideas of the round and appear in the reports that pushed the formal-series example furthest. E2 (the excluded-middle example) is a single sharp argument that three reports found. F3, F4, F6, F7, and F8 record which examples each report chose; the choice of a fourth ProveIt file (F8) separates the four reports whose examples are not shared with the others.
+
+\subsection{Ten unanimous rules that were not in the brief}
+The following rules appear, in substance, in all nine reports and in neither synthesis. They are the second round's contribution, stated once.
+\begin{enumerate}[label=\arabic*.]
+\item A computed answer is a dependent pair of value and specification proof, checked at the request's exact telescope (B1).
+\item Result kinds form a fixed family, and no kind is promoted to a stronger one without a registered theorem (B2--B5, B7).
+\item A verified algorithm's correctness theorem says nothing about a byte string returned by a compiled program; the strict profile connects the run to the function by kernel reduction, a reconstructed equality, or a checked certificate (C3).
+\item Native computation is audited by the transitive axiom inventory, because Lean since 4.29 introduces one axiom per native evaluation rather than a single named constant (C4).
+\item A reified expression must be proved to denote the original Lean term under the exact valuation; opaque atoms are identified by expression, never by printed name (C5).
+\item An identity $p=\sum q_i f_i$ proves $p=0$ from $f_i=0$ in any commutative ring; a failed search proves nothing; an identity for $p^k$ proves $p=0$ only with regularity evidence (C6).
+\item A representation is a certified relation to a fixed anchor; a homomorphism preserves identities but reflects them only with a separate theorem (D1, D3).
+\item Guards compose as an ordered telescope instantiated at the retained intermediate object, and competing routes are resolved by pinning, selection, or a coherence theorem at the observation actually used (D4, D5).
+\item ``Nonzero'' is not ``unit''; a CAS may not silently upgrade a commutative ring to a field, an additive group to a vector space, or a formal series to an analytic function (D6, B7).
+\item A negative provider outcome is not a negation unless a proof of the negated original target, or a checked certificate composed with a proved adequacy theorem, is constructed (E1).
+\end{enumerate}
+
+\section{The twenty-two questions, answered}\label{sec:questions}
+Five reports answer all twenty-two questions in numbered appendices (\Cd, \Cc, \Fc, \Nm, \Vt); \Md{} and \Pm{} answer them in tables grouped by question family; \Lc{} and \Ac{} answer them in the body without numbering. Table~\ref{tab:questions} gives the modal answer and the notable variation. The tally is shipped as \code{question_tally.csv}.
+
+\begingroup\small
+\begin{longtable}{@{}L{8mm}L{32mm}L{60mm}L{47mm}@{}}
+\caption{The twenty-two round-one questions and the second-round consensus.}\label{tab:questions}\\
+\toprule
+Id & Question & Modal answer & Variation\\
+\midrule
+\endfirsthead
+\toprule
+Id & Question & Modal answer & Variation\\
+\midrule
+\endhead
+S1 & Smallest useful step contract & An ordinary theorem behind a project-owned wrapper with roles; a richer computational interface only for algorithms, certificates, dependent outputs, or precision & \Cd{} and \Pm{} name three implementation families (theorem, computation, structural plan); \Lc{} adds a fourth request purpose (tactic edit)\\
+S2 & Does a stated reason constrain the proof? & Yes for a named method; an explicit open search does not; a different proof is a visible plan edit & Unanimous\\
+S3 & Which choices may automation make? & Proof evidence and certified representation changes of the same retained object; new witnesses, branches, motives, structures, and statements are reviewable & \Pm{} adds delegation by specification as a third automatic class\\
+S4 & What does a verified suggestion guarantee? & The exact displayed edit replayed from its origin, with progress, root completion, and policy as separate receipts & \Cd{} and \Md{} enumerate four statuses; \Pm{} three; \Lc{} and \Vt{} give step-by-step protocols\\
+S5 & How is infrastructure cost counted? & Share every wrapper, algorithm, and checker with the Lean baseline; report $L$, $A_i$, $R_i$ and observed reuse & Unanimous; \Fc{} adds a five-arm nested design\\
+S6 & How do views compose? & Ordered dependent guards at the retained intermediate object; pinned routes; coherence only at a shared anchor or registered observation & \Vt{} and \Pm{} prove anchor-relative coherence; \Cd{} proves it per observation; none proposes global confluence\\
+S7 & What protects statement fidelity? & Render domains, quantifier dependence, structures, branches, precision; notices are distinct from obligations & Unanimous\\
+S8 & What survives replay and upgrades? & Retained terms or certificates are authoritative for the pinned environment; source is a companion; an upgrade yields a new receipt & \Pm{} names three replay levels; \Md{} three retained evidence forms\\
+S9 & How do definitions and observational replacement enter? & Specification templates with proved interface lemmas and pinned representatives; replacement only with explicit transport evidence & First template differs: formal series (\Lc, \Cc, \Fc, \Nm), partial expressions and polynomials (\Md), EGF coordinates (\Pm, \Vt), finite sums and jets (\Ac, \Cd)\\
+S10 & What belongs in the published view? & Choices and substantial premises visible; routine evidence collapsed but present; rejected alternatives optional & Unanimous; \Pm{} adds a representation view; \Md{} proposes contract-surprise and guard-surprise measures\\
+\midrule
+B1 & Document view or input form? & Both, over one typed record; lift existing Lean first; keep only the view if authoring does not improve & Unanimous\\
+B2 & How much of the routine profile is routine? & Instrument actual attempts under fixed budgets; lexical counts cannot answer & Unanimous\\
+B3 & Where does analysis plumbing belong? & A composite ordinary theorem for locality and derivative transfer; symbolic differentiation is a separate provider & Unanimous\\
+B4 & Do annotated theorems survive refactoring? & Roles on a project-owned typed wrapper checked against the telescope; neither position nor binder name alone & Unanimous; \Pm{} proposes a versioned wrapper schema\\
+B5 & How is a notice dismissed? & Per resolved expression or explicit project convention, keyed to meaning; dismissal never discharges a guard; a semantic change invalidates it & Unanimous\\
+B6 & What is the unit of replay? & A typed node with retained evidence in a pinned environment; certificate replay and term replay are distinct modes & Unanimous\\
+B7 & Is Leant's three-way outcome enough? & Adopt a structured taxonomy, keep abstraction diagnostics separate from proof dependencies, require checked negative evidence & \Cc, \Fc, and \Vt{} add the excluded-middle argument that non-derivability is not negation\\
+B8 & Is structural synthesis worth an adapter? & Measure compositions separately from single-lemma lookup; keep the adapter optional & Unanimous\\
+B9 & What does a data hole look like when published? & The accepted object and its full specification; alternatives are optional exploration history & Unanimous\\
+B10 & Where does the definition layer start? & Two or three templates (formal series, finite family, algebraic object, EGF), not a definition language & Same spread as S9\\
+B11 & Who owns conflicting contracts? & Namespaced, versioned packages with owners; lexical selection; never import order & Unanimous\\
+B12 & What is the stopping rule? & A library, certificate API, or document renderer is a success; new syntax must earn its place in the shared-library comparison & Unanimous\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+Two remarks. First, the answers to S1, B3, and B4 are identical across nine reports because they are the annotated-theorem proposal from the first round with one repair the parallel synthesis had asked for: roles are keyed to a project-owned wrapper rather than to upstream binder names, so an upstream rename breaks one adapter instead of retargeting roles across documents. Every report adopted this repair. Second, the only question with a real spread, S9 and B10, is the question the first round flagged as the larger lever; the reports agree that definitions come before syntax and disagree only on which one to package first. That disagreement is resolved by Section~\ref{sec:slice}.
+
+\section{Where the reports differ}\label{sec:divergence}
+
+\subsection{Genuine divergences}
+\textbf{Partial versus total semantics.} \Md{} builds an explicit model of a partial expression as a pair (domain predicate, value on the domain), proves that guarded equivalences compose and specialize, and proposes it as a package. \Lc{} uses the same pair. \Nm, \Pm, and \Vt{} keep Lean's total operations and express the same facts as conditional theorems over them, with an opt-in partial package mentioned but not developed. Both camps agree the two must not be confused (the equation $(x^2-1)/(x-1)=0$ has solution set $\{-1\}$ in the partial reading and $\{-1,1\}$ in Lean's total reading, as \Md{} and \Pm{} both note). The difference is which is primary in the surface, and it matters for how much of the existing corpus, all written with total operations, lifts without change.
+
+\textbf{Meaning map versus relation.} \Fc{} and \Vt{} prefer an exact presentation to be a decoding function on valid data, because it makes the preserved object unambiguous; \Ac, \Cd, and \Pm{} prefer a relation $V(a,r)$, because it also covers observations and many-to-one representations. Every report uses both in practice.
+
+\textbf{First package.} Section~\ref{sec:questions} recorded the four-way split on which definition package to build first. The split follows the example each report pushed hardest.
+
+\textbf{First slice.} Each report names a different first end-to-end deliverable: the dyadic-germ residual jet (\Lc); annotated reindexing plus a polynomial certificate (\Ac); the parameterized linear equation solved completely (\Cd); the Abel residual jet (\Cc); polynomial calculation plus a guarded real-expression bridge (\Fc); domain-preserving rational simplification plus complete solving (\Md); guarded cancellation with a polynomial checker (\Nm); a polynomial certificate plus the Lambert derivative step (\Pm); a normalized EGF coefficient proof (\Vt). These overlap heavily; Section~\ref{sec:slice} orders them.
+
+\textbf{How far to trust a CAS candidate.} \Fc{} insists that ``based on verified algorithms'' must produce an actual verified computational core, with the certificate lane as an addition; \Nm{} and \Md{} lead with the verified reference algorithm; \Ac, \Cd, \Cc, \Pm, and \Vt{} present the two lanes as equal. All agree that a certificate checker's soundness theorem must itself be proved in Lean and that the check must run under the strict policy.
+
+\subsection{Distinctive contributions}
+Each report contains ideas that no other report states, and several are worth keeping regardless of which design wins.
+
+\textbf{\Lc.} The general residual-to-jet theorem: if $F(\Delta)=0$ for a series $\Delta$ with constant term $d$, the reduced polynomial $\overline F$ has $\overline F'(d)$ a unit, $J(0)=d$, and $F(J)\in(Q^N)$, then $J\equiv\Delta$ modulo $Q^N$; the hypothesis is a unit, not a field, and the proof is two lines once $F(J)-F(\Delta)$ is factored. Newton doubling as a second verified producer with the same acceptance interface. A valuation-sharpened multiplication precision rule. A bounded, role-indexed closure of guards in a workspace. Four request purposes (proof, data, tactic edit, computation) over one protocol.
+
+\textbf{\Ac.} The separation of a result's mathematical kind from its validation state (proposed, checked in session, independently replayed), which the other reports adopt in parts. A reusable two-square-root denesting theorem with its degenerate cases inside the theorem. A fifth publication check: the display's exactness, conditions, and completeness must match the certified kind. The telescoping certificate's boundary term as a source of spurious singular evaluation.
+
+\textbf{\Cd.} Complete solving with set-valued output, forced by $ax=b$ at $a=b=0$. A guarded-specialization proposition that turns ``cannot evaluate at the excluded point'' into a typing fact. A composition-precision rule $f(g)\equiv\tilde f(\tilde g)$ modulo $X^{\min(rN,M)}$ with a proof that handles zero divisors. A dual-number algebra $\Q[\epsilon]/(\epsilon^2)$ as a control against field-only implementations. The observation that Mathlib's \code{polyrith} has lost its backend, made into a design rule.
+
+\textbf{\Cc.} Demand-indexed computation: the consumer states how many coefficients it needs, the planner propagates that demand backward through registered rules, and the precision is part of the cache key with restriction as a weakening rule. The residual certificate for the Abel fixed point, proved by an order-improvement argument. The status as a vector, not a green light. Three distinct negative questions (non-derivability, negation, counterexample).
+
+\textbf{\Fc.} The cleanest statement of exact presentation (data, validity, decode) versus observation (relation only). The example $X^2-X$ over $\mathbf F_2$, a nonzero polynomial with the zero function, as the reflection failure. A five-arm nested evaluation ($L_0$ through $L_4$) that separates the accounting layer from the computational layer from the surface. Contract-directed presentation planning as a research problem with an untrusted planner and a simple route checker.
+
+\textbf{\Md.} The partial-expression model with exact and guarded equivalence and proved composition and specialization. The Lambert polynomials over $\Z$ with the invariant $\deg P_n=n$, leading coefficient $(-1)^n n!$, proved by induction. The example that $X\in(2X)$ in $\Q[X]$ but not in $\Z[X]$, so an injective coefficient extension still does not transport ideal membership. Two usability measures, contract surprise and guard surprise. Mathlib's \code{match_scalars} and \code{module} as existing coefficient-wise interfaces. Domain minimization with proofs as a research direction.
+
+\textbf{\Nm.} The counting proof of the floor-square-root sum that avoids the lossy natural-to-rational route by supplying a balance equation in $\N$. A guard record (proposition, allowed dependencies, requiring operation, policy, status) and the circularity rule that a result cannot prove its own guard. The specialization $W'=W^2$, $D^nW=n!W^{n+1}$, as the minimal hybrid of symbolic derivative and local analysis. A concrete failure message rendered from the checked contract. The Lean--Mathematica interface of Lewis and Wu as precedent.
+
+\textbf{\Pm.} EGF coordinates as a certified representation with a proved inverse over any commutative $\Q$-algebra, turning coefficient convolution into binomial convolution. Delegation of a choice by specification (\code{construct delta satisfying ...}) as a way to keep proofs concise without a confirmation dialog. Three named replay levels. The warning that a symbolic parameter such as $(1+w)^{2n-1}$ cannot be expanded by a sparse-polynomial engine before $n$ is known. The note that the \code{lean-egg} equality-saturation project now points users to \code{grind}.
+
+\textbf{\Vt.} The three distinctions (exact presentation, restricted observation, one-way abstraction) that organize every other report's view discipline. Anchor-relative coherence proved in one line. The Bell development: normalized coefficients $n![X^n]F$ as the interface, Touchard's recurrence as polynomial algebra in $U=\exp X$, and Spivey's identity extracted by a coefficient compiler without the repeated factorial cancellation the source performs. A Sturm chain for $X^4-6X^2+1$ with its sign variations checked. ``Partial information without partial proof acceptance'' as the scheduler's rule under budget exhaustion.
+
+\section{Checking the consensus against the toolchain}\label{sec:toolchain}
+Every report states that it consulted Lean's documentation but compiled nothing. Four small experiments were run for this review on the toolchain ProveIt pins (Lean v4.32.0, Mathlib package revision \code{81a5d257c8}) to test what the reports assume. The files and compiler logs are in \code{experiments/lean/}.
+
+\subsection{The consensus contracts exist in Mathlib}
+The reports' method wrappers would be ordinary theorem applications. A \texttt{\#check} sweep confirms that every theorem the consensus would wrap exists at the pinned revision (Table~\ref{tab:supply}). One name this reviewer guessed for the sweep, \code{Real.sqrt_eq_iff'}, does not exist; the theorem the reports' branch certificate needs, \code{Real.sqrt_eq_iff_mul_self_eq}, does. The sweep also confirms three facts the reports state from documentation: Mathlib's \code{Polynomial} is noncomputable (an \texttt{\#eval} of its degree fails to compile), so the executable face the reports design is genuinely missing; \code{polyrith} now fails with the message that its external service has been shut down; and \code{Lean.ofReduceBool}, the constant a name-based blacklist would look for, is deprecated with the note that native evaluations are now asserted with axioms.
+
+The sweep found one thing no report mentions. A \code{grobner} tactic exists at this revision and closes \code{x^2 - y^2 = 0} from \code{x - y = 0} over $\Q$ without a certificate. Six reports cite the \code{polyrith} documentation that points to \code{grobner}, and none tried it. It is exactly the ``complete decision procedure for an advertised fragment'' that the reports say should stand beside the certificate checker, and its contract (which coefficient fields, what it does on failure, whether it emits a reusable certificate) is an open item for the next round.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Mathlib supply for the consensus contracts at the pinned revision, from \code{experiments/lean/Supply.lean}. Every entry was resolved by \texttt{\#check}; the last three rows record behaviour rather than existence.}
+\label{tab:supply}
+\begin{tabularx}{\textwidth}{@{}L{44mm}YL{34mm}@{}}
+\toprule
+Consensus contract & Mathlib declaration(s) found & Reports that name the need\\
+\midrule
+Local derivative transfer (M4) & \code{HasDerivAt.congr_of_eventuallyEq}, \code{Filter.EventuallyEq.deriv_eq}, \code{IsOpen.mem_nhds}, \code{HasDerivAt.comp} & all nine\\
+Formal series coefficients, truncation, substitution, derivative & \code{PowerSeries.coeff_mul}, \code{PowerSeries.trunc}, \code{coeff_trunc}, \code{PowerSeries.HasSubst}, \code{PowerSeries.subst}, \code{coeff_derivative}, \code{PowerSeries.ext}, \code{X_pow_dvd_iff} & \Lc, \Ac, \Cd, \Cc, \Fc, \Nm, \Pm, \Vt\\
+Formal exponential over a $\Q$-algebra & \code{PowerSeries.exp}, \code{coeff_exp} (coefficient is \code{algebraMap} of $1/n!$) & \Ac, \Cd, \Cc, \Fc, \Nm, \Pm, \Vt\\
+Principal square root and branch & \code{Real.sqrt_eq_iff_mul_self_eq}, \code{Real.sqrt_sq_eq_abs}, \code{Real.sqrt_nonneg} & all nine\\
+Guarded casts (M33) & \code{Nat.cast_sub} (needs $m\le n$), \code{Nat.cast_div} (needs divisibility and a nonzero divisor), \code{Nat.cast_injective} for reflection & all nine\\
+Unit versus nonzero (M6) & \code{IsUnit.mul_left_cancel}, \code{IsUnit.mul_right_inj}, \code{mul_right_cancel}$_0$ & all nine\\
+Finite reindexing and telescoping (M1) & \code{Finset.sum_bij}, \code{Finset.sum_nbij'}, \code{Finset.sum_range_sub}, \code{range_eq_Ico} & all nine\\
+Real root isolation & \code{intermediate_value_Icc}, \code{StrictMonoOn.injOn}, \code{exists_deriv_eq_slope} & \Lc, \Cd, \Fc, \Nm, \Pm, \Vt\\
+Ideal-membership certificate (C6) & \code{linear_combination} (reduces to \code{ring}); \code{grobner} closes the goal directly & all nine; \code{grobner} by none\\
+\midrule
+Executable polynomials & \code{Polynomial} is noncomputable; \texttt{\#eval} fails & need confirmed\\
+External service & \code{polyrith}: ``no longer available, as the external service it relied on has been shut down'' & confirmed for \Cd, \Cc, \Md, \Nm, \Pm, \Vt\\
+Native-reduction constant & \code{Lean.ofReduceBool} deprecated: ``assert native evaluations with axioms instead'' & confirmed for all nine\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Native evaluation adds a per-invocation axiom}
+All nine reports say, from the Lean reference, that since version 4.29 native evaluation introduces computation-specific axioms, so a publication policy must inspect the transitive inventory rather than blacklist a name. On the pinned toolchain this is what happens:
+\begin{lstlisting}
+theorem byDecide : (2 ^ 20) % 7 = 4 := by decide
+theorem byNative : (2 ^ 20) % 7 = 4 := by native_decide
+#print axioms byDecide   -- does not depend on any axioms
+#print axioms byNative   -- [byNative._native.native_decide.ax_1_1]
+\end{lstlisting}
+The axiom is named after the theorem that introduced it. A blacklist of \code{Lean.ofReduceBool} or \code{Lean.trustCompiler} would pass this proof. The reports' rule is correct and is now confirmed on the toolchain the corpus uses.
+
+\subsection{The cost of the strict lane}\label{sec:cost}
+Every report recommends a strict profile in which a certificate checker is a Lean function whose result is established by kernel reduction, and every report says that ``search-free replay is not computation-free'' and that the cost must be measured. None measured it. The experiment in \code{PolyCert.lean} defines dense integer polynomials as lists, an unverified ideal-membership checker \code{check p fs qs} that tests whether $p-\sum q_if_i$ is the zero polynomial, and the certificate family $X^n-1=(1+X+\dots+X^{n-1})(X-1)$. Table~\ref{tab:cost} gives the cost of \code{decide} (elaboration plus kernel type checking), of \code{native_decide}, and, from \code{LinComb.lean}, of the proof-producing route through Mathlib's \code{linear_combination} on the same identities.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Cost of three routes for the certificate $X^n-1=(1+X+\dots+X^{n-1})(X-1)$ on the pinned toolchain. Kernel and native columns give elaboration plus kernel type checking for two runs (the machine's load varied by a factor of two to three between runs; the shape is stable). The \code{linear_combination} column is the \code{ring} time plus the kernel check of the resulting term; its sizes differ because the file was generated separately, and it excludes the roughly fifty seconds of importing Mathlib. Axiom inventories: \code{decide} and \code{linear_combination}, standard axioms only (the latter uses \code{propext}, \code{Classical.choice}, \code{Quot.sound}); \code{native_decide}, one extra per-invocation axiom.}
+\label{tab:cost}
+\begin{tabularx}{\textwidth}{@{}rYYY@{}}
+\toprule
+Degree $n$ & Kernel \code{decide} (run 1 / run 2) & \code{native_decide} (run 1 / run 2) & \code{linear_combination}\\
+\midrule
+10 & 17 ms / 41 ms & 1.02 s / 2.67 s & 0.27 s ($n=10$)\\
+40 & 52 ms / 99 ms & 1.03 s / 2.69 s & 0.35 s ($n=40$)\\
+160 & 140 ms / 383 ms & 1.04 s / 2.70 s & 0.73 s $+$ 0.14 s kernel ($n=160$)\\
+640 & 0.50 s / 1.43 s & 1.04 s / 2.70 s & 2.01 s $+$ 1.65 s kernel ($n=320$)\\
+1280 & 1.01 s / 2.66 s & 1.04 s / 2.71 s & ---\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Three things follow. The strict lane scales roughly quadratically in the degree, as the naive multiplication does, and stays near one second at degree 1280; for the polynomial sizes in any of the nine reports' examples it is negligible. Native evaluation has a fixed cost of about a second per theorem (compilation) that does not depend on the input, so at these sizes it is slower than the kernel and buys an axiom for nothing; its advantage begins only where kernel reduction would take longer than compilation. The proof-producing route through \code{ring} is competitive at small sizes and grows faster, and its kernel check of the produced term at $n=320$ already exceeds the whole reflective check at $n=1280$. The corrupted certificate (one coefficient changed) is rejected by both \code{decide} (``proved that the proposition is false'') and \code{native_decide}.
+
+These numbers are for an unverified checker; the missing piece is its soundness theorem, which is implementation work of the kind the reports specify. They are also for dense lists of small integers; sparse multivariate polynomials with large rational coefficients will behave differently, and kernel arithmetic on \code{Int} is accelerated only through \code{Nat}. But they settle the question the reports left open in the direction the reports hoped: the axiom-free lane is practical for a first implementation, and the point at which \code{native_decide} earns its axiom is measurable rather than assumed.
+
+\subsection{The residual certificate and the precision loss, checked}
+The same file checks the two small facts three reports build their formal-series design on. The Catalan jet $c=1+X+2X^2+5X^3+14X^4+42X^5$ has residual $c-1-Xc^2$ with zero coefficients below degree 6 and coefficient $-132$ at degree 6, so \code{decide} accepts \code{catalan_jet_ok} and \code{catalan_not_exact} in a few milliseconds and with no axioms; this is \Md's example and the concrete form of \Lc's and \Cc's residual theorems. And the derivatives of $X^5$ and $0$, which agree below order 5, do not agree below order 5 after differentiation, which is the precision-loss rule of D10 (\code{deriv_loses_order}). Neither fact needed checking; the point is that the reflective machinery the reports describe is a hundred lines of plain Lean away from these examples, not a research project.
+
+\section{Assessment}\label{sec:assessment}
+
+\subsection{What is strongest}
+\textbf{The result-kind discipline.} The single most valuable outcome of the round is a small, closed family of result relations with explicitly forbidden promotions, reached independently nine times. It is implementable as ordinary Lean propositions, it makes the classic CAS errors (the cancelled pole, the wrong branch, the missing root, the analytic reading of a formal identity) into type errors at the request boundary, and it is what distinguishes the proposal from ``call a CAS and hope \code{ring} can close the gap.'' Section~\ref{sec:promotion} consolidates it.
+
+\textbf{The execution gap.} The reports' insistence that a verified algorithm's theorem does not certify a native run, and that the strict profile must connect the two by kernel reduction or a checked certificate, is correct, is now confirmed against the toolchain, and is priced (Section~\ref{sec:cost}).
+
+\textbf{Preservation versus reflection.} The distinction between transporting an identity along a homomorphism and reflecting one back is stated in every report, illustrated with sharp examples ($\Z\to\Z/2$, $X^2-X$ over $\mathbf F_2$, $X\in(2X)$ in $\Q[X]$ but not $\Z[X]$), and is the correct answer to the first round's coherence question: routes compose forward without global confluence, and reflection is always a separate theorem.
+
+\textbf{The precision calculus.} The rules for finite jets (addition and multiplication at $\min$, differentiation at one order less, zero-constant substitution, unit inversion, \Cd's $\min(rN,M)$ for composition, \Lc's valuation sharpening) are proved in the reports, agree with one another, and are exactly what \code{PowerSeries.trunc} and \code{coeff_derivative} would wrap.
+
+\textbf{The residual certificate.} Three reports (\Lc, \Cc, \Md) derive that a jet whose residual vanishes below $N$ agrees below $N$ with the implicitly defined series, and two of them notice that this identifies a computed object with an \emph{arbitrary} solution of the functional equation without replacing it by a canonical construction. It is a reusable theorem, its hypothesis is a unit rather than a field, and its checker is a polynomial evaluation.
+
+\subsection{What is weak, over-engineered, or under-specified}
+\textbf{Specification without a prototype.} All nine reports are design documents. Each says a first slice should be built before the grammar grows, and each stops short of building it, although Section~\ref{sec:cost} shows that the checker half of the first slice is trivial to prototype. The Python companions check arithmetic, not designs; a report that had spent its companion effort on two hundred lines of Lean would have learned more.
+
+\textbf{The workspace is never compared with Lean.} \Lc{} designs a persistent workspace with a registry, a fact index with role-indexed guard closure, and route selection; \Ac, \Md, and \Pm{} design similar records. None asks what Lean's \code{section}, \code{variable}, local instances, \code{have} chains, and \code{simp} sets already provide, nor which parts of the workspace are an accounting layer over those. The first round's finding, that nearly every proposed method already exists and the missing piece is accounting, applies again: the supply table shows that the theorems exist; the reports' contribution is the retained record and the contracts, and they should say so.
+
+\textbf{Same three files, again.} Seven of nine reports reason from the binomial-inversion, autonomous-derivative, and Abel-series files, because both syntheses discussed them. The four reports that opened a fourth file (\Lc, \Md, \Nm, \Vt) produced the round's most distinctive examples: the algebraic germ, the Lambert polynomials, the counting proof, and the Bell coefficient compiler. The brief did not require the three files; the reports chose them by inertia.
+
+\textbf{Cost is asserted.} Every report says checking must be measured and none measures it. Every report says \code{native_decide} must be disclosed and none notices that it costs more than the kernel at the relevant sizes.
+
+\textbf{Some machinery is premature.} \Lc's bounded rewrite graph with guard-indexed edges, \Ac's equality-saturation engine, \Fc's contract-directed planner, and \Md's domain minimizer are all correctly labelled as later work, but they consume pages that would have been better spent on the soundness theorem of one checker.
+
+\subsection{Blind spots common to all nine}
+\begin{itemize}
+\item No report noticed \code{grobner}, although six cite the page that names it.
+\item No report discusses how a reflective checker is proved sound in practice: the \code{Decidable} instance, the denotation of a list of coefficients, the evaluation homomorphism, and the cost of kernel reduction through \code{Int} arithmetic. These determine whether the strict lane is usable.
+\item No report addresses multivariate polynomials beyond naming them, although the ideal-membership certificate is multivariate in every real use.
+\item No report considers what happens to the accepted evidence when the Lean toolchain itself is upgraded across a change in the native-evaluation axiom scheme, which happened at 4.29 and will happen again.
+\item No report treats collaboration beyond package ownership; merging two authors' edits to one workspace, which \Ac{} raises, is answered by ``semantic review.''
+\item Every report's Leant section reproduces the syntheses' static findings; none proposes an experiment that would measure Leant's value on the structural obligations the CAS examples generate.
+\end{itemize}
+
+\subsection{What the convergence does and does not show}
+The nine reports were written from the same two syntheses, the same three files, the same Leant sources, and the same Lean documentation, by models of one family. Agreement on the inherited rows is therefore expected and shows nothing. Agreement on the thirty unanimous new rows shows that the constraints of the brief determine the design of the computational boundary almost completely: given Lean, verified algorithms, and exact specifications, there is one sensible interface, and nine attempts found it. It does not show that the interface is usable, that the workspace reduces work, or that any of the nine surfaces is better than annotated Lean. Those remain the three-treatment experiment's job, and all nine reports say so.
+
+\section{Additions}\label{sec:additions}
+
+\subsection{The promotion table}\label{sec:promotion}
+The nine result-kind tables differ in wording and coverage. Table~\ref{tab:promotion} is their union, arranged as a partial order of claims with the theorem that licenses each upward step. It is the artifact the reports describe but none quite writes down: every row is a proposition family, every arrow is an ordinary theorem, and a request boundary that names a row cannot be satisfied by a lower row.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Result kinds and the bridges between them. A bridge is an ordinary theorem whose hypotheses must be supplied; no bridge is automatic. Reports in the last column state the row explicitly.}
+\label{tab:promotion}
+\begin{tabularx}{\textwidth}{@{}L{31mm}YL{40mm}L{22mm}@{}}
+\toprule
+Weaker claim & Bridge to the stronger claim & Stronger claim & Stated by\\
+\midrule
+Non-derivability in a search calculus & A proof of the negated original target, or a checked certificate composed with a proved adequacy theorem $P\to A$ & Negation $\neg P$ & all nine\\
+Witness $w$ with $P(w)$ & Coverage: $\forall x,\ P(x)\to x\in S$ & Complete solution set $S$ & all nine\\
+Product identity $p=c\prod f_i^{e_i}$ & Irreducibility of each $f_i$ and a normalization convention & Irreducible factorization & all but \Fc\\
+Conditional identity $G\to e=e'$ & A proof of $G$, or a case split whose cover implies the disjunction of guards & Identity $e=e'$ & all nine\\
+Equality on a domain $D$ & Agreement on the complement, or an extension theorem for a new object & Global equality & all nine\\
+Equality at a point & Openness giving a neighbourhood on which the identity holds & Equality near the point (germ); derivative transfer & all nine\\
+Jet: coefficients agree below $N$ & A uniform theorem for every $N$, or a recurrence with initial data and uniqueness & Series identity & all nine\\
+Series identity & Convergence and an evaluation or realization theorem on a stated domain & Analytic identity & all nine\\
+Enclosure $l\le x\le u$ & Never; only a strict sign when $0\notin[l,u]$ & Equality & all nine\\
+Residual of a candidate jet vanishes below $N$ & Unit reduced derivative at the base point (or order improvement of the fixed-point map) & Jet of the implicitly defined series & \Lc, \Cc, \Md\\
+Identity after a homomorphism & Injectivity or another reflection theorem for that map & Identity before it & all nine\\
+Ideal membership over $\Q$ & None in general ($X\in(2X)$ in $\Q[X]$, not in $\Z[X]$) & Ideal membership over $\Z$ & \Md\\
+Finite behavioral tests pass & A proof of the universal specification & Universal behaviour & all nine\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{The consolidated negative suite}\label{sec:suite}
+The nine adversarial suites contain 183 rows. Deduplicated, they contain fifty-one distinct mutations. Ten appear in at least seven suites and seven more in five or six; these seventeen are the regression suite a first implementation should ship with, because nine designers agreed that a system which accepts any of them is wrong. Table~\ref{tab:suite} lists them; Appendix~\ref{app:suite} lists all fifty-one with provenance, and the CSV gives the per-report identifiers so that each canonical row can be traced to the original tables.
+
+\begin{table}[htbp]
+\centering\small
+\caption{The seventeen mutations that at least five of the nine adversarial suites contain. The count is of suites, not of text mentions; several more reports discuss each in prose.}
+\label{tab:suite}
+\begin{tabularx}{\textwidth}{@{}L{8mm}YL{58mm}r@{}}
+\toprule
+Id & Mutation & Required behaviour & Suites\\
+\midrule
+M4 & Replace neighbourhood equality by equality at one point before differentiating & Derivative transfer stays open naming the missing eventual equality; no global smoothness is added & 9\\
+M15 & Present verified roots as the complete solution set, or omit a root & Soundness may pass; completeness or coverage must fail & 9\\
+M1 & Omit the inclusive endpoint of a finite reindexing & Coverage fails at the endpoint; the advertised method is not silently replaced by another proof & 8\\
+M7 & Cancel a denominator that can vanish, or evaluate a cancelled expression at the excluded point & Keep the guard, split cases, or return a piecewise result; never publish the unconditional equality & 8\\
+M9 & Return the negative radical candidate with the correct square & Reject the principal-root specification despite identical squares & 8\\
+M17 & Deliver a valid result after undo or an origin change & Mark it stale; it cannot mutate the current state & 8\\
+M21 & Cache or display suggested tactic text that differs from the tactic that was probed & Replay the exact displayed edit from the same origin before calling it verified & 8\\
+M25 & Insert a false but unused intermediate assertion & Reject the document even if the final theorem has another proof & 8\\
+M27 & Present search exhaustion, a timeout, or a missing status field as a refutation & Return a non-logical outcome unless a negation is checked at the original target & 8\\
+M12 & Differentiate a jet and keep its input precision & Lower the output order or request one more input coefficient & 7\\
+M13 & Read a formal identity or jet as an analytic statement & Require a convergence, realization, or remainder theorem & 6\\
+M16 & Reuse a branch-local fact in a sibling branch, possibly through a cache & Reject the context embedding regardless of printed similarity & 6\\
+M6 & Cancel a nonzero non-unit, or use a power certificate, in a ring with zero divisors & Require unit or regularity evidence; do not strengthen the ring & 5\\
+M14 & Promote finitely many agreeing coefficients to a series identity or a universal formula & Retain only the finite statement; the universal claim stays open & 5\\
+M23 & Admit an unapproved axiom transitively, or forge an evidence tag & Fail the publication policy even if the term typechecks & 5\\
+M33 & Transport natural subtraction or natural division to a ring or field without its guard & Expose the order or divisibility obligation & 5\\
+M38 & Display an enclosure as an exact decimal, or infer a sign from an interval containing zero & The certificate stores exact bounds; a zero-containing interval is inconclusive & 5\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Two observations. The four rows that only one report contains (M10 the wrong formal root branch, M20 search instantiating a statement hole, M26 a new constructor, M28 a finite test for a universal claim, all from \Lc; M37 a noncommutative input from \Ac; M40, M41, M44, M51 from \Md; M42 from \Pm; M43 from \Nm; M47 from \Fc; M48 from \Cc) are not weaker than the popular rows; several are sharper. A consolidated suite should keep all fifty-one. And every report insists that each mutation ship with a positive neighbour so that a system that rejects everything cannot pass; the CSV records only the mutations, and the positive cases are the worked examples the reports already supply.
+
+\subsection{A first slice ordered by contract coverage}\label{sec:slice}
+The reports name nine different first deliverables. Ranking each candidate by how many of the unanimous contracts it exercises, and by how much of it the supply table shows already exists, produces one order.
+
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{A polynomial identity certificate with a proved checker.} Exercises B1, C1, C3, C4, C5, C6, C9, and the execution gap; the checker is a hundred lines of Lean and its cost is now known (Section~\ref{sec:cost}); the soundness theorem, the evaluation homomorphism, and the reification bridge to a Lean expression are the work. \code{linear_combination} and \code{grobner} are the controls. Named as a first slice by \Ac, \Fc, \Nm, \Pm.
+\item \textbf{Guarded rational cancellation and complete solving of $ax=b$.} Exercises B3, B4, B5, D6, D13, and the partial-versus-total distinction; uses \code{mul_right_cancel}$_0$ and \code{IsUnit} lemmas; is the shortest example whose complete answer is set-valued. Named by \Cd, \Md, \Nm.
+\item \textbf{The residual-jet certificate.} Exercises B7, D8, D10, D11, D12, and the arbitrary-solution discipline of the Abel theorem; wraps \code{PowerSeries.trunc}, \code{coeff_derivative}, and \code{HasSubst}; the Catalan and Abel instances are checked in Section~\ref{sec:toolchain}. Named by \Lc{} and \Cc; the general theorem is \Lc's.
+\item \textbf{Two theorem adapters: finite reindexing and local derivative transfer.} Exercises A4, A5, B4 (M1 and M4); wraps \code{Finset.sum_bij} and \code{HasDerivAt.congr_of_eventuallyEq}; is the accounting layer over existing automation. Named by \Ac, \Fc, \Nm.
+\item \textbf{The EGF coordinate package.} Exercises D2, D3, D8, D9 and the definition-first thesis; \Vt's Bell development is the held-out test. Named by \Pm, \Vt.
+\item \textbf{The Leant adapter with exact-edit replay.} Exercises E3--E8; last, because it depends on the typed request boundary the earlier steps fix.
+\end{enumerate}
+Each step's negative neighbours are in Table~\ref{tab:suite}. The first three steps need no new mathematics and no surface syntax; they are Lean library work with retained records, and they would already decide whether the strict lane's cost and the checker's soundness proof are as tractable as the numbers suggest.
+
+\subsection{What the strict lane needs that the reports do not say}
+The reflective checker in Section~\ref{sec:cost} is fast because the kernel reduces \code{List Int} arithmetic with accelerated \code{Nat} operations. Three design consequences follow for the verified core the reports specify.
+\begin{itemize}
+\item \textbf{Choose checker data for kernel reduction, not for elegance.} Lists of integers reduce; \code{Finsupp} and \code{Polynomial} do not compute at all. The reports' ``executable face'' must be a type the kernel evaluates cheaply, and its denotation theorem into \code{Polynomial} or \code{PowerSeries} is the reification bridge of C5.
+\item \textbf{Prefer \code{decide} to \code{native_decide} until measured otherwise.} At every size in the reports' examples the kernel is faster and axiom-free. The accelerated profile the reports permit should be enabled by a measured threshold, not by default.
+\item \textbf{Make the checker's soundness theorem the first verified artifact.} The whole architecture reduces to $\mathrm{check}(i,o,c)=\mathrm{true}\to\mathrm{Spec}(i,o)$ for a handful of checkers. Proving one such theorem end to end, including the denotation of the reified input, is a better test of the design than any grammar.
+\end{itemize}
+
+\subsection{A fourth-file rule}
+The most original material in the round came from the four reports that read a ProveIt file no synthesis had discussed. A third round, if there is one, should require each report to develop one example from a file that no previous report or synthesis has cited, and should treat the shared three files as controls. The corpus has a thousand files in the analysis directory alone; the design's claim to generality is only as strong as the variety of examples it survives.
+
+\section{Recommendation}\label{sec:recommendation}
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Adopt the result-kind discipline as the specification of the computational boundary.} Table~\ref{tab:promotion} is the contract; every request names a row, every producer returns a candidate for that row, and every promotion is a theorem application.
+\item \textbf{Build the first three slices of Section~\ref{sec:slice} as a Lean library with retained records and no new syntax.} Ship them with the seventeen-row core suite and the positive neighbours from the reports' worked examples.
+\item \textbf{Prove one checker sound end to end,} reification included, before adding a second checker or any grammar.
+\item \textbf{Measure the strict lane on real multivariate certificates,} and set the threshold for the accelerated profile from that measurement.
+\item \textbf{Write the \code{grobner} contract:} what it decides, over which coefficient domains, what it returns on failure, and whether it can emit a certificate for the strict lane.
+\item \textbf{Run the three-treatment comparison only after steps 2--4,} with the fourth-file rule for held-out tasks and with all infrastructure available to the Lean baseline. A library-only outcome is a success, as all nine reports say.
+\end{enumerate}
+
+\section{Questions for the third iteration}\label{sec:q3}
+\begin{enumerate}[label=\textbf{R\arabic*.},itemsep=.5em]
+\item \textbf{How is a reflective checker proved sound in practice?} The reports state the soundness theorem's type; none writes the denotation of a coefficient list into \code{Polynomial}, the evaluation homomorphism, or the treatment of opaque atoms in the reified syntax. The first prototype will answer this, and its answer decides how much of the verified core can be shared across checkers.
+\item \textbf{Where does \code{grobner} sit?} It is a complete procedure for an advertised fragment that none of the nine reports knew existed. Is it the decision lane beside the certificate lane, does it emit a certificate, and what are its coefficient-domain and failure contracts?
+\item \textbf{What is the accounting layer over Lean's own workspace?} Which parts of the persistent workspace (\Lc), transaction log (\Ac), or anchor registry (\Vt) are new state, and which are records of what \code{section}, \code{variable}, local instances, and \code{have} already do?
+\item \textbf{Partial or total by default?} \Md's partial-expression package and the total-operations-with-conditional-theorems camp both preserve meaning. Which lifts the existing corpus with less change, and which produces the more readable published document?
+\item \textbf{Which package first, measured?} S9 is the round's one open spread. A held-out test with the Bell file for EGF coordinates and the Abel file for formal series would settle it.
+\item \textbf{When does the accelerated profile earn its axiom?} At what certificate size, on which checker data, does \code{native_decide} beat kernel reduction? The threshold should be a number, not a policy.
+\item \textbf{How do accepted certificates survive a toolchain upgrade?} The native-evaluation axiom scheme changed at 4.29; the reports' pinned-environment rule handles a library upgrade but says nothing about a change in what an axiom inventory means.
+\item \textbf{What does Leant contribute to the CAS examples specifically?} Every report keeps Leant for structural composition; none identifies which obligations in the worked examples are compositions rather than single-lemma applications. The first three slices generate real obligations on which to measure this.
+\item \textbf{Can the fifty-one mutations be executed?} Each is a specification. Turning the seventeen-row core into Lean test files that the first slice must fail correctly is the cheapest way to make the next round's claims checkable.
+\item \textbf{Is nine the right number?} Nine reports produced one interface and about a dozen distinctive ideas. A third round of nine would likely produce the same interface again. Three reports, each required to prototype one slice in Lean and to open a new file, might produce more.
+\end{enumerate}
+
+\section{Conclusion}
+The second round did what the first round's syntheses asked. It took the consensus architecture as given, answered the twenty-two questions the same way nine times, and extended the design to computation by one idea that every report found independently: an answer is a value with a proof of a fixed specification, drawn from a small family of relations that cannot be exchanged for one another without a theorem. Around that idea the reports built a two-lane verified CAS whose strict lane is kernel-checked and whose accelerated lane discloses its axioms, a representation discipline that transports forward and reflects only by theorem, a precision calculus for formal series, a residual certificate that identifies computed jets with arbitrary solutions, and a provider boundary on which non-derivability is never a negation.
+
+What the round did not do is compile anything. Running the toolchain shows that the design is closer to Lean than the reports assumed: every theorem the contracts would wrap exists, a Gr\"obner tactic is already there, and the strict lane's cost at realistic sizes is a second. The next step is not a tenth design. It is a hundred lines of Lean that prove one checker sound, a library that retains what it checked, and the seventeen mutations that library must refuse.
+
+\appendix
+
+\section{Report cards}\label{app:cards}
+Each card gives the report's unit, its first slice, its most distinctive idea, its strongest worked example, and one weakness.
+
+\textbf{\Lc.} Unit: a workspace $(\mathcal E,\Gamma,\mathcal O,\mathcal F,\mathcal V,\mathcal P)$ with only $\mathcal E;\Gamma$ deciding typing. First slice: the dyadic-germ residual jet from ProveIt's algebraic-germ file. Distinctive: the general residual-to-jet theorem with a unit hypothesis, Newton doubling as a second producer, four request purposes, the largest test matrix (28 rows). Example: $\Delta+4\Delta^2=4Q/9$ with the Catalan closed form cross-check. Weakness: the workspace's guard-closure and rewrite-graph machinery is designed before the checker it would serve.
+
+\textbf{\Ac.} Unit: a transaction committing a result with its contract in a worksheet of objects, observations, and arguments. First slice: annotated reindexing plus a polynomial certificate. Distinctive: kind versus validation state; the fifth publication check on display strength; the two-square-root denesting theorem with degenerate cases inside it. Example: Abel binomial identity derived from $\exp((x+y)T)=\exp(xT)\exp(yT)$. Weakness: the grammar and state machine appendix restates the first round rather than the CAS.
+
+\textbf{\Cd.} Unit: a transformation record with a declared guarantee, two-dimensional (semantic guarantee and evidence mechanism). First slice: $ax=b$ solved completely with set-valued output. Distinctive: guarded specialization; composition precision $\min(rN,M)$; the dual-number control; the \code{polyrith} rule; four suggestion statuses. Example: Lambert polynomials $P_{n+1}=(1+w)P_n'-(nw+3n-1)P_n$ through $P_6$. Weakness: 267 companion checks, but the derivative theorem is never connected to the analytic side.
+
+\textbf{\Cc.} Unit: a contracted query with demand-indexed observations. First slice: the Abel residual jet with finite reindexing and local derivative transfer. Distinctive: demand-driven precision with restriction as a weakening rule and precision in the cache key; the residual certificate proved by order improvement; the status vector; three negative questions. Example: the degree-four Abel coefficient $x(x-4a)^3/24$ by residual jet, with a trace whose every sentence is a checked node. Weakness: shortest report, and its Leant section adds nothing to the syntheses.
+
+\textbf{\Fc.} Unit: an object with exact presentations (data, validity, decode) and observations (relation only). First slice: a polynomial calculation with a guarded real-expression bridge and forged-native-output rejection. Distinctive: the $\mathbf F_2$ reflection failure; five nested arms $L_0$--$L_4$; contract-directed presentation planning; the insistence that ``verified algorithms'' means a verified core. Example: $P_{n+1}=(1+X^2)P_n'$ with $W^{(4)}=16W+40W^3+24W^5$. Weakness: its ``modest relative guarantee'' section is the substitution lemma the syntheses already said not to repeat.
+
+\textbf{\Md.} Unit: a computed object with a specification, whose properties form a partial order under proved implications. First slice: domain-preserving rational simplification with complete solving. Distinctive: the partial-expression model $(D_E,v_E)$ with proved composition and specialization; $X\in(2X)$ over $\Q$ but not $\Z$; contract and guard surprise; \code{match_scalars}; \code{cbv}. Example: all derivatives of both real Lambert branches from one symbolic step, with the degree and leading-coefficient invariant. Weakness: the longest report, with a decisions table that restates the questions appendix.
+
+\textbf{\Nm.} Unit: a relation-typed calculation with a guard record. First slice: guarded cancellation with a polynomial checker and a stated strict path. Distinctive: the counting proof of the floor-square-root sum; the circularity rule; the rendered failure message; $D^nW=n!W^{n+1}$ as the minimal hybrid. Example: the root of $x^3-x-1$ bracketed in $[331/250,53/40]$ with exact residuals. Weakness: its capability ladder's last rows are a research agenda presented beside an initial contract.
+
+\textbf{\Pm.} Unit: a representation $\mathrm{Rep}(s,r)$ anchored to an object; computations return typed claims. First slice: a polynomial certificate plus the Lambert derivative step. Distinctive: EGF coordinates with a proved inverse and binomial convolution; delegation by specification; three replay levels; the symbolic-parameter warning; the largest companion (2,475 checks including modular and dual-number controls). Example: the cross-multiplied Lambert certificate checked for $n\le 8$. Weakness: its question crosswalk groups questions rather than answering each.
+
+\textbf{\Vt.} Unit: a certified change of representation for a specified observation, with exact presentations, restricted observations, and one-way abstractions kept apart. First slice: a normalized EGF coefficient proof. Distinctive: anchor-relative coherence; the Bell development with Touchard as polynomial algebra and Spivey by coefficient compiler; the Sturm chain; partial information without partial acceptance; the largest suite (26 rows) and companion (3,013 checks). Example: $\sqrt{3+2\sqrt2}=1+\sqrt2$ by a balance certificate and by root isolation. Weakness: the longest report, and its IR-node table and module table duplicate the syntheses.
+
+\section{The consolidated negative suite}\label{app:suite}
+All fifty-one canonical mutations, with the number of adversarial suites that contain each. Per-report identifiers are in \code{negative_suite.csv}.
+
+\begingroup\footnotesize
+\begin{longtable}{@{}L{8mm}L{58mm}L{72mm}r@{}}
+\toprule
+Id & Mutation & Required behaviour & Suites\\
+\midrule
+\endfirsthead
+\toprule
+Id & Mutation & Required behaviour & Suites\\
+\midrule
+\endhead
+M1 & Omit the inclusive endpoint of a finite reindexing & Coverage fails at the endpoint; the method is not silently replaced & 8\\
+M2 & Use a non-injective index map as a bijection & Reject, or switch visibly to a multiplicity-aware theorem & 2\\
+M3 & Apply the finite reindexing method to an infinite sum & Require the summability or rearrangement contract & 2\\
+M4 & Replace neighbourhood equality by equality at one point & Derivative transfer stays open; no global smoothness is added & 9\\
+M5 & Exchange a limit and an integral from pointwise convergence & The analytic theorem's hypotheses remain obligations & 2\\
+M6 & Cancel a nonzero non-unit, or use a power certificate, with zero divisors & Require unit or regularity evidence & 5\\
+M7 & Cancel a denominator that can vanish, or evaluate at the excluded point & Keep the guard, split cases, or return a piecewise result & 8\\
+M8 & Forget the domain of a partial function after normalizing it & Extension is a new object with its own agreement theorem & 2\\
+M9 & Return the negative radical candidate with the correct square & Reject the principal-root specification & 8\\
+M10 & Return the formal root with the wrong constant coefficient & Reject the branch condition of the root specification & 1\\
+M11 & Request a coefficient beyond the certified precision of a jet & Expose the failed index bound; recompute or refine & 3\\
+M12 & Differentiate a jet and keep its input precision & Lower the output order or request one more coefficient & 7\\
+M13 & Read a formal identity or jet as an analytic statement & Require a convergence, realization, or remainder theorem & 6\\
+M14 & Promote finitely many agreeing coefficients to a universal claim & Retain only the finite statement & 5\\
+M15 & Present verified roots as the complete set, or omit a root & Soundness may pass; completeness must fail & 9\\
+M16 & Reuse a branch-local fact in a sibling branch through a cache & Reject the context embedding & 6\\
+M17 & Deliver a valid result after undo or an origin change & Mark it stale; it cannot mutate the current state & 8\\
+M18 & Change an instance or definition with the printed statement unchanged & Invalidate the seal and display the semantic change & 4\\
+M19 & Import a second package with a conflicting convention or name & Explicit selection; no silent shadowing & 2\\
+M20 & Let proof search instantiate a meaning-bearing statement hole & Keep the statement unresolved & 1\\
+M21 & Display suggested tactic text that differs from the probed tactic & Replay the exact displayed edit before calling it verified & 8\\
+M22 & Treat a reduction in visible goals as theorem completion & Report local progress only & 2\\
+M23 & Admit an unapproved axiom transitively, or forge an evidence tag & Fail the publication policy & 5\\
+M24 & Accept a verified algorithm's native output without checked execution & The algorithm theorem alone is insufficient & 2\\
+M25 & Insert a false but unused intermediate assertion & Reject the document & 8\\
+M26 & Add a constructor to a datatype handled by a structural plan & Recompute coverage & 1\\
+M27 & Present exhaustion, a timeout, or a missing status field as a refutation & Return a non-logical outcome & 8\\
+M28 & Supply a finite behavioral test for a universal specification & Retain the finite fact; the universal obligation stays open & 1\\
+M29 & Introduce a competing representation route & Preserve the selected route, request a choice, or apply coherence & 3\\
+M30 & Reflect an equality back along a non-injective map & Require reflection evidence & 3\\
+M31 & Retrieve the benchmark target through an alias & The run is invalid & 2\\
+M32 & Commit incompatible shared data assignments & Reject the transaction and restore the origin & 3\\
+M33 & Transport natural subtraction or division without its guard & Expose the order or divisibility obligation & 5\\
+M34 & Corrupt one coefficient of a certificate & The checker rejects it regardless of the producer & 4\\
+M35 & Strengthen a group or rational algebra to a field & A statement change, never a proof improvement & 4\\
+M36 & Replace an arbitrary solution by the canonical construction & Require an equality or uniqueness bridge & 3\\
+M37 & Feed a noncommutative expression to a commutative normalizer & Reject the missing capability & 1\\
+M38 & Display an enclosure as exact, or infer a sign from an interval containing zero & Exact bounds are stored; zero-containing intervals are inconclusive & 5\\
+M39 & Solve a parameterized equation without its singular branch & Report a conditional answer or require coverage & 3\\
+M40 & Label multiplied-back factors as irreducible & Irreducibility needs separate evidence & 1\\
+M41 & Use a rational-coefficient membership witness for an integer ideal & Reject the coefficient-domain mismatch & 1\\
+M42 & Treat an acknowledged notice as discharging a guard & A notice never discharges an obligation & 1\\
+M43 & Use a result to establish the guard that justifies it & Reject cyclic assembly & 1\\
+M44 & Bind a provider's expression to the wrong origin by name & Reject the typed origin binding & 1\\
+M45 & Remove an analytic hypothesis, or use a rational form at its pole & Expose the requirement; the header must not strengthen itself & 2\\
+M46 & Substitute a series with nonzero constant into the simple composition rule & Generate the admissibility obligation & 2\\
+M47 & Use a conditional result unconditionally, or swap dependent quantifiers & Reject the scope or dependency change & 1\\
+M48 & Force an already-short corollary into a longer narrative & New syntax must not add declarations & 1\\
+M49 & Multiply a strict inequality by a merely nonnegative factor & Require strict positivity or handle zero & 1\\
+M50 & Infer equality of algebraic numbers from a shared polynomial & Require matching root identity & 1\\
+M51 & Specialize a guarded computation where the guard fails & Reinstantiate the guard and locate its origin & 1\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\section{Experiments and reproducibility}\label{app:repro}
+The Lean experiments were run on 5 September 2026 with \code{lake env lean <file>} from the ProveIt checkout (toolchain \code{leanprover/lean4:v4.32.0}, Mathlib package revision \code{81a5d257c8}, Windows 11, x86\_64). The files are in \code{experiments/lean/} with their verbatim compiler logs:
+\begin{itemize}
+\item \code{Axioms.lean}: the \code{native_decide} axiom probe.
+\item \code{PolyCert.lean}: the unverified dense-polynomial certificate checker, kernel and native timings for degrees 10 to 1280 (two runs, \code{PolyCert.run1.log} and \code{PolyCert.run2.log}), the corrupted certificate, the Catalan residual jet, and the derivative precision loss.
+\item \code{LinComb.lean}: the same identity family through \code{linear_combination}.
+\item \code{Supply.lean}: the \texttt{\#check} sweep of Table~\ref{tab:supply}, the \code{Polynomial} computability probe, and the \code{grobner} and \code{polyrith} probes.
+\end{itemize}
+Timings are from the Lean profiler (\code{set_option profiler true}) and vary between runs by a factor of two to three on this machine; both runs are shipped. The checker is unproved: the experiments measure cost and axiom inventories, not soundness.
+
+The data files \code{feature_matrix.csv}, \code{negative_suite.csv}, and \code{question_tally.csv} are generated by \code{tools/make_tables.py}, which also prints the LaTeX bodies of Tables~\ref{tab:matrix} and~\ref{tab:suite}. The report builds with \code{latexmk -pdf unified_report.tex} or the shipped \code{build.sh}.
+
+\section{Source map}\label{app:sources}
+All nine reports are under \code{docs/round-2/ideas/} in the Brainstorm repository at the revision this review was written against; the directory names are \code{Locus_Proof_Language_Proposal}, \code{accord}, \code{cadence}, \code{concord}, \code{facet}, \code{meridian}, \code{noema}, \code{prism}, and \code{vantage}, each containing the TeX source, the built PDF, a README, a Python companion with its recorded results, and a source register. The reports pin the Brainstorm revision they read (\code{494be9d5}), the ProveIt revision they inspected (\code{24ce8bd7} for seven reports, Git blob identities for \Lc, and \code{7c4e3f10} for \Fc), and the Leant revision (\code{3a40904b}). The two first-round syntheses are under \code{docs/round-1/synthesis/} and \code{docs/round-1/unified_report/}.
+
+\begin{thebibliography}{99}
+\small\raggedright
+\bibitem{locus} \emph{Locus: Mathematical Workspaces and Certified Computation}. Round-2 report, \code{docs/round-2/ideas/Locus_Proof_Language_Proposal/locus.tex}, 5 September 2026.
+\bibitem{accord} \emph{Accord: A Certified Worksheet Language for Mathematical Reasoning and Symbolic Computation}. \code{docs/round-2/ideas/accord/accord.tex}.
+\bibitem{cadence} \emph{Cadence: A Mathematical Language of Certified Transformations}. \code{docs/round-2/ideas/cadence/cadence.tex}.
+\bibitem{concord} \emph{Concord: A Query-Directed Proof Language with a Verified Symbolic Core}. \code{docs/round-2/ideas/concord/concord.tex}.
+\bibitem{facet} \emph{Facet: Mathematical Objects with Certified Computational Presentations}. \code{docs/round-2/ideas/facet/facet.tex}.
+\bibitem{meridian} \emph{Meridian: A Mathematical Language with Certified Computation}. \code{docs/round-2/ideas/meridian/meridian.tex}.
+\bibitem{noema} \emph{Noema: Mathematical Objects, Scoped Relations, and Certified Computation}. \code{docs/round-2/ideas/noema/noema.tex}.
+\bibitem{prism} \emph{Prism: A Proof Language with Certified Mathematical Computation}. \code{docs/round-2/ideas/prism/prism.tex}.
+\bibitem{vantage} \emph{Vantage: Mathematical Objects, Explicit Views, and Certified Computation}. \code{docs/round-2/ideas/vantage/vantage.tex}.
+\bibitem{syn-a} Codex. \emph{Mathematical Ideas, Checked Evidence: A Unified Evaluation of Nine Proof-Language Proposals}. Round-1 synthesis, \code{docs/round-1/synthesis/unified-report.tex}.
+\bibitem{syn-b} Claude (Anthropic). \emph{Nine Blueprints for a Mathematician's Proof Language over Lean}. Round-1 synthesis, \code{docs/round-1/unified_report/unified_report.tex}.
+\bibitem{proveit} V. Reshetnikov and contributors. ProveIt. \url{https://github.com/VladimirReshetnikov/ProveIt}. Files cited by the reports: \path{Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean}, \path{AutonomousIteratedDeriv.lean}, \path{AbelPolynomialSeries.lean}, \path{AlgebraicInverseGerm.lean}, \path{LambertWHigherDerivatives.lean}, \path{BellShiftEGF.lean}, \path{BellGeneratingFunctions.lean}, and \path{NumberTheory/IntegerSums/Lean/IntegerSums/FloorSqrtSum.lean}.
+\bibitem{leant} V. Reshetnikov and contributors. Leant. \url{https://github.com/VladimirReshetnikov/Leant}. Files cited by the reports: \path{src/Leant/Synth/Verification.hs}, \path{src/Leant/Synth/Engine.hs}, \path{src/Leant/Synth/Fragment.hs}, \path{src/Main.hs}, \path{docs/synth-internals.md}.
+\bibitem{lean-validation} Lean team. \emph{Validating a Lean Proof}. Lean Language Reference. \url{https://lean-lang.org/doc/reference/latest/ValidatingProofs/}.
+\bibitem{lean-axioms} Lean team. \emph{Axioms}, including native evaluation and \code{native_decide}. Lean Language Reference. \url{https://lean-lang.org/doc/reference/latest/Axioms/}.
+\bibitem{mathlib-polyrith} Mathlib contributors. \emph{Mathlib.Tactic.Polyrith}. \url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/Polyrith.html}.
+\bibitem{mathlib-lc} Mathlib contributors. \emph{Mathlib.Tactic.LinearCombination}. \url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/LinearCombination.html}.
+\bibitem{li-paulson} W. Li, G. O. Passmore, L. C. Paulson. Deciding univariate polynomial problems using untrusted certificates in Isabelle/HOL. \emph{J. Automated Reasoning}, 2017. Cited by \Lc, \Cc, \Vt.
+\bibitem{shen} H. Shen, J. Guo, J. Liu, L. Zhi. Automated tactics for polynomial reasoning in Lean 4. arXiv:2604.13514, April 2026. Cited by \Lc, \Md.
+\bibitem{coqeal} M. D\'en\`es, A. M\"ortberg, V. Siles. A refinement-based approach to computational algebra in Coq. Cited by \Ac, \Fc, \Vt.
+\bibitem{harrison} J. Harrison, L. Th\'ery. A sceptic's approach to combining HOL and Maple. \emph{J. Automated Reasoning} 21 (1998). Cited by \Fc, \Nm, \Pm.
+\bibitem{davenport} J. H. Davenport. Towards verified polynomial factorisation. arXiv:2409.09533, 2024. Cited by \Md.
+\bibitem{interval} G. Melquiond and contributors. Interval package for Rocq. \url{https://coqinterval.gitlabpages.inria.fr/}. Cited by \Cd, \Fc, \Md, \Nm, \Pm.
+\bibitem{afp-alg} R. Thiemann, A. Yamada, S. J. C. Joosten. Algebraic numbers in Isabelle/HOL. Archive of Formal Proofs. Cited by \Ac, \Cc, \Fc.
+\bibitem{lewis-wu} R. Y. Lewis, M. Wu. A bi-directional extensible interface between Lean and Mathematica. \emph{J. Automated Reasoning} 66 (2022). Cited by \Nm.
+\bibitem{massot} P. Massot. Teaching mathematics using Lean and controlled natural language. ITP 2024. Cited by \Lc, \Cc, \Nm.
+\end{thebibliography}
+
+\end{document}
