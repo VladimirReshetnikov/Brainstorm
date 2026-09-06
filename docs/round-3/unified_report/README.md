@@ -12,8 +12,14 @@ round-3 reports under `docs/round-3/ideas/`, rendered to `unified_report.pdf`.
 - `feature_matrix.csv`, `negative_suite.csv`, `question_tally.csv`, `lean_cores.csv`.
 - `experiments/lean/`: the seven shipped Lean cores as compiled by this review
   (`FiberAx`, `MoraineAx`, `TephraAx` have `#print axioms` lines appended; the other
-  four are verbatim), the Mathlib supply probe `Supply3.lean`, the kernel-checked Frey
-  exact-division file `FreyExact.lean`, and the complete compiler log of every run.
+  four are verbatim), the Mathlib supply probe `Supply3.lean` (whose final `mvcgen`
+  example fails by design), the kernel-checked Frey exact-division file
+  `FreyExact.lean`, the parallel synthesis's `SynthesisChecks.lean` and
+  `AdequacyChecks.lean` recompiled here, and the complete compiler log of every run.
+
+The report's Section 10 reconciles this review with the parallel synthesis under
+`docs/round-3/synthesis/`, whose incorporation memo corrected several claims of the
+first version of this report.
 
 ## Reproducing the Lean runs
 

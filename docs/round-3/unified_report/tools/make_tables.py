@@ -199,6 +199,15 @@ N = [
   dict(Trellis="Derivative law")),
  ("N48", "Use a nonnegative real where a nonzero one is required", "Request the missing strictness", "",
   dict(Tephra="Refinement implication")),
+ # Families added from the parallel round-3 synthesis (its 22 prioritised pairs); no report table contains them.
+ ("N49", "Infer a finite free representing algebra from finite indexing alone", "Each factor must be finite and free; the singleton Q[X] case refutes the inference", "",
+  dict(Synthesis="Tensor")),
+ ("N50", "Reuse a fact after simp rewrote its anchor, by matching a normalised string", "Reuse only by conversion or a checked equality or iff transport", "",
+  dict(Synthesis="Rewrite")),
+ ("N51", "Reuse stale local identifiers after a declaration is rebuilt", "Reconstruct the index or check a context embedding", "",
+  dict(Synthesis="Rebuild")),
+ ("N52", "Combine two individually realisable abstract observations that no single input realises jointly", "Realise the pair from one input; coupled contracts stay relational", "",
+  dict(Synthesis="Correlation")),
 ]
 
 # ---------------------------------------------------------------- the twenty questions
@@ -267,12 +276,13 @@ Q = [
 ]
 
 # ---------------------------------------------------------------- compiled Lean cores
-# (report, file, lines, theorems, warnings, axiom summary, elapsed ms)
+# (report, file, lines, named theorems, warnings, axiom summary, elapsed ms)
+# 49 named theorems in total; 48 were queried (Karst's viewIntro was compiled but not queried).
 LEAN = [
  ("Basalt", "companions/ContractCore.lean", 74, 2, "3 (defProp linter)", "2 theorems axiom-free", 3805),
  ("Fiber", "CoreEncoding.lean", 67, 3, "0", "3 theorems axiom-free", 3731),
  ("Gneiss", "GneissCore.lean", 81, 2, "4 (defProp linter)", "2 theorems axiom-free", 5385),
- ("Karst", "examples/KarstCore.lean", 114, 11, "0", "11 theorems axiom-free", 3237),
+ ("Karst", "examples/KarstCore.lean", 114, 12, "0", "11 queried, all axiom-free; viewIntro not queried", 3237),
  ("Moraine", "companion/Contracts.lean", 194, 16, "0", "14 axiom-free; model_sound and promote_model_spec use propext", 8815),
  ("Schist", "SchistCore.lean", 140, 8, "0", "5 axiom-free; eval_nf, check_sound, original_target use propext", 7465),
  ("Tephra", "TephraCore.lean", 119, 6, "0", "6 theorems axiom-free", 3566),
@@ -315,8 +325,9 @@ def main():
     singles = 0
     core = []
     new_fam = 0
+    from_syn = 0
     for nid, mut, resp, inh, src in N:
-        k = len(src)
+        k = len([r for r in src if r in REPORTS])
         inc += k
         if k == 1:
             singles += 1
@@ -324,10 +335,12 @@ def main():
             core.append(nid)
         if not inh:
             new_fam += 1
-        rows.append([nid, mut, resp, inh, k] + [src.get(r, "") for r in REPORTS])
-    write_csv("negative_suite.csv", ["id", "mutation", "required_response", "inherits_round2", "reports"] + REPORTS, rows)
-    print("suite families=%d incidences=%d singletons=%d new_families=%d core(>=5)=%d: %s" % (
-        len(N), inc, singles, new_fam, len(core), " ".join(core)))
+        if "Synthesis" in src:
+            from_syn += 1
+        rows.append([nid, mut, resp, inh, k] + [src.get(r, "") for r in REPORTS] + [src.get("Synthesis", "")])
+    write_csv("negative_suite.csv", ["id", "mutation", "required_response", "inherits_round2", "reports"] + REPORTS + ["parallel_synthesis"], rows)
+    print("suite families=%d report_incidences=%d singletons=%d new_families=%d from_parallel_synthesis=%d core(>=5)=%d: %s" % (
+        len(N), inc, singles, new_fam, from_syn, len(core), " ".join(core)))
 
     # questions
     rows = []
