@@ -114,6 +114,12 @@ Keep local differentiation, parameter-degenerate solving, and hostile
 certificate mutations as discriminating tests. A successful theorem library and
 linter is a legitimate outcome if additional syntax brings no measurable gain.
 
+The additional synthesis \emph{Nine Workbenches} strengthens the case for an
+early Lean prototype with toolchain probes and a consolidated mutation catalogue.
+This revision incorporates those contributions, qualifies its performance and
+novelty claims, and adds explicit tests of its proposed implication rules. The
+remaining work is proving and integrating a checker, not merely timing its Boolean result.
+
 \clearpage
 \tableofcontents
 \clearpage
@@ -135,6 +141,14 @@ questions \cite{round1,claude}. Their relevant concepts are explained in
 Section~\ref{sec:baseline}; their questions are restated and assessed in
 Appendix~\ref{app:oldquestions}. The new report does not require their vocabulary
 or argument to be remembered.
+
+This revision also reviews Claude's second-round synthesis, \emph{Nine
+Workbenches}, its tables, generator, and Lean experiment sources and logs
+\cite{secondary}. It was imported by a fast-forward merge of fetched
+\texttt{main} at \code{84af03f49f89a31b47ff3416ccdbc9180fd6b438}.
+It is treated as a secondary analysis, not a tenth independent proposal. A
+separate register under \code{evidence/secondary-review} pins its 17 files;
+the original nine-report source register and crosswalk retain their original scope.
 
 \subsection{What was reproduced}
 The original input packages were left unchanged. Their Python companions were
@@ -396,6 +410,27 @@ contracts still need edge hypotheses, including ordered bounds for its
 telescoping example; this reinforces the value of negative neighbors
 \cite[\S\S3,5,9--15]{vantage}.
 
+\subsection{What a finer tally adds, and what it cannot count}
+\emph{Nine Workbenches} supplies a finer matrix of 58 commitments, coding 40 as
+unanimous and 44 as explicit in at least seven reports \cite[\S4]{secondary}.
+Those totals reproduce from its supplied data. They complement this report's
+eight broader commitments: a report can explicitly support the broad execution
+boundary while discussing a particular execution mechanism only partially.
+The two matrices therefore answer different questions and should not be
+combined into one score.
+
+The finer matrix is manually authored editorial coding. Its generator serializes
+the assigned marks; it does not discover or validate them by reading the reports.
+Similarly, the reported 30 unanimous ``new'' rows are the unanimous rows outside
+the group named ``Inherited foundation.'' That grouping is not a demonstrated
+novelty boundary. Exact displayed-edit replay, original-target negative evidence,
+transactional validation, and preservation versus reflection already appear in
+the earlier syntheses. The
+valuable addition is finer comparison and disagreement detection, not a count
+of independently discovered ideas. Nor does agreement on high-level answers
+settle the operational choices and empirical questions restated in
+Appendix~\ref{app:oldquestions}.
+
 \subsection{What the convergence does not establish}
 No report demonstrates that a new input language beats a good theorem library
 with an equally capable computation service. None settles the cost of checking
@@ -478,6 +513,40 @@ complete solution predicate and an accurate enclosure can be incomparable.
 Even where guarantees admit weakening, the weakening needs an actual theorem:
 precision \(N\) implies precision \(M\le N\), while an interval bound implies
 a looser interval only after endpoint inequalities are established.
+
+\subsection{Implication rules need all their hypotheses}\label{sec:bridges}
+The secondary synthesis usefully proposes an explicit catalogue of bridges
+between computational guarantees \cite[\S9.1]{secondary}. Its table should
+be implemented as a registry of proved implications between precise predicates,
+not as a universal ordering or a closed inventory of every possible result.
+Three entries need repair before becoming contracts.
+
+\textbf{A complete solution set requires soundness and coverage.} For a set
+\(S\), the required statement is \(\forall x,\ P(x)\leftrightarrow x\in S\).
+One needs both \(\forall x\in S,\ P(x)\) and
+\(\forall x,\ P(x)\to x\in S\). A single witness \(P(w)\) plus coverage does
+not establish soundness. For example, \(P(x)\) meaning \(x=0\),
+\(w=0\), and \(S=\{0,1\}\subseteq\Z\) satisfy the witness and coverage
+claims, but \(S\) contains an extraneous solution.
+
+\textbf{Openness does not strengthen a pointwise identity.} To obtain equality
+near \(x\), an open set \(U\) containing \(x\) helps only when the functions
+agree \emph{throughout} \(U\). The real line is open, yet \(f(t)=t\) and
+\(g(t)=0\) agree at zero without agreeing near zero. The missing premise is
+the identity on the neighborhood, not openness by itself.
+
+\textbf{Some enclosures do establish equality.} From
+\(\ell\le x\le u\) and \(\ell=u\), antisymmetry gives \(x=\ell\).
+Thus the secondary table's ``never'' is too strong. A nondegenerate enclosure
+generally gives only bounds; equality can follow from collapsed bounds or an
+appropriate limiting theorem. Likewise, an interval containing zero does not
+by itself establish a strict sign, although its endpoints can still establish
+non-strict bounds.
+
+These repairs suggest a test for the bridge registry itself: deliberately omit
+one premise, then demand that the invalid promotion fail even when the producer's
+underlying computation is correct. Checking a certificate and checking that its
+guarantee answers the user's question are different obligations.
 
 \subsection{Composition is dependent and directional}
 Suppose a first stage yields \(y\) with \(G_1\to\mathcal R_1(x,y)\), and a
@@ -600,6 +669,80 @@ different certificate or fail to find one without changing what counts as the
 same type throughout the language. Logical interfaces should be stable before
 search policy is made ambitious.
 
+\subsection{What the additional Lean experiments establish}\label{sec:secondarylean}
+The secondary synthesis contributes useful executed probes on Lean 4.32.0 and
+the same pinned mathlib revision as this report's original focused checks
+\cite[\S7]{secondary}. It resolves concrete library declarations for local
+derivative transfer, formal-series coefficients and truncation, square-root
+branches, guarded casts, and finite reindexing. These are useful starting points
+for wrappers. A successful \texttt{\#check} establishes that a declaration with
+the printed type exists; it does not show that every proposed wrapper has all
+the required hypotheses or that the full workflow is implemented.
+
+Two existing tactics deserve explicit controls in the prototype:
+\texttt{linear\_combination}, which reconstructs a polynomial combination,
+and \texttt{grobner}, which closes the supplied polynomial consequence example.
+The latter is a Lean-core tactic wrapping the ring component of \texttt{grind},
+with resource limits; it is not evidence of an unrestricted complete
+decision service. At the inspected revision, its default configuration includes
+100,000 ring steps and a maximum ring degree of 1,024. Proof-producing success
+is useful; failure under these limits is not a refutation. The claim
+that none of the nine reports noticed it is also inaccurate: Cadence explicitly
+names it in \S6.4, and Concord in \S5.6. The useful correction is that the
+proposals did not exercise this existing tactic in Lean.
+
+The noncomputability probe also needs a narrow reading. Failure to compile a
+particular evaluation of a semantic \texttt{Polynomial} operation motivates a
+separate executable representation; it does not establish that every use of
+\texttt{Polynomial} or \texttt{Finsupp} is incapable of computation. Choosing
+checker data and proving its interpretation remain design decisions.
+
+\textbf{A promising microbenchmark, with limited scope.} The secondary
+\code{PolyCert.lean} defines dense integer polynomials as lists and checks
+\[
+ X^n-1=(1+X+\cdots+X^{n-1})(X-1).
+\]
+The retained profiler logs give approximately 1.01 and 2.66 seconds for the
+degree-1280 \texttt{decide} tactic plus kernel check in two runs. This is
+encouraging for that family. However, the proved proposition is that a particular
+Boolean checker invocation returns true. The checker has no denotational
+soundness theorem or source-reification bridge, so this is not yet a
+kernel-verified ideal-membership theorem about arbitrary polynomial inputs.
+
+This family multiplies an \(n\)-coefficient list by a fixed two-coefficient
+factor. It does not benchmark general dense-by-dense or multivariate
+multiplication and does not support the report's quadratic-scaling inference.
+Nor do these few observations establish negligible checking cost for all worked
+examples. Measure coefficient size, sparsity, number of variables, certificate
+length, elaboration, kernel checking, and startup separately before setting a
+performance threshold. The imported timings remain historical observations,
+not fresh measurements made by this revision.
+
+The native-evaluation comparison has a clearer trust implication: the printed
+axiom inventory contains a computation-specific native-evaluation axiom, whereas
+the inspected \texttt{decide} examples do not add such an axiom. In the small
+benchmark family, the native route is often slower than direct checking, but
+the profiler logs do not establish a universal one-second compilation overhead.
+This motivates
+measuring both routes; it does not make speed alone sufficient to authorize a
+different trust policy. Inspect transitive axiom dependencies under a
+version-specific policy rather than blacklisting one historical constant name.
+
+\decision{Make one checker's soundness theorem, interpretation of its finite
+data, and original-target reconstruction the first new verified artifacts.
+Use existing Lean tactics as controls. Treat the microbenchmark as evidence
+that a small prototype is worth attempting, not as a completed feasibility
+study of the proposed CAS.}
+
+A fresh focused run for this revision checks the same rational polynomial
+consequence using \texttt{grobner} and \texttt{linear\_combination}, and compares
+the axiom inventories of a direct \texttt{decide} proof and a
+\texttt{native\_decide} proof. It exits successfully. The two algebraic proofs
+use the standard three axioms; in this imported environment the direct decision
+proof uses \texttt{propext}, while the native proof additionally uses its
+computation-specific axiom. The retained receipt records this actual difference;
+it does not copy the no-import probe's empty inventory into a different environment.
+
 \section{Worked case I: guards, domains, and complete answers}\label{sec:guards}
 The small rational identity
 \[
@@ -624,6 +767,14 @@ models retention of the original denominators and rejection of a certificate
 with substituted guards; Cadence, Meridian, and Vantage generalize the
 distinction to guarded computation and coverage
 \cite[\S\S5--6,11.1]{noema}\cite{cadence,meridian,vantage}.
+
+The choice of default semantics is therefore visible in solving, not merely in
+notation. Over \(\R\), the equation \((x^2-1)/(x-1)=0\) has solution set
+\(\{-1,1\}\) with Lean's total division and \(\{-1\}\) with the denominator
+excluded by partial-expression semantics. The secondary synthesis is right to
+make that default an explicit interface decision \cite[\S6.1]{secondary}.
+Existing total Lean statements must retain their meaning when lifted; an
+opt-in partial-expression package should state its domain in the request.
 
 Complete solving adds a second dimension. Over a field, the equation \(ax=b\)
 has the following complete description:
@@ -1011,6 +1162,40 @@ an additional interpretation and repair surface before benefits are known.\\
 \end{tabularx}
 \end{center}
 
+\subsection{Account for what Lean's workspace already supplies}\label{sec:workspace}
+The secondary synthesis asks a useful question that deserves an explicit answer:
+which parts of the proposed persistent mathematical workspace are new, and
+which merely record state Lean already maintains \cite[\S8.2]{secondary}?
+The first implementation should start with the following allocation.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}P{1.4in}Y Y@{}}
+\toprule
+Need & Existing Lean mechanism & Additional layer to justify\\
+\midrule
+Local parameters and hypotheses & Sections, variables, and the elaborator's
+local context & A readable record of dependencies and interpretation.\\
+Local facts and intermediate claims & \texttt{have} declarations and proof terms
+& Method roles, explanation, and source-to-evidence mapping.\\
+Structures and local conventions & Instances, local notation, and explicit
+arguments & Notices when resolution changes mathematical meaning.\\
+Routine proof search & Tactics and controlled simplification sets & Named
+profiles, budgets, provenance, and stable replay evidence.\\
+Alternative computational views & Definitions and transport theorems & An
+object-indexed registry of accepted observations, guards, and selected routes.\\
+Editing and reuse & Elaborator snapshots and ordinary source checking &
+Transactional result acceptance, origin checks, and migration receipts.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The purpose is not to replace Lean's context management. Store additional state
+only when it enables a specified operation that ordinary Lean and its editor do
+not already expose sufficiently: explaining a generated guard, replaying a
+published computation, or invalidating an observation after its origin changes.
+This mapping should be part of the baseline comparison, so a large new registry
+cannot claim credit for work already done by local contexts and proof terms.
+
 \subsection{Reuse evidence through explicit entailment}
 Generalizing the reports' observation-weakening rules
 \cite[\S7.4]{concord}\cite[\S4.3]{cadence}, this synthesis recommends an explicit
@@ -1085,6 +1270,11 @@ or rational polynomial representation with proved interpretation and checker
 soundness. Exercise guarded cancellation and all-parameter \(ax=b\). Accept a
 proof only through the actual execution route selected by the project's trust
 policy. Retain evidence and replay it after disabling the discovery service.
+Following the useful priority in \emph{Nine Workbenches}, prove the first
+checker's denotational soundness theorem and original-expression reconstruction
+before adding a second checker or a new grammar \cite[\S\S9.3--10]{secondary}.
+Include \texttt{linear\_combination} and the bounded \texttt{grobner} tactic as
+existing proof-producing controls, with their actual contracts documented.
 
 The exit gate is an end-to-end demonstration, not a large example count: the
 original source request elaborates, the producer is untrusted, malformed
@@ -1112,6 +1302,11 @@ equally demanding case selected before implementation. This tests locality,
 arbitrary indices, and algebraic representation without merely replaying the
 first example. Reserve an additional, previously unseen related theorem for the
 held-out evaluation; a case used to design the system is not held out.
+The secondary synthesis's ``fourth-file rule'' provides a concrete way to seek
+new examples: choose a source file no earlier report discussed. That makes it
+development material once inspected, so reserve a separate sealed task for the
+actual held-out measurement. Already-discussed Bell and Abel files cannot serve
+as unseen tests of a design built around them.
 Include a definition-interface task such as normalized EGF
 coefficients and a task involving a complete solution predicate.
 
@@ -1121,6 +1316,12 @@ routine profile, and upgrade a dependency. Record which edits preserve a
 certificate, which require a checked adapter, and which require new discovery.
 Do not count automatic repair as successful until the resulting statement,
 explanation, and actual source replay have been checked.
+
+Include a toolchain migration that changes the native-evaluation axiom scheme.
+Compare dependencies against the destination version's explicit trust policy,
+recheck retained evidence there, and issue a new receipt. Renaming an axiom in
+an allowlist is not a substitute for revalidation. Losing a discovery service
+must not prevent strict replay of evidence already accepted and retained.
 
 \subsection{Separate the effects of syntax, libraries, and services}
 At minimum compare four treatments:
@@ -1134,7 +1335,12 @@ A rendered document view can be an additional ablation rather than a different
 backend. Match training time, solver budgets, and available hints. Include
 authors other than the designers. Report startup learning cost separately from
 repeated use, and preserve unsuccessful attempts rather than measuring only
-finished proofs.
+finished proofs. For Leant, collect the obligations generated by these
+computations and distinguish single-lemma lookup from genuine structural
+composition. Compare the same obligations with and without Leant under matched
+budgets; the value of a generic synthesizer elsewhere does not establish its
+value for the CAS workflow. This experiment can begin before a complete
+source-edit interface exists.
 
 Useful outcomes include time to a correctly stated checked theorem; author
 edits and interventions; maintenance time after a controlled change; reader
@@ -1181,6 +1387,37 @@ manufacture an original-target negation.\\
 \end{tabularx}
 \end{center}
 
+\subsection{Turn the negative catalogue into paired executable cases}
+The secondary synthesis consolidates the source suites into 51 canonical
+mutations with per-report row identifiers \cite[\S9.2]{secondary}. This is a
+useful shared backlog. Reproducing its data establishes 183 report--mutation
+incidences, covering 182 distinct original table rows; the former number should
+not be described as the number of original tests. A source row can also cover
+more than one canonical mutation. Ten categories occur in at least seven
+suites, and 17 in at least five. These are editorial classifications of proposed
+tests, not 51 executed tests or a measure of their relative severity.
+
+For each implemented category, retain a positive neighbor, the mutated input,
+the expected mathematical outcome, the precise rejection boundary, and the
+observed diagnostic. A system that rejects both cases must fail the test.
+Frequency is useful for selecting shared examples, but a rare mutation such as
+swapping dependent quantifiers can expose a more serious bug than a common
+arithmetic error. Preserve the complete catalogue and prioritize by the first
+slice's contracts and plausible failure modes.
+
+Preserve the exact subcases inside a consolidated category. For example, the
+catalogue groups cancellation and inversion failures together: a regular element
+may be cancelled from an equality, but constructing its multiplicative inverse
+requires a unit. The integer \(2\) is regular and not a unit. A shared category
+name must not erase that difference in the required theorem.
+
+Add the three bridge-registry cases in Section~\ref{sec:bridges} as tests of the
+interface specification itself, together with the circular-guard case in which
+a result is improperly used to establish its own prerequisite. Keep a valid
+degenerate enclosure as a positive case: rejecting every proposed transition
+from bounds to equality would hide an overly restrictive contract rather than
+demonstrate soundness.
+
 \subsection{Choose thresholds before the main study}
 The reports agree on measurement but do not establish numeric success thresholds.
 Set those after a small pilot determines task variance and before evaluating
@@ -1208,11 +1445,14 @@ negative neighbor, and replay artifact required for completion.
 \item \textbf{What must every request say about its result?} Decide the initial
 guarantee vocabulary: equality, equality on a domain, finite jet, witness, and
 complete solution predicate are enough to expose most current disagreements.
-Which can be inferred without surprising the author?
+Which can be inferred without surprising the author? How will requests select
+total operations or opt-in partial-expression semantics?
 
 \item \textbf{What is the initial trusted execution route?} Select one route
 for polynomial checking, state its pinned axioms and runtime dependencies, and
 measure reification and proof checking separately from candidate discovery.
+What additional benefit must a new checker demonstrate against
+\texttt{linear\_combination} and the bounded \texttt{grobner} tactic?
 
 \item \textbf{What can an author delegate by specification?} Distinguish choosing
 a witness that satisfies a fixed request from changing the requested object,
@@ -1226,12 +1466,14 @@ condition, or case split communicates the actual claim reliably.
 \item \textbf{What representation changes are automatic?} Begin with exact
 presentations and requested observations of a fixed object. Decide whether the
 first version pins routes, permits certified coherent alternatives, or supports
-entailment-based certificate reuse across changed requests.
+entailment-based certificate reuse across changed requests. Which workspace
+fields are new metadata, and which expose existing Lean context mechanisms?
 
 \item \textbf{What precisely can Leant report negatively?} Specify protocol
 outcomes for unsupported input, bounded failure, complete calculus
 nonderivability, and checked original-target refutation. Identify the missing
-adequacy theorem for any proposed promotion between them.
+adequacy theorem for any proposed promotion between them. Which actual
+CAS-generated obligations benefit from composition rather than theorem lookup?
 
 \item \textbf{Which definition interface is worth implementing first?} Compare
 the formal-root package and normalized EGF observations. List the ordinary Lean
@@ -1239,7 +1481,8 @@ definitions and theorems each needs before choosing new declaration syntax.
 
 \item \textbf{What evidence survives publication and migration?} Decide which
 terms, certificates, source mappings, method explanations, and environment pins
-are mandatory, and what an upgrade must recheck to produce a new receipt.
+are mandatory, and what an upgrade must recheck to produce a new receipt,
+including an upgrade that changes native-evaluation axiom conventions.
 
 \item \textbf{What result would persuade us to keep only the library and tools?}
 Predeclare the fair Lean baseline, independent-reader task, maintenance edits,
@@ -1372,6 +1615,24 @@ under \code{evidence/lean}. This is focused kernel evidence for those statements
 not formalization of Proposition~\ref{prop:residual}, a CAS checker, Leant
 integration, or an aggregate repository build.
 
+The secondary review's 17-file input package, including its imported compiler
+logs, is pinned separately. Its table generator was rerun in an isolated output
+directory and reproduced the three CSVs. The distinction between 182 unique
+source-suite rows and 183 report--mutation incidences was checked against the
+source identifiers. This validates reproduction and provenance, not every
+editorial judgment about novelty or explicit support.
+
+Four additional declarations in \code{evidence/secondary-review/lean/TargetChecks.lean}
+were checked with a fresh successful Lean invocation: the same rational
+polynomial consequence by \texttt{grobner} and \texttt{linear\_combination}, and
+direct versus native decision proofs. Their recorded axiom inventories are
+described in Section~\ref{sec:secondarylean}. A separate no-import probe checks
+two more declarations and confirms that its direct decision proof has no axioms,
+while its native proof introduces a computation-specific axiom. Both fresh
+invocations exited successfully. The large polynomial benchmark was not rerun;
+its two imported profiler logs are historical evidence. The detailed
+review notes identify the secondary synthesis's semantic and counting corrections.
+
 The new TeX and PDF are built together using three serial strict pdfLaTeX passes.
 The build script rejects unresolved references, missing glyphs, and overflowing
 boxes, and records source and PDF hashes. The final PDF is rendered for visual
@@ -1380,7 +1641,9 @@ The adjacent README explains reproduction. No source report or external
 repository is changed by this synthesis. The evidentiary boundary remains
 explicit: a reproducible report, nine reproduced companion programs, finite
 mathematical checks, and eight focused Lean declarations; no measured language
-productivity result or end-to-end language implementation is claimed.
+productivity result or end-to-end language implementation is claimed. This
+revision adds table reproduction and six focused Lean declarations while
+preserving the distinction between those checks and the inherited benchmark.
 
 \clearpage
 \begingroup\small
@@ -1412,6 +1675,12 @@ Evaluation of Nine Proof-Language Proposals}. First-round synthesis,
 \bibitem{claude} Claude. First-round unified report, including the detailed
 Leant study and questions added before the second-round import.
 \href{../../round-1/unified_report/unified_report.pdf}{Report PDF}.
+\bibitem{secondary} Claude. \emph{Nine Workbenches: Certified Computation in a
+Mathematician's Proof Language over Lean}. Additional round-2 synthesis, imported
+at \code{84af03f49f89a31b47ff3416ccdbc9180fd6b438}.
+\href{../unified_report/unified_report.pdf}{Report PDF};
+\code{../unified_report/unified_report.tex}. Supporting tables and Lean
+experiment sources and logs are preserved beside that report.
 \bibitem{skeptic} John Harrison and Laurent Th\'ery.
 \emph{A Skeptic's Approach to Combining HOL and Maple}.
 Journal of Automated Reasoning 21 (1998), 279--294.

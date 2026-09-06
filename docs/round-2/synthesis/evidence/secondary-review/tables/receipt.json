@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "review_kind": "Editorial tally reproduction and targeted source audit, not an independent recoding of 522 feature cells",
+  "review_head": "84af03f49f89a31b47ff3416ccdbc9180fd6b438",
+  "source_commit": "84af03f49f89a31b47ff3416ccdbc9180fd6b438",
+  "source_commit_is_ancestor": true,
+  "python_version": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "command": [
+    "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-2\\synthesis\\evidence\\secondary-review\\tables\\tools\\make_tables.py"
+  ],
+  "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-2\\synthesis\\evidence\\secondary-review\\tables",
+  "returncode": 0,
+  "original_package_files_unchanged": true,
+  "original_package_files": {
+    "docs/round-2/unified_report/build.sh": "057d8a7ff243fa87c770ee9309d1edeb45c9fdf5430c8096ba85979d091bb121",
+    "docs/round-2/unified_report/feature_matrix.csv": "6426a42371c942c97e8cbcedb41628077eabc65cc460835b7f25a778d3f87a73",
+    "docs/round-2/unified_report/negative_suite.csv": "2cccfbf7d780f1381d490a0000663982ffa10a82c036e413f2528534b9d43c76",
+    "docs/round-2/unified_report/question_tally.csv": "2d35edb1c25a3b0c07c8024646fd4be302bc188a0ce40285f3899935e2b1819d",
+    "docs/round-2/unified_report/README.md": "95cdbfa99a4960f314fb16ddcb17f774aeb9ad294c31840e9b47f70e84a6c0bf",
+    "docs/round-2/unified_report/unified_report.pdf": "3442527a9cba0a3d96bf83280ffb712f03f25a420cad1c93d74c20da2672c8b3",
+    "docs/round-2/unified_report/unified_report.tex": "ddc1b15104fa82aaa4ef42ee12d9f862790306e254deb692c34e4be6c4897ac4",
+    "docs/round-2/unified_report/tools/make_tables.py": "07c2f18867ec6e490b0e8ae079a6928e16c2f5b5549b991a0a38f3342d9a1f88",
+    "docs/round-2/unified_report/experiments/lean/Axioms.lean": "d15d975ef43f8ca20dd063d62c16adf432822a8995b0d47abf5b3725df468344",
+    "docs/round-2/unified_report/experiments/lean/LinComb.lean": "4a578b859b3f9e9fe27901baf2ee2bcf454a725aa1d86c37fd0d3cce5dc7bc24",
+    "docs/round-2/unified_report/experiments/lean/LinComb.log": "97a1b3da2e6c511f8cfef067955a7975438c4d3e0e9bc01e47aca90024e69f8e",
+    "docs/round-2/unified_report/experiments/lean/PolyCert.lean": "9c1fcd5be94c3f271a5ba58a45ce34a4023acc978f42a2235f43f7f11445d302",
+    "docs/round-2/unified_report/experiments/lean/PolyCert.run1.log": "fd51c75ae88be22869e43be5d690e9708c76b73dd13ca0171b36978d285b6712",
+    "docs/round-2/unified_report/experiments/lean/PolyCert.run2.log": "792fe403327917051e02dbcc4793306cdfc9a4adfa2546b766889d0aa695e6f5",
+    "docs/round-2/unified_report/experiments/lean/README.md": "524b585bc20c299d890c486f2b18ab1dd17a9f7db88e76e5a5e7c76081612f5a",
+    "docs/round-2/unified_report/experiments/lean/Supply.lean": "bd06c6dc2168b09999f4d2e42b3cec3a549c4ff2c44c4e728664f3dd7736765d",
+    "docs/round-2/unified_report/experiments/lean/Supply.log": "9aa17f8f3e5422c44fb5c1daeb0b292c66ad4ee8b74bab7e5c009445dcf4b4fe"
+  },
+  "generated_csv_comparisons": {
+    "feature_matrix.csv": {
+      "byte_identical": false,
+      "newline_normalized_identical": true,
+      "parsed_rows_identical": true,
+      "source_sha256": "6426a42371c942c97e8cbcedb41628077eabc65cc460835b7f25a778d3f87a73",
+      "reproduced_sha256": "e3686e6f85bc11f4f966c72074374d500846f538218d216822a60e325a9a6539"
+    },
+    "negative_suite.csv": {
+      "byte_identical": false,
+      "newline_normalized_identical": true,
+      "parsed_rows_identical": true,
+      "source_sha256": "2cccfbf7d780f1381d490a0000663982ffa10a82c036e413f2528534b9d43c76",
+      "reproduced_sha256": "0af2efc49b6d30a098d7ed248f6d6728320a80c75ab176f28dae41cca19b43fd"
+    },
+    "question_tally.csv": {
+      "byte_identical": false,
+      "newline_normalized_identical": true,
+      "parsed_rows_identical": true,
+      "source_sha256": "2d35edb1c25a3b0c07c8024646fd4be302bc188a0ce40285f3899935e2b1819d",
+      "reproduced_sha256": "f71560f849a9e21dc313c1d107a3933f63bec79d7401dd2598fe46484083cd69"
+    }
+  },
+  "canonical_input_blobs": {
+    "tools/make_tables.py": "1cf9454549d578d906df6dc2938d7701522eff2e",
+    "feature_matrix.csv": "bb73d1227328e648a101aa39aaf30380d53ddaeb",
+    "negative_suite.csv": "b115050c214fe18d329214d62f067d6ceabb63a4",
+    "question_tally.csv": "4c12465c7ba497bf925c7f4625146c4987cd0eb5",
+    "unified_report.tex": "097e2fe71e8be34460abf122c3bb3653c9734b64"
+  },
+  "current_inputs_match_pinned_blobs": true,
+  "feature_matrix": {
+    "rows": 58,
+    "cells": 522,
+    "unanimous": 40,
+    "at_least_seven_explicit": 44,
+    "inherited_rows": 10,
+    "noninherited_rows": 48,
+    "noninherited_unanimous": 30,
+    "noninherited_at_least_seven": 34,
+    "marks": {
+      "Y": 451,
+      "P": 37,
+      "N": 34
+    },
+    "noninherited_unanimous_ids": [
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B7",
+      "C1",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C8",
+      "C9",
+      "D1",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D14",
+      "E1",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "F1",
+      "F2",
+      "F5"
+    ],
+    "tex_marks_and_counts_match_csv": true,
+    "automated_source_mining": false,
+    "per_cell_source_locators_in_original": false,
+    "novelty_comparison_in_generator": false
+  },
+  "negative_suite": {
+    "canonical_rows": 51,
+    "report_canonical_incidence_count": 183,
+    "expanded_local_reference_occurrences": 187,
+    "unique_local_source_rows_referenced": 182,
+    "source_table_row_count": 182,
+    "tex_mutation_rows": 68,
+    "tex_mutation_ids_and_counts_match_csv": true,
+    "source_table_rows_by_report": {
+      "Locus": 28,
+      "Accord": 26,
+      "Cadence": 14,
+      "Concord": 11,
+      "Facet": 16,
+      "Meridian": 23,
+      "Noema": 18,
+      "Prism": 20,
+      "Vantage": 26
+    },
+    "at_least_seven_suites": [
+      "M1",
+      "M4",
+      "M7",
+      "M9",
+      "M12",
+      "M15",
+      "M17",
+      "M21",
+      "M25",
+      "M27"
+    ],
+    "five_or_six_suites": [
+      "M6",
+      "M13",
+      "M14",
+      "M16",
+      "M23",
+      "M33",
+      "M38"
+    ],
+    "singleton_rows": [
+      "M10",
+      "M20",
+      "M26",
+      "M28",
+      "M37",
+      "M40",
+      "M41",
+      "M42",
+      "M43",
+      "M44",
+      "M47",
+      "M48",
+      "M49",
+      "M50",
+      "M51"
+    ],
+    "source_rows_mapped_more_than_once": [
+      {
+        "report": "Cadence",
+        "local_id": "r1",
+        "canonical_ids": [
+          "M7",
+          "M39"
+        ]
+      },
+      {
+        "report": "Facet",
+        "local_id": "T14",
+        "canonical_ids": [
+          "M16",
+          "M17"
+        ]
+      },
+      {
+        "report": "Noema",
+        "local_id": "r11",
+        "canonical_ids": [
+          "M16",
+          "M17"
+        ]
+      },
+      {
+        "report": "Prism",
+        "local_id": "N14",
+        "canonical_ids": [
+          "M16",
+          "M17"
+        ]
+      },
+      {
+        "report": "Concord",
+        "local_id": "r10",
+        "canonical_ids": [
+          "M17",
+          "M21"
+        ]
+      }
+    ],
+    "missing_source_ids": [],
+    "unmapped_source_rows": [],
+    "executable_mutation_tests": false,
+    "positive_neighbor_records": false
+  },
+  "question_tally": {
+    "rows": 22,
+    "rows_with_unanimous_in_variation": 14,
+    "per_report_answer_records": false,
+    "response_denominators": false,
+    "computed_modes": false
+  },
+  "not_run": [
+    "Lean",
+    "Lake",
+    "PDF generation",
+    "original package generator in original path"
+  ]
+}

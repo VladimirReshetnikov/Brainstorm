@@ -16,6 +16,11 @@ The [TeX source](docs/round-2/synthesis/unified-report.tex),
 [source register](docs/round-2/synthesis/source-register.json), and
 [build and evidence notes](docs/round-2/synthesis/README.md) accompany the PDF.
 
+The report also evaluates the additional round-2 synthesis,
+[Nine Workbenches](docs/round-2/unified_report/unified_report.pdf), incorporating
+its useful toolchain experiments and test catalogue with explicit qualifications
+about benchmark scope, novelty counts, and the hypotheses of implication rules.
+
 Round 1 remains available:
 
 - [Original nine proposals](docs/round-1/ideas): Contour, Loom, MathStep,

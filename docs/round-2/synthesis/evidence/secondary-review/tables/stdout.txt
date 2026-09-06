@@ -1,0 +1,86 @@
+matrix rows=58 unanimous=40 >=7:44 | inherited rows=10 unanimous=10 | new rows=48 unanimous=30 >=7:34
+% ---- feature matrix body
+\midrule\multicolumn{12}{@{}l}{\emph{Inherited foundation}}\\
+A1 & Lean remains the checking host; no new kernel or logic & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A2 & Statement meaning is fixed before search; a producer cannot instantiate a meaning-bearing hole & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A3 & Obligations are ordered dependent telescopes with witness scope & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A4 & Methods are ordinary theorems with roles behind a project-owned wrapper & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A5 & A named reason constrains the proof; an open search reason does not & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A6 & Publication checks every formal assertion, including unused ones & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A7 & Two frontends over one typed record; a library or document view is a successful outcome & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A8 & Three-treatment evaluation with shared infrastructure and explicit cost accounting & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A9 & The corpus audit is a lexical classification, not a savings estimate & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+A10 & Edits are classified as evidence, plan, object, or statement changes & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+\midrule\multicolumn{12}{@{}l}{\emph{Result contracts}}\\
+B1 & A computed answer is a value together with a proof of a fixed specification & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B2 & An explicit taxonomy of result kinds with forbidden promotions & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B3 & A witness is not a complete solution set; coverage is separate evidence & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B4 & A conditional result is an implication; guards are never promoted to hypotheses & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B5 & An enclosure is not an equality; an interval containing zero decides nothing & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B6 & A product identity is not an irreducible factorization & \Yy & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & \Yy & 8\\
+B7 & Finite jet, full series identity, and analytic function are three different claims & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+B8 & The mathematical kind of a result is separated from its validation state & \Pp & \Yy & \Yy & \Yy & \Pp & \Yy & \Pp & \Yy & \Yy & 6\\
+\midrule\multicolumn{12}{@{}l}{\emph{Verified CAS}}\\
+C1 & Two lanes: a verified algorithm, and a verified checker of an untrusted certificate & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C2 & A third lane: proof-producing tactics, or a candidate followed by an ordinary proof & \Pp & \Pp & \Pp & \Yy & \Yy & \Yy & \Pp & \Yy & \Pp & 4\\
+C3 & The execution gap: a correctness theorem does not certify a particular native run & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C4 & Native-computation axioms are audited by inventory, not by a blacklisted name & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C5 & Reification is part of the proof boundary; opaque atoms carry exact identities & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C6 & Ideal-membership certificates with their limits stated (no negative result; powers need regularity) & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C7 & Accepted evidence must not depend on a remote service surviving (the polyrith lesson) & \Nn & \Nn & \Yy & \Yy & \Nn & \Yy & \Yy & \Yy & \Yy & 6\\
+C8 & A small verified core (exact scalars, polynomials, finite sums, jets), not a universal simplifier & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C9 & Search-free replay is not computation-free; checking cost is measured & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+C10 & Certificate size, degree, and checker cost are bounded in the protocol & \Yy & \Yy & \Pp & \Pp & \Pp & \Yy & \Yy & \Pp & \Yy & 5\\
+\midrule\multicolumn{12}{@{}l}{\emph{Representations and definitions}}\\
+D1 & The mathematical object is a stable anchor; a representation is a certified relation to it & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D2 & Exact presentations are distinguished from information-losing observations & \Yy & \Yy & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & 8\\
+D3 & Preservation along a map is distinguished from reflection back & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D4 & Guards compose as an ordered dependent telescope at the retained intermediate object & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D5 & Coherence: routes are pinned; agreement is anchor- or observation-relative; conflicts need selection & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D6 & Unit is not nonzero; a CAS may not strengthen a ring to a field & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D7 & Guarded natural subtraction and exact division as the three-view stress test & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D8 & Definition packages or templates generate proof obligations, never hidden axioms & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+D9 & A normalized-coefficient (EGF) interface as an early package & \Nn & \Pp & \Yy & \Pp & \Pp & \Nn & \Nn & \Yy & \Yy & 3\\
+D10 & A precision calculus for jets: differentiation loses one order; substitution needs a zero constant & \Yy & \Pp & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & 7\\
+D11 & Demand-driven precision planning; precision is part of the cache key & \Yy & \Nn & \Pp & \Yy & \Pp & \Pp & \Yy & \Yy & \Yy & 5\\
+D12 & A residual certificate identifies a finite jet with an implicitly defined series & \Yy & \Nn & \Pp & \Yy & \Pp & \Yy & \Nn & \Nn & \Nn & 3\\
+D13 & Partial expressions (domain, value) as an explicit opt-in semantics beside total operations & \Yy & \Pp & \Pp & \Pp & \Pp & \Yy & \Pp & \Pp & \Pp & 2\\
+D14 & No global canonical form; CAS results never enter definitional equality & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+\midrule\multicolumn{12}{@{}l}{\emph{Negative evidence and Leant}}\\
+E1 & Fragment exhaustion or a safety flag is not a negation; adequacy needs a theorem & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E2 & Excluded middle as the example separating non-derivability from negation & \Nn & \Nn & \Nn & \Yy & \Yy & \Nn & \Nn & \Nn & \Yy & 3\\
+E3 & The exact displayed edit is replayed; a smaller goal count is not completion & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E4 & Leant stays a Haskell service behind a Lean-owned adapter with opaque handles & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E5 & One budget for the whole request; cancellation; stale origins rejected; disposable workers & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E6 & Shared metavariables are committed transactionally & \Yy & \Yy & \Yy & \Pp & \Yy & \Yy & \Yy & \Yy & \Yy & 8\\
+E7 & A type is not a behavioral specification; finite tests certify only themselves & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+E8 & Leant is measured on compositions, separately from single-lemma lookup & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+\midrule\multicolumn{12}{@{}l}{\emph{Worked material}}\\
+F1 & Binomial inversion kernel with additive-group generality preserved & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+F2 & Autonomous derivatives with range-local hypotheses preserved & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+F3 & Abel series coefficients over an arbitrary commutative rational algebra & \Nn & \Yy & \Yy & \Yy & \Yy & \Nn & \Yy & \Yy & \Nn & 6\\
+F4 & Lambert-type derivative polynomials and their recurrence & \Nn & \Nn & \Yy & \Yy & \Nn & \Yy & \Nn & \Yy & \Nn & 4\\
+F5 & Radical denesting with a branch certificate & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & 9\\
+F6 & A certified rational enclosure of an isolated real root & \Yy & \Nn & \Yy & \Pp & \Yy & \Pp & \Yy & \Yy & \Pp & 5\\
+F7 & Parameter-dependent complete solving with branch coverage & \Nn & \Pp & \Yy & \Yy & \Pp & \Yy & \Nn & \Nn & \Yy & 4\\
+F8 & A ProveIt file beyond the three that the round-1 syntheses discussed & \Yy & \Nn & \Nn & \Nn & \Nn & \Yy & \Yy & \Nn & \Yy & 4\\
+suite rows=51 provenance entries=183 core(>=7)=['M4', 'M15', 'M9', 'M7', 'M27', 'M25', 'M21', 'M17', 'M1', 'M12'] five-or-six=['M16', 'M13', 'M6', 'M38', 'M33', 'M23', 'M14']
+% ---- suite body (rows in at least five suites)
+M4 & Replace neighbourhood equality by equality at one point before differentiating & Derivative transfer stays open naming the missing eventual equality; no global smoothness is added & 9\\
+M15 & Present verified roots as the complete solution set, or omit a root & Soundness may pass; completeness or coverage must fail & 9\\
+M1 & Omit the inclusive endpoint of a finite reindexing & Coverage fails at the endpoint; the advertised method is not silently replaced by another proof & 8\\
+M7 & Cancel a denominator that can vanish, or evaluate a cancelled expression at the excluded point & Keep the guard, split cases, or return a piecewise result; never publish the unconditional equality & 8\\
+M9 & Return the negative radical candidate with the correct square & Reject the principal-root specification despite identical squares & 8\\
+M17 & Deliver a valid result after undo or an origin change & Mark it stale; it cannot mutate the current state & 8\\
+M21 & Cache or display suggested tactic text that differs from the tactic that was probed & Replay the exact displayed edit from the same origin before calling it verified & 8\\
+M25 & Insert a false but unused intermediate assertion & Reject the document even if the final theorem has another proof & 8\\
+M27 & Present search exhaustion, a timeout, or a missing status field as a refutation & Return a non-logical outcome unless a negation is checked at the original target & 8\\
+M12 & Differentiate a jet and keep its input precision & Lower the output order or request one more input coefficient & 7\\
+M13 & Read a formal identity or jet as an analytic statement & Require a convergence, realization, or remainder theorem & 6\\
+M16 & Reuse a branch-local fact in a sibling branch, possibly through a cache & Reject the context embedding regardless of printed similarity & 6\\
+M6 & Cancel a nonzero non-unit, or use a power certificate, in a ring with zero divisors & Require unit or regularity evidence; do not strengthen the ring & 5\\
+M14 & Promote finitely many agreeing coefficients to a series identity or a universal formula & Retain only the finite statement; the universal claim stays open & 5\\
+M23 & Admit an unapproved axiom transitively, or forge an evidence tag & Fail the publication policy even if the term typechecks & 5\\
+M33 & Transport natural subtraction or natural division to a ring or field without its guard & Expose the order or divisibility obligation; the natural value is not the field value & 5\\
+M38 & Display an enclosure as an exact decimal, or infer a sign from an interval containing zero & The certificate stores exact bounds; a zero-containing interval is inconclusive & 5\\
+questions=22

@@ -1,0 +1,11 @@
+# Focused Lean audit of the secondary synthesis
+
+These artifacts belong to the review of `docs/round-2/unified_report`, not to an implementation of any proposed language or certificate checker. Two files were checked serially with the installed Lean 4.32.0 executable and existing read-only `C:/ProveIt` caches. Both exited 0. No Lake command, dependency rebuild/download or output `.olean` was requested.
+
+- `TargetChecks.lean` proves the actual rational target `x²-y²=0` from `x-y=0` using `grobner` and `linear_combination`, then compares `decide`/`native_decide` on a closed natural-number proposition. `TargetChecks.log`, `receipt.json` and `check.ps1` retain the output, exact environment/command and reproducible runner. Its approximately 39-second whole-file duration includes imports and all checks and is **not a performance benchmark**.
+- `AxiomProbe.lean` repeats the closed proposition with no imports, to match the secondary report's source. Its log and separate receipt record success and the different axiom inventory. The native theorem intentionally exercises the extra computation axiom and prints it.
+- `historical-evidence.json` hashes the original secondary sources/logs and the inspected toolchain implementation files, records source pins/permalinks and identifies missing or deferred checks. Those older benchmarks were read, not rerun.
+
+For `TargetChecks.lean`, the printed inventories are the ordinary logical axioms for both target proofs; `propext` for the pure decidable probe; and `propext` plus a per-invocation computation axiom for the native probe. In the no-import probe the pure theorem uses no axioms and the native theorem uses only its per-invocation computation axiom. Thus the current environment and actual transitive inventory matter; a fixed blacklist of a historical constant name is insufficient.
+
+The no-import file was run using the exact executable and single source argument in `AxiomProbe.receipt.json`, with `LEAN_NUM_THREADS=0`. The Mathlib-importing runner additionally records `LEAN_PATH`, manifest-declared package revisions and the directly imported `.olean` hash. Neither receipt claims independent validation of all cached dependencies. Consult `../toolchain-review.md` for source locators and interpretation.

@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "validated_utc": "2026-09-06T04:57:08.535055+00:00",
+  "validated_utc": "2026-09-06T05:37:13.518700+00:00",
   "scope": "Document structure, pinned input sources, source/PDF build binding, visual-review receipt binding, and retained execution-receipt consistency. No generic mathematical proof or language implementation certified.",
   "source_validation": {
     "status": "passed",
-    "validated_utc": "2026-09-06T04:57:08.093522+00:00",
+    "validated_utc": "2026-09-06T05:37:12.302772+00:00",
     "source_base_commit": "f333ff6cefc8b1f5c9aae79613d10ef95a7ba928",
-    "current_head": "f333ff6cefc8b1f5c9aae79613d10ef95a7ba928",
+    "current_head": "84af03f49f89a31b47ff3416ccdbc9180fd6b438",
     "base_is_ancestor": true,
     "package_count": 9,
     "tracked_package_files_verified": 70,
@@ -33,16 +33,38 @@
     "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
     "pypdf": "6.13.2"
   },
-  "pdf_pages": 29,
-  "tex_inputs": {
-    "crosswalk-table.tex": "15baadc953a908b28758f8af854a356a1c71dde9438ee381bc2f7049692cec33",
-    "unified-report.tex": "d37c92dd07473f957612464ae048613dad2ab7ab7a99513c503b80f79e728dab"
+  "pdf_pages": 33,
+  "secondary_source_validation": {
+    "status": "passed",
+    "validated_utc": "2026-09-06T05:37:12.616063+00:00",
+    "source_base_commit": "84af03f49f89a31b47ff3416ccdbc9180fd6b438",
+    "current_head": "84af03f49f89a31b47ff3416ccdbc9180fd6b438",
+    "base_is_ancestor": true,
+    "classification": "secondary-synthesis",
+    "contribution_to_proposal_count": 0,
+    "tracked_files_verified": 17,
+    "historical_lean_sources": 4,
+    "historical_compiler_logs": 4,
+    "pdf_page_metadata": {
+      "docs/round-2/unified_report/unified_report.pdf": 29
+    },
+    "source_register_sha256": "18d47596d06f43f07713687804ebb73c5d95adc43f9c7fc193979cfc815392bc",
+    "scope": "Pinned Git objects, current HEAD/index tracked inventory, exact recorded checkout hashes, line-ending equivalence, text line counts, and PDF page-count metadata only. Imported logs remain historical records; no rerun, general checker soundness, report interpretation, mathematical validity, or TeX/PDF parity is certified.",
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "pypdf": "6.13.2"
   },
-  "pdf_sha256": "32d4322890543f2651d2591f2fe1404c1a715abf142d087d524c5a1f5392773b",
+  "tex_inputs": {
+    "unified-report.tex": "d2983c12c1b962283538f8a0214ee3493225a7834f763360fe6a2a0d58d99c45",
+    "crosswalk-table.tex": "15baadc953a908b28758f8af854a356a1c71dde9438ee381bc2f7049692cec33"
+  },
+  "pdf_sha256": "8efd081a764efd79cf9aae8625af83ded43723ecba5d0706ddf885d62ba5e48f",
   "pdf_passes": 3,
   "all_pages_visually_reviewed": true,
   "focused_lean_declarations": 8,
   "additional_finite_math_groups": 6,
+  "secondary_focused_lean_declarations": 6,
+  "secondary_benchmark_rerun": false,
+  "secondary_tables_reproduced": 3,
   "nine_companion_reruns": "See lane receipts and README; counts have different units and are not combined.",
   "evidence_sha256": {
     "evidence/accord-cadence-concord/accord-rerun.json": "dcc2abe461729d65ac6a954d1e5a005e00dcfe4b3db7afe1b191ebde50214b2a",
@@ -89,9 +111,32 @@
     "evidence/noema-prism-vantage/section-index.json": "c7c2e9b161599dadcc53ad4f1410b743a51c791ec5dcf02393cc802fd5f3d09d",
     "evidence/noema-prism-vantage/vantage-results.json": "63587123db6d702a316b6a5921a5d93b2ba57b33b591a876a81e29d3e4ef02d8",
     "evidence/noema-prism-vantage/vantage-test-output.txt": "62261aaf9782fd7961bf528c2bbbbd81607228791b879c1646eff957ad6e6c03",
-    "evidence/pdf-build-log.txt": "f831687b8d0789d5ce19462a3293ac856f6b56ace2ee6e9da22cce40dcd422ef",
-    "evidence/pdf-build-receipt.json": "f60d43f6e47860ffd0d3db222bb1f9b62baf2978e7b25106d7b1913940bc17e9",
+    "evidence/pdf-build-log.txt": "5554d38c698739c459377faf8f11e84ae0cf010785261a19eb647d7bcf25ff9a",
+    "evidence/pdf-build-receipt.json": "a3d41c6c6ff177e1383fe6ac3f6f09fc5c19f490c8e3f17c559af82f119bf107",
+    "evidence/secondary-review/design-review.md": "66dd7fb633cc36a4cf33a2c48bf264f687057cb89bbc5128ccfcafb2433ef4d7",
+    "evidence/secondary-review/lean/AxiomProbe.lean": "7a7a4cd5ecc88c7fcf9c49a36b2777c14dd0a6b0b0e6d3f6dd9874803b0ab18a",
+    "evidence/secondary-review/lean/AxiomProbe.log": "d18a2e49c1a7fa7bab9ceb4790bca7e65ca56405a5997482661c92ad18b08bd6",
+    "evidence/secondary-review/lean/AxiomProbe.receipt.json": "ab39e5578baa76296b9b75d17bed8dd2f466d1de08ef2e91cf12ccb740b22415",
+    "evidence/secondary-review/lean/check.ps1": "974715022a57f401fd3a99e16651965c4a74b1324e9873f748a8e85b9ec9472c",
+    "evidence/secondary-review/lean/historical-evidence.json": "7b2dd9833d9d4c525696e6c407101d21834f4ac0cb6444bd95adc52308547c99",
+    "evidence/secondary-review/lean/README.md": "c08a90ef4954c6652a2bc5a6e312110bdf6864461eadaf2d63d3d45f8a227a99",
+    "evidence/secondary-review/lean/receipt.json": "a8c00a73114a9af70b131eaba2890ae5578354d9e5fc20d10c8aeaf95bb99474",
+    "evidence/secondary-review/lean/TargetChecks.lean": "84f32121d1943cd53460f314becff699e2d8bf0e9ff25a58fdf8c68b659e58c4",
+    "evidence/secondary-review/lean/TargetChecks.log": "f2c510cbed2101b41d661224c346d006b14eefcbdedf993098a343e2a49e6533",
+    "evidence/secondary-review/README.md": "919e76b2d61bfb232bbaa3498636d79854d91c9352fbe66384d3960fdf03d596",
+    "evidence/secondary-review/source-register.json": "18d47596d06f43f07713687804ebb73c5d95adc43f9c7fc193979cfc815392bc",
+    "evidence/secondary-review/tables/feature_matrix.csv": "e3686e6f85bc11f4f966c72074374d500846f538218d216822a60e325a9a6539",
+    "evidence/secondary-review/tables/negative-source-locators.json": "38dd1ab0f7a23c1b25362437f1dbdcc5fba439dd2da254a0af6c41acbaffb113",
+    "evidence/secondary-review/tables/negative_suite.csv": "0af2efc49b6d30a098d7ed248f6d6728320a80c75ab176f28dae41cca19b43fd",
+    "evidence/secondary-review/tables/question_tally.csv": "f71560f849a9e21dc313c1d107a3933f63bec79d7401dd2598fe46484083cd69",
+    "evidence/secondary-review/tables/receipt.json": "e258df4add410eb1ee25ac88335a7275dc1e0521b9fdaad3476edf066493ee36",
+    "evidence/secondary-review/tables/run_review.py": "f3a8bae1624c414dd34862333f5b5cd33b3d52b4d88c8b37ee0b82225604a2dc",
+    "evidence/secondary-review/tables/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/secondary-review/tables/stdout.txt": "1ada37eaa8f25b794d673db4999acd945b627659d1558043c49c6f4a6117865e",
+    "evidence/secondary-review/tables/tools/make_tables.py": "07c2f18867ec6e490b0e8ae079a6928e16c2f5b5549b991a0a38f3342d9a1f88",
+    "evidence/secondary-review/tally-review.md": "75eeb99eb53f456ac7c069e6eca7169401c22e40979e3f40290dc58ebabc94c0",
+    "evidence/secondary-review/toolchain-review.md": "31779175ac3389ece358bb25c92242ab1a61d929beb8a7929ec1200006b9ae77",
     "evidence/source-verification.json": "d5069148b9567176799e2173045104b205abf31c2aa843e26335e572bdc33f8b",
-    "evidence/visual-review.json": "18876b15a50fd551f51dfd3ab576c677bea5dd6a50bf623d540a0ede83288c41"
+    "evidence/visual-review.json": "b2bd5a733a05b09efe0698b16c5f154397b63bbfd13a244373f743f2a1602ce1"
   }
 }

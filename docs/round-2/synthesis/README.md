@@ -3,7 +3,7 @@
 [Read the report](unified-report.pdf) · [TeX source](unified-report.tex) ·
 [Convergence map](convergence.json) · [Validation receipt](validation.json)
 
-This **29-page, self-contained report** evaluates all nine second-round proposals:
+This **33-page, self-contained report** evaluates all nine second-round proposals:
 Accord, Cadence, Concord, Facet, Locus, Meridian, Noema, Prism, and Vantage.
 It explains the relevant inherited ideas directly, so neither first-round
 synthesis is a prerequisite.
@@ -18,8 +18,13 @@ preserves 241 supporting source citations and their qualifications.
 The current branch was fast-forwarded to fetched `main` at
 `f333ff6cefc8b1f5c9aae79613d10ef95a7ba928` before synthesis. That import renamed
 the earlier material under `docs/round-1/` and supplied the new packages under
-`docs/round-2/ideas/`. This work changes the new synthesis package and repository
-navigation only. Original reports and `C:\ProveIt` / `C:\Leant` remain read-only.
+`docs/round-2/ideas/`. The subsequent review fast-forwarded the branch to fetched
+`main` at `84af03f49f89a31b47ff3416ccdbc9180fd6b438`, importing the additional
+[second-round synthesis](../unified_report/unified_report.pdf). Valuable ideas
+from that report are incorporated with explicit qualifications. It is a secondary
+analysis, not a tenth independently authored proposal. This work changes the
+synthesis package and repository navigation only. Original reports and
+`C:\ProveIt` / `C:\Leant` remain read-only.
 
 ## What the evidence establishes
 
@@ -50,10 +55,25 @@ navigation only. Original reports and `C:\ProveIt` / `C:\Leant` remain read-only
   [The receipt and reproduction instructions](evidence/lean/README.md) record
   exact versions, command, input hashes, and output. No repository build or
   dependency download occurred.
+- **Additional synthesis review:** [the review evidence](evidence/secondary-review/README.md)
+  pins all 17 imported artifacts separately and reproduces all three generated
+  CSV tables. The feature coding has 58 rows, with 40 marked unanimous; this
+  reproduces editorial coding rather than independently verifying 522 judgments.
+  The negative catalogue has 51 categories covering 182 original source rows;
+  its 183 report/category incidences are a different counting unit. The review
+  corrects three implication rules and qualifies the historical polynomial
+  benchmark's unproved checker semantics and narrow input family.
+- **Six new Lean declarations:** [the additional focused probes](evidence/secondary-review/lean/README.md)
+  compare `grobner` with `linear_combination` on the same rational polynomial
+  consequence and audit `decide` versus `native_decide`, both with mathlib and
+  in an import-free file. All six declarations were accepted by Lean 4.32.0.
+  The native route deliberately records a generated computation-specific axiom;
+  the direct route does not. These are fresh focused checks, not a rerun of the
+  imported polynomial performance benchmark or an end-to-end CAS experiment.
 - **This PDF:** three serial strict pdfLaTeX passes, checks for unresolved
-  references/missing glyphs/overflow, source-and-PDF hash binding, all 29 pages
-  rendered and visually reviewed, plus larger views of the residual theorem,
-  calculus, and convergence appendix.
+  references/missing glyphs/overflow, source-and-PDF hash binding, all 33 pages
+  rendered and visually reviewed, plus larger views of the implication examples,
+  benchmark qualifications, workspace comparison, and negative-test discussion.
 
 No implemented proof language, Lean-verified CAS subsystem, end-to-end Leant
 integration, universal formalization of the report's mathematics, or measured
@@ -92,9 +112,10 @@ its recorded hashes. Captured evidence retains original tool whitespace.
 python -B docs/round-2/synthesis/scripts/verify_report.py
 ```
 
-This writes `validation.json` after checking source provenance, references and
+This writes `validation.json` after checking both source registers, references and
 local links, the 72-cell appendix, PDF content and build hashes, Lean source/log
-receipt consistency, and visual-review coverage. It does not rerun Lean or the
+receipt consistency (eight earlier and six new declarations), secondary table
+reproduction, and visual-review coverage. It does not rerun Lean or the
 companions and does not prove the mathematical prose. It requires the pinned
 Git objects and records byte-level checkout identity separately from canonical
 Git identity; line-ending changes can require a new checkout receipt.
