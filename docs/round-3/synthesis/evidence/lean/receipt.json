@@ -1,0 +1,198 @@
+{
+  "started_utc": "2026-09-06T20:20:42.991072+00:00",
+  "executable": "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+  "version": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "LEAN_NUM_THREADS": "0",
+  "scope": "Serial standalone source and axiom audit; no Lake, external repository build, or dependency download.",
+  "cases": [
+    {
+      "proposal": "basalt",
+      "source": "docs/round-3/ideas/basalt/companions/ContractCore.lean",
+      "copied_source": "evidence/lean/basalt/ContractCore.lean",
+      "source_sha256": "467dd1baf53a3768dc406453b87b10ef8454428665bce946dea00e0c62b9a632",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\basalt\\ContractCore.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\basalt",
+      "exit_code": 0,
+      "seconds": 9.710012900002766,
+      "log": "evidence/lean/basalt/original.log",
+      "log_sha256": "8e08b4fe2cad35e9ea28672df67f9e751bc65c84e185290802449bdebbd2e22c",
+      "audit": {
+        "targets": [
+          "Basalt.weaken_value",
+          "Basalt.observationCongruence"
+        ],
+        "exit_code": 0,
+        "source": "evidence/lean/basalt/Audit.lean",
+        "source_sha256": "c2aeb339a1e10231cffb47aa276bffeaebfcca227835ad98f9f5dd6bee490b77",
+        "log": "evidence/lean/basalt/audit.log",
+        "log_sha256": "6489940fe769dbe94bf6d8e2163bd7c40c897b54e5b61f72e1a92991ab191081"
+      }
+    },
+    {
+      "proposal": "fiber",
+      "source": "docs/round-3/ideas/fiber/CoreEncoding.lean",
+      "copied_source": "evidence/lean/fiber/CoreEncoding.lean",
+      "source_sha256": "f6914939cad872d4754649f1f52b97bf274be3f44985c964741f46686b728598",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\fiber\\CoreEncoding.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\fiber",
+      "exit_code": 0,
+      "seconds": 3.570087900006911,
+      "log": "evidence/lean/fiber/original.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit": {
+        "targets": [
+          "Fiber.weaken_preserves_value",
+          "Fiber.compose_behavior",
+          "Fiber.certificate_bridge"
+        ],
+        "exit_code": 0,
+        "source": "evidence/lean/fiber/Audit.lean",
+        "source_sha256": "70f4f7a4d481b2a1a65a8cde59e740659202e62154d4c1b1769a85746c865592",
+        "log": "evidence/lean/fiber/audit.log",
+        "log_sha256": "c5bc63be142495e922f4fdf7858e2bc8e14437c5f10fc7979ed5b3b925e3de37"
+      }
+    },
+    {
+      "proposal": "gneiss",
+      "source": "docs/round-3/ideas/gneiss/GneissCore.lean",
+      "copied_source": "evidence/lean/gneiss/GneissCore.lean",
+      "source_sha256": "cf5685b0bc8e3800669c209f3d673fd63be400d8a6608617747b1ae150425bd6",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\gneiss\\GneissCore.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\gneiss",
+      "exit_code": 0,
+      "seconds": 3.9737518000183627,
+      "log": "evidence/lean/gneiss/original.log",
+      "log_sha256": "d200cbc5941474e9d8088d783750b4999693bb92ea61d37c64cbdb7c5af7d362",
+      "audit": {
+        "targets": [
+          "Gneiss.respects_comp",
+          "Gneiss.complete_iff"
+        ],
+        "exit_code": 0,
+        "source": "evidence/lean/gneiss/Audit.lean",
+        "source_sha256": "c715da543d228d9306b7161f601b26727398c387e8bf046feb0a2f1696c01aaf",
+        "log": "evidence/lean/gneiss/audit.log",
+        "log_sha256": "88b469c77ce61e7c66a4fed04cb3ac77846c5ed0605b048f7a922704243461f4"
+      }
+    },
+    {
+      "proposal": "karst",
+      "source": "docs/round-3/ideas/karst/examples/KarstCore.lean",
+      "copied_source": "evidence/lean/karst/KarstCore.lean",
+      "source_sha256": "c854c8d0bead79114ab751254e7fbd68b38d05bb43356546ed3d9454b10cdc85",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\karst\\KarstCore.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\karst",
+      "exit_code": 0,
+      "seconds": 3.4973451000114437,
+      "log": "evidence/lean/karst/original.log",
+      "log_sha256": "adef4bf15b5a17fc03e60db4153c1343ce706d47ec83351597a434369c4c9af4",
+      "audit": {
+        "targets": [
+          "KarstCore.behCompose",
+          "KarstCore.dropAllLengthOnEmpty"
+        ],
+        "exit_code": 0,
+        "source": "evidence/lean/karst/Audit.lean",
+        "source_sha256": "0826b0aaab6624f6059d7fce7aef1d5b1158cc24ee2c17b407cc7d6389dc9de9",
+        "log": "evidence/lean/karst/audit.log",
+        "log_sha256": "3d6b90a6194bc617551c9b12d0d1266c4e9f690ea5938b6d422c628ed5aa5035"
+      },
+      "audit_harness_note": "Initial review-only queries misspelled KarstCore as Karst. Correcting the query namespace succeeded; original input compiled unchanged on the first run."
+    },
+    {
+      "proposal": "moraine",
+      "source": "docs/round-3/ideas/moraine/companion/Contracts.lean",
+      "copied_source": "evidence/lean/moraine/Contracts.lean",
+      "source_sha256": "95583ec4faad644527c7979223b7fd0192649607060e202b5f4e72550ca6a831",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\moraine\\Contracts.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\moraine",
+      "exit_code": 0,
+      "seconds": 35.50996209998266,
+      "log": "evidence/lean/moraine/original.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit": {
+        "targets": [
+          "MoraineReference.mapSpec_compose",
+          "MoraineReference.LengthExpr.model_sound",
+          "MoraineReference.LengthExpr.promote_model_spec"
+        ],
+        "exit_code": 0,
+        "source": "evidence/lean/moraine/Audit.lean",
+        "source_sha256": "09ab9a8007489c759adc7cbeb8a568799309daf727f7ccf8fe033272c63fd2f8",
+        "log": "evidence/lean/moraine/audit.log",
+        "log_sha256": "2348890e20be8ad688880e3f1c53a054a976be446d2b8fad2f70af1fc02b9c82"
+      }
+    },
+    {
+      "proposal": "schist",
+      "source": "docs/round-3/ideas/schist/SchistCore.lean",
+      "copied_source": "evidence/lean/schist/SchistCore.lean",
+      "source_sha256": "bae9c02727f8926f19caa3af8412265b398aa8ea9d82b216f313619295ba723d",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\schist\\SchistCore.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\schist",
+      "exit_code": 0,
+      "seconds": 84.38195040001301,
+      "log": "evidence/lean/schist/original.log",
+      "log_sha256": "3082cb9d28159e08e33fea5791c26ecf956baf316790667205378493cd418ed7",
+      "audit": {
+        "targets": [
+          "Schist.AffineCertificate.eval_nf",
+          "Schist.AffineCertificate.check_sound",
+          "Schist.AffineCertificate.original_target",
+          "Schist.AffineCertificate.corrupted_rejected"
+        ],
+        "exit_code": 0,
+        "source": "evidence/lean/schist/Audit.lean",
+        "source_sha256": "ba5227d2031f7abc231d9e904778f08d8f4875eff96921ccb8ed613799dd045a",
+        "log": "evidence/lean/schist/audit.log",
+        "log_sha256": "ba0263ced3ecec82d4a8e7ea86a03fb9538e8320bed78cab7db12da658f38c45"
+      }
+    },
+    {
+      "proposal": "tephra",
+      "source": "docs/round-3/ideas/tephra/TephraCore.lean",
+      "copied_source": "evidence/lean/tephra/TephraCore.lean",
+      "source_sha256": "03d43dda0559ca2994274fc63f2a21918ae5dcecc429f18084aedcae8f602c48",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\tephra\\TephraCore.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-3\\synthesis\\evidence\\lean\\tephra",
+      "exit_code": 0,
+      "seconds": 1.2386262999789324,
+      "log": "evidence/lean/tephra/original.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit": {
+        "targets": [
+          "Tephra.Contract.comp",
+          "Tephra.restrict_comp",
+          "Tephra.refute_universal"
+        ],
+        "exit_code": 0,
+        "source": "evidence/lean/tephra/Audit.lean",
+        "source_sha256": "ed7697d78796fc903632d98780dfb23d3c6fff20806555352c2bc442ba30f350",
+        "log": "evidence/lean/tephra/audit.log",
+        "log_sha256": "5f5d501d11d94019acc216f1194b919e9ea3f632f321eff02d8ed9c4851f2cbd"
+      }
+    }
+  ],
+  "completed_utc": "2026-09-06T20:25:21.941753+00:00"
+}

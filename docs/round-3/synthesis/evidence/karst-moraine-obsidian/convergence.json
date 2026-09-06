@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "pinned_source_commit": "58bb54219f494b29310ff77384732129411da887",
+  "method": "Editorial close reading of complete report texts and companions. Marks describe specified design commitments, not implementation completeness, novelty, or independent usability evidence.",
+  "dimensions": {
+    "core": "Conservative Lean elaboration",
+    "anchor": "Same-object scoped evidence",
+    "structures": "Select structure data separately from proof properties",
+    "behavior": "Dependent behavioral composition and consequence",
+    "bounded": "Bounded property inference",
+    "observation": "Explicit observation and transport guarantees",
+    "leant": "Proof-linked behavioral synthesis",
+    "checker": "Denotation, checker soundness, and original-target bridge",
+    "fidelity": "Statement, method, and kernel truth distinguished",
+    "evaluation": "Matched Lean baselines and stopping rules"
+  },
+  "reports": [
+    {
+      "report": "karst",
+      "source": "docs/round-3/ideas/karst/karst.tex",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:166",
+            "docs/round-3/ideas/karst/karst.tex:706"
+          ],
+          "qualification": "A conservative bidirectional elaborator; graph soundness is a relative paper theorem, not compiler verification."
+        },
+        "anchor": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:565",
+            "docs/round-3/ideas/karst/karst.tex:646"
+          ],
+          "qualification": "Views retain the exact expression; support closes free variables of both proof and proposition under telescope dependencies."
+        },
+        "structures": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:375",
+            "docs/round-3/ideas/karst/karst.tex:795",
+            "docs/round-3/ideas/karst/karst.tex:819"
+          ],
+          "qualification": "Packing differs from local refinement; explicit structure/automation profiles; nonzero, regular, and unit are distinct."
+        },
+        "behavior": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:879",
+            "docs/round-3/ideas/karst/karst.tex:895",
+            "docs/round-3/ideas/karst/karst.tex:1653"
+          ],
+          "qualification": "Consequence variance and composition retain the actual intermediate; total preconditioned functions differ from restricted-domain functions."
+        },
+        "bounded": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:756",
+            "docs/round-3/ideas/karst/karst.tex:782"
+          ],
+          "qualification": "Request-wide budgets and acyclic proof assembly; unrelated facts must not change meaning, but proof choice and runtime can change."
+        },
+        "observation": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1394",
+            "docs/round-3/ideas/karst/karst.tex:1414",
+            "docs/round-3/ideas/karst/karst.tex:1437"
+          ],
+          "qualification": "Jet observation of a fixed root; residual/branch/unit bridge and derivative demand; sufficient precision need not be weakest."
+        },
+        "leant": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1509",
+            "docs/round-3/ideas/karst/karst.tex:1534",
+            "docs/round-3/ideas/karst/karst.tex:1556"
+          ],
+          "qualification": "Preserve current callback/epoch authority; require original behavioral proof and realizable original-domain negative witnesses."
+        },
+        "checker": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1240",
+            "docs/round-3/ideas/karst/karst.tex:1301",
+            "docs/round-3/ideas/karst/karst.tex:1326"
+          ],
+          "qualification": "Explicit sparse integer denotation and ideal-certificate paper soundness; normalization, checked execution, and exact atom reification remain production work."
+        },
+        "fidelity": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:602",
+            "docs/round-3/ideas/karst/karst.tex:1725",
+            "docs/round-3/ideas/karst/karst.tex:1738"
+          ],
+          "qualification": "Freeze statement meaning; check every asserted node; a named method and broad proof search have distinct explanation contracts."
+        },
+        "evaluation": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1785",
+            "docs/round-3/ideas/karst/karst.tex:1851",
+            "docs/round-3/ideas/karst/karst.tex:1885"
+          ],
+          "qualification": "Five nested arms isolate library, services, property index, and frontend; already-short controls and semantic reading; library/index/renderer may be sufficient."
+        }
+      }
+    },
+    {
+      "report": "moraine",
+      "source": "docs/round-3/ideas/moraine/moraine.tex",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:223",
+            "docs/round-3/ideas/moraine/moraine.tex:644",
+            "docs/round-3/ideas/moraine/moraine.tex:1326"
+          ],
+          "qualification": "Conservative translation recommended; explicit kernel refinement alternative analyzed rather than claimed implemented."
+        },
+        "anchor": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:471",
+            "docs/round-3/ideas/moraine/moraine.tex:695"
+          ],
+          "qualification": "Evidence rows belong to fully resolved terms and scoped telescopes; branch joins require case elimination."
+        },
+        "structures": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:587",
+            "docs/round-3/ideas/moraine/moraine.tex:796",
+            "docs/round-3/ideas/moraine/moraine.tex:811"
+          ],
+          "qualification": "First-class packaging retains dependencies; temporary bundle adapters preserve maps and operation dictionaries."
+        },
+        "behavior": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:542",
+            "docs/round-3/ideas/moraine/moraine.tex:561",
+            "docs/round-3/ideas/moraine/moraine.tex:751"
+          ],
+          "qualification": "Explicit consequence variance, retained-intermediate composition, and multi-input relational/naturality specifications."
+        },
+        "bounded": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:631",
+            "docs/round-3/ideas/moraine/moraine.tex:1621"
+          ],
+          "qualification": "No principal-refinement promise; finite cheap worklist over fixed anchors distinguished from budgeted term-generating search."
+        },
+        "observation": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1003",
+            "docs/round-3/ideas/moraine/moraine.tex:1231",
+            "docs/round-3/ideas/moraine/moraine.tex:1277"
+          ],
+          "qualification": "Endpoint deletion yields a norm-error relation; reindexing, norm equality, locality, and finite precision remain distinct."
+        },
+        "leant": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1064",
+            "docs/round-3/ideas/moraine/moraine.tex:1114",
+            "docs/round-3/ideas/moraine/moraine.tex:1167"
+          ],
+          "qualification": "Current host-shaped Length surface and scoped receipts acknowledged; direct composition, certified decisions, or exact-target proof search must supply behavioral evidence."
+        },
+        "checker": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1304",
+            "docs/round-3/ideas/moraine/moraine.tex:1475",
+            "docs/round-3/ideas/moraine/moraine.tex:1491"
+          ],
+          "qualification": "Closed affine-length paper soundness/completeness with realizability; structural Lean model omits coefficient normalizer and reflection bridge."
+        },
+        "fidelity": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:399",
+            "docs/round-3/ideas/moraine/moraine.tex:416",
+            "docs/round-3/ideas/moraine/moraine.tex:1780"
+          ],
+          "qualification": "Meaning/evidence/search annotations distinguished; by/hint/solve differ; missing premise does not establish mathematical falsity."
+        },
+        "evaluation": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1705",
+            "docs/round-3/ideas/moraine/moraine.tex:1738",
+            "docs/round-3/ideas/moraine/moraine.tex:1849"
+          ],
+          "qualification": "Four arms isolate packaging, refinement typing, and frontend; charge adapter costs and stop at library if it explains benefit."
+        }
+      }
+    },
+    {
+      "report": "obsidian",
+      "source": "docs/round-3/ideas/obsidian/obsidian.tex",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:212",
+            "docs/round-3/ideas/obsidian/obsidian.tex:300",
+            "docs/round-3/ideas/obsidian/obsidian.tex:752"
+          ],
+          "qualification": "Local overlays and lawful-use signatures compile to ordinary Lean; proposed primitive refinements require a conservativity argument and measured need."
+        },
+        "anchor": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:230",
+            "docs/round-3/ideas/obsidian/obsidian.tex:290",
+            "docs/round-3/ideas/obsidian/obsidian.tex:824"
+          ],
+          "qualification": "Exact values, contexts, branch coverage, and source origins retained; support is not claimed mathematically minimal."
+        },
+        "structures": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:285",
+            "docs/round-3/ideas/obsidian/obsidian.tex:829"
+          ],
+          "qualification": "Chosen ring operations, topology, measure, and actions are semantic inputs; proof irrelevance cannot choose or identify structural data."
+        },
+        "behavior": {
+          "status": "partial",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:264",
+            "docs/round-3/ideas/obsidian/obsidian.tex:811",
+            "docs/round-3/ideas/obsidian/obsidian.tex:957"
+          ],
+          "qualification": "Contract application and dependent intermediate-witness composition are explicit; relational weakening is illustrated, but a separate full pre/postcondition variance theorem is not developed."
+        },
+        "bounded": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:278",
+            "docs/round-3/ideas/obsidian/obsidian.tex:355"
+          ],
+          "qualification": "Demand-driven bounded transitions and fun_prop reuse; route failure is not falsity or a license to shrink the requested domain."
+        },
+        "observation": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:309",
+            "docs/round-3/ideas/obsidian/obsidian.tex:345",
+            "docs/round-3/ideas/obsidian/obsidian.tex:588"
+          ],
+          "qualification": "Lawful-use signatures distinguish point/neighborhood/almost-everywhere/coefficient guarantees and residual identification of an existing root."
+        },
+        "leant": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:618",
+            "docs/round-3/ideas/obsidian/obsidian.tex:625",
+            "docs/round-3/ideas/obsidian/obsidian.tex:656"
+          ],
+          "qualification": "Length handoff correspondence is narrower than original behavioral truth; operational statuses and non-realizable abstract witnesses cannot refute the original target."
+        },
+        "checker": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:674",
+            "docs/round-3/ideas/obsidian/obsidian.tex:714",
+            "docs/round-3/ideas/obsidian/obsidian.tex:727"
+          ],
+          "qualification": "Sparse integer operation denotation and certificate paper proof; source equality and checked execution are separate missing implementation obligations."
+        },
+        "fidelity": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:192",
+            "docs/round-3/ideas/obsidian/obsidian.tex:307",
+            "docs/round-3/ideas/obsidian/obsidian.tex:838"
+          ],
+          "qualification": "Named reasons constrain method; final kernel validity does not prove statement/rendering intent or unused assertions."
+        },
+        "evaluation": {
+          "status": "explicit",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:846",
+            "docs/round-3/ideas/obsidian/obsidian.tex:855",
+            "docs/round-3/ideas/obsidian/obsidian.tex:906"
+          ],
+          "qualification": "Matched service baseline and renderer-only treatment; satisfiable test contexts and semantic reading; library or renderer can be sufficient."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "status": "all reference tests passed",
+  "test_count": 31,
+  "positive_count": 9,
+  "negative_count": 22,
+  "lean_executed": false,
+  "scope": "Exact affine certificate and request-binding reference tests, not formal verification or a language evaluation.",
+  "tests": [
+    {
+      "name": "Fabius derivative upper bound",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "Fabius derivative nonnegativity",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "Rvachev derivative upper bound",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "Rvachev derivative lower bound",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "corrupted multiplier",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "coefficient identity failed"
+    },
+    {
+      "name": "too few multipliers",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "certificate arity mismatch"
+    },
+    {
+      "name": "too many multipliers",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "certificate arity mismatch"
+    },
+    {
+      "name": "negative multiplier despite exact identity",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "negative multiplier"
+    },
+    {
+      "name": "empty certificate for zero",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "positive constant needs a supported certificate",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "coefficient identity failed"
+    },
+    {
+      "name": "changed environment",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "request origin or specification mismatch"
+    },
+    {
+      "name": "changed structure selection",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "request origin or specification mismatch"
+    },
+    {
+      "name": "stale revision",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "request origin or specification mismatch"
+    },
+    {
+      "name": "changed policy",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "request origin or specification mismatch"
+    },
+    {
+      "name": "removed hypothesis",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "request origin or specification mismatch"
+    },
+    {
+      "name": "changed target",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "request origin or specification mismatch"
+    },
+    {
+      "name": "inequality cannot answer equality",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "unsupported guarantee kind"
+    },
+    {
+      "name": "nonstrict cannot answer strict",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "unsupported guarantee kind"
+    },
+    {
+      "name": "unbound atom",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "unknown atom handle"
+    },
+    {
+      "name": "duplicate atom handles",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "duplicate atom handle"
+    },
+    {
+      "name": "two applications of u are distinct atoms",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "coefficient identity failed"
+    },
+    {
+      "name": "correct atom retained",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "forged request digest",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "request origin or specification mismatch"
+    },
+    {
+      "name": "unsupported nonlinear expression",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "not an affine expression"
+    },
+    {
+      "name": "explicit scope weakening to child",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "sibling scope not a weakening",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "not a child scope"
+    },
+    {
+      "name": "branch cannot escape to parent",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "not a child scope"
+    },
+    {
+      "name": "scope weakening cannot hide changed target",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "not scope-only weakening"
+    },
+    {
+      "name": "weaker upper bound with constant premise",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "exact rational multiplier",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "reason": "exact affine certificate passed reference check"
+    },
+    {
+      "name": "floating-point multiplier forbidden",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "reason": "coefficients must be exact integers or Fractions"
+    }
+  ]
+}

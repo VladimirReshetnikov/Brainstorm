@@ -1,0 +1,464 @@
+{
+  "status": "passed",
+  "validated_utc": "2026-09-06T21:03:30.483595+00:00",
+  "scope": "Read-only provenance, editorial-crosswalk structure, document/build/visual receipt binding, and retained execution-evidence consistency. This validation reruns no experiment or build and does not certify general mathematics, the proposed frontend, service correctness, or authoring productivity.",
+  "source_validation": {
+    "status": "passed",
+    "source_commit": "58bb54219f494b29310ff77384732129411da887",
+    "proposal_count": 9,
+    "input_files": 83,
+    "input_pdf_pages": {
+      "basalt": 40,
+      "fiber": 38,
+      "gneiss": 37,
+      "karst": 40,
+      "moraine": 36,
+      "obsidian": 34,
+      "schist": 33,
+      "tephra": 39,
+      "trellis": 37
+    },
+    "prior_syntheses_counted_as_proposals": 0
+  },
+  "convergence_validation": {
+    "status": "passed",
+    "source_commit": "58bb54219f494b29310ff77384732129411da887",
+    "validated_anchor_occurrences": 248,
+    "reports": 9,
+    "dimensions": 10,
+    "cells": 90,
+    "total": {
+      "explicit": 89,
+      "partial": 1,
+      "absent": 0
+    },
+    "per_dimension": {
+      "core": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "anchor": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "structures": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "behavior": {
+        "explicit": 8,
+        "partial": 1,
+        "absent": 0
+      },
+      "bounded": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "observation": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "leant": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "checker": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "fidelity": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "evaluation": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      }
+    },
+    "scope": "Editorial coding and artifact consistency, not claim verification or novelty scoring."
+  },
+  "document_validation": {
+    "status": "passed",
+    "pdf_pages": 31,
+    "pdf_sha256": "ea3bbcc0e3028565d68647e998dee1e01c2a5135b92f430d40786c1306ea2366",
+    "tex_inputs": {
+      "unified-report.tex": "3dd261c24b0219956fed689c124c57d5474b2ac84b24291b14bd66e93f55c74d",
+      "crosswalk-table.tex": "86f407892228d0143c91b52e76a0a4bd9bc70fffa881ebed57bb44d3a99f2796"
+    },
+    "recorded_latex_passes": 3,
+    "final_build_log_sha256": "83299943da8302da30e764b3c3484b42b244fac1e98f8cd27bb396936a435265",
+    "labels": 24,
+    "bibliography_entries": 16,
+    "local_links_checked": 13,
+    "required_section_phrases": 18,
+    "all_pages_nonblank": true,
+    "scope": "Current bytes match the retained build receipt; final log and PDF text checked. No rebuild or independent reconstruction of the recorded three passes."
+  },
+  "lean_validation": {
+    "status": "passed",
+    "version": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+    "original_files": 7,
+    "named_theorem_declarations": 49,
+    "unique_audited_original_declarations": 32,
+    "audited_without_axioms": 27,
+    "audited_with_only_propext": 5,
+    "files": {
+      "basalt": {
+        "source": "docs/round-3/ideas/basalt/companions/ContractCore.lean",
+        "named_theorem_declarations": 2,
+        "unique_audited_declarations": 2,
+        "axioms": {
+          "Basalt.weaken_value": [],
+          "Basalt.observationCongruence": []
+        }
+      },
+      "fiber": {
+        "source": "docs/round-3/ideas/fiber/CoreEncoding.lean",
+        "named_theorem_declarations": 3,
+        "unique_audited_declarations": 3,
+        "axioms": {
+          "Fiber.weaken_preserves_value": [],
+          "Fiber.compose_behavior": [],
+          "Fiber.certificate_bridge": []
+        }
+      },
+      "gneiss": {
+        "source": "docs/round-3/ideas/gneiss/GneissCore.lean",
+        "named_theorem_declarations": 2,
+        "unique_audited_declarations": 2,
+        "axioms": {
+          "Gneiss.respects_comp": [],
+          "Gneiss.complete_iff": []
+        }
+      },
+      "karst": {
+        "source": "docs/round-3/ideas/karst/examples/KarstCore.lean",
+        "named_theorem_declarations": 12,
+        "unique_audited_declarations": 11,
+        "axioms": {
+          "KarstCore.viewConsequence": [],
+          "KarstCore.viewIntersection": [],
+          "KarstCore.packView_val": [],
+          "KarstCore.transportView": [],
+          "KarstCore.behConsequence": [],
+          "KarstCore.behCompose": [],
+          "KarstCore.injCompose": [],
+          "KarstCore.involutionInj": [],
+          "KarstCore.fixesPointPreservesComplement": [],
+          "KarstCore.surjectiveCannotOmit": [],
+          "KarstCore.dropAllLengthOnEmpty": []
+        }
+      },
+      "moraine": {
+        "source": "docs/round-3/ideas/moraine/companion/Contracts.lean",
+        "named_theorem_declarations": 16,
+        "unique_audited_declarations": 3,
+        "axioms": {
+          "MoraineReference.mapSpec_compose": [],
+          "MoraineReference.LengthExpr.model_sound": [
+            "propext"
+          ],
+          "MoraineReference.LengthExpr.promote_model_spec": [
+            "propext"
+          ]
+        }
+      },
+      "schist": {
+        "source": "docs/round-3/ideas/schist/SchistCore.lean",
+        "named_theorem_declarations": 8,
+        "unique_audited_declarations": 8,
+        "axioms": {
+          "Schist.weaken_value": [],
+          "Schist.contract_consequence": [],
+          "Schist.contract_compose": [],
+          "Schist.req_compose": [],
+          "Schist.AffineCertificate.eval_nf": [
+            "propext"
+          ],
+          "Schist.AffineCertificate.check_sound": [
+            "propext"
+          ],
+          "Schist.AffineCertificate.original_target": [
+            "propext"
+          ],
+          "Schist.AffineCertificate.corrupted_rejected": []
+        }
+      },
+      "tephra": {
+        "source": "docs/round-3/ideas/tephra/TephraCore.lean",
+        "named_theorem_declarations": 6,
+        "unique_audited_declarations": 3,
+        "axioms": {
+          "Tephra.Contract.comp": [],
+          "Tephra.restrict_comp": [],
+          "Tephra.refute_universal": []
+        }
+      }
+    },
+    "additional_synthesis_theorems": {
+      "Round3Synthesis.refute_via_realization": [],
+      "Round3Synthesis.reverse_via_observations": []
+    },
+    "scope": "Unchanged source copies, successful retained execution receipts, and named axiom-query logs. The 49 named theorem declarations are not all axiom-audited; 32 distinct original declarations are. The two synthesis implications retain their explicit premises. No new Lean run, frontend verification, or external repository build."
+  },
+  "python_validation": {
+    "status": "passed",
+    "lanes": 3,
+    "successful_retained_runs": 9,
+    "counts_by_report": {
+      "basalt": {
+        "test_methods": 24
+      },
+      "fiber": {
+        "groups": 31,
+        "finite_checks": 1298
+      },
+      "gneiss": {
+        "test_methods": 32
+      },
+      "karst": {
+        "groups": [
+          {
+            "name": "finite_endomaps",
+            "cases": 3414
+          },
+          {
+            "name": "polynomial_protocol_neighbors",
+            "cases": 7
+          },
+          {
+            "name": "polynomial_denotation_samples",
+            "cases": 720
+          },
+          {
+            "name": "sorting_behavior_samples",
+            "cases": 364
+          },
+          {
+            "name": "length_counterexample_realizability",
+            "cases": 1
+          },
+          {
+            "name": "frey_exact_quotient_samples",
+            "cases": 312
+          },
+          {
+            "name": "formal_jet_neighbors",
+            "cases": 5
+          },
+          {
+            "name": "synthetic_scope_and_origin_neighbors",
+            "cases": 11
+          }
+        ]
+      },
+      "moraine": {
+        "test_methods": 32
+      },
+      "obsidian": {
+        "cases": 608,
+        "counts_by_kind": {
+          "arithmetic-instance": 525,
+          "negative-neighbor": 41,
+          "positive-neighbor": 1,
+          "symbolic-identity": 32,
+          "protocol-model": 9
+        }
+      },
+      "schist": {
+        "test_methods": 10
+      },
+      "tephra": {
+        "test_methods": 23
+      },
+      "trellis": {
+        "cases": 31,
+        "positive": 9,
+        "negative": 22
+      }
+    },
+    "scope": "Retained exit codes, source/copy/log hashes, and result consistency. No companion rerun or universal correctness proof; counts have different units and are not summed across reports."
+  },
+  "leant_snapshot_validation": {
+    "status": "passed",
+    "leant_pin": "823259f7e3c6d24e990d3f48f78c4f1c4f88059e",
+    "retained_full_files": 9,
+    "djex_pin": "22da13fd69ce54dd1e47db9faba28eb2869629d1",
+    "djex_reviewed_ranges": [
+      [
+        321,
+        390
+      ],
+      [
+        1341,
+        1480
+      ]
+    ],
+    "scope": "Retained Leant full-file byte/Git-blob consistency and Djex excerpt hash/line coverage. No live repository comparison, external execution, or claim that the unretained full Djex blob has been revalidated."
+  },
+  "visual_review_validation": {
+    "status": "passed",
+    "pdf_sha256": "ea3bbcc0e3028565d68647e998dee1e01c2a5135b92f430d40786c1306ea2366",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "scope": "Independent visual-review receipt bound to every page of this PDF; this script does not perform visual inspection."
+  },
+  "package_sha256": {
+    "source-register.json": "fd586322c62f670a5f98bf73e0443ff2dedadf02d27b1e633cbf9389d34ea5c3",
+    "convergence.json": "83f200ec8d2d7e23e397b00c9d9c2c1586a1b9bb9711cfda12b5a15697119c9d",
+    "unified-report.tex": "3dd261c24b0219956fed689c124c57d5474b2ac84b24291b14bd66e93f55c74d",
+    "crosswalk-table.tex": "86f407892228d0143c91b52e76a0a4bd9bc70fffa881ebed57bb44d3a99f2796",
+    "unified-report.pdf": "ea3bbcc0e3028565d68647e998dee1e01c2a5135b92f430d40786c1306ea2366",
+    "scripts/check_lean.py": "6a7b17d1c6e5e2c2814e03b0952cfa9ada3704cba792647e41d201235f282b3e",
+    "scripts/check_synthesis_lean.py": "b2a70fcf388c9bfbf47003b8449d78f2c6dcdc0610fafa118c9643414977c435",
+    "scripts/render_review.py": "1ceedee392373f85b180986fdbed2468fbd3ec9addaf475444dfc6508507bf04",
+    "scripts/verify_convergence.py": "4866513f3ccd4c58841965ae67b435b06fd25924a436b5f386a9b28f3cdf662e",
+    "scripts/verify_report.py": "3c823e5e3c942e5aa084783d5223e89668e0d425c2ccf135a698f16fbed9c4a1",
+    "scripts/verify_sources.py": "cbb3cbd97103823d95d31e28c0d5acce24a7391e5436f85b70031cd6b28f688f"
+  },
+  "evidence_sha256": {
+    "evidence/basalt-fiber-gneiss/audit_lean_evidence.py": "276e217243db08e5214c485746ce3648e128fea7a59993dbf05405ad84222b71",
+    "evidence/basalt-fiber-gneiss/convergence.json": "df9bbf29ff28946740e89569b0102da4dc1a0831523fa86c02b567cdc872496a",
+    "evidence/basalt-fiber-gneiss/lean-evidence-review.json": "e5b82c9af87df3c820e7afa85d077d767a2afeb389544f8632f8c694a8c7a3b1",
+    "evidence/basalt-fiber-gneiss/reproduce.py": "687196d79e250daa099a4e6baf8a6124658d715538c4ae55cf09bf35925f80a7",
+    "evidence/basalt-fiber-gneiss/reproduction.json": "525e23a0841ee9356746c4499a6d8bb5c389e4f4acd1b7053eb31d42f0531317",
+    "evidence/basalt-fiber-gneiss/runs/basalt/companions/certificate_demo.py": "f2144eeed3a33585dca3148cfcccba5681f15cdd25bef4cd27fb301d69f74542",
+    "evidence/basalt-fiber-gneiss/runs/basalt/companions/test_results.json": "a65cc1bf07f92e448e3f44ae081d7b93d1425b1d6cc7b18d748c736bbbef269a",
+    "evidence/basalt-fiber-gneiss/runs/basalt/stderr.txt": "29d7d75fc3355b34f9e5925ee1ebb76228e205fcc146684a1d02be4dda5f5a6f",
+    "evidence/basalt-fiber-gneiss/runs/basalt/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/basalt-fiber-gneiss/runs/fiber/evidence/checks.json": "6fd44cd988b9a2096d05187813093278e51c3eca82728a2b67b9bd752b5478ec",
+    "evidence/basalt-fiber-gneiss/runs/fiber/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/basalt-fiber-gneiss/runs/fiber/stdout.txt": "6fd44cd988b9a2096d05187813093278e51c3eca82728a2b67b9bd752b5478ec",
+    "evidence/basalt-fiber-gneiss/runs/fiber/tools/check_examples.py": "12e1b942492b1c12609845790609581b6dd5fb343bd8986816a591ba70948f3d",
+    "evidence/basalt-fiber-gneiss/runs/gneiss/contract_model.py": "c56478833193d642ca5b0f4a015b098c0f7028707f4d6794bde58a794d26825f",
+    "evidence/basalt-fiber-gneiss/runs/gneiss/stderr.txt": "77bdb16747d3607782b63c3cc3a78e7e98a3f82a4bcea26280825ae173d2152d",
+    "evidence/basalt-fiber-gneiss/runs/gneiss/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/basalt-fiber-gneiss/runs/gneiss/test_results.json": "878a7755e1432e40c3fe943cb02097750358cb39aa21e149e6854b28f37dfe4a",
+    "evidence/karst-moraine-obsidian/convergence.json": "c9a9f8b480e86f7d8fd7fb7f8cacbee1ef8cb340ccfd99386459d8f963943949",
+    "evidence/karst-moraine-obsidian/fetch_primary.py": "70d9876beb326748e3256f696ed1a18a000fffc8d02d6016120878adff6d9c5a",
+    "evidence/karst-moraine-obsidian/primary/receipt.json": "3aa881035d1bc1babdbc9b9c4cfa2e823494f7d7726dfaa6cc8856239acdb8b6",
+    "evidence/karst-moraine-obsidian/primary/S_Algebra_exists_algHom_equiv_pi.lean": "11e2e14c7e7c5d2163e9996f2237cfd2b64054d9d208899a7f972a8b4a074dc8",
+    "evidence/karst-moraine-obsidian/README.md": "890df0f1792688633c3d49e8fd5dec8ddbb00363f56cbd13860fd28e62680a3e",
+    "evidence/karst-moraine-obsidian/reproduce.py": "108dc7da9f8c1f732d5edf938161fe0baaf5544268feffd04a34a8133ff6bc17",
+    "evidence/karst-moraine-obsidian/reproduction.json": "6669dce45c85f47b794a5bce71dfd5e3c1a74f49fabd563db33c3daaacf00154",
+    "evidence/karst-moraine-obsidian/runs/karst/companion.py": "817c9fa4163610c1ebed0a9c484e9c3a9dda4769563c269252f5abc4b7b34845",
+    "evidence/karst-moraine-obsidian/runs/karst/results.json": "c6d4115c2674e2bc7a7abe6ed310c1f835f9f9893888feabb5da797d90598f0d",
+    "evidence/karst-moraine-obsidian/runs/karst/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/karst-moraine-obsidian/runs/karst/stdout.txt": "c6d4115c2674e2bc7a7abe6ed310c1f835f9f9893888feabb5da797d90598f0d",
+    "evidence/karst-moraine-obsidian/runs/moraine/length_contracts.py": "2195e3440fa26f94cb673039470d82125b804274002e1209dd3e4f5890079ad5",
+    "evidence/karst-moraine-obsidian/runs/moraine/stderr.txt": "1f7a17752282019b605792341b6651bc159850a9df8e6a62896cb0be9cdbeda2",
+    "evidence/karst-moraine-obsidian/runs/moraine/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/karst-moraine-obsidian/runs/moraine/test_length_contracts.py": "9ef7e7d6d156a04cc90c8eac8bd6bc4e7e4aeb987e76e34b050b104b76d5f1cb",
+    "evidence/karst-moraine-obsidian/runs/obsidian/checks.py": "b6b2465aa06b5ddde706411914e171e28c91ddafb06920b95466e69864bdae7f",
+    "evidence/karst-moraine-obsidian/runs/obsidian/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/karst-moraine-obsidian/runs/obsidian/stdout.txt": "4d8b15bbc63353859aa502d7190be5ca0c9e70eecc590d869840ecdcd03f25f0",
+    "evidence/lean/basalt/Audit.lean": "c2aeb339a1e10231cffb47aa276bffeaebfcca227835ad98f9f5dd6bee490b77",
+    "evidence/lean/basalt/audit.log": "6489940fe769dbe94bf6d8e2163bd7c40c897b54e5b61f72e1a92991ab191081",
+    "evidence/lean/basalt/ContractCore.lean": "467dd1baf53a3768dc406453b87b10ef8454428665bce946dea00e0c62b9a632",
+    "evidence/lean/basalt/original.log": "8e08b4fe2cad35e9ea28672df67f9e751bc65c84e185290802449bdebbd2e22c",
+    "evidence/lean/fiber/Audit.lean": "70f4f7a4d481b2a1a65a8cde59e740659202e62154d4c1b1769a85746c865592",
+    "evidence/lean/fiber/audit.log": "c5bc63be142495e922f4fdf7858e2bc8e14437c5f10fc7979ed5b3b925e3de37",
+    "evidence/lean/fiber/CoreEncoding.lean": "f6914939cad872d4754649f1f52b97bf274be3f44985c964741f46686b728598",
+    "evidence/lean/fiber/original.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/lean/gneiss/Audit.lean": "c715da543d228d9306b7161f601b26727398c387e8bf046feb0a2f1696c01aaf",
+    "evidence/lean/gneiss/audit.log": "88b469c77ce61e7c66a4fed04cb3ac77846c5ed0605b048f7a922704243461f4",
+    "evidence/lean/gneiss/GneissCore.lean": "cf5685b0bc8e3800669c209f3d673fd63be400d8a6608617747b1ae150425bd6",
+    "evidence/lean/gneiss/original.log": "d200cbc5941474e9d8088d783750b4999693bb92ea61d37c64cbdb7c5af7d362",
+    "evidence/lean/karst/Audit.lean": "0826b0aaab6624f6059d7fce7aef1d5b1158cc24ee2c17b407cc7d6389dc9de9",
+    "evidence/lean/karst/audit.log": "3d6b90a6194bc617551c9b12d0d1266c4e9f690ea5938b6d422c628ed5aa5035",
+    "evidence/lean/karst/KarstCore.lean": "c854c8d0bead79114ab751254e7fbd68b38d05bb43356546ed3d9454b10cdc85",
+    "evidence/lean/karst/original.log": "adef4bf15b5a17fc03e60db4153c1343ce706d47ec83351597a434369c4c9af4",
+    "evidence/lean/moraine/Audit.lean": "09ab9a8007489c759adc7cbeb8a568799309daf727f7ccf8fe033272c63fd2f8",
+    "evidence/lean/moraine/audit.log": "2348890e20be8ad688880e3f1c53a054a976be446d2b8fad2f70af1fc02b9c82",
+    "evidence/lean/moraine/Contracts.lean": "95583ec4faad644527c7979223b7fd0192649607060e202b5f4e72550ca6a831",
+    "evidence/lean/moraine/original.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/lean/README.md": "ebe472a20504a23f6ac118dc81c5122d290f7b655a2eb7f1cc827783421e6c21",
+    "evidence/lean/receipt.json": "515f4a987894f43410e9365ebe02009e63ba4a1329610e62927b06e9f01df945",
+    "evidence/lean/schist/Audit.lean": "ba5227d2031f7abc231d9e904778f08d8f4875eff96921ccb8ed613799dd045a",
+    "evidence/lean/schist/audit.log": "ba0263ced3ecec82d4a8e7ea86a03fb9538e8320bed78cab7db12da658f38c45",
+    "evidence/lean/schist/original.log": "3082cb9d28159e08e33fea5791c26ecf956baf316790667205378493cd418ed7",
+    "evidence/lean/schist/SchistCore.lean": "bae9c02727f8926f19caa3af8412265b398aa8ea9d82b216f313619295ba723d",
+    "evidence/lean/synthesis-receipt.json": "56b47dc36bef627336359c8af236891847e4f710a33a08199cacd74eaad41283",
+    "evidence/lean/SynthesisChecks.lean": "dc7dc7fb33b7c6183f6ed7b0b549e94f047d29a528fc4e5954d0516ec74c0e71",
+    "evidence/lean/SynthesisChecks.log": "eeaaedd67480d0d732991e213b651d407627c3abcc41902606f6832b9c7c7df1",
+    "evidence/lean/tephra/Audit.lean": "ed7697d78796fc903632d98780dfb23d3c6fff20806555352c2bc442ba30f350",
+    "evidence/lean/tephra/audit.log": "5f5d501d11d94019acc216f1194b919e9ea3f632f321eff02d8ed9c4851f2cbd",
+    "evidence/lean/tephra/original.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/lean/tephra/TephraCore.lean": "03d43dda0559ca2994274fc63f2a21918ae5dcecc429f18084aedcae8f602c48",
+    "evidence/leant-review/annotate-scope.py": "9cfe1b7f310334fcbfa45a4dfe6b11c07cbd9073b5d3295f9b4a08229a0b295d",
+    "evidence/leant-review/capture-djex.py": "6a21674dedd1b3babcad778742eef1fc6c9dd7e13ee340eae9f34c63591a66b3",
+    "evidence/leant-review/capture.py": "e9d1418c4500222ece8f6981260f6f4b521c8256b0862dc1b6c3e9e373aaca6e",
+    "evidence/leant-review/djex-length-excerpts.txt": "5493585a195c2d34ca36240d7119d6d7b7cb290ef2610a45421f311b8eb0841c",
+    "evidence/leant-review/djex-register.json": "3878cdf376df062c9ac1d8110e6377c4dfcc7e33469c2a03eb727f5da2e04b86",
+    "evidence/leant-review/README.md": "066d66e503aa8efd24d310d262484d003444a47295050c93a7face55fe6bb03d",
+    "evidence/leant-review/source/Behavioral.hs": "df5117bf817b765aa7bd8517e8f9f09b23b0d747d31a897f5d90c848f8b34da6",
+    "evidence/leant-review/source/BehavioralSelection/Internal.hs": "b78745b197bb07a5cc3bc327f5d2b0c62a3c7ea4e84f8065ddec1020cfbbecd8",
+    "evidence/leant-review/source/BehavioralSelection.hs": "ba324fe2c5a9d3f397293f17b631b505c941d0dae501a6f1555f9e3877a2e1d3",
+    "evidence/leant-review/source/Length/Adapter.hs": "7bb15f4a8a517f4f72c8ee8dc8732eb6396dd7dc51a8c6e832ba521b4b6e1fbe",
+    "evidence/leant-review/source/Length/Contract.hs": "7a3552a75a2fed8d5153d0c662b5bf858128113a356d3054acaf103e5d3fe40f",
+    "evidence/leant-review/source/Length/Handoff.hs": "e2761943df03876ff4a42a0c1a722738729b49338ea8542bb2a57d0b2a06dced",
+    "evidence/leant-review/source/Length/PostVerification/Internal.hs": "49d62de181e9b1fc7871e9f358fd14f7bb5a0a4310f0b2bf95b345fc8c6e2b96",
+    "evidence/leant-review/source/Length/PostVerification.hs": "32cb15747bd971f53d218206f5e382e48380445bfa12c28d00ef6545147181f6",
+    "evidence/leant-review/source/Verification.hs": "4045c4cb2560704694d87bc7f20f378f0503ebda77daa492b068bd46e596bc88",
+    "evidence/leant-review/source-register.json": "f174ac44a326400e5b51dce280d76c607a8ac47a988e9bda66d4f0a0ee0f424b",
+    "evidence/leant-review/validation.json": "90a5fe0d4f4cd77cac6f2891832f85d9e4df7a966c1cbe63241b18b81de97295",
+    "evidence/pdf-build-log.txt": "83299943da8302da30e764b3c3484b42b244fac1e98f8cd27bb396936a435265",
+    "evidence/pdf-build-receipt.json": "db969e0f016d46a5812b78db2483bb13fda043c3b5b5f3c9836f0e8a8a40e95a",
+    "evidence/schist-tephra-trellis/convergence.json": "e558bcacf878f12f7a64a807e14062ff05f831a143cdc173165d84d9cd4e0ae0",
+    "evidence/schist-tephra-trellis/README.md": "90098931c8b209c1d064428ad169beca7e611e18811c0250cf5f262f6cd7d014",
+    "evidence/schist-tephra-trellis/receipt.json": "8e50e5932c9c24d246c916e4f8f708b7a8a5de4c06aed87e7735381ceb0b79b3",
+    "evidence/schist-tephra-trellis/reproduce.py": "6f29b9df5d5895bf439ea6e3844b3522a545205e0dc6d9c993d9d9bd553653c2",
+    "evidence/schist-tephra-trellis/schist/check_examples.py": "b95262cd3b8f5c57b269801109f7b687bb0e07e474438e3e516e6a5fb453f4e5",
+    "evidence/schist-tephra-trellis/schist/stderr.txt": "2e79a40664a27830088af336e296b7c2938d8e3241d95e51666918c90abe5d45",
+    "evidence/schist-tephra-trellis/schist/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/schist-tephra-trellis/tephra/check_results.json": "d9e68e7d9a9e774887708c2128262b32b40cc91983919ef34270d87bf43c2981",
+    "evidence/schist-tephra-trellis/tephra/stderr.txt": "ef162c8bd6013ae3a9c05eeaed04da37ccb494c1c4f20c7235f675c1a87f4bf1",
+    "evidence/schist-tephra-trellis/tephra/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/schist-tephra-trellis/tephra/tephra_checks.py": "96bc84d0b6ede735fc5593f875a24c8eefcdaa61b64fd0d76b39e13992b39807",
+    "evidence/schist-tephra-trellis/trellis/results.json": "0c2d3d6706b3fc9c050b151507e61f51b47f4c5d2ea5fa766eb45570c61cae44",
+    "evidence/schist-tephra-trellis/trellis/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/schist-tephra-trellis/trellis/stdout.txt": "1b804b7801e95f95c76f2b9b0e54c7429cbec4543973a587d11a4e72926d2a60",
+    "evidence/schist-tephra-trellis/trellis/trellis_reference.py": "5d33ec15d4336e043284c152108853c0242c6773ee1dcb8bcf7eee426fc62085",
+    "evidence/visual-review.json": "f691ab5c5e09138233c39e0a57e0b67d24d41f76f3e324f6f1778a906e3cf05c"
+  }
+}

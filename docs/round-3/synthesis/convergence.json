@@ -1,0 +1,3411 @@
+{
+  "schema_version": 1,
+  "source_commit": "58bb54219f494b29310ff77384732129411da887",
+  "method": "Consolidation of three editorial close-reading lanes, with original qualifications preserved. Marks describe articulated commitments, not implementation completeness, novelty, efficacy, or independent statistical votes.",
+  "qualification_scope": "Qualifications retain the source-review wording about submitted artifacts. Fresh Lean compilation and subsequent evidence upgrades are recorded separately in evidence/lean and in the report; they do not change the design-commitment marks.",
+  "status_definitions": {
+    "explicit": "The report articulates this commitment with enough detail for the stated comparison dimension.",
+    "partial": "A material part is articulated, but a component of this compound comparison dimension is not developed; read the qualification.",
+    "absent": "The reading lane found no substantive treatment of this dimension, within its stated source scope."
+  },
+  "dimensions": {
+    "core": {
+      "column": "D1",
+      "description": "Conservative Lean elaboration"
+    },
+    "anchor": {
+      "column": "D2",
+      "description": "Same-object scoped evidence"
+    },
+    "structures": {
+      "column": "D3",
+      "description": "Structure data separated from proof properties"
+    },
+    "behavior": {
+      "column": "D4",
+      "description": "Dependent behavioral composition and consequence"
+    },
+    "bounded": {
+      "column": "D5",
+      "description": "Bounded property inference"
+    },
+    "observation": {
+      "column": "D6",
+      "description": "Explicit observation and transport guarantees"
+    },
+    "leant": {
+      "column": "D7",
+      "description": "Proof-linked behavioral synthesis"
+    },
+    "checker": {
+      "column": "D8",
+      "description": "Denotation, checker soundness, and original-target bridge"
+    },
+    "fidelity": {
+      "column": "D9",
+      "description": "Statement, method, and kernel truth distinguished"
+    },
+    "evaluation": {
+      "column": "D10",
+      "description": "Matched Lean baselines and stopping rules"
+    }
+  },
+  "source_reviews": [
+    {
+      "path": "docs/round-3/synthesis/evidence/basalt-fiber-gneiss/convergence.json",
+      "sha256": "df9bbf29ff28946740e89569b0102da4dc1a0831523fa86c02b567cdc872496a",
+      "method": "Editorial close-reading of three reports. Explicit means the report articulates the commitment; it does not measure novelty, implementation, independence, or efficacy."
+    },
+    {
+      "path": "docs/round-3/synthesis/evidence/karst-moraine-obsidian/convergence.json",
+      "sha256": "c9a9f8b480e86f7d8fd7fb7f8cacbee1ef8cb340ccfd99386459d8f963943949",
+      "method": "Editorial close reading of complete report texts and companions. Marks describe specified design commitments, not implementation completeness, novelty, or independent usability evidence."
+    },
+    {
+      "path": "docs/round-3/synthesis/evidence/schist-tephra-trellis/convergence.json",
+      "sha256": "e558bcacf878f12f7a64a807e14062ff05f831a143cdc173165d84d9cd4e0ae0",
+      "method": "Editorial close reading of all three complete TeX sources, not independent implementation evidence, a novelty count, or a statistical vote."
+    }
+  ],
+  "reports": {
+    "basalt": {
+      "source_review": "docs/round-3/synthesis/evidence/basalt-fiber-gneiss/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:413",
+            "docs/round-3/ideas/basalt/basalt.tex:581"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:413",
+            "docs/round-3/ideas/basalt/basalt.tex:581"
+          ],
+          "qualification": "Recommends elaboration-level refinements with ordinary Lean translations; kernel extension is a separate unjustified first step.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 413,
+              "line_text": "\\subsection{Three possible extension levels}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 581,
+              "line_text": "\\subsection{Relative soundness of the core rules}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:436",
+            "docs/round-3/ideas/basalt/basalt.tex:494",
+            "docs/round-3/ideas/basalt/basalt.tex:563"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:436",
+            "docs/round-3/ideas/basalt/basalt.tex:494",
+            "docs/round-3/ideas/basalt/basalt.tex:563"
+          ],
+          "qualification": "Local enrichment preserves a fixed carrier and ordered dependent telescope; first-class packaging remains optional.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 436,
+              "line_text": "\\subsection{Local refinements versus exported values}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 494,
+              "line_text": "\\subsection{Contexts and judgments}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 563,
+              "line_text": "\\subsection{Dependent application and unresolved guards}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:462",
+            "docs/round-3/ideas/basalt/basalt.tex:475"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:462",
+            "docs/round-3/ideas/basalt/basalt.tex:475"
+          ],
+          "qualification": "Separates selected algebraic/topological data from propositions; temporary local instances may bridge existing APIs.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 462,
+              "line_text": "\\subsection{Properties are not structure selection}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 475,
+              "line_text": "\\subsection{Why not turn every property into a typeclass?}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:614",
+            "docs/round-3/ideas/basalt/basalt.tex:646",
+            "docs/round-3/ideas/basalt/basalt.tex:671"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:614",
+            "docs/round-3/ideas/basalt/basalt.tex:646",
+            "docs/round-3/ideas/basalt/basalt.tex:671"
+          ],
+          "qualification": "Explicit deterministic and relational contracts, actual intermediate values, and consequence-rule directions.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 614,
+              "line_text": "\\subsection{A total function with a conditional contract}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 646,
+              "line_text": "\\subsection{Composition derives a real proof, not a label}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 671,
+              "line_text": "\\subsection{Variance and consequence}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:820",
+            "docs/round-3/ideas/basalt/basalt.tex:865",
+            "docs/round-3/ideas/basalt/basalt.tex:879"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:820",
+            "docs/round-3/ideas/basalt/basalt.tex:865",
+            "docs/round-3/ideas/basalt/basalt.tex:879"
+          ],
+          "qualification": "Demand-driven proof search with bounded profiles, checked memo reuse, and no unsupported guard cycles.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 820,
+              "line_text": "\\subsection{A concrete elaboration procedure}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 865,
+              "line_text": "\\subsection{Why not saturate the context with every consequence?}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 879,
+              "line_text": "\\subsection{Guards, cycles, and ordinary induction}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:763",
+            "docs/round-3/ideas/basalt/basalt.tex:800",
+            "docs/round-3/ideas/basalt/basalt.tex:1619"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:763",
+            "docs/round-3/ideas/basalt/basalt.tex:800",
+            "docs/round-3/ideas/basalt/basalt.tex:1619"
+          ],
+          "qualification": "Domain-specific evidence relations and sufficient demand transformers, with consumer-relative coherence.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 763,
+              "line_text": "\\subsection{Locality is an index, not a confidence score}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 800,
+              "line_text": "\\subsection{A common shape without a universal relation lattice}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1619,
+              "line_text": "\\subsection{A general sufficient-demand interface}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1326",
+            "docs/round-3/ideas/basalt/basalt.tex:1351",
+            "docs/round-3/ideas/basalt/basalt.tex:1385"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1326",
+            "docs/round-3/ideas/basalt/basalt.tex:1351",
+            "docs/round-3/ideas/basalt/basalt.tex:1385"
+          ],
+          "qualification": "Proposes exact provider laws and a candidate interpretation proof; length-model counterexamples require concrete realization.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1326,
+              "line_text": "\\subsection{The missing bridge for theorem-level behavioral claims}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1351,
+              "line_text": "\\subsection{A restricted length calculus with an explicit soundness argument}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1385,
+              "line_text": "\\subsection{A subtle negative-evidence issue: realizable abstract inputs}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1448",
+            "docs/round-3/ideas/basalt/basalt.tex:1506",
+            "docs/round-3/ideas/basalt/basalt.tex:1536"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1448",
+            "docs/round-3/ideas/basalt/basalt.tex:1506",
+            "docs/round-3/ideas/basalt/basalt.tex:1536"
+          ],
+          "qualification": "Sparse multivariate integer checker has paper denotation/soundness argument and separate original-target bridge; not Lean mechanized.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1448,
+              "line_text": "\\subsection{Finite representation and denotation}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1506,
+              "line_text": "\\subsection{The certificate and its soundness theorem}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1536,
+              "line_text": "\\subsection{The original-target bridge}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1768",
+            "docs/round-3/ideas/basalt/basalt.tex:1780",
+            "docs/round-3/ideas/basalt/basalt.tex:1794"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1768",
+            "docs/round-3/ideas/basalt/basalt.tex:1780",
+            "docs/round-3/ideas/basalt/basalt.tex:1794"
+          ],
+          "qualification": "Separately treats theorem truth, statement/source fidelity, and method/edit fidelity.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1768,
+              "line_text": "\\subsection{Theorem truth}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1780,
+              "line_text": "\\subsection{Statement and source fidelity}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1794,
+              "line_text": "\\subsection{Method and workflow fidelity}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1944",
+            "docs/round-3/ideas/basalt/basalt.tex:1970",
+            "docs/round-3/ideas/basalt/basalt.tex:2028"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/basalt/basalt.tex:1944",
+            "docs/round-3/ideas/basalt/basalt.tex:1970",
+            "docs/round-3/ideas/basalt/basalt.tex:2028"
+          ],
+          "qualification": "Matched library/service/language conditions, semantic reading, positive neighbors, and library-only stopping outcome.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1944,
+              "line_text": "\\subsection{Separate library, service, and language effects}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 1970,
+              "line_text": "\\subsection{What to measure}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            },
+            {
+              "path": "docs/round-3/ideas/basalt/basalt.tex",
+              "line": 2028,
+              "line_text": "\\subsection{Stopping and simplification rules}",
+              "source_git_blob": "b2251a7b28893db02fa465d0ec47e3a9e23b8f8e",
+              "source_checkout_sha256": "62f2616f37a1f787e1b11e4a8cac8a07c512751ba1480d9244555bd8e0006a23"
+            }
+          ]
+        }
+      }
+    },
+    "fiber": {
+      "source_review": "docs/round-3/synthesis/evidence/basalt-fiber-gneiss/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:149",
+            "docs/round-3/ideas/fiber/fiber.tex:159",
+            "docs/round-3/ideas/fiber/fiber.tex:354"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:149",
+            "docs/round-3/ideas/fiber/fiber.tex:159",
+            "docs/round-3/ideas/fiber/fiber.tex:354"
+          ],
+          "qualification": "Refinement elaborator lowers to Lean; relative calculus proof is a paper theorem, not verified compiler code.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 149,
+              "line_text": "\\subsection{Lean already has the required logical expressiveness}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 159,
+              "line_text": "\\subsection{Three implementation choices}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 354,
+              "line_text": "\\subsection{A non-vacuous elaboration theorem}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:193",
+            "docs/round-3/ideas/fiber/fiber.tex:216",
+            "docs/round-3/ideas/fiber/fiber.tex:290"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:193",
+            "docs/round-3/ideas/fiber/fiber.tex:216",
+            "docs/round-3/ideas/fiber/fiber.tex:290"
+          ],
+          "qualification": "Fixed carriers with scoped proof evidence; same-carrier paths ending at the same subtype have limited proof-irrelevant coherence.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 193,
+              "line_text": "\\subsection{Carriers, refinements, and anchored evidence}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 216,
+              "line_text": "\\subsection{Refinement weakening is a proof-producing operation}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 290,
+              "line_text": "\\subsection{Judgments and obligations}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:263",
+            "docs/round-3/ideas/fiber/fiber.tex:371",
+            "docs/round-3/ideas/fiber/fiber.tex:365"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:263",
+            "docs/round-3/ideas/fiber/fiber.tex:371",
+            "docs/round-3/ideas/fiber/fiber.tex:365"
+          ],
+          "qualification": "Selects data dictionaries before proof inference; delegated witnesses and noncomputable choice remain distinct.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 263,
+              "line_text": "\\subsection{Data refinements are not all of one kind}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 371,
+              "line_text": "\\subsection{Separate structure data from propositions about it}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 365,
+              "line_text": "\\subsection{Statement fidelity is a separate obligation}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:242",
+            "docs/round-3/ideas/fiber/fiber.tex:337",
+            "docs/round-3/ideas/fiber/fiber.tex:651"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:242",
+            "docs/round-3/ideas/fiber/fiber.tex:337",
+            "docs/round-3/ideas/fiber/fiber.tex:651"
+          ],
+          "qualification": "Dependent composition, backward sufficient constraints and coupled synthesis of code and universal specification proofs.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 242,
+              "line_text": "\\subsection{Functions and behavioral refinements}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 337,
+              "line_text": "\\subsection{Backward propagation through contracts}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 651,
+              "line_text": "\\subsection{Synthesize data and evidence together}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:174",
+            "docs/round-3/ideas/fiber/fiber.tex:388",
+            "docs/round-3/ideas/fiber/fiber.tex:662"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:174",
+            "docs/round-3/ideas/fiber/fiber.tex:388",
+            "docs/round-3/ideas/fiber/fiber.tex:662"
+          ],
+          "qualification": "Finite relevant summaries and bounded demand search; heuristic pruning is allowed only without completeness claims.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 174,
+              "line_text": "\\subsection{Expressive refinements do not imply complete inference}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 388,
+              "line_text": "\\subsection{Demand-driven closure}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 662,
+              "line_text": "\\subsection{Partial candidates and the limits of pruning}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:406",
+            "docs/round-3/ideas/fiber/fiber.tex:424",
+            "docs/round-3/ideas/fiber/fiber.tex:442"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:406",
+            "docs/round-3/ideas/fiber/fiber.tex:424",
+            "docs/round-3/ideas/fiber/fiber.tex:442"
+          ],
+          "qualification": "Measures, filters, precision and domain indices; countable versus uncountable almost-everywhere quantifier order explicitly separated.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 406,
+              "line_text": "\\section{Locality, measures, and precision are part of the type}\\label{sec:scope}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 424,
+              "line_text": "\\subsection{A fact has a telescope, not only a location label}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 442,
+              "line_text": "\\subsection{Approximation demand flows backward}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:141",
+            "docs/round-3/ideas/fiber/fiber.tex:688",
+            "docs/round-3/ideas/fiber/fiber.tex:715"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:141",
+            "docs/round-3/ideas/fiber/fiber.tex:688",
+            "docs/round-3/ideas/fiber/fiber.tex:715"
+          ],
+          "qualification": "Acknowledges existing replay-authorized filtering; universal proofs and prefix constraint pruning remain proposed extensions.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 141,
+              "line_text": "\\subsection{Leant: the current boundary is more developed than a simple type search}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 688,
+              "line_text": "\\subsection{A concrete Leant integration sequence}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 715,
+              "line_text": "\\subsection{Tactic suggestion is a different target}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:734",
+            "docs/round-3/ideas/fiber/fiber.tex:765",
+            "docs/round-3/ideas/fiber/fiber.tex:788"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:734",
+            "docs/round-3/ideas/fiber/fiber.tex:765",
+            "docs/round-3/ideas/fiber/fiber.tex:788"
+          ],
+          "qualification": "Sparse multivariate integer model, paper normalization/convolution soundness, and exact-atom reification required.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 734,
+              "line_text": "\\subsection{A concrete sparse multivariate certificate format}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 765,
+              "line_text": "\\subsection{Ideal-combination checking}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 788,
+              "line_text": "\\subsection{The original-expression bridge}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:365",
+            "docs/round-3/ideas/fiber/fiber.tex:843",
+            "docs/round-3/ideas/fiber/fiber.tex:850"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:365",
+            "docs/round-3/ideas/fiber/fiber.tex:843",
+            "docs/round-3/ideas/fiber/fiber.tex:850"
+          ],
+          "qualification": "Statement freezing and all-assertion checking; method guarantee is an applied contract, not necessity/minimality of explanation.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 365,
+              "line_text": "\\subsection{Statement fidelity is a separate obligation}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 843,
+              "line_text": "\\subsection{Named reasons constrain rule selection}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 850,
+              "line_text": "\\subsection{Independently check every assertion}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:940",
+            "docs/round-3/ideas/fiber/fiber.tex:958",
+            "docs/round-3/ideas/fiber/fiber.tex:1009"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/fiber/fiber.tex:940",
+            "docs/round-3/ideas/fiber/fiber.tex:958",
+            "docs/round-3/ideas/fiber/fiber.tex:1009"
+          ],
+          "qualification": "Five nested conditions separately test refinement elaboration and document surface; inhabited Frey benchmark controls contradiction leakage.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 940,
+              "line_text": "\\subsection{An ablation that charges infrastructure fairly}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 958,
+              "line_text": "\\subsection{Tasks and leakage}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            },
+            {
+              "path": "docs/round-3/ideas/fiber/fiber.tex",
+              "line": 1009,
+              "line_text": "\\subsection{Stopping and revision criteria}",
+              "source_git_blob": "68ffa561502e808692a23d10e6266ef507d1b700",
+              "source_checkout_sha256": "aa8594255225a3628ed20444a0cf7b94484a0cff8ef91643bdb8e97a8f9e5ace"
+            }
+          ]
+        }
+      }
+    },
+    "gneiss": {
+      "source_review": "docs/round-3/synthesis/evidence/basalt-fiber-gneiss/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:181",
+            "docs/round-3/ideas/gneiss/gneiss.tex:583",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1408"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:181",
+            "docs/round-3/ideas/gneiss/gneiss.tex:583",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1408"
+          ],
+          "qualification": "Conservative refinement-aware elaboration is first choice; four options distinguish proof-explicit primitive refinements from semantic conversion.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 181,
+              "line_text": "\\subsection{An extension, but not initially an extension of logic}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 583,
+              "line_text": "\\subsection{Preservation for the restricted calculus}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1408,
+              "line_text": "\\subsection{Four distinct proposals must not be conflated}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:476",
+            "docs/round-3/ideas/gneiss/gneiss.tex:569",
+            "docs/round-3/ideas/gneiss/gneiss.tex:638"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:476",
+            "docs/round-3/ideas/gneiss/gneiss.tex:569",
+            "docs/round-3/ideas/gneiss/gneiss.tex:638"
+          ],
+          "qualification": "Extrinsic views preserve selected terms; unresolved obligations are continuations rather than facts.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 476,
+              "line_text": "\\subsection{Carriers, refinements, and contexts}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 569,
+              "line_text": "\\subsection{Open obligations are continuations, not facts}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 638,
+              "line_text": "\\subsection{Proof-valued inference versus data-valued selection}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:638",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1463"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:638",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1463"
+          ],
+          "qualification": "Freezes universes and selected data before proof-only search; equal carrier names do not identify topologies or ring structures.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 638,
+              "line_text": "\\subsection{Proof-valued inference versus data-valued selection}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1463,
+              "line_text": "\\subsection{Structure inference needs stronger discipline than proof inference}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:676",
+            "docs/round-3/ideas/gneiss/gneiss.tex:706",
+            "docs/round-3/ideas/gneiss/gneiss.tex:719"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:676",
+            "docs/round-3/ideas/gneiss/gneiss.tex:706",
+            "docs/round-3/ideas/gneiss/gneiss.tex:719"
+          ],
+          "qualification": "Contract composition binds actual intermediate value, respects pre/post variance, and composes relational respectfulness.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 676,
+              "line_text": "\\subsection{Composition binds the actual intermediate value}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 706,
+              "line_text": "\\subsection{Variance is local and theorem-backed}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 719,
+              "line_text": "\\subsection{Higher-order behavior and respectful operations}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:620",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1549"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:620",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1549"
+          ],
+          "qualification": "Demand-oriented finite rule schemas and backward-only dependency assembly; no principal refinements or universal free-inference promise.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 620,
+              "line_text": "\\subsection{Subsumption is proof search, not magic conversion}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1549,
+              "line_text": "\\subsection{A rule interface that prevents accidental circularity}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:762",
+            "docs/round-3/ideas/gneiss/gneiss.tex:809",
+            "docs/round-3/ideas/gneiss/gneiss.tex:835"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:762",
+            "docs/round-3/ideas/gneiss/gneiss.tex:809",
+            "docs/round-3/ideas/gneiss/gneiss.tex:835"
+          ],
+          "qualification": "Explicit operation-specific observation transfer with endpoint-aware jet precision and consumer-relative coherence.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 762,
+              "line_text": "\\subsection{Observations are not weakened equality in the kernel}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 809,
+              "line_text": "\\subsection{Jet precision is an input/output contract}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 835,
+              "line_text": "\\subsection{Observation coherence is consumer-relative}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:1317",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1341",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1361"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:1317",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1341",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1361"
+          ],
+          "qualification": "Preserves existing behavioral handoff boundaries, separates lookup/composition workloads, and requires exact-target checking plus edit replay.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1317,
+              "line_text": "\\subsection{What the inspected code already distinguishes}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1341,
+              "line_text": "\\subsection{The actual obligations on which to measure Leant}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1361,
+              "line_text": "\\subsection{A three-stage acceptance protocol}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:1155",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1181",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1224"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:1155",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1181",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1224"
+          ],
+          "qualification": "Dense univariate integer coefficient checker with paper denotation proof and separate reification obligation; multivariate extension deferred.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1155,
+              "line_text": "\\subsection{A hybrid system needs more than a CAS-shaped API}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1181,
+              "line_text": "\\subsection{Denotation and checker soundness}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1224,
+              "line_text": "\\subsection{Reification is a separate theorem}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:445",
+            "docs/round-3/ideas/gneiss/gneiss.tex:462",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1522"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:445",
+            "docs/round-3/ideas/gneiss/gneiss.tex:462",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1522"
+          ],
+          "qualification": "Named methods, three hole kinds and evidence-linked rendering distinguish proof truth, meaning and chosen argument.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 445,
+              "line_text": "\\subsection{Proofs retain their conceptual cuts}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 462,
+              "line_text": "\\subsection{Three kinds of holes}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1522,
+              "line_text": "\\textbf{A renderer and linter} project the accepted mathematical claims to the",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:1723",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1736",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1769"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/gneiss/gneiss.tex:1723",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1736",
+            "docs/round-3/ideas/gneiss/gneiss.tex:1769"
+          ],
+          "qualification": "Four matched conditions, maintenance/reading measures and library/explanation-only stopping outcomes.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1723,
+              "line_text": "\\subsection{Four treatments, shared mathematics}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1736,
+              "line_text": "\\subsection{Measure more than character count}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            },
+            {
+              "path": "docs/round-3/ideas/gneiss/gneiss.tex",
+              "line": 1769,
+              "line_text": "\\subsection{Stop rules and a realistic success criterion}",
+              "source_git_blob": "7212cf57ab8dd38588df45ecd171a50ab5ab5d34",
+              "source_checkout_sha256": "54c7d4f4620ca675d4f6853940345d9900b9e6714ebf9fade1c4239418b38da8"
+            }
+          ]
+        }
+      }
+    },
+    "karst": {
+      "source_review": "docs/round-3/synthesis/evidence/karst-moraine-obsidian/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:166",
+            "docs/round-3/ideas/karst/karst.tex:706"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:166",
+            "docs/round-3/ideas/karst/karst.tex:706"
+          ],
+          "qualification": "A conservative bidirectional elaborator; graph soundness is a relative paper theorem, not compiler verification.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 166,
+              "line_text": "\\textbf{Recommendation.} Implement \\Karst\\ as a conservative, bidirectional",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 706,
+              "line_text": "\\begin{theorem}[Relative soundness of accepted evidence graphs]\\label{thm:relative}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:565",
+            "docs/round-3/ideas/karst/karst.tex:646"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:565",
+            "docs/round-3/ideas/karst/karst.tex:646"
+          ],
+          "qualification": "Views retain the exact expression; support closes free variables of both proof and proposition under telescope dependencies.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 565,
+              "line_text": "\\begin{definition}[Anchored property view]",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 646,
+              "line_text": "\\subsection{Dependent support and branch discharge}\\label{sec:support}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:375",
+            "docs/round-3/ideas/karst/karst.tex:795",
+            "docs/round-3/ideas/karst/karst.tex:819"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:375",
+            "docs/round-3/ideas/karst/karst.tex:795",
+            "docs/round-3/ideas/karst/karst.tex:819"
+          ],
+          "qualification": "Packing differs from local refinement; explicit structure/automation profiles; nonzero, regular, and unit are distinct.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 375,
+              "line_text": "\\subsection{Three encodings, three appropriate uses}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 795,
+              "line_text": "\\subsection{Structure contexts: a response to the FLT configuration example}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 819,
+              "line_text": "\\subsection{Three constraints that must never be merged}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:879",
+            "docs/round-3/ideas/karst/karst.tex:895",
+            "docs/round-3/ideas/karst/karst.tex:1653"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:879",
+            "docs/round-3/ideas/karst/karst.tex:895",
+            "docs/round-3/ideas/karst/karst.tex:1653"
+          ],
+          "qualification": "Consequence variance and composition retain the actual intermediate; total preconditioned functions differ from restricted-domain functions.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 879,
+              "line_text": "\\begin{proposition}[Behavioral consequence]\\label{prop:consequence}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 895,
+              "line_text": "\\subsection{Dependent composition retains the intermediate value}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1653,
+              "line_text": "\\subsection{A refined domain is not merely a precondition}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:756",
+            "docs/round-3/ideas/karst/karst.tex:782"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:756",
+            "docs/round-3/ideas/karst/karst.tex:782"
+          ],
+          "qualification": "Request-wide budgets and acyclic proof assembly; unrelated facts must not change meaning, but proof choice and runtime can change.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 756,
+              "line_text": "\\subsection{A bounded first implementation}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 782,
+              "line_text": "\\subsection{Noninterference is a target property, not automatic determinism}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1394",
+            "docs/round-3/ideas/karst/karst.tex:1414",
+            "docs/round-3/ideas/karst/karst.tex:1437"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1394",
+            "docs/round-3/ideas/karst/karst.tex:1414",
+            "docs/round-3/ideas/karst/karst.tex:1437"
+          ],
+          "qualification": "Jet observation of a fixed root; residual/branch/unit bridge and derivative demand; sufficient precision need not be weakest.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1394,
+              "line_text": "\\subsection{An observation is not a refinement of the representation's identity}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1414,
+              "line_text": "\\begin{proposition}[Residual identification of an existing root]\\label{prop:residual}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1437,
+              "line_text": "\\subsection{A concrete backward-demand example}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1509",
+            "docs/round-3/ideas/karst/karst.tex:1534",
+            "docs/round-3/ideas/karst/karst.tex:1556"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1509",
+            "docs/round-3/ideas/karst/karst.tex:1534",
+            "docs/round-3/ideas/karst/karst.tex:1556"
+          ],
+          "qualification": "Preserve current callback/epoch authority; require original behavioral proof and realizable original-domain negative witnesses.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1509,
+              "line_text": "\\subsection{Preserve the authority boundaries already present}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1534,
+              "line_text": "\\subsection{A two-stage synthesis contract}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1556,
+              "line_text": "\\subsection{A new bridge test: abstract counterexamples must be realizable}\\label{sec:empty}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1240",
+            "docs/round-3/ideas/karst/karst.tex:1301",
+            "docs/round-3/ideas/karst/karst.tex:1326"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1240",
+            "docs/round-3/ideas/karst/karst.tex:1301",
+            "docs/round-3/ideas/karst/karst.tex:1326"
+          ],
+          "qualification": "Explicit sparse integer denotation and ideal-certificate paper soundness; normalization, checked execution, and exact atom reification remain production work.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1240,
+              "line_text": "\\subsection{One complete positive checker contract}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1301,
+              "line_text": "\\begin{theorem}[Ideal-certificate soundness]\\label{thm:polycheck}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1326,
+              "line_text": "\\subsection{Reification and execution complete the chain}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:602",
+            "docs/round-3/ideas/karst/karst.tex:1725",
+            "docs/round-3/ideas/karst/karst.tex:1738"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:602",
+            "docs/round-3/ideas/karst/karst.tex:1725",
+            "docs/round-3/ideas/karst/karst.tex:1738"
+          ],
+          "qualification": "Freeze statement meaning; check every asserted node; a named method and broad proof search have distinct explanation contracts.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 602,
+              "line_text": "There are two distinct moments of fixing meaning. During statement elaboration,",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1725,
+              "line_text": "\\subsection{A document has more obligations than its last theorem}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1738,
+              "line_text": "The selected method is another dimension. A command explicitly requesting",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1785",
+            "docs/round-3/ideas/karst/karst.tex:1851",
+            "docs/round-3/ideas/karst/karst.tex:1885"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/karst/karst.tex:1785",
+            "docs/round-3/ideas/karst/karst.tex:1851",
+            "docs/round-3/ideas/karst/karst.tex:1885"
+          ],
+          "qualification": "Five nested arms isolate library, services, property index, and frontend; already-short controls and semantic reading; library/index/renderer may be sufficient.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1785,
+              "line_text": "\\subsection{First: host-native contracts and one sound computational slice}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1851,
+              "line_text": "\\subsection{A shared-library comparison with a refinement ablation}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            },
+            {
+              "path": "docs/round-3/ideas/karst/karst.tex",
+              "line": 1885,
+              "line_text": "\\subsection{A semantic-reading test}",
+              "source_git_blob": "07057528f0e2ca4a1b8f6490af76382c8606031b",
+              "source_checkout_sha256": "3ac8fbfda641b296a0f5f17af4c2a72a571abb875c89e9178d84436c0ecf3fd0"
+            }
+          ]
+        }
+      }
+    },
+    "moraine": {
+      "source_review": "docs/round-3/synthesis/evidence/karst-moraine-obsidian/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:223",
+            "docs/round-3/ideas/moraine/moraine.tex:644",
+            "docs/round-3/ideas/moraine/moraine.tex:1326"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:223",
+            "docs/round-3/ideas/moraine/moraine.tex:644",
+            "docs/round-3/ideas/moraine/moraine.tex:1326"
+          ],
+          "qualification": "Conservative translation recommended; explicit kernel refinement alternative analyzed rather than claimed implemented.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 223,
+              "line_text": "These additions form an extension to the \\emph{source typing and elaboration",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 644,
+              "line_text": "\\subsection{Relative soundness of the restricted core}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1326,
+              "line_text": "\\subsection{Four implementation levels}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:471",
+            "docs/round-3/ideas/moraine/moraine.tex:695"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:471",
+            "docs/round-3/ideas/moraine/moraine.tex:695"
+          ],
+          "qualification": "Evidence rows belong to fully resolved terms and scoped telescopes; branch joins require case elimination.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 471,
+              "line_text": "\\subsection{The judgment and its output}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 695,
+              "line_text": "\\subsection{Evidence has a telescope, not just a truth flag}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:587",
+            "docs/round-3/ideas/moraine/moraine.tex:796",
+            "docs/round-3/ideas/moraine/moraine.tex:811"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:587",
+            "docs/round-3/ideas/moraine/moraine.tex:796",
+            "docs/round-3/ideas/moraine/moraine.tex:811"
+          ],
+          "qualification": "First-class packaging retains dependencies; temporary bundle adapters preserve maps and operation dictionaries.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 587,
+              "line_text": "\\subsection{Local flattening versus first-class packaging}\\label{sec:pack}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 796,
+              "line_text": "\\subsection{Operations and their laws must not be confused}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 811,
+              "line_text": "\\subsection{Coherence is local and evidence-based}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:542",
+            "docs/round-3/ideas/moraine/moraine.tex:561",
+            "docs/round-3/ideas/moraine/moraine.tex:751"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:542",
+            "docs/round-3/ideas/moraine/moraine.tex:561",
+            "docs/round-3/ideas/moraine/moraine.tex:751"
+          ],
+          "qualification": "Explicit consequence variance, retained-intermediate composition, and multi-input relational/naturality specifications.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 542,
+              "line_text": "\\subsection{Contract variance is an implication theorem}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 561,
+              "line_text": "\\subsection{A compositional rule with relational postconditions}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 751,
+              "line_text": "\\subsection{Two-input behavior cannot always be reduced to one-input output facts}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:631",
+            "docs/round-3/ideas/moraine/moraine.tex:1621"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:631",
+            "docs/round-3/ideas/moraine/moraine.tex:1621"
+          ],
+          "qualification": "No principal-refinement promise; finite cheap worklist over fixed anchors distinguished from budgeted term-generating search.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 631,
+              "line_text": "\\subsection{No general principal refinement is promised}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1621,
+              "line_text": "\\subsection{A deterministic cheap tier and explicit expensive tiers}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1003",
+            "docs/round-3/ideas/moraine/moraine.tex:1231",
+            "docs/round-3/ideas/moraine/moraine.tex:1277"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1003",
+            "docs/round-3/ideas/moraine/moraine.tex:1231",
+            "docs/round-3/ideas/moraine/moraine.tex:1277"
+          ],
+          "qualification": "Endpoint deletion yields a norm-error relation; reindexing, norm equality, locality, and finite precision remain distinct.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1003,
+              "line_text": "\\subsection{Endpoint deletion as a quantitative relational type}\\label{sec:endpoints}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1231,
+              "line_text": "\\subsection{One boundary, several mathematical relationships}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1277,
+              "line_text": "\\subsection{Quantitative rules are ordinary theorems}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1064",
+            "docs/round-3/ideas/moraine/moraine.tex:1114",
+            "docs/round-3/ideas/moraine/moraine.tex:1167"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1064",
+            "docs/round-3/ideas/moraine/moraine.tex:1114",
+            "docs/round-3/ideas/moraine/moraine.tex:1167"
+          ],
+          "qualification": "Current host-shaped Length surface and scoped receipts acknowledged; direct composition, certified decisions, or exact-target proof search must supply behavioral evidence.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1064,
+              "line_text": "\\subsection{What Leant already does}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1114,
+              "line_text": "\\subsection{An evidence-producing interface}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1167,
+              "line_text": "\\subsection{From observational filters to theorem evidence}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1304",
+            "docs/round-3/ideas/moraine/moraine.tex:1475",
+            "docs/round-3/ideas/moraine/moraine.tex:1491"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1304",
+            "docs/round-3/ideas/moraine/moraine.tex:1475",
+            "docs/round-3/ideas/moraine/moraine.tex:1491"
+          ],
+          "qualification": "Closed affine-length paper soundness/completeness with realizability; structural Lean model omits coefficient normalizer and reflection bridge.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1304,
+              "line_text": "\\subsection{The reflective execution bridge remains mandatory}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1475,
+              "line_text": "\\begin{theorem}[Length-model soundness]\\label{thm:length}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1491,
+              "line_text": "\\begin{theorem}[Complete affine coefficient criterion]\\label{thm:affine}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:399",
+            "docs/round-3/ideas/moraine/moraine.tex:416",
+            "docs/round-3/ideas/moraine/moraine.tex:1780"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:399",
+            "docs/round-3/ideas/moraine/moraine.tex:416",
+            "docs/round-3/ideas/moraine/moraine.tex:1780"
+          ],
+          "qualification": "Meaning/evidence/search annotations distinguished; by/hint/solve differ; missing premise does not establish mathematical falsity.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 399,
+              "line_text": "These distinctions suggest three annotation classes:",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 416,
+              "line_text": "\\subsection{Reason, hint, and open search are different commands}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1780,
+              "line_text": "Omitting a premise does not always make a conclusion false: another valid proof",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1705",
+            "docs/round-3/ideas/moraine/moraine.tex:1738",
+            "docs/round-3/ideas/moraine/moraine.tex:1849"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/moraine/moraine.tex:1705",
+            "docs/round-3/ideas/moraine/moraine.tex:1738",
+            "docs/round-3/ideas/moraine/moraine.tex:1849"
+          ],
+          "qualification": "Four arms isolate packaging, refinement typing, and frontend; charge adapter costs and stop at library if it explains benefit.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1705,
+              "line_text": "\\subsection{The experimental comparison must isolate the new layer}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1738,
+              "line_text": "The first substantive success criterion is not a target compression percentage.",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            },
+            {
+              "path": "docs/round-3/ideas/moraine/moraine.tex",
+              "line": 1849,
+              "line_text": "\\subsection{The first vertical slice}",
+              "source_git_blob": "63e6698c75b472b15f24f2d31cd4cd13df20e188",
+              "source_checkout_sha256": "525f49f9c14e9aec66425c24e1f478b6818b979916fb3eb293d8de8a32114151"
+            }
+          ]
+        }
+      }
+    },
+    "obsidian": {
+      "source_review": "docs/round-3/synthesis/evidence/karst-moraine-obsidian/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:212",
+            "docs/round-3/ideas/obsidian/obsidian.tex:300",
+            "docs/round-3/ideas/obsidian/obsidian.tex:752"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:212",
+            "docs/round-3/ideas/obsidian/obsidian.tex:300",
+            "docs/round-3/ideas/obsidian/obsidian.tex:752"
+          ],
+          "qualification": "Local overlays and lawful-use signatures compile to ordinary Lean; proposed primitive refinements require a conservativity argument and measured need.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 212,
+              "line_text": "\\section{A conservative property-aware type system}\\label{sec:types}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 300,
+              "line_text": "\\begin{proposition}[Relative elaboration soundness]\\label{prop:elab}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 752,
+              "line_text": "\\section{Should Lean's kernel type system be extended?}\\label{sec:kernel}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:230",
+            "docs/round-3/ideas/obsidian/obsidian.tex:290",
+            "docs/round-3/ideas/obsidian/obsidian.tex:824"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:230",
+            "docs/round-3/ideas/obsidian/obsidian.tex:290",
+            "docs/round-3/ideas/obsidian/obsidian.tex:824"
+          ],
+          "qualification": "Exact values, contexts, branch coverage, and source origins retained; support is not claimed mathematically minimal.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 230,
+              "line_text": "\\subsection{Carrier typing and refinement typing}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 290,
+              "line_text": "\\subsection{Scopes, support, and branch joins}\\label{sec:support}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 824,
+              "line_text": "\\subsection{Evidence records and cache reuse}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:285",
+            "docs/round-3/ideas/obsidian/obsidian.tex:829"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:285",
+            "docs/round-3/ideas/obsidian/obsidian.tex:829"
+          ],
+          "qualification": "Chosen ring operations, topology, measure, and actions are semantic inputs; proof irrelevance cannot choose or identify structural data.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 285,
+              "line_text": "\\subsection{Proof properties versus mathematical structure}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 829,
+              "line_text": "Evidence involving a chosen topology, measure, or scalar structure must retain that choice. Two terms printing as \\code{f} are not the same request merely because their strings match. Source edits that change only proof presentation can preserve the mathematical request; edits changing definitions, quantifiers, branch selection, or data-bearing instances cannot.",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "partial",
+          "mark": "P",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:264",
+            "docs/round-3/ideas/obsidian/obsidian.tex:811",
+            "docs/round-3/ideas/obsidian/obsidian.tex:957"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:264",
+            "docs/round-3/ideas/obsidian/obsidian.tex:811",
+            "docs/round-3/ideas/obsidian/obsidian.tex:957"
+          ],
+          "qualification": "Contract application and dependent intermediate-witness composition are explicit; relational weakening is illustrated, but a separate full pre/postcondition variance theorem is not developed.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 264,
+              "line_text": "\\textbf{Contract application.} If",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 811,
+              "line_text": "\\subsection{Dependent guard composition}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 957,
+              "line_text": "def Observation.weaken",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:278",
+            "docs/round-3/ideas/obsidian/obsidian.tex:355"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:278",
+            "docs/round-3/ideas/obsidian/obsidian.tex:355"
+          ],
+          "qualification": "Demand-driven bounded transitions and fun_prop reuse; route failure is not falsity or a license to shrink the requested domain.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 278,
+              "line_text": "\\subsection{Bidirectionality and bounded search}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 355,
+              "line_text": "\\subsection{Demand planning and its limits}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:309",
+            "docs/round-3/ideas/obsidian/obsidian.tex:345",
+            "docs/round-3/ideas/obsidian/obsidian.tex:588"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:309",
+            "docs/round-3/ideas/obsidian/obsidian.tex:345",
+            "docs/round-3/ideas/obsidian/obsidian.tex:588"
+          ],
+          "qualification": "Lawful-use signatures distinguish point/neighborhood/almost-everywhere/coefficient guarantees and residual identification of an existing root.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 309,
+              "line_text": "\\section{Lawful-use signatures: properties meet relations}\\label{sec:relations}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 345,
+              "line_text": "\\subsection{Precision is a dependent input, not a confidence score}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 588,
+              "line_text": "\\subsection{Residual certificates remain an inherited computational service}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:618",
+            "docs/round-3/ideas/obsidian/obsidian.tex:625",
+            "docs/round-3/ideas/obsidian/obsidian.tex:656"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:618",
+            "docs/round-3/ideas/obsidian/obsidian.tex:625",
+            "docs/round-3/ideas/obsidian/obsidian.tex:656"
+          ],
+          "qualification": "Length handoff correspondence is narrower than original behavioral truth; operational statuses and non-realizable abstract witnesses cannot refute the original target.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 618,
+              "line_text": "\\subsection{Current source adds a specialized behavioral boundary}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 625,
+              "line_text": "\\subsection{The adapter Obsidian should implement}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 656,
+              "line_text": "\\subsection{Negative outcomes and behavioral evidence}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:674",
+            "docs/round-3/ideas/obsidian/obsidian.tex:714",
+            "docs/round-3/ideas/obsidian/obsidian.tex:727"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:674",
+            "docs/round-3/ideas/obsidian/obsidian.tex:714",
+            "docs/round-3/ideas/obsidian/obsidian.tex:727"
+          ],
+          "qualification": "Sparse integer operation denotation and certificate paper proof; source equality and checked execution are separate missing implementation obligations.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 674,
+              "line_text": "\\subsection{Representation and denotation}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 714,
+              "line_text": "\\begin{theorem}[Soundness of the coefficient certificate]\\label{thm:cert}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 727,
+              "line_text": "To close a Lean goal about expressions \\(E,E_i\\), the adapter also needs checked reification equalities",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:192",
+            "docs/round-3/ideas/obsidian/obsidian.tex:307",
+            "docs/round-3/ideas/obsidian/obsidian.tex:838"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:192",
+            "docs/round-3/ideas/obsidian/obsidian.tex:307",
+            "docs/round-3/ideas/obsidian/obsidian.tex:838"
+          ],
+          "qualification": "Named reasons constrain method; final kernel validity does not prove statement/rendering intent or unused assertions.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 192,
+              "line_text": "\\subsection{Claims, reasons, and delegated details}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 307,
+              "line_text": "This is a paper argument about the specified core, not a machine-checked compiler-correctness theorem. Rechecking emitted terms still matters. More importantly, term validity does not establish that a compromised parser or renderer represented the author's intended statement. The source-to-statement interpretation and the exported challenge statement remain separate validation surfaces, as Lean's own validation guidance emphasizes \\cite{validation}.",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 838,
+              "line_text": "\\subsection{Trusted boundaries and publication}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:846",
+            "docs/round-3/ideas/obsidian/obsidian.tex:855",
+            "docs/round-3/ideas/obsidian/obsidian.tex:906"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/obsidian/obsidian.tex:846",
+            "docs/round-3/ideas/obsidian/obsidian.tex:855",
+            "docs/round-3/ideas/obsidian/obsidian.tex:906"
+          ],
+          "qualification": "Matched service baseline and renderer-only treatment; satisfiable test contexts and semantic reading; library or renderer can be sufficient.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 846,
+              "line_text": "\\subsection{A first implementation that tests the type-system idea}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 855,
+              "line_text": "\\subsection{The comparison must not have a weak Lean baseline}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            },
+            {
+              "path": "docs/round-3/ideas/obsidian/obsidian.tex",
+              "line": 906,
+              "line_text": "\\subsection{Stopping rules}",
+              "source_git_blob": "4d426bb3cf35b3238f96a5baee324f36e96787f4",
+              "source_checkout_sha256": "6cde5861aafb9d912a91abcaf0c17709092b03bea9d2c44cf8d38c79f0cd6f51"
+            }
+          ]
+        }
+      }
+    },
+    "schist": {
+      "source_review": "docs/round-3/synthesis/evidence/schist-tephra-trellis/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:499",
+            "docs/round-3/ideas/schist/schist.tex:1382"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:499",
+            "docs/round-3/ideas/schist/schist.tex:1382"
+          ],
+          "qualification": "Ordinary subtype/context translation and written relative preservation; no implemented or verified compiler.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 499,
+              "line_text": "\\section{A conservative core calculus}\\label{sec:calculus}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1382,
+              "line_text": "by their actual relation, and using the resulting demands as contracts for",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:440",
+            "docs/round-3/ideas/schist/schist.tex:601"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:440",
+            "docs/round-3/ideas/schist/schist.tex:601"
+          ],
+          "qualification": "Open evidence rows retain the underlying term; scopes, allowed assumptions, and typed context embeddings govern reuse.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 440,
+              "line_text": "\\subsection{Layer II: proof-backed refinements of an existing object}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 601,
+              "line_text": "\\subsection{Scope, assumption masks, and context embeddings}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:429",
+            "docs/round-3/ideas/schist/schist.tex:1078"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:429",
+            "docs/round-3/ideas/schist/schist.tex:1078"
+          ],
+          "qualification": "Lexical structure environment is meaning-bearing data selected before property search, not a global instance oracle.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 429,
+              "line_text": "\\subsection{Layer I: carrier and computational structure}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1078,
+              "line_text": "\\subsection{A lexical structure environment}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:570",
+            "docs/round-3/ideas/schist/schist.tex:676",
+            "docs/round-3/ideas/schist/schist.tex:760"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:570",
+            "docs/round-3/ideas/schist/schist.tex:676",
+            "docs/round-3/ideas/schist/schist.tex:760"
+          ],
+          "qualification": "Extrinsic consequence, ordered relational premises, whole-function and higher-order laws; total function contracts remain distinct from partial domains.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 570,
+              "line_text": "\\subsection{An extrinsic function contract}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 676,
+              "line_text": "\\subsection{Relational requirements}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 760,
+              "line_text": "\\subsection{Multi-input and higher-order behavior}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:639",
+            "docs/round-3/ideas/schist/schist.tex:695"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:639",
+            "docs/round-3/ideas/schist/schist.tex:695"
+          ],
+          "qualification": "Prefers backward sufficient-demand propagation plus indexed cheap facts; permits a small terminating entailment fragment without a closure-completeness theorem.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 639,
+              "line_text": "\\subsection{A method tells the elaborator what it needs}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 695,
+              "line_text": "\\subsection{Why backward search is preferable to unrestricted property closure}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:461",
+            "docs/round-3/ideas/schist/schist.tex:1147"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:461",
+            "docs/round-3/ideas/schist/schist.tex:1147"
+          ],
+          "qualification": "Relations retain original anchors, region and precision; the consumer receives only a proved relation-specific bridge.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 461,
+              "line_text": "\\subsection{Layer III: relations and observations}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1147,
+              "line_text": "\\subsection{Jet precision is an index, not an exactness badge}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:1201",
+            "docs/round-3/ideas/schist/schist.tex:1244",
+            "docs/round-3/ideas/schist/schist.tex:1265"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:1201",
+            "docs/round-3/ideas/schist/schist.tex:1244",
+            "docs/round-3/ideas/schist/schist.tex:1265"
+          ],
+          "qualification": "Current callback and Length boundaries credited; proof/data/edit requests separated, original-target proof or adequacy bridge required. Does not derive the List Empty realizability condition.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1201,
+              "line_text": "\\subsection{The current baseline is richer than bare type inhabitation}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1244,
+              "line_text": "\\subsection{A concrete adapter protocol}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1265,
+              "line_text": "\\subsection{Behavior-guided search without behavior laundering}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:1498",
+            "docs/round-3/ideas/schist/SchistCore.lean:98",
+            "docs/round-3/ideas/schist/SchistCore.lean:125"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:1498",
+            "docs/round-3/ideas/schist/SchistCore.lean:98",
+            "docs/round-3/ideas/schist/SchistCore.lean:125"
+          ],
+          "qualification": "Tiny natural affine normalizer has explicit denotation, soundness and definitionally reified original target in uncompiled source; no general source reifier.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1498,
+              "line_text": " e ::= n\\mid x\\mid e_1+e_2\\mid n\\cdot e.",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/SchistCore.lean",
+              "line": 98,
+              "line_text": "theorem eval_nf (e : Expr) (x : Nat) :",
+              "source_git_blob": "fedb6f80a98354b33ead040a15e597911470cde4",
+              "source_checkout_sha256": "bae9c02727f8926f19caa3af8412265b398aa8ea9d82b216f313619295ba723d"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/SchistCore.lean",
+              "line": 125,
+              "line_text": "theorem original_target (x : Nat) : 3 * (x + 2) = 3 * x + 6 := by",
+              "source_git_blob": "fedb6f80a98354b33ead040a15e597911470cde4",
+              "source_checkout_sha256": "bae9c02727f8926f19caa3af8412265b398aa8ea9d82b216f313619295ba723d"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:409",
+            "docs/round-3/ideas/schist/schist.tex:1443",
+            "docs/round-3/ideas/schist/schist.tex:1579"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:409",
+            "docs/round-3/ideas/schist/schist.tex:1443",
+            "docs/round-3/ideas/schist/schist.tex:1579"
+          ],
+          "qualification": "Required method versus hint, frozen theorem versus generated guard, and rendered mathematical meaning remain separate obligations.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 409,
+              "line_text": "\\subsection{Reasons are either requirements or hints}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1443,
+              "line_text": "have the same proposition but different explanatory roles. The source contract",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1579,
+              "line_text": "\\subsection{The published mathematical statement is not a pretty paraphrase}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/schist/schist.tex:1626",
+            "docs/round-3/ideas/schist/schist.tex:1700"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/schist/schist.tex:1626",
+            "docs/round-3/ideas/schist/schist.tex:1700"
+          ],
+          "qualification": "Five nested arms isolate libraries, services, property inference and narrative syntax; charge infrastructure and stop if matched Lean wins.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1626,
+              "line_text": "\\subsection{Separate five treatments}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            },
+            {
+              "path": "docs/round-3/ideas/schist/schist.tex",
+              "line": 1700,
+              "line_text": "\\subsection{Reader accuracy and stopping criteria}",
+              "source_git_blob": "45cf4ee6b142071a559e6908a09dd411d7a8515b",
+              "source_checkout_sha256": "749c2949e399378560d19a00a9a4b1203331e495883734f0b5d92ad3b6521fe7"
+            }
+          ]
+        }
+      }
+    },
+    "tephra": {
+      "source_review": "docs/round-3/synthesis/evidence/schist-tephra-trellis/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:298",
+            "docs/round-3/ideas/tephra/tephra.tex:384"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:298",
+            "docs/round-3/ideas/tephra/tephra.tex:384"
+          ],
+          "qualification": "Bidirectional property judgment has ordinary Lean translation; written small-calculus result and uncompiled reference encoding only.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 298,
+              "line_text": "\\subsection{Judgments and evidence}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 384,
+              "line_text": "\\subsection{A conservative elaboration claim, with its proper scope}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:276",
+            "docs/round-3/ideas/tephra/tephra.tex:395",
+            "docs/round-3/ideas/tephra/tephra.tex:418"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:276",
+            "docs/round-3/ideas/tephra/tephra.tex:395",
+            "docs/round-3/ideas/tephra/tephra.tex:418"
+          ],
+          "qualification": "Same local object with separate evidence; exact ordered dependent guards and checked context maps, no substitution by display identity.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 276,
+              "line_text": "\\subsection{Two representations of one refinement discipline}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 395,
+              "line_text": "\\subsection{A proof index is not a bag of attractive facts}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 418,
+              "line_text": "\\subsection{Reuse through checked context maps}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:259",
+            "docs/round-3/ideas/tephra/tephra.tex:423"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:259",
+            "docs/round-3/ideas/tephra/tephra.tex:423"
+          ],
+          "qualification": "Object-bound dictionaries and map arguments form a structure footprint; classification follows semantic role, not class/structure syntax.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 259,
+              "line_text": "\\subsection{Four strata that should not be collapsed}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 423,
+              "line_text": "\\subsection{Structure footprints}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:330",
+            "docs/round-3/ideas/tephra/tephra.tex:348",
+            "docs/round-3/ideas/tephra/tephra.tex:367"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:330",
+            "docs/round-3/ideas/tephra/tephra.tex:348",
+            "docs/round-3/ideas/tephra/tephra.tex:367"
+          ],
+          "qualification": "Consequence direction and inter-stage precondition bridge explicit; actual intermediate witness retained; total guarantee distinguished from admissible-input function.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 330,
+              "line_text": "\\subsection{Dependent arrows and their two meanings}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 348,
+              "line_text": "\\subsection{Behavioral subtyping has a direction}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 367,
+              "line_text": "\\subsection{A compositional rule, including the missing bridge}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:468",
+            "docs/round-3/ideas/tephra/tephra.tex:1045"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:468",
+            "docs/round-3/ideas/tephra/tephra.tex:1045"
+          ],
+          "qualification": "Cheap deterministic forward consequences then bounded backward demand search; no principal strongest refinement. A unique weakest registered guard is not guaranteed merely by finiteness.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 468,
+              "line_text": "\\subsection{An observation-demand calculus}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 1045,
+              "line_text": "\\subsection{Forward facts and backward demands}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:440",
+            "docs/round-3/ideas/tephra/tephra.tex:459",
+            "docs/round-3/ideas/tephra/tephra.tex:909"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:440",
+            "docs/round-3/ideas/tephra/tephra.tex:459",
+            "docs/round-3/ideas/tephra/tephra.tex:909"
+          ],
+          "qualification": "Commuting squares, joint faithfulness, and witness realizability separated; finite-prefix example tests all-prefix universal coverage.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 440,
+              "line_text": "\\subsection{The commuting-square contract}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 459,
+              "line_text": "\\subsection{Observation coverage is a separate theorem}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 909,
+              "line_text": "\\subsection{A missing behavioral premise: observation realizability}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:880",
+            "docs/round-3/ideas/tephra/tephra.tex:892",
+            "docs/round-3/ideas/tephra/tephra.tex:909"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:880",
+            "docs/round-3/ideas/tephra/tephra.tex:892",
+            "docs/round-3/ideas/tephra/tephra.tex:909"
+          ],
+          "qualification": "Exact provider laws plus positive/negative abstraction directions; List Empty counterexample forbids unrealizable abstract hard rejection.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 880,
+              "line_text": "\\subsection{Proof-linked provider laws}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 892,
+              "line_text": "\\subsection{Positive and negative abstract reasoning need different bridges}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 909,
+              "line_text": "\\subsection{A missing behavioral premise: observation realizability}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:698",
+            "docs/round-3/ideas/tephra/tephra.tex:740",
+            "docs/round-3/ideas/tephra/tephra.tex:762"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:698",
+            "docs/round-3/ideas/tephra/tephra.tex:740",
+            "docs/round-3/ideas/tephra/tephra.tex:762"
+          ],
+          "qualification": "Sparse integer-polynomial denotation and certificate theorem proved on paper; source-specific reification required but not implemented by TephraCore or Python model.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 698,
+              "line_text": "\\subsection{The minimal polynomial language}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 740,
+              "line_text": "\\subsection{An ideal-membership certificate and its full theorem}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 762,
+              "line_text": "\\subsection{Reification is a separate, source-specific obligation}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:411",
+            "docs/round-3/ideas/tephra/tephra.tex:1061",
+            "docs/round-3/ideas/tephra/tephra.tex:1068"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:411",
+            "docs/round-3/ideas/tephra/tephra.tex:1061",
+            "docs/round-3/ideas/tephra/tephra.tex:1068"
+          ],
+          "qualification": "Statement meaning frozen; method nodes must actually instantiate advertised theorem; all intermediate authored claims and display guarantees checked independently.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 411,
+              "line_text": "\\subsection{Freeze meaning, not every proof metavariable}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 1061,
+              "line_text": "\\subsection{Reasons can be requirements, not just hints}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 1068,
+              "line_text": "\\subsection{Transactional acceptance and publication}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:1145",
+            "docs/round-3/ideas/tephra/tephra.tex:1157"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/tephra/tephra.tex:1145",
+            "docs/round-3/ideas/tephra/tephra.tex:1157"
+          ],
+          "qualification": "Matched fully equipped Lean, inference-only then surface treatments; separate blinded reading study, development/holdout distinction and library-only stopping outcome.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 1145,
+              "line_text": "\\subsection{Three implementation treatments and a separate reading study}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            },
+            {
+              "path": "docs/round-3/ideas/tephra/tephra.tex",
+              "line": 1157,
+              "line_text": "\\subsection{What to measure}",
+              "source_git_blob": "e6ff6b338e358973ae23668b68535d7158a17d23",
+              "source_checkout_sha256": "f87ff5dc948b99f186944c3438dc71fbf3ec688a16e553abc12ec104e61cf719"
+            }
+          ]
+        }
+      }
+    },
+    "trellis": {
+      "source_review": "docs/round-3/synthesis/evidence/schist-tephra-trellis/convergence.json",
+      "dimensions": {
+        "core": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:301",
+            "docs/round-3/ideas/trellis/trellis.tex:341",
+            "docs/round-3/ideas/trellis/trellis.tex:875"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:301",
+            "docs/round-3/ideas/trellis/trellis.tex:341",
+            "docs/round-3/ideas/trellis/trellis.tex:875"
+          ],
+          "qualification": "Small complete core has written translation and restricted coherence argument; no Lean companion or compiled frontend.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 301,
+              "line_text": "\\section{Core typing judgments and conservative elaboration}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 341,
+              "line_text": "\\subsection{Local refinements and exported packages}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 875,
+              "line_text": "\\subsection{The recommended answer: not for the first implementation}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "anchor": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:243",
+            "docs/round-3/ideas/trellis/trellis.tex:423"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:243",
+            "docs/round-3/ideas/trellis/trellis.tex:423"
+          ],
+          "qualification": "Proof-only local rows preserve raw term; typed dependencies and context transport required; Python scope prefixes explicitly limited.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 243,
+              "line_text": "\\subsection{Refinements without object replacement}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 423,
+              "line_text": "\\subsection{Cycles, branches, and unknown properties}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "structures": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:446",
+            "docs/round-3/ideas/trellis/trellis.tex:465",
+            "docs/round-3/ideas/trellis/trellis.tex:472"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:446",
+            "docs/round-3/ideas/trellis/trellis.tex:465",
+            "docs/round-3/ideas/trellis/trellis.tex:472"
+          ],
+          "qualification": "Three semantic roles: operations, laws, witness data; selected dictionaries and routes rechecked across imports.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 446,
+              "line_text": "\\subsection{The boundary that proof irrelevance does not erase}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 465,
+              "line_text": "\\subsection{A three-part classification of implicit information}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 472,
+              "line_text": "\\subsection{Predictable elaboration across imports}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "behavior": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:489",
+            "docs/round-3/ideas/trellis/trellis.tex:514",
+            "docs/round-3/ideas/trellis/trellis.tex:534"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:489",
+            "docs/round-3/ideas/trellis/trellis.tex:514",
+            "docs/round-3/ideas/trellis/trellis.tex:534"
+          ],
+          "qualification": "Pre/post variance and witness-retaining composition; analytical relation and region remain visible; recursion/operational obligations separate.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 489,
+              "line_text": "\\section{Behavioral types and their proof rules}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 514,
+              "line_text": "\\end{proof}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 534,
+              "line_text": "\\subsection{Regularity is behavioral information, not a formula annotation}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "bounded": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:382",
+            "docs/round-3/ideas/trellis/trellis.tex:394",
+            "docs/round-3/ideas/trellis/trellis.tex:418"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:382",
+            "docs/round-3/ideas/trellis/trellis.tex:394",
+            "docs/round-3/ideas/trellis/trellis.tex:418"
+          ],
+          "qualification": "Finite grounded rule closure has termination and relative completeness; costs exclude rule generation, instantiation, typechecking and proof size.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 382,
+              "line_text": "\\subsection{An open logic with a finite automatic fragment}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 394,
+              "line_text": "\\subsection{Closure and its precise guarantee}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 418,
+              "line_text": "\\subsection{What is and is not a principal refinement}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "observation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:477",
+            "docs/round-3/ideas/trellis/trellis.tex:825",
+            "docs/round-3/ideas/trellis/trellis.tex:923"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:477",
+            "docs/round-3/ideas/trellis/trellis.tex:825",
+            "docs/round-3/ideas/trellis/trellis.tex:923"
+          ],
+          "qualification": "Relation-specific preservation/reflection, exact observation kinds and entailment-based reuse; no universal strength rank.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 477,
+              "line_text": "\\subsection{Behavioral interfaces for representation maps}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 825,
+              "line_text": "\\subsection{General symbolic computation fits the same boundary}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 923,
+              "line_text": "\\subsection{Editing, cases, and reuse}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "leant": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:840",
+            "docs/round-3/ideas/trellis/trellis.tex:851",
+            "docs/round-3/ideas/trellis/trellis.tex:867"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:840",
+            "docs/round-3/ideas/trellis/trellis.tex:851",
+            "docs/round-3/ideas/trellis/trellis.tex:867"
+          ],
+          "qualification": "Law registry, fixed behavioral predicate, exact edit replay and direct-theorem controls; length is insufficient for permutation, no explicit List Empty derivation.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 840,
+              "line_text": "\\subsection{The contract is supplied before the candidate is accepted}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 851,
+              "line_text": "\\subsection{Length contracts are useful, but not enough for every request}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 867,
+              "line_text": "\\subsection{Exact edits and retained authority}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "checker": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:764",
+            "docs/round-3/ideas/trellis/trellis.tex:805",
+            "docs/round-3/ideas/trellis/trellis.tex:940"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:764",
+            "docs/round-3/ideas/trellis/trellis.tex:805",
+            "docs/round-3/ideas/trellis/trellis.tex:940"
+          ],
+          "qualification": "Affine nonnegative rational combinations: paper denotation/soundness and exact Python reifier/checker; all three Lean bridges remain implementation work.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 764,
+              "line_text": "\\subsection{The first certificate should match an actual demand}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 805,
+              "line_text": "\\subsection{The reification bridge is part of the theorem application}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 940,
+              "line_text": "\\subsection{What the companion implements}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "fidelity": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:374",
+            "docs/round-3/ideas/trellis/trellis.tex:911",
+            "docs/round-3/ideas/trellis/trellis.tex:918"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:374",
+            "docs/round-3/ideas/trellis/trellis.tex:911",
+            "docs/round-3/ideas/trellis/trellis.tex:918"
+          ],
+          "qualification": "Distinguishes statement, typed method application, public-interface premises, supplied premises and retained proof dependencies.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 374,
+              "line_text": "\\subsection{Statement holes versus proof holes}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 911,
+              "line_text": "\\subsection{One semantic source for code and mathematical presentation}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 918,
+              "line_text": "\\subsection{A stated reason is a constraint, not decorative prose}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        },
+        "evaluation": {
+          "status": "explicit",
+          "mark": "E",
+          "anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:983",
+            "docs/round-3/ideas/trellis/trellis.tex:988",
+            "docs/round-3/ideas/trellis/trellis.tex:1000"
+          ],
+          "source_review_anchors": [
+            "docs/round-3/ideas/trellis/trellis.tex:983",
+            "docs/round-3/ideas/trellis/trellis.tex:988",
+            "docs/round-3/ideas/trellis/trellis.tex:1000"
+          ],
+          "qualification": "Nested library/inference/synthesis/syntax treatments plus ablation, maintenance, import sensitivity and tail latency; keep only empirically useful layers.",
+          "anchor_details": [
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 983,
+              "line_text": "\\subsection{Treatments that isolate the source of a gain}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 988,
+              "line_text": "\\subsection{Metrics must include mathematics and maintenance}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            },
+            {
+              "path": "docs/round-3/ideas/trellis/trellis.tex",
+              "line": 1000,
+              "line_text": "\\subsection{When to stop adding language}",
+              "source_git_blob": "149c24b77003a5a0a1bad50fdcb3bb6222121761",
+              "source_checkout_sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "anchor_corrections": {
+    "docs/round-3/ideas/gneiss/gneiss.tex:1521": {
+      "corrected": "docs/round-3/ideas/gneiss/gneiss.tex:1522",
+      "reason": "The earlier lane locator pointed at a blank line. The lane was corrected to the substantive rendering/fidelity passage before consolidation; its qualification and mark were unchanged."
+    },
+    "docs/round-3/ideas/schist/schist.tex:1565": {
+      "corrected": "docs/round-3/ideas/schist/schist.tex:1579",
+      "reason": "The earlier lane locator pointed at a blank line. The lane was corrected to the substantive rendering/fidelity passage before consolidation; its qualification and mark were unchanged."
+    }
+  },
+  "counts": {
+    "reports": 9,
+    "dimensions": 10,
+    "cells": 90,
+    "total": {
+      "explicit": 89,
+      "partial": 1,
+      "absent": 0
+    },
+    "per_dimension": {
+      "core": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "anchor": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "structures": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "behavior": {
+        "explicit": 8,
+        "partial": 1,
+        "absent": 0
+      },
+      "bounded": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "observation": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "leant": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "checker": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "fidelity": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      },
+      "evaluation": {
+        "explicit": 9,
+        "partial": 0,
+        "absent": 0
+      }
+    }
+  }
+}
