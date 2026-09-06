@@ -1,0 +1,815 @@
+% Build: latexmk -pdf -interaction=nonstopmode -halt-on-error unified_report.tex
+% Self-contained: embedded bibliography, no external figures, standard packages only.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx,longtable,array,multirow}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{xurl}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage[most]{tcolorbox}
+\usepackage{pifont}
+\usepackage[colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black]{hyperref}
+\usepackage{bookmark}
+
+\definecolor{ink}{HTML}{1F3345}
+\definecolor{muted}{HTML}{55636E}
+\definecolor{panel}{HTML}{F3F5F7}
+\definecolor{rulegray}{HTML}{CCD5DC}
+\hypersetup{pdftitle={Nine Blueprints for a Mathematician's Proof Language over Lean},pdfauthor={Claude (Anthropic), for Vladimir Reshetnikov},pdfsubject={Unified review and assessment of nine independent design reports},bookmarksnumbered=true}
+
+\titleformat{\section}{\Large\bfseries\sffamily\color{ink}}{\thesection}{0.65em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily\color{ink}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.6ex plus 1ex}{1.1ex}
+\titlespacing*{\subsection}{0pt}{2.0ex plus .6ex}{.7ex}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\setcounter{tocdepth}{2}
+\setlist{nosep,leftmargin=1.6em}
+\renewcommand{\arraystretch}{1.12}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily Nine blueprints for a proof language over Lean}
+\fancyhead[R]{\small\sffamily Unified review}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\lstdefinestyle{code}{basicstyle=\small\ttfamily,columns=fullflexible,keepspaces=true,breaklines=true,showstringspaces=false,backgroundcolor=\color{panel},frame=single,rulecolor=\color{rulegray},framerule=0.35pt,framesep=6pt,xleftmargin=6pt,xrightmargin=6pt,aboveskip=0.8em,belowskip=0.6em,tabsize=2}
+\lstset{style=code}
+\BeforeBeginEnvironment{lstlisting}{\par\noindent\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{lstlisting}{\end{minipage}\par}
+
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\Yy}{$\bullet$}
+\newcommand{\Pp}{$\circ$}
+\newcommand{\Nn}{--}
+\newcommand{\MS}{\textsc{MathStep}}
+\newcommand{\Co}{\textsc{Contour}}
+\newcommand{\Lo}{\textsc{Loom}}
+\newcommand{\ML}{\textsc{MPL}}
+\newcommand{\Mo}{\textsc{Mosaic}}
+\newcommand{\Mv}{\textsc{Motive}}
+\newcommand{\Ou}{\textsc{Outline}}
+\renewcommand{\Re}{\textsc{Reason}} % overrides the real-part symbol, which is unused here
+\newcommand{\Sp}{\textsc{Spine}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}p{4.2mm}}
+\newtcolorbox{keybox}[1][]{colback=panel,colframe=rulegray,boxrule=0.5pt,arc=1mm,left=8pt,right=8pt,top=6pt,bottom=6pt,breakable,#1}
+\theoremstyle{definition}
+\newtheorem{observation}{Observation}[section]
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+
+\begin{document}
+
+\begin{titlepage}
+\vspace*{12mm}
+{\sffamily\small\color{muted}UNIFIED REVIEW \quad / \quad PROOF-LANGUAGE DESIGN \quad / \quad LEAN\par}
+\vspace{10mm}
+{\sffamily\bfseries\color{ink}\fontsize{28}{34}\selectfont Nine Blueprints for a\\Mathematician's Proof Language\\over Lean\par}
+\vspace{6mm}
+{\sffamily\LARGE A unified review, convergence analysis,\\and assessment of nine independent design reports\par}
+\vspace{12mm}
+\begin{keybox}
+\textbf{In one paragraph.} Nine agents were asked, independently and in parallel, to diagnose what makes Lean proofs longer and less natural than a mathematician's argument, and to design a better language that stays rigorously checkable. This document reads all nine reports in full, tallies forty design commitments across them, and finds an unusually strong consensus: a Lean-hosted layer whose unit is a typed mathematical step with a contract, a frozen theorem statement, a scoped obligation ledger, certified representation views, a synthesis boundary that never turns search failure into refutation, and search-free replay. It then tests the shared diagnosis against the whole ProveIt corpus rather than the twenty-three files the reports sampled, identifies where the reports differ, assesses which ideas are strong, weak, or under-specified, and adds several points none of the reports make: that almost all proposed \emph{methods} already exist as Mathlib tactics so the missing piece is an accounting layer, that Mathlib's \code{says} combinator is already a miniature of the discovery/replay split, that contracts should be annotated theorem types rather than a new method language, and that definitions, not proofs, are the larger lever for ``natural expression.''
+\end{keybox}
+\vfill
+{\sffamily Prepared by Claude (Anthropic) for Vladimir Reshetnikov\par}
+{\sffamily 5 September 2026\par}
+\vspace{4mm}
+{\small\color{muted}Status. A synthesis of design documents, plus a text-level audit of an existing Lean corpus. No proof language was implemented, no Lean code was compiled, and no claim below about future usability has been measured. Tallies of what each report says are this reviewer's readings of the sources and may be disputed at the margin; the sources are cited so that every tally can be checked.\par}
+\end{titlepage}
+
+\begin{abstract}
+\noindent Nine reports under \code{docs/ideas} propose languages named \MS, \Co, \Lo, \ML{} (``Mathematical Intent, Formal Evidence''), \Mo, \Mv, \Ou{} (``Proofs at the Scale of Ideas''), \Re, and \Sp. Each is grounded in a small sample of the ProveIt repository and in the architecture of Leant. This review establishes three things. First, the reports converge on a single architecture: of forty design commitments extracted from the texts, twenty-nine are held unanimously and five more by at least seven of nine; the spread that remains concerns specific method families and synthesis engineering, not the design. Second, the shared diagnosis survives a quantitative check. A heuristic audit of the 1,004-file FabiusFunction development (about 90,000 tactic invocations) finds that roughly a third of tactic invocations are representation, side-condition, or index bookkeeping, that this share is flat across proof lengths, and that long proofs are already organised as chains of \code{have} assertions, which is exactly the shape the proposed languages want to make primary. Third, the reports share blind spots. Nearly every method they propose exists in Mathlib at the pinned toolchain (\code{gcongr}, \code{positivity}, \code{push_cast}, \code{zify}, \code{fun_prop}, \code{filter_upwards}, \code{wlog}, the \code{Finset.sum_bij} family), so the deliverable is an accounting layer over existing automation, not new automation; Mathlib's \code{says} combinator already implements the discovery-versus-replay split at the tactic level; and none of the reports treats definitions, elaboration performance, or instance management as sources of friction, although the corpus shows all three. The review closes with an assessment of each major idea, a consolidated adversarial test suite, a phased recommendation, and per-report summary cards.
+\end{abstract}
+
+\begingroup
+\small
+\tableofcontents
+\endgroup
+\clearpage
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The task and the material}
+The nine reports were produced independently, in parallel, from the same brief: analyse the shortcomings of Lean as a language for expressing mathematics, and brainstorm a better language that lets mathematicians express ideas concisely and naturally while remaining amenable to rigorous formal verification. Each report was asked to ground its analysis in Vladimir Reshetnikov's ProveIt repository (a large Lean 4 development, primarily around the Fabius function) and in Leant, an experimental Djex-based synthesis REPL for Lean~4. Table~\ref{tab:reports} lists them.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.11\textwidth}L{.27\textwidth}YL{.06\textwidth}L{.14\textwidth}@{}}
+\toprule
+Name & Directory under \code{docs/ideas} & ProveIt files sampled & Pages & Extra artifacts\\
+\midrule
+\MS & {\footnotesize\code{MathStep}} & AutonomousIteratedDeriv, AlgebraicInverseGermAnalytic, AliasQBinomialBridge, NaturalDeduction/Calculus & 42 & source manifest\\
+\Co & {\footnotesize\code{contour-proof-language}} & BinomialInversion, LambertWElementaryBounds, LagrangeInversionUniqueness, PascalTailIdentity & 38 & \code{grammar.ebnf}\\
+\Lo & {\footnotesize\code{loom_proof_language}} & AutonomousIteratedDeriv, AbelPolynomialSeries, AffineDifferenceOrbit & 30 & \\
+\ML & {\footnotesize\code{mathematical_proof_language}} & AbelPolynomialSeries, AutonomousIteratedDeriv, AssociatedStirling, JacobianConjecture/Scaling & 35 & \\
+\Mo & {\footnotesize\code{mosaic_proof_language}} & SharpFlatness, Regularity, FloorSqrtSum & 32 & \code{build.sh}\\
+\Mv & {\footnotesize\code{motive_proof_language_}\allowbreak\code{article}} & BinomialInversion, LambertWElementaryBounds, GeometricRichardson & 30 & \\
+\Ou & {\footnotesize\code{outline_proof_language}} & Basic, MeanValueBracket, QPascalSummation, Arithmetic, FloorSqrtSum & 34 & \\
+\Re & {\footnotesize\code{reason_proof_language}} & Basic, Arithmetic, AffineDifferenceOrbit, FloorSqrtSum & 32 & executable toy checker, 32 tests\\
+\Sp & {\footnotesize\code{Spine_Proof_Language}} & ThueMorsePrefix, AffineIndependentCopy, AlgebraicInverseGerm & 39 & build scripts\\
+\bottomrule
+\end{tabularx}
+\caption{The nine reports. Page counts are those of the shipped PDFs. All nine are dated 5 September 2026 and all pin ProveIt commit \code{24ce8bd7}; \Lo, \ML{} and \Sp{} pin Leant commit \code{3a40904b}, the others \code{c36adf11}, and \Re{} records no Leant commit.}
+\label{tab:reports}
+\end{table}
+
+Two facts about the material shape how the rest of this review should be read. The reports draw on twenty-three distinct ProveIt files, and their samples are almost disjoint: only six files are shared by more than one report. That makes agreement on \emph{which kinds of friction recur} informative, because the agreement was reached on different evidence. On the other hand, eight of the nine PDFs carry the same author metadata (``OpenAI'' or ``ChatGPT''), all nine are dated the same day, and all answered the same prompt. Their convergence is therefore best read as robustness of one model family's design instincts under resampling of the evidence, not as nine independent expert opinions. Section~\ref{sec:convergence-meaning} returns to what the convergence does and does not establish.
+
+\subsection{Method of this review}
+Every \code{.tex} source was read in full. From the texts I extracted forty design commitments (Section~\ref{sec:matrix}), scored each report on each, and collected each report's worked examples, negative tests, proposed method names, grammar, and roadmap. Where the reports quote or characterise Leant, I verified the claims against the local Leant checkout at commit \code{3a40904b}; the characterisation of the \code{Verified} wrapper, the fragment translator, and the candidate-quality and rewrite-analysis documents is accurate in every report that makes it.
+
+Because a local ProveIt checkout was available, I added something none of the reports could do at the time: a text-level audit of tactic usage across the entire FabiusFunction development (Section~\ref{sec:audit}). The checkout is at commit \code{7c4e3f10}, which is newer than the commit the reports pin; all twenty-three sampled files are present at the newer commit. The audit script and its output are shipped beside this document.
+
+Nothing was compiled. No proposed syntax was executed. Where I give a verdict on an idea, the verdict is an argument, not a measurement, and it is labelled as such.
+
+\subsection{Summary of findings}
+\begin{enumerate}
+\item \textbf{The diagnosis is shared and specific.} All nine locate the problem in granularity, not foundations: the unit of interaction in Lean is a tactic, while the unit of mathematical communication is a step such as ``reindex the sum'' or ``differentiate the identity on the open set.'' All nine classify the resulting verbosity into essentially the same four bins, and all nine find at least one existing proof that is already ideal and should not be touched.
+\item \textbf{The architecture is nearly unanimous.} Twenty-nine of forty commitments are held by all nine reports (Section~\ref{sec:matrix}). The unit of authorship has nine names and one definition. The nine ``central contract'' slogans are paraphrases of one sentence.
+\item \textbf{The corpus supports the diagnosis, with a correction.} Across about 90,000 tactic invocations, roughly 32\% are bookkeeping of the kinds the reports want to reconstruct; the share is flat across proof lengths; and 32\% of invocations are author-stated assertions, rising to 39\% in proofs over thirty lines. The correction is that analysis plumbing (filters, derivatives, integrals) is under-represented in the reports' samples relative to the corpus by a factor of about 2.5.
+\item \textbf{Most proposed methods already exist.} At the pinned toolchain, Mathlib provides a tactic or lemma family for nearly every method the reports name. The deliverable is an accounting layer: contracts, ledger, seal, explanation. Mathlib's \code{says} combinator already realises the discovery/replay split for single tactics, and the corpus does not use it.
+\item \textbf{The nine soundness arguments are one lemma}, and it is not where the risk is. The risk is statement fidelity, cost predictability, and explanation, on which no report has a theorem and all nine say so.
+\item \textbf{Shared blind spots.} Definitions and API design, type-class instance management, elaboration performance, and the fact that all nine keep theorem \emph{statements} in Lean, so that ``natural expression'' is promised for proofs only.
+\end{enumerate}
+
+\section{The shared diagnosis}
+\label{sec:diagnosis}
+
+\subsection{Granularity, not foundations}
+The reports agree that Lean's kernel, its elaboration architecture, its tactic framework, and Mathlib are not the obstacle. \Co{} says the reviewed code ``does not suggest that Lean's foundations are the main obstacle'' but ``a mismatch in granularity''; \MS{} warns against making Lean a straw man; \Mv{} stresses that Lean's implicit arguments already perform substantial reconstruction; \Sp{} calls its own proposal ``a conservative foundation, an ambitious interface.'' Every report keeps Lean's term language for formulas, Lean's kernel as the checker, and Lean's declarations as the mathematical library.
+
+What they blame is the \emph{default unit of interaction}. A mathematician writes ``differentiate the induction hypothesis and use the chain rule''; the Lean author writes a filter equality via \code{Filter.eventuallyEq_of_mem}, a derivative-congruence rewrite, a chain-rule composition, and a rewrite by the recurrence. The sentence and the script contain the same mathematics; the script additionally contains the library's representation choices. This is the diagnosis in all nine reports, illustrated in every one by a fragment of real ProveIt source.
+
+\subsection{Four kinds of detail}
+Each report proposes a taxonomy of what makes proofs long. Table~\ref{tab:taxonomy} aligns them. Names differ, but the partition is stable: a mathematical decision that must stay visible; a hypothesis whose \emph{existence} is essential even if its \emph{proof} is routine; a representation bridge that is reconstructible; and interface trivia that should disappear.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.11\textwidth}YYYY@{}}
+\toprule
+Report & Keep visible & Essential but reconstructible & Representation & Interface trivia\\
+\midrule
+\MS & essential mathematical content & routine derivation & representational friction & library-interface friction\\
+\Co & mathematical decision & scoped side conditions & representation management & logical assembly, method implementation\\
+\Lo & mathematical commitment & reconstructible detail & representation management & interaction overhead\\
+\ML & strategic detail & semantic detail & representational detail & incidental detail\\
+\Mo & logical structure & mathematical infrastructure & representation work & search residue\\
+\Mv & mathematical decision & representation obligation & representation obligation & interaction overhead\\
+\Ou & structural reasoning, discovery & local calculation, index management & representation & (same)\\
+\Re & logical structure & mathematical side conditions & representational overhead & (same)\\
+\Sp & mathematical cost & deductive cost & representation cost & (same)\\
+\bottomrule
+\end{tabularx}
+\caption{Nine taxonomies of proof length, aligned to a common four-way partition. Where a report uses three bins, the fourth column repeats the third.}
+\label{tab:taxonomy}
+\end{table}
+
+Every report also makes the same qualification: the partition is contextual. A cast identity can be the point of a theorem about truncated subtraction; a branch condition that is automatic in one section is a new hypothesis in another. Hence all nine reject a fixed global classification and propose \emph{expandable} presentation instead, with the reconstruction retained in a checkable form.
+
+\subsection{The already-short control}
+A striking shared move is that each report went looking for a counterexample to its own thesis and found one. Table~\ref{tab:control} lists the declaration each report identifies as already ideal Lean. The conclusion drawn is identical in all nine: a new language must not make good Lean longer, and a fair evaluation must compare against \emph{refactored} Lean with the same helper lemmas, not against the original script.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.11\textwidth}L{.42\textwidth}Y@{}}
+\toprule
+Report & Declaration found already ideal & Lesson drawn\\
+\midrule
+\MS & the algebraic-branch derivative as a syntax-directed method & compare against expert Lean using the same lemmas\\
+\Co & \code{le_log_one_add_mul_exp} (a readable \code{calc}) and single-expression corollaries & ``some existing Lean is already ideal''\\
+\Lo & the autonomous-equation module ``is already economical'' & a helper library may give most of the benefit\\
+\ML & \code{counterexample_scaling}: \code{funext; fin_cases; simp; field_simp} & ``existing Lean can already be very concise''\\
+\Mo & the absolute-difference Lipschitz corollary & the diagnosis is mixed, not sweeping\\
+\Mv & normalized Richardson polynomial: \code{rw} then \code{div_self} & the language must earn its place where bridges repeat\\
+\Ou & the inverse-error corollaries in MeanValueBracket & separate library, refactoring, automation, and language gains\\
+\Re & the Arithmetic file already extracts small reusable lemmas & do not compare only with unoptimised Lean\\
+\Sp & \code{existsUnique_germRoot} and a forward-difference proof & a language should not force short proofs into prose\\
+\bottomrule
+\end{tabularx}
+\caption{Negative controls found by each report.}
+\label{tab:control}
+\end{table}
+
+\subsection{Friction families and the evidence behind them}
+The most informative convergence is not in the taxonomy but in the concrete recurring operations. Table~\ref{tab:families} groups the worked examples by the mathematical operation whose formal implementation the report found disproportionate. Because the file samples are nearly disjoint, a family that appears in most reports appears in many different files.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.27\textwidth}L{.09\textwidth}Y@{}}
+\toprule
+Friction family & Reports & Files in which it was observed\\
+\midrule
+Cast and scalar transport ($\mathbb{N}\to\mathbb{Z}\to\mathbb{Q}\to R$, \code{algebraMap}, \code{push_cast}) & 9 of 9 & AliasQBinomialBridge, BinomialInversion, AbelPolynomialSeries, AssociatedStirling, FloorSqrtSum, Arithmetic, ThueMorsePrefix, LagrangeInversionUniqueness\\
+Finite-sum index management (range vs.\ interval, endpoint splitting, reindexing, congruence under a binder) & 9 of 9 & BinomialInversion, PascalTailIdentity, AffineDifferenceOrbit, QPascalSummation, ThueMorsePrefix, AssociatedStirling, AliasQBinomialBridge, FloorSqrtSum\\
+Ordered-field side conditions (positivity, nonzero denominators, sign when multiplying or cancelling, unit vs.\ nonzero) & 9 of 9 & LambertWElementaryBounds, GeometricRichardson, AlgebraicInverseGermAnalytic, SharpFlatness, MeanValueBracket, Scaling, AbelPolynomialSeries, AlgebraicInverseGerm\\
+Induction motive and generalisation & 9 of 9 & AutonomousIteratedDeriv, AffineDifferenceOrbit, SharpFlatness, QPascalSummation, PascalTailIdentity, ThueMorsePrefix, Arithmetic\\
+Local derivative and filter plumbing (open set to neighbourhood equality, chain rule, limits by continuity) & 7 of 9 & AutonomousIteratedDeriv, AffineDifferenceOrbit, AffineIndependentCopy, MeanValueBracket, Regularity\\
+Symmetry and ``without loss of generality'' as a checked reduction & 8 of 9 & Regularity, MeanValueBracket, Basic (evenness); theoretical in the rest\\
+Formal power series and exponential generating functions (coefficient extraction, \code{HasSubst} admissibility) & 4 of 9 & LagrangeInversionUniqueness, AbelPolynomialSeries, AssociatedStirling, AlgebraicInverseGerm\\
+\bottomrule
+\end{tabularx}
+\caption{Recurring friction families. Files are named without their directory prefix. The count is of reports that treat the family in a worked example or a dedicated section.}
+\label{tab:families}
+\end{table}
+
+Two smaller coincidences deserve mention because they are evidence of the same kind. All three reports that sampled \code{FloorSqrtSum.lean} (\Mo, \Ou, \Re) independently chose to re-prove the floor-square-root sum by double counting the set $\{(j,k): j^2 \le k \le n\}$, precisely so that the divisibility-by-six and non-truncation conditions become consequences of a counting balance rather than facts to be guessed. And four reports (\MS, \Lo, \ML, \Re) use the identical two-function counterexample $f(t)=t$, $g(t)=0$ at $t=0$ to explain why equality at a point cannot license differentiation. When independent designers reach for the same alternative proof and the same counterexample, the underlying friction is real and the intended contract is well-defined.
+
+\section{Testing the diagnosis against the corpus}
+\label{sec:audit}
+
+The reports sampled twenty-three files, about five thousand lines. The FabiusFunction development alone has 1,004 Lean files and roughly 249,000 non-blank, non-comment lines. This section reports a text-level audit of that whole subtree, using a small Python script shipped in \code{docs/unified_report/tools/}. The script strips comments, finds every \code{theorem} or \code{lemma}, and classifies each tactic invocation in its proof (a line whose first token is a tactic keyword, or a \code{calc} step) into one of ten families chosen to mirror the reports' taxonomy. The families and the classification rules are in Appendix~\ref{app:audit}. The audit is a heuristic on source text: it cannot see what a tactic did, it classifies a \code{rw} by the lemma names it mentions, and it counts a multi-line \code{have} as one assertion plus whatever tactic lines its sub-proof contains. Its purpose is to estimate proportions and to make the reports' qualitative claims falsifiable, not to certify anything.
+
+\subsection{What the corpus looks like}
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.12\textwidth}YL{.13\textwidth}L{.13\textwidth}L{.13\textwidth}L{.13\textwidth}@{}}
+\toprule
+Family & What it counts & Corpus (\%) & Corpus (count) & Sample (\%) & Sample (count)\\
+\midrule
+ASSERT & \code{have}, \code{obtain}, \code{calc} steps, \code{let}, \code{set}, \code{suffices} & 31.7 & 28,727 & 27.0 & 359\\
+REWRITE & \code{rw}/\code{simp} with ordinary library lemmas & 19.5 & 17,715 & 20.8 & 277\\
+STRUCT & \code{intro}, \code{refine}, \code{apply}, \code{exact}, \code{cases}, \code{induction}, \dots & 16.4 & 14,892 & 18.1 & 240\\
+ANALYSIS & \code{filter_upwards}, \code{fun_prop}, filter/derivative/integral lemmas & 7.2 & 6,524 & 2.9 & 38\\
+REPR & \code{change}, \code{show}, \code{unfold}, \code{dsimp}, \code{funext}, \code{ext}, \code{congr}, \code{convert} & 5.2 & 4,688 & 5.6 & 74\\
+INDEX & finite-sum, range/interval, and cardinality lemmas & 4.8 & 4,338 & 7.1 & 94\\
+NORM & \code{ring}, \code{field_simp}, \code{linear_combination}, \code{abel} & 4.4 & 3,965 & 3.5 & 47\\
+SIDE & \code{omega}, \code{linarith}, \code{positivity}, \code{norm_num}, \code{gcongr}, \code{bound}, \code{decide} & 4.3 & 3,941 & 6.2 & 82\\
+CAST & \code{push_cast}, \code{exact_mod_cast}, \code{zify}, cast and \code{map_*} lemmas & 4.0 & 3,604 & 5.9 & 78\\
+OBLIG & one-line \code{have ... := by <decision procedure>} & 2.5 & 2,243 & 3.0 & 40\\
+\midrule
+Total & tactic invocations & 100 & 90,637 & 100 & 1,329\\
+\bottomrule
+\end{tabularx}
+\caption{Tactic invocations by family, whole FabiusFunction subtree (1,004 files, 12,322 detected theorems, 1,300 of them term-mode) versus the twenty-three files sampled by the reports (274 theorems, 45 term-mode).}
+\label{tab:audit-mix}
+\end{table}
+
+Call the union of OBLIG, CAST, INDEX, REPR, NORM, SIDE and ANALYSIS the \emph{reconstructible} families: they are the invocations the nine reports want to move from the primary text into an expandable ledger. In the corpus this union is 32.3\% of all tactic invocations; in the reports' sample it is 34.1\%. The sample is representative in aggregate, and the reports' central quantitative intuition, that around a third of proof text is bookkeeping, is supported.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.12\textwidth}YYYYYYY@{}}
+\toprule
+Proof length (lines) & Theorems & Invocations & Share of all invocations & Recon.\ share & ASSERT & REWRITE & STRUCT\\
+\midrule
+$\le 3$ & 3,633 (29.5\%) & 3,483 & 3.8\% & 32.5\% & 5.1\% & 40.9\% & 21.5\%\\
+4--10 & 4,739 (38.5\%) & 19,140 & 21.1\% & 35.8\% & 20.9\% & 23.3\% & 20.1\%\\
+11--30 & 2,952 (24.0\%) & 34,457 & 38.0\% & 31.9\% & 33.1\% & 18.4\% & 16.6\%\\
+$> 30$ & 998 (8.1\%) & 33,557 & 37.0\% & 30.8\% & 39.2\% & 16.4\% & 13.6\%\\
+\bottomrule
+\end{tabularx}
+\caption{The same corpus by proof length. Median proof length is 6 lines, mean 11.6, 90th percentile 27, maximum 428.}
+\label{tab:audit-length}
+\end{table}
+
+\subsection{What the audit says about the reports}
+\begin{observation}[The reconstructible share is flat]
+The reconstructible share is 31--36\% in every length bucket. Bookkeeping is not concentrated in long proofs; it is a constant tax. This favours the reports' proposal of a \emph{uniform} step layer over a special tool for hard proofs.
+\end{observation}
+
+\begin{observation}[The corpus is already spine-shaped]
+Author-stated assertions are 32\% of all invocations and 39\% in proofs over thirty lines; \code{have} is the single most common tactic head (22,919 uses), and the most common bigram is \code{have} followed by \code{have} (8,111 times). Three quarters of all tactic work sits in proofs longer than ten lines, and those proofs are organised as chains of assertions with local sub-proofs. The nine reports describe a language whose primary text is a chain of typed assertions; the corpus shows that experienced Lean authors already write that way inside \code{by} blocks. The proposed layer would formalise an existing practice, not impose a new one.
+\end{observation}
+
+\begin{observation}[The reports' samples under-weight analysis]
+ANALYSIS is 7.2\% of the corpus but 2.9\% of the sample, while INDEX, CAST and SIDE are each over-represented by roughly 40\%. The corpus contains 868 \code{filter_upwards} invocations, 645 references to \code{intervalIntegral}, and 303 to \code{Filter.Eventually}; the sampled files are shorter (median 4 lines against 6) and more combinatorial. The consequence for method priorities is direct: the locality/derivative-transfer and limit-by-continuity contracts, which only four reports develop in detail, deserve at least the priority given to finite-sum reindexing. \Mv's warning that analytic moves are where omitted hypotheses carry the real difficulty is, on this evidence, the more important half of the design.
+\end{observation}
+
+\begin{observation}[The routine-discharge portfolio is empirical]
+Of the 2,243 one-line obligations of the form \code{have h : P := by <tactic>}, the tactic is \code{omega} in 646 cases, \code{positivity} in 497, \code{linarith} in 305, \code{exact_mod_cast} in 257, \code{ring} in 159, \code{simp}/\code{simpa} in 170, \code{norm_num} in 67, \code{nlinarith} in 55. Every report proposes a ``routine'' or ``local'' profile without saying what is in it; the corpus says what is in it.
+\end{observation}
+
+\begin{observation}[Bridge density varies six-fold between files]
+Among files with at least forty invocations, the reconstructible share ranges from 10\% (\code{StirlingParityBitwise}, \code{ThueMorseLucasSupport}) to 71\% (\code{ThueMorseBlockProducts}, \code{PerronRootEnclosure}); the eight highest are exponential-generating-function, umbral, and Stirling-number files (\code{BellShiftEGF}, \code{TouchardShiftEGF}, \code{BellUmbra}, \code{StirlingFirstReverse}). This is independent support for the EGF coefficient interface proposed by \Lo{} and \ML: it is where bookkeeping is densest. The most-used cast lemmas are \code{smul_eq_mul} (249), \code{map_mul} (205), \code{map_sub} (140), \code{map_one} (137), \code{map_add} (108), \code{Nat.cast_one} (91), \code{zpow_natCast} (88), \code{map_sum} (84), \code{map_natCast} (77), and \code{Nat.cast_sub} (69), which is the vocabulary a transport view must own.
+\end{observation}
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.34\textwidth}L{.14\textwidth}Y@{}}
+\toprule
+Marker (FabiusFunction subtree) & Count & Relevance\\
+\midrule
+\code{sorry} in code & 0 & the corpus is complete; the four textual hits are docstrings saying ``sorry-free''\\
+\code{native_decide} & 11 (2 files) & the version-aware axiom allowlist the reports demand is directly applicable at Lean 4.32\\
+\code{set_option maxHeartbeats} & 15 lines, 14 files & elaboration cost is a real, if modest, source of friction that no report discusses\\
+\code{gcongr} & 141 & Contour's ``multiply the inequality by a positive factor'' move already exists\\
+\code{linear_combination} & 269 & certificate-style algebra is already in use\\
+\code{letI}/\code{haveI} & 162 & Spine's ``local instances are evidence'' point is measurable\\
+\code{says}, \code{exact?}, \code{simp?}, \texttt{\#print axioms}, \code{aesop}, \code{polyrith} & 0 & the discovery/replay and axiom-audit mechanisms Lean already has are unused here\\
+\code{grind} & 6 & \\
+\bottomrule
+\end{tabularx}
+\caption{Markers relevant to trust, performance, and existing mechanisms. Repository-wide, \code{maxHeartbeats} appears on 9,865 lines in 7,406 files, almost all in the Computability directory, which appears to contain generated developments.}
+\label{tab:markers}
+\end{table}
+
+\subsection{Caveats}
+The audit is text-level. It cannot distinguish a \code{rw} that applies a deep theorem from one that flips an equation; it puts both in REWRITE, which is why that family is best read as ``library-interface work of unknown depth.'' It classifies a \code{simp} without recognisable lemma names as REWRITE. The theorem detector may miss declarations with unusual attributes and counts a few definitions' proofs of well-foundedness. The corpus commit is newer than the one the reports pin, so file-level numbers for the twenty-three sampled files may differ slightly from what the reports saw. None of this changes the proportions materially; all of it is reproducible from the shipped script.
+
+\section{The consensus architecture}
+\label{sec:consensus}
+
+\subsection{Forty commitments, nine reports}
+\label{sec:matrix}
+Table~\ref{tab:matrix} scores each report on forty design commitments extracted from the texts. A filled mark means the report states the commitment explicitly and builds on it; an open mark means it is mentioned or implied but not developed; a dash means it is absent. The scoring is this reviewer's reading. Column keys: MS \MS, Co \Co, Lo \Lo, ML \ML, Mo \Mo, Mv \Mv, Ou \Ou, Re \Re, Sp \Sp.
+
+\begingroup\small
+\begin{longtable}{@{}L{.52\textwidth}CCCCCCCCC@{}}
+\caption{Design commitments by report.}\label{tab:matrix}\\
+\toprule
+Commitment & MS & Co & Lo & ML & Mo & Mv & Ou & Re & Sp\\
+\midrule
+\endfirsthead
+\toprule
+Commitment & MS & Co & Lo & ML & Mo & Mv & Ou & Re & Sp\\
+\midrule
+\endhead
+\multicolumn{10}{@{}l}{\emph{Foundations}}\\
+1. Lean-hosted layer; no new kernel or foundation & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+2. Formulas reuse Lean's term language initially & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+3. Escape hatch to ordinary Lean under the same checks & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+\multicolumn{10}{@{}l}{\emph{Unit of authorship}}\\
+4. Typed step with a contract as the basic unit & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+5. Theorem statement frozen before proof search & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+6. Obligation ledger with ordered dependent telescopes & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+7. Three synchronised views: argument, obligations, evidence & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Pp\\
+8. Explicit induction motive and \code{generalizing} & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+9. Witness scope; Prop-versus-data distinction for \code{choose} & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+10. Deterministic resolution of ``this'' and other anaphora & \Pp&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Pp&\Yy\\
+11. Distinct \code{using} / \code{using only} / preference semantics & \Yy&\Pp&\Yy&\Pp&\Yy&\Pp&\Yy&\Yy&\Yy\\
+\multicolumn{10}{@{}l}{\emph{Methods}}\\
+12. Registered, versioned domain methods with contracts & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+13. Certified representation views with explicit direction & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+14. Finite reindexing requires a bijection or multiplicity accounting & \Pp&\Yy&\Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\Yy\\
+15. Locality / derivative-transfer contract developed & \Yy&\Nn&\Yy&\Yy&\Nn&\Nn&\Pp&\Yy&\Pp\\
+16. WLOG as coverage plus transport theorem & \Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+17. Analytic moves require a named theorem's exact hypotheses & \Yy&\Yy&\Pp&\Yy&\Pp&\Yy&\Pp&\Pp&\Yy\\
+18. Binder bounds become scoped side-condition facts & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+\multicolumn{10}{@{}l}{\emph{Synthesis boundary}}\\
+19. Leant as a structural-plumbing service behind an adapter, staged late & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+20. Result taxonomy; search failure is never refutation & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+21. Callback receipt is not a kernel certificate (Leant \code{Verified}) & \Yy&\Pp&\Yy&\Pp&\Yy&\Pp&\Yy&\Yy&\Yy\\
+22. Candidate identity bound to the exact request, not its spelling & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+23. Multi-criteria ranking; term length is not the objective & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+24. Shared metavariables solved transactionally & \Yy&\Yy&\Yy&\Yy&\Pp&\Nn&\Yy&\Pp&\Yy\\
+25. Data synthesis needs a behavioural specification, not just a type & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+\multicolumn{10}{@{}l}{\emph{Trust and replay}}\\
+26. Discovery mode versus search-free replay; lock or certificate artifact & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+27. Transitive axiom allowlist, version-aware (Lean 4.29+ computation axioms) & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+28. Execution isolation of untrusted proof producers & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+29. A hash identifies evidence; it is not evidence & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+30. Statement fidelity separate from validity; semantic diff on change & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+31. Explanatory fidelity as a third notion, with a stricter optional profile & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+32. Repair after library change is an explicit, reviewable semantic change & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+\multicolumn{10}{@{}l}{\emph{Evaluation and roadmap}}\\
+33. Refactored-Lean baseline with the same helper lemmas & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+34. Theorem-leakage control in benchmarks & \Nn&\Yy&\Yy&\Pp&\Pp&\Yy&\Yy&\Pp&\Yy\\
+35. Negative test suite as part of the specification & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+36. Amortised accounting of adapters and helper libraries & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+37. Multi-dimensional cost objective, not source length & \Yy&\Pp&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+38. Human comprehension tasks in the evaluation & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+39. First slice without automation; natural language last & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+40. Already-short proofs acknowledged as negative controls & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+Twenty-nine of the forty rows are unanimous. Five more (rows 7, 10, 14, 16, 37) are held by at least seven reports. The six rows with genuine spread (11, 15, 17, 21, 24, 34) concern which method families a report chose to develop, or details of synthesis engineering, not the design of the language. The commitments with spread are also exactly those where a report's file sample determined its emphasis: the locality contract is developed by the four reports that sampled a derivative file, and by no other.
+
+\subsection{Nine names for one unit}
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.11\textwidth}L{.27\textwidth}Y@{}}
+\toprule
+Report & The unit & The central contract, in the report's words (abridged)\\
+\midrule
+\MS & typed mathematical step & write the mathematical choices; reconstruct the bookkeeping; check the exact claim; preserve the reconstruction\\
+\Co & typed mathematical move & concision belongs in the source; completeness belongs in the certificate\\
+\Lo & contracted mathematical step & concision in the document; rigor in the evidence; the correspondence inspectable\\
+\ML & mathematical action with a contract & make intention the unit of authorship, and checked evidence the unit of acceptance\\
+\Mo & reasoning contract / checkpoint & explanatory compression: retain decisions that carry information, reconstruct forced details\\
+\Mv & proof move with a contract & keep the decision; generate its consequences; check every consequence; preserve the exact statement\\
+\Ou & semantic checkpoint / certified plan & make structure explicit and plumbing implicit, but retain a checkable account of both\\
+\Re & claim with a contract & write the decisions; state what may be reconstructed; keep the theorem fixed; accept only checked evidence\\
+\Sp & proof spine of typed steps & discovery is replaceable; statement identity, scope, and certificate acceptance are not\\
+\bottomrule
+\end{tabularx}
+\caption{One design, nine vocabularies.}
+\label{tab:names}
+\end{table}
+
+Every report defines its unit by the same four components: an exact target proposition in an ordered local context; a permitted input policy (which facts and which library); a method or reason that constrains reconstruction; and a checked certificate attached to the step, not to the theorem alone. \Co{} and \Re{} write it as an eight-tuple, \Mo{} and \Sp{} as a six- or seven-tuple, \Lo{} and \ML{} as an elaboration judgment; the fields are the same.
+
+\subsection{Statement lock, ledger, views, results}
+The remaining shared machinery can be stated once, as the union of what the nine reports record.
+
+\textbf{The statement lock} (called seal, approval, freeze, or lock) records the elaborated \code{Expr}, universe parameters, binder telescope, resolved constants and definitions, selected type-class instances, notation provenance, and environment identity. Every report insists it be created \emph{before} proof search and \emph{outside} any untrusted proof producer, and that proof search may choose among proofs of the locked proposition but never among propositions. \Ou{} gives the sharpest rule: the parser must not decide whether $n-1$ is natural, integer, or real subtraction by trying all three and keeping the provable one.
+
+\textbf{The obligation record} carries a stable identity, the environment fingerprint, the ordered dependent telescope, the exact target, the permitted-dependency policy, the resource budget, the requested method, the source span, and its dependency edges and scope boundary. All nine reject an unordered bag of pretty-printed hypotheses; all nine forbid a branch-local fact or witness from escaping its scope; all nine require the graph to be acyclic after recursors are treated as ordinary term constructors.
+
+\textbf{The three views} are the author's argument, the generated obligations with status, and the exact Lean evidence, presented as projections of one typed artifact with a source map in both directions. \Sp{} speaks of two layers with expansions but describes the same thing.
+
+\textbf{The result taxonomy} of a reconstruction request, taking the union across reports, is: checked proof; checked negation or checked counterexample at the original statement; fragment-relative negative evidence with its completeness assumptions attached; unsupported structure; budget exhausted; candidate rejected by typing or by policy; statement ambiguous; cancelled. All nine make the same asymmetry explicit: a positive candidate can be re-checked at the exact original goal even if the search abstraction was lossy, whereas a negative result in the abstraction transfers only through a justified adequacy theorem. Every report cites Leant's \code{Fragment.hs} for this distinction and most cite the \code{Verified} wrapper's documentation, which states that it records callback acceptance and not a kernel proof. I verified that comment in the local checkout; it reads exactly as the reports say.
+
+\textbf{Sealing and replay.} All nine separate a discovery mode, in which search, retrieval, and model suggestions may run, from a replay or publish mode that loads stored evidence and performs no search. The artifact records toolchain and library revisions, the locked statement, step identities and their evidence, method versions, the transitive axiom inventory, and the source-to-evidence map. All nine state the limits identically: replay is deterministic relative to the pinned environment, a \code{.olean} is not a cross-version certificate, and a hash locates evidence without constituting it.
+
+\textbf{Trust policy.} All nine demand a transitive \emph{allowlist} of axioms rather than a blacklist of \code{sorryAx}; six note explicitly that since Lean 4.29 native computation introduces per-invocation axioms, so a policy naming one historical constant is inadequate. All nine want untrusted producers isolated from the checker. This is the one place where the reports' concern maps immediately onto the corpus: the FabiusFunction development uses \code{native_decide} eleven times.
+
+\subsection{Evaluation and roadmap}
+The evaluation protocols agree on five points: compare against refactored Lean with the same helpers; charge for new adapters and amortise them across a suite; remove the target theorem and its downstream closure from the search environment; ship a negative test suite as part of the specification; and measure author time, reader comprehension on concrete tasks, reconstruction and replay cost, and repair effort after controlled changes, reporting distributions rather than means. Seven reports write down a multi-term cost objective; all nine refuse to claim any measured number.
+
+The roadmaps are also aligned, to the point that one could be substituted for another. Stage one is a Lean-native core with named assertions, calculations, scoped cases, induction with a visible motive, an escape hatch, and \emph{no} automation beyond a small deterministic profile; its exit criterion is that a proof replays with the search service disabled and that deliberately broken variants are rejected. Stage two adds two or three method families drawn from the report's own examples. Stage three connects Leant through a narrow, origin-preserving adapter for structural plumbing only. Stage four adds sealed artifacts, repair, and a hardened validation path. Natural-language surface comes last in every plan, if at all.
+
+\subsection{Keywords}
+Table~\ref{tab:keywords} records the surface vocabulary. The interesting fact is how little it varies and how close it stays to Lean's own tactic names; the variation is a sign of independence, and the closeness a sign that the reports are describing a dialect of Lean rather than a new language.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.24\textwidth}Y@{}}
+\toprule
+Construct & Keywords used (report)\\
+\midrule
+universal introduction & \code{take} (\MS, \Co, \Sp); \code{fix} (\Lo, \Mo); \code{given} (\Lo, header); ``take arbitrary'' (\ML)\\
+hypothesis introduction & \code{assume} (all nine)\\
+local assertion & \code{have} (\MS, \Co, \Lo, \ML, \Mo, \Mv, \Ou); \code{claim} (\Re); \code{fact} (\Sp)\\
+closing the goal & \code{show} (\MS, \Lo, \Mo, \Sp); \code{conclude} (\Co, \ML, \Mo, \Mv, \Ou, \Re); \code{exact} (\Lo, \Ou)\\
+reduction & \code{suffices} (all; \Mo{} and \Ou{} also \code{suffice}), always with a bridge obligation\\
+witness use & \code{choose} (\MS, \Co, \Lo, \Mv, \Sp); \code{obtain} (\Mo, \Mv, \Ou, \Re); \code{take witness} (\ML)\\
+case analysis & \code{cases} (\MS, \Co, \Lo, \ML, \Mo, \Re, \Sp); \code{split} (\Mv, \Ou)\\
+induction & \code{induct ... generalizing} (\MS, \Co, \Lo, \Mv, \Ou, \Re, \Sp); \code{induction} (\Mo); \code{induct on n with invariant} (\ML)\\
+calculation & \code{calc} (\MS, \Lo, \Mo, \Re, \Sp); \code{calculate} (\Co, \ML, \Mv)\\
+justification & \code{by method using facts} (all); \code{from facts by method} (\MS, \ML, \Mv, \Re); \code{using only} (\MS, \Lo, \Mo, \Ou); \code{prefer} (\Ou); \code{with budget} (\Re); \code{plan} (\Ou)\\
+escape hatch & \code{by lean} (\MS, \Mo); \code{lean \{ ... \}} (\ML, \Ou, \Sp); a Lean block (\Co, \Lo, \Mv, \Re)\\
+profiles & \code{proof using [profiles]} (\Sp); \code{with real_ring} (\MS); notation profile (\Co); \code{context} block (\ML, \Ou)\\
+\bottomrule
+\end{tabularx}
+\caption{Surface vocabulary across the nine grammars.}
+\label{tab:keywords}
+\end{table}
+
+\subsection{Nine soundness arguments, one lemma}
+Every report proves a relative soundness proposition: if the frozen target is $T$, every obligation is solved by a term checked at its exact type in its recorded telescope, the graph is acyclic and well-scoped, and the assembled term is rechecked against $T$ under the axiom policy, then the accepted document yields $\Gamma \vdash p : T$. \Co{} states it as a certificate-assembly theorem; \Lo{} as contract-preserving assembly; \ML, \Mo, \Mv, \MS{} as relative proof preservation; \Ou, \Re, \Sp{} as soundness of completed elaboration. All nine proofs are the dependent substitution lemma applied in topological order, and all nine correctly add that the argument is a paper argument about a specification, that the final kernel recheck is deliberate redundancy, and that the theorem says nothing about statement fidelity, explanation, or search success. \Re's two corollaries state the useful content most crisply: replacing the search engine by any candidate generator preserves soundness, and a timeout can never establish the goal.
+
+These propositions are correct and, taken together, uninformative. Soundness is guaranteed by the design's most conservative decision, namely to accept nothing the kernel has not checked at the frozen target. The risks the design must actually retire are elsewhere: that the frozen target is not what the author meant, that reconstruction is unpredictably expensive, and that the displayed reason is not the reason the proof works. No report has a theorem about any of these, and all nine say so. The next sections concentrate there.
+
+\section{Where the reports differ}
+\label{sec:divergence}
+
+\subsection{Genuine divergences}
+The differences are few and, in each case, adjudicable.
+
+\textbf{One \code{choose} or two keywords.} \MS{} and \ML{} keep a single \code{choose} and require the elaborated view to display whether it performed propositional existential elimination, a dependent-pair projection, or classical choice. \Lo, \Mv, \Ou, \Re{} and \Sp{} use distinct surface forms (\code{obtain} for elimination, \code{choose ... := t} for construction). The second is better: a surface form that means different things in \code{Prop} and \code{Type} is exactly the ambiguity the design otherwise forbids, and the cost of two keywords is nil. The corpus already uses \code{obtain} 714 times and \code{rcases} 725 times.
+
+\textbf{Notation profiles versus Lean statements.} \MS, \Co{} and \Mo{} sketch notation profiles under which $\sum$, $\binom{n}{k}$, division, and $D[n]$ resolve to fixed Lean terms; \Lo, \ML, \Mv, \Ou, \Re{} and \Sp{} keep theorem statements in ordinary Lean and add only a proof-block elaborator. The second is the right first step and the first is the right fifth step; the reports that propose profiles also say so. The consequence, discussed in Section~\ref{sec:blindspots}, is that ``natural expression'' is deferred for statements.
+
+\textbf{Checkpoint profile versus method-constrained profile.} \Mo{} distinguishes a profile in which every stated checkpoint must be proved but the proof term need not follow the named method from a stricter profile in which \code{integrate} must use its declared interface; \Re{} makes the same split as \code{by auto} versus a method-constrained annotation; \Mv{} calls the stricter option enforced recipe provenance; \Ou{} distinguishes required plans from preferences. \Co{} and \Lo{} lean to the stricter default, \MS{} and \Sp{} to the looser. \Mo's two-profile framing is the right resolution: the stricter profile buys explanatory fidelity at the price of rejecting valid alternative proofs, and that trade should be the author's, per step.
+
+\textbf{Native worker versus external service.} \Sp{} and \Re{} argue for a project-local Lean worker owning elaborated expressions, with Leant's Haskell engine behind a narrow protocol; \Re{} correctly credits Leant's own rewrite-analysis document, ``Rewriting Leant and Djex in Lean 4,'' as the precursor. \MS, \Co, \Lo, \ML, \Mo, \Mv{} and \Ou{} accept an external service initially provided candidates are re-elaborated at the exact goal. These are compatible: all nine put Leant at stage three or later.
+
+\textbf{How early to harden.} \ML, \Mv, \Mo{} and \Ou{} specify sandboxing, a separate validation process, and a trusted challenge statement as part of the design; \Co, \Lo{} and \Sp{} describe them as a later deployment mode. For a research prototype used by its own author the later position is right; the earlier position becomes right the day model-generated proofs are accepted from outside.
+
+\textbf{What \code{using only} restricts.} \Mo{} restricts local premises but not the library unless a separate \code{library only} clause is given; \Co{} splits a mathematical input policy from a foundation policy; \Sp{} permits named facts, their typing vocabulary, and a profile library. All three are the same design once written down, and it is the design to adopt: two independent restrictions, local facts and library inventory, with the transitive axiom audit as a third.
+
+\textbf{Analytic ambition.} \Mv{} (dominated convergence, with the counterexample $f_n = n\cdot\mathbf{1}_{(0,1/n)}$), \Mo{} (integral comparison with orientation and integrability obligations) and \Sp{} (limits along a filter, with nontriviality) develop analytic moves; \Co{} and \MS{} counsel that analytic moves be conservative and demand named theorems at first. Both are right; the audit's finding that analysis plumbing is 7\% of the corpus says the conservative version should nevertheless be built early.
+
+\subsection{Distinctive contributions}
+Table~\ref{tab:unique} lists ideas that appear in one or two reports only, with a short assessment. They are the ``explore'' part of this review: none is part of the consensus, and several deserve to be.
+
+\begingroup\small
+\begin{longtable}{@{}L{.36\textwidth}L{.09\textwidth}L{.49\textwidth}@{}}
+\caption{Ideas particular to one or two reports.}\label{tab:unique}\\
+\toprule
+Idea & Report & Assessment\\
+\midrule
+\endfirsthead
+\toprule
+Idea & Report & Assessment\\
+\midrule
+\endhead
+\code{remaining =>} rebuilds all uncovered constructor cases from induction hypotheses, with a sealed coverage certificate invalidated when a constructor is added & \MS & Strong and cheap: it is \code{cases} plus a recorded constructor set. The natural-deduction example (eleven constructors, one interesting) is exactly the use case.\\
+Reader-facing aliases are lexical and versioned; ``dyadic sample formula'' resolves to a pinned declaration and instantiation, never to a search & \MS & Should be in the consensus. It is also how the corpus already works: the long names are the certificate identity.\\
+Certificate-assembly theorem with an explicit treatment of shared metavariables solved transactionally & \Co & The sharpest statement of the scheduler invariant; Aesop's handling of shared metavariables is the existing precedent, which \Sp{} notes.\\
+Representation views are relations $V(a,b)$ with a directed transport theorem $V(a,b) \to P(a) \to Q(b)$, bounded search depth, and a recorded route & \Co & The best formulation of ``views''; composition is still unspecified (Section~\ref{sec:weak}).\\
+``Similarly'' means instantiate a checked template and re-check; the strict Lambert bound exposes the new $w>0$ obligation & \Co, \Mv & Correct and implementable as a macro over the core.\\
+A hierarchy of inference risk from definitional reduction up to mathematical choice, with silence permitted only at the bottom & \Lo & A good user-interface principle; it maps onto the audit's routine portfolio.\\
+Conditional proof skeleton $K : \prod_{h_1}\prod_{h_2} A$ checked before holes are solved & \Lo, \ML & Useful for testing recipes without \code{sorry}; also what a typed sketch is.\\
+Six verification states for a candidate, from proposed to specification-proved, as a table & \Lo & The clearest of the taxonomies; adopt.\\
+Learn reusable recipes from repeated accepted patterns, installed only with a checked theorem & \Lo, \Sp & Promising; the audit's bigram data (\code{have} then \code{rw} 5,486 times; \code{rw} then \code{ring} 1,283 times) is where mining would start.\\
+Effect kinds for a synthesis request: proof-only, data-producing, statement-resolving, the last needing review & \ML & Should be in the consensus; \Sp's ``four kinds of holes'' is the same idea.\\
+\code{work in B via f} needs reflection for equality, one-way preservation for implication, order reflection for inequalities & \ML & Precise and correct; the corpus's 899 \code{Nat.cast_*} references make it the most-used view.\\
+A ``semantic choices'' panel listing formal-vs-analytic series, total-vs-restricted inverse, natural-vs-integer subtraction & \ML & The seed of the statement lint proposed in Section~\ref{sec:lint}.\\
+A false but unused checkpoint must fail the document even if the theorem is provable another way; a true unused one is marked, not rejected & \Mo, \Sp & Important and easy to get wrong; adopt as a test.\\
+Witness contracts for ``sufficiently small'' ($\delta = \min$, with positivity and two comparisons) & \Mo & A good example of a witness method whose synthesised value is uninteresting and whose obligations are not.\\
+Constructive and classical modes affect provider selection and the final audit; a decidable case split is not classical & \Mo & Correct; interacts with the allowlist.\\
+Comparison with the June 2026 Visored preprint, which emits Lean optionally & \Mo & Useful positioning: the consensus's non-negotiable is mandatory Lean acceptance.\\
+Reasons are refinable in place: a failed \code{by monotonicity} becomes \code{by monotonicity of log on positive_reals} & \Mv & A small interaction design that matters; adopt.\\
+A context index organised by mathematical role (membership, positivity, nonzeroness, regularity) with provenance, scoped to cases & \Mv, \Ou & Sensible engineering; it is what \code{positivity} and \code{omega} already consume implicitly.\\
+The Richardson normalisation control shows the exact condition $\forall r<n,\ q^{r+1}\neq 1$ rather than the tempting $q\neq 1$ & \Mv & The best single example that ``repair by strengthening'' is a theorem change.\\
+Plan / prefer / \code{using only} as three distinct guidance forms & \Ou & Should be in the consensus.\\
+The residual-radius theorem re-proved by bracketing both endpoints, avoiding the sign split entirely & \Ou & A reminder that some verbosity is a proof choice, not a language deficit; a prototype should show this in ordinary Lean first.\\
+A five-file artifact bundle (\code{.outline}, \code{.expanded.lean}, \code{.lock.json}, \code{.map.json}, \code{.audit.json}) & \Ou & Concrete and reasonable; the expanded Lean file is the right interoperability format.\\
+Citing the 2026 benchmark-faults preprint for specification defects in Lean benchmarks & \Ou & Reinforces the leakage and statement-review points.\\
+Explore / resolve / publish as three modes, with an inconsistent context flagged rather than exploited & \Re & Adopt; the third mode is the sealed mode of the others.\\
+Privacy of remote services as a policy separate from evidence & \Re & Correct and otherwise unmentioned.\\
+An executable toy checker (simply typed with products) whose 32 tests exercise origin binding, forged certificates, and zero budgets & \Re & The only executable artifact among the nine; modest, and honest about being so.\\
+Local instances installed from proved facts (\code{letI}) as an evidence mechanism, distinct from structural instances that change meaning & \Sp & Correct and measurable: 162 \code{letI}/\code{haveI} uses in the corpus.\\
+A surviving-support method for coefficient extraction through a homomorphism & \Sp & Narrow but reusable; typical of the EGF files with the highest bridge density.\\
+An iteration contract ($F(x)\preceq F(T^n x)$ from a one-step comparison and an orbit identity) & \Sp & A clean example of a method whose contract is a small theorem schema.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\section{Assessment}
+\label{sec:assessment}
+
+\subsection{What is strongest}
+Ranked by the ratio of value to implementation risk, the strongest ideas are the ones every report shares, in this order.
+
+\begin{enumerate}
+\item \textbf{The statement lock.} It costs one elaboration pass and a recorded \code{Expr}; it retires the single most dangerous failure mode of proof-driven interpretation; it needs no automation to be useful. It is also independently motivated by the benchmark-integrity concerns \Ou{} cites.
+\item \textbf{The obligation ledger with scoped telescopes and roles.} Lean already has the goals; what is missing is persistence, a source map, and per-obligation policy. The audit shows the demand: 2,243 one-line obligations and 32\% of invocations in the reconstructible families.
+\item \textbf{Search-free replay with a transitive axiom allowlist.} Every ingredient exists (\code{says}, \texttt{\#print axioms}, \code{.olean}s, pinned toolchains); the design contribution is to make the step-level map and the allowlist mandatory at publication.
+\item \textbf{Four method families with contracts}: ordered-field side conditions, finite-sum index management, cast and scalar transport, and local derivative/limit plumbing. Each is confirmed by the audit to be a substantial share of the corpus, and each has an existing Mathlib tactic or lemma family to wrap (Section~\ref{sec:supply}).
+\item \textbf{The negative test suite as specification.} The nine suites, deduplicated in Section~\ref{sec:suite}, are the most concrete artifact the reports produced, and they are executable before any language exists: each is a mutation of an existing ProveIt proof.
+\item \textbf{The evaluation discipline}: refactored baselines, leakage control, amortised accounting. This is worth more than it appears, because it is what will prevent the project from fooling itself with the four or five examples it was designed around.
+\end{enumerate}
+
+\subsection{What is weak, over-engineered, or under-specified}
+\label{sec:weak}
+\begin{itemize}
+\item \textbf{View composition is unspecified.} All nine want certified representation views; \Co{} bounds search depth and records the route; \Mo{} lists ``certified view composition'' as future research. None says what happens when three views compose, whose side conditions are collected in which order, or how the normal form chosen by one view interacts with the next. In the corpus this is the dominant bridge (899 \code{Nat.cast_*} references, 598 \code{algebraMap}), so it cannot be left to a later stage. Mathlib's \code{norm_cast} simp-set discipline (\code{@[norm_cast]} lemmas classified as elim, move, and squash) is the existing answer and should be the starting point.
+\item \textbf{Explanatory fidelity is named, not solved.} All nine distinguish ``the term proves the proposition'' from ``the displayed reason is why.'' The only enforceable proposal is \Mo's method-constrained profile plus \Ou's plan-conformance check, which certify that the named method's certificate tree has the advertised root. That is worth building. Anything stronger, such as certifying that a lemma was indispensable, is correctly abandoned by every report.
+\item \textbf{Contract explosion.} The nine reports name about forty methods (Appendix~\ref{app:methods}); each needs a contract, obligations, negative tests, documentation, and a version. The reports acknowledge the maintenance cost but do not bound it. Section~\ref{sec:contracts} argues the cost collapses if a contract is an annotated theorem type rather than a new object.
+\item \textbf{The soundness theorems are ceremony.} See Section~\ref{sec:consensus}: nine restatements of the substitution lemma, each with a page of caveats. A single paragraph would have served, and the space would have been better spent on the unsolved problems.
+\item \textbf{Trust engineering is premature for the prototype.} A sandboxed second checker with a trusted challenge statement is the right design for accepting proofs from strangers and the wrong first milestone for a language whose first user is its author.
+\item \textbf{The evaluation plans are plans.} Every report proposes measurements; none performed any, and all nine say so. Section~\ref{sec:demand} proposes the one measurement that can be done now.
+\item \textbf{Nine names.} The reports spend real effort on naming. The name does not matter; what matters is that the surface stays a dialect of Lean (Table~\ref{tab:keywords} shows it already does).
+\end{itemize}
+
+\subsection{Blind spots common to all nine}
+\label{sec:blindspots}
+\begin{itemize}
+\item \textbf{Definitions.} All nine design a \emph{proof} language and keep definitions and statements in Lean. But much of the friction the reports themselves document is definitional: a bounded function as a subtype in \code{Basic.lean}, a nonnegative-real Lipschitz parameter, \code{Finset.range (n+1)} versus \code{Icc 0 n}, a formal series versus an analytic one. A proof language cannot repair a definition chosen for the library's convenience. Section~\ref{sec:definitions} argues that controlled-language \emph{definitions}, with their coercion and totality conventions made explicit, are the larger lever for ``natural expression.''
+\item \textbf{Instances and universes.} Only \Sp{} discusses local instances, and no report discusses instance diamonds, \code{outParam} failures, universe constraints, or the elaboration order problems that experienced Lean authors spend real time on. The corpus's 162 \code{letI}/\code{haveI} lines are the visible tip.
+\item \textbf{Elaboration performance.} No report treats slow elaboration or heartbeat limits as a shortcoming of Lean. The corpus raises \code{maxHeartbeats} in fourteen FabiusFunction files and on nearly ten thousand lines repository-wide. A step layer that re-elaborates each obligation could make this worse; the reports' insistence on bounded budgets per obligation is the right instinct, but none connects it to the existing problem.
+\item \textbf{The reader who edits.} Maintenance is discussed as replay and repair, never as collaboration: who owns a method contract, how two authors' profiles compose, how a change to a domain pack propagates through a thousand files.
+\item \textbf{Migration by decompilation.} Only \Re{} raises recovering a chain of claims from an existing Lean proof. Given that the corpus is already 32\% assertions, lifting existing proofs into the step layer is both the cheapest adoption path and the best test corpus, and it deserves to be a stage in the roadmap.
+\item \textbf{The existing supply.} Discussed next.
+\end{itemize}
+
+\section{Additions: what the nine reports miss}
+\label{sec:additions}
+
+\subsection{A contract is an annotated theorem type}
+\label{sec:contracts}
+The reports describe a method as a registered object with an applicability pattern, an obligation generator, a reconstruction procedure, an explanation renderer, and a version. Building forty of these is the cost the reports underestimate. But look at what the contracts actually are. \Lo's \code{derivative_from_local_identity} recipe requires $x\in s$, $s\in\mathcal N(x)$, $f=g$ on $s$, and \code{HasDerivAt g v x}, and ensures \code{HasDerivAt f v x}: that is the statement of \code{HasDerivAt.congr_of_eventuallyEq} composed with \code{Filter.eventuallyEq_of_mem} and \code{IsOpen.mem_nhds}. \Co's \code{multiply(c)} requires $0\le c$ and $a\le b$ and produces $ca\le cb$: that is \code{mul_le_mul_of_nonneg_left}, which the corpus applies 254 times. \Mv's \code{reindex} contract is the hypothesis list of \code{Finset.sum_bij} and its \code{to_additive}-generated variants. \ML's \code{work in B via f} with reflection is \code{Nat.cast_injective} plus \code{push_cast}.
+
+The proposal, then, is this: \emph{a method is a theorem with role annotations on its hypotheses.} Concretely, an attribute of the form
+
+\begin{lstlisting}
+@[method (name := reindex) (roles := [input, input, side, side, side, side])]
+theorem Finset.sum_bij ...      -- the contract IS the type
+\end{lstlisting}
+
+declares which hypotheses are mathematical inputs the author supplies (the index map, the summand equality) and which are side conditions to be discharged by the routine profile (membership, injectivity, surjectivity). A step \code{have h : P by reindex using facts} elaborates to \code{refine Finset.sum_bij ?i1 ?i2 ?s1 ?s2 ...}, unifies the conclusion with $P$ (this is what \code{apply} already does), fills the \code{input} holes from the named facts, and records every remaining hole as a ledger entry tagged with its role and the profile that may discharge it. The explanation renderer is a docstring template over the theorem's binder names.
+
+The consequences are large. There is no new trusted code and no method language: applicability is unification, the obligation generator is the theorem's telescope, and reconstruction is application. A domain pack is a collection of annotated theorems, which is also what \MS{} means by ``support lemmas should be ordinary library assets'' and what \Lo{} means when it says a recipe should expose the same result as a reusable theorem; the difference is that here the theorem is the \emph{only} representation. The ``forty methods'' become forty attributes on existing Mathlib and ProveIt declarations, plus a dozen composite lemmas (locality-then-chain-rule is one \code{theorem}). Versioning is Mathlib's. Negative tests are theorems whose hypotheses cannot be discharged. What remains genuinely new is the ledger, the seal, and the roles.
+
+Two things do not fit this mould and should be recognised as such: \emph{normalisers} (\code{ring}, \code{field_simp}, \code{push_cast}, \code{omega}), which are proof-producing procedures rather than theorems and are consumed as side-condition dischargers; and \emph{structural plans} (induction with a motive, WLOG, case coverage), which are eliminators plus bookkeeping. Both already exist in Lean; the layer wraps them.
+
+\subsection{Lean already has most of the supply; what is missing is the accounting}
+\label{sec:supply}
+Table~\ref{tab:supply} maps the reports' proposed constructs to what exists in Lean 4.32 and Mathlib at the commit ProveIt pins. I verified each file's presence in the local Mathlib checkout.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{.27\textwidth}L{.33\textwidth}Y@{}}
+\toprule
+Proposed construct & Existing mechanism (Lean 4.32 / Mathlib) & What is actually missing\\
+\midrule
+Statement lock / seal & the header is elaborated before the body & a recorded, diffable artifact; a policy that search cannot touch it\\
+Obligation ledger & goal list; \code{?_} holes; InfoTree & persistence, roles, source map, per-obligation budget and policy\\
+Sealed replay of a searched step & \code{says} (\code{simp? [X] says simp only [...]}); \code{exact?} to \code{exact}; \code{polyrith} to \code{linear_combination}; \code{.olean} & step-level lock file; mandatory at publication; corpus uses none of these\\
+Axiom allowlist & \texttt{\#print axioms}; \code{Lean.collectAxioms}; per-invocation \code{native_decide} axioms & enforcement as a build gate with a transitive allowlist\\
+Multiply an inequality by a nonneg factor & \code{gcongr} with \code{positivity} side goals & a ledger entry for the side goal\\
+Side conditions & \code{positivity}, \code{omega}, \code{linarith}, \code{nlinarith}, \code{bound}, \code{norm_num} & the routine profile as an explicit, versioned object\\
+Cast and scalar transport & \code{push_cast}, \code{norm_cast}, \code{exact_mod_cast}, \code{zify}, \code{qify}, guarded \code{Nat.cast_sub} & guard obligations surfaced with provenance; view direction recorded\\
+Finite reindexing & \code{Finset.sum_bij}, \code{sum_nbij'}, \code{sum_equiv}, \code{sum_image}, \code{sum_range_reflect} & role annotations; multiplicity diagnostics\\
+Locality and derivative transfer & \code{Filter.EventuallyEq.deriv_eq}, \code{HasDerivAt.}\allowbreak\code{congr_of_eventuallyEq}, \code{IsOpen.mem_nhds}, \code{filter_upwards} & one composite theorem plus a contract\\
+Continuity / differentiability side goals & \code{fun_prop}, \code{continuity} & nothing but the ledger entry\\
+Without loss of generality & Mathlib's \code{wlog} tactic (\code{Mathlib/Tactic/WLOG.lean}) & coverage and transport as displayed obligations\\
+Mixed relation chains & \code{calc} with \code{Trans} instances & already exactly the ``registered transitivity'' the reports ask for\\
+Reduction with a bridge & \code{suffices h : Q by ...} & nothing\\
+Unused checkpoints & \code{linter.unusedTactic}, \code{haveLet} linter & an assertion-level linter and plan-conformance check\\
+Discovery suggestions & \code{exact?}, \code{apply?}, \code{simp?}, \code{aesop?} & none of these are used in the corpus\\
+\bottomrule
+\end{tabularx}
+\caption{Proposed constructs against existing mechanisms.}
+\label{tab:supply}
+\end{table}
+
+The lesson is not that the reports are redundant. It is that they mis-describe the deliverable. Every one of them presents the language as a way to \emph{obtain} routine consequences; the audit and this table say the consequences are already obtainable, in the sense that a Lean author who knows \code{gcongr}, \code{positivity}, \code{push_cast} and \code{filter_upwards} can already write the step in one line. What is missing is that the one line leaves no trace: no record of which side conditions were discharged and how, no separation of the mathematical input from the routine, no seal that lets the step be replayed without re-running \code{simp}, and no explanation. The design is an \emph{accounting layer} over existing automation. Framing it that way shrinks the project, removes the reason to build a new prover, and makes the first milestone concrete: make \code{says} the default for every automated step and make its output land in a ledger.
+
+\subsection{Measure demand before building supply}
+\label{sec:demand}
+The audit in Section~\ref{sec:audit} is a crude instrument and it already changed one priority (analysis over reindexing). A better instrument is cheap. A Lean metaprogram that walks the InfoTrees of a compiled file can record, for every tactic node, the goal before and after, the declarations the produced term references, and whether the node is a \code{have} whose sub-proof is closed by a decision procedure. From this one obtains, without heuristics: the fraction of goals closed by each tactic; the distribution of ``bridge chains'' (maximal runs of CAST/INDEX/REPR nodes between two assertions); the most frequent lemma bigrams; and, most usefully, for each candidate method contract, the number of corpus sites where its conclusion unifies with a goal and its side conditions are discharged by the routine profile. That last number is the expected yield of each method before any is built.
+
+The audit also suggests two metrics to track once a prototype exists. \emph{Bridge density} is the reconstructible share per file, which ranges from 10\% to 71\% today and should fall in migrated files without the assertion share falling. \emph{Assertion coverage} is the fraction of tactic invocations that belong to a named assertion's sub-proof rather than to the top-level script, which measures how much of a proof is already spine-shaped.
+
+\subsection{A statement lint and a controlled back-rendering}
+\label{sec:lint}
+All nine reports leave statement fidelity to ``human review of the elaborated statement,'' with \ML's semantic-choices panel and \Sp's expanded header as aids. This can be made mechanical in the common cases. A deterministic lint over the locked \code{Expr} should flag the constructions that the reports' own counterexamples turn on:
+
+\begin{itemize}
+\item natural-number subtraction or division anywhere in the statement, with the hint ``truncated; did you mean the integer or rational operation?'';
+\item real division, \code{Real.sqrt}, \code{Real.log}, or an inverse, applied to an argument not accompanied by a nonzero, nonnegativity, or positivity hypothesis in the same statement;
+\item \code{deriv} or \code{iteratedDeriv} without a \code{HasDerivAt}, \code{Differentiable}, or \code{ContDiff} hypothesis on the same function;
+\item \code{Finset.range} and \code{Icc}/\code{Ico} mixed in one statement, or a range bound that differs from the mathematical one by one;
+\item a $\forall\varepsilon\,\exists\delta$ block whose $\delta$ is bound outside the $\varepsilon$ it should depend on;
+\item a field, integral-domain, or characteristic-zero instance on a ring that the surrounding development treats as general;
+\item \code{Classical.choice} reachable from a statement in a development that declares a constructive profile;
+\item formal-series composition or evaluation where an analytic function is expected, or vice versa.
+\end{itemize}
+
+Each rule is a syntactic pattern over the elaborated term with a fixed message; none can be fooled by proof search because it runs on the lock. In addition, the lock should be rendered back into controlled English by a deterministic printer in which the flagged constructions are spelled out (``the truncated difference $n \dot{-} 1$''; ``the total real division $a/b$, which is $0$ when $b=0$''). Verbose Lean's rendering machinery is a precedent. The author confirms the rendering, not the \code{Expr}. This is the cheapest available answer to the only unsolved trust problem the reports identify.
+
+\subsection{The ledger as a task format, and the consolidated adversarial suite}
+\label{sec:suite}
+A ledger entry is a closed, typed, budgeted subgoal with an explicit environment, an axiom policy, and a dependency exclusion list. That is precisely the input format an automated prover, agentic or otherwise, needs, and precisely the format a leakage-controlled benchmark needs. Two consequences follow. First, the step layer should treat a language model or an external prover as one more provider behind the same interface, which all nine reports say; but it should also \emph{export} its ledger as a benchmark, so that ProveIt's own obligations become a held-out test set with the frozen statements, the allowlist, and the pre-target environment already attached. Second, the nine reports' negative test suites, once deduplicated, are the seed of an adversarial obligation suite that can be run against any provider today, because each test is a mutation of an existing ProveIt proof. Table~\ref{tab:suite} gives the deduplicated list.
+
+\begingroup\small
+\begin{longtable}{@{}L{.04\textwidth}L{.45\textwidth}L{.08\textwidth}L{.37\textwidth}@{}}
+\caption{Consolidated adversarial suite, deduplicated across the nine reports.}\label{tab:suite}\\
+\toprule
+\# & Mutation & Reports & Required behaviour\\
+\midrule
+\endfirsthead
+\toprule
+\# & Mutation & Reports & Required behaviour\\
+\midrule
+\endhead
+1 & Insufficient induction motive; hypothesis needed at a changed argument & 9 & propose \code{generalizing} visibly; never grant the stronger hypothesis silently\\
+2 & Existential witness escapes its scope, or $\forall\exists$ is read as $\exists\forall$ & 9 & reject the scope violation; never reorder quantifiers\\
+3 & Fact from one case used in a sibling case, including via a cache & 9 & reject the scope map or the term\\
+4 & Bounded search exhausted & 9 & report exhaustion or unsupported structure, never refutation\\
+5 & \code{sorryAx} or an unapproved axiom reachable transitively & 9 & fail the allowlist even when elaboration succeeds\\
+6 & Definition or instance changed while the printed statement is unchanged & 9 & invalidate stale evidence; compare elaborated statements\\
+7 & Type-correct data term with the wrong behaviour ($A\to A\to A$ projection; state monad) & 9 & require the behavioural specification; expose the data choice\\
+8 & Natural subtraction transported without $b\le a$ ($m=0$, $n=1$) & 9 & generate the guard or stop the transport\\
+9 & Cancel a factor without nonzero or unit evidence ($\mathbb{Z}/6$: $2\cdot 0=2\cdot 3$; $2s_1=1$ over $\mathbb{Z}$) & 8 & leave the obligation; do not import a field-only theorem\\
+10 & Reindex a sum through a non-injective map & 7 & refuse the bijection plan or demand multiplicity accounting\\
+11 & WLOG with an asymmetric hypothesis ($x=0$; $x=|x|$ ``by symmetry'') & 7 & demand context transport; name the untransported hypothesis\\
+12 & Mutually justified claims forming a cycle & 7 & keep both open\\
+13 & Repair by strengthening ($\mathbb{Q}$-algebra to field; add openness; $\vert q\vert<1$ to $\le$) & 6 & present as a statement change, never as progress on the old target\\
+14 & Finite-sum rule applied to an infinite or conditionally convergent sum & 5 & require the summability theorem\\
+15 & Differentiate from equality at one point ($t$ versus $0$ at $0$) & 4 & require neighbourhood equality\\
+16 & Natural division transported without divisibility ($3/2$) & 4 & refuse the exact-division bridge\\
+17 & Theorem leakage through an alias or downstream lemma & 4 & mark the run invalid under its dependency policy\\
+18 & Formal-series composition without \code{HasSubst}, or a formal identity read analytically & 4 & generate the admissibility or convergence obligation\\
+19 & Limit interchange from pointwise convergence alone ($n\mathbf{1}_{(0,1/n)}$) & 3 & require the chosen theorem's domination hypotheses\\
+20 & False but unused intermediate assertion in a trivially provable theorem & 3 & reject the document\\
+21 & Strict inequality multiplied by a merely nonnegative factor & 3 & require positivity or a zero case\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\subsection{Definitions before proofs}
+\label{sec:definitions}
+The brief asked for a language in which mathematicians ``express their ideas'' more naturally. All nine reports answered for proofs and deliberately left statements and definitions in Lean; this was the right scoping for a first design, and the reports say so. But the corpus suggests that the larger and less-explored gain is on the definition side. A definition fixes the representation that every later proof must bridge: whether a bounded function is a subtype or a function with a hypothesis, whether a sum runs over \code{range (n+1)} or \code{Icc 0 n}, whether a coefficient lives in $\mathbb{Q}$ or in an algebra over it, whether a derivative is a hypothesis or a \code{deriv} expression. The 4.0\% CAST and 4.8\% INDEX shares in the corpus are largely the interest paid on such choices.
+
+A controlled-language layer for \emph{definitions} would let an author write the mathematical object once, with explicit answers to the questions the statement lint asks (totality conventions, coercion targets, index conventions, regularity assumptions), and would generate the Lean definition together with the bridge lemmas that later proofs need: the cast lemmas, the interval conversions, the \code{simp} normal form. This is a larger design problem than the proof layer and none of the nine reports touches it. It should be on the research agenda beside the proof language, because it attacks the source of the bookkeeping rather than its symptoms.
+
+\subsection{What the convergence does and does not show}
+\label{sec:convergence-meaning}
+Eight of nine reports come from the same model family and all nine answered the same brief on the same day. Their agreement therefore does not establish that nine independent designers would reach this architecture. What it does establish is stronger than it looks. The samples were nearly disjoint, so the \emph{friction families} were found in different files and are unlikely to be artefacts of any one example. The negative controls were found by each report against its own thesis. The counterexamples and alternative proofs coincide across reports that could not have seen each other. And the architecture the reports converge on is, as Section~\ref{sec:supply} shows, largely a description of what Lean and Mathlib already do plus a small, well-defined accounting layer. A design that a model family reaches nine times from nine different evidence samples, and that turns out to be an incremental extension of existing practice, is a design with a low chance of being wrong in its outline. Its unknowns, which the reports identify honestly, are all empirical: cost, fidelity, and whether authors find the result better to write and read.
+
+\section{A consolidated recommendation}
+\label{sec:recommendation}
+The nine roadmaps, the audit, and the additions above combine into the following plan. It is a recommendation with gates, not a schedule.
+
+\begin{enumerate}
+\item \textbf{Instrument before building.} Run the InfoTree audit of Section~\ref{sec:demand} on the FabiusFunction development. Publish bridge density and assertion coverage per file, the routine-profile portfolio, and the expected yield of each candidate method. Gate: the four method families are ranked by measured yield.
+\item \textbf{The accounting core.} A Lean package providing: a step block with \code{have}, \code{obtain}, \code{suffices}, \code{calc}, \code{cases}, and \code{induct ... generalizing}, plus a \code{lean} escape; a statement lock recorded as an artifact; a ledger with roles, budgets, and a source map; \code{says}-style sealing of every automated step; an axiom allowlist enforced at build; the statement lint of Section~\ref{sec:lint}. No automation beyond the measured routine profile. Gate: ten migrated ProveIt theorems replay with all search disabled, and the twenty-one mutations of Table~\ref{tab:suite} that apply to the core are rejected with the required diagnostics.
+\item \textbf{Methods as annotated theorems.} Add the \code{@[method]} attribute of Section~\ref{sec:contracts} and annotate the theorems behind the four families, starting with the ones the audit ranks highest; write the composite theorems (locality plus chain rule; guarded cast transport; bijective reindexing with membership) as ordinary lemmas. Gate: the twenty-three sampled files migrate with bridge density at least halved and assertion share unchanged, against a refactored-Lean baseline that has the same composite lemmas.
+\item \textbf{Migration by lifting.} Build the decompiler \Re{} hints at: lift an existing \code{by} block into a step block by recognising \code{have} chains and method-shaped tactic runs. Gate: half of the corpus lifts automatically with no change to the elaborated theorem.
+\item \textbf{Synthesis behind the ledger.} Connect Leant for structural plumbing, then other providers, through the origin-preserving adapter all nine describe; export the ledger as a leakage-controlled benchmark. Gate: providers are interchangeable without any change to acceptance, and negative outcomes carry their labels to the interface.
+\item \textbf{Only then}: notation profiles, controlled-language definitions, and a natural-language editing assistant whose output is a patch to the source.
+\end{enumerate}
+
+\section{Conclusion}
+The nine reports agree on the diagnosis (granularity), on the cure (a typed step with a contract, a frozen statement, a scoped ledger, certified views, an honest synthesis boundary, and search-free replay), on the guardrails (allowlists, negative tests, refactored baselines), and on the order of construction. The corpus agrees with them: a third of tactic invocations are bookkeeping, uniformly across proof lengths, and the proofs are already organised as chains of assertions waiting to be made primary. Where this review departs from the reports is in what the work consists of. Almost every method the reports name is already a Mathlib tactic or lemma; contracts can be types rather than a new language; the seal already exists in miniature as \code{says}; the routine profile is an empirical fact, not a design choice; and statement fidelity can be attacked mechanically with a lint over the lock. The deliverable is smaller than the reports describe, and better defined: an accounting layer that makes existing automation leave a trace. The larger open problem, which none of the reports takes up, is on the other side of the colon, in the definitions.
+
+\appendix
+
+\section{Report cards}
+\label{app:cards}
+Each card states the report's unit, its sample, what it contributes that the others do not, and its principal weakness. Assessments are this reviewer's.
+
+\subsection*{\MS{} (\code{docs/ideas/MathStep}, 42 pages)}
+\emph{Unit:} typed mathematical step; three contracts (meaning, evidence, reconstruction). \emph{Sample:} algebraic branch of a root, autonomous iterated derivatives, dyadic substitution under a sum, natural-deduction \code{mapAxioms} with eleven constructors. \emph{Distinctive:} \code{remaining =>} constructor rebuild with a coverage certificate; lexical, versioned aliases separating reader-facing names from certificate identity; a six-component cost vector; explanation-preserving proof compression as a research direction; the observation that dropping \code{hq} after the square identity changes the theorem, not the proof. \emph{Weakness:} the longest report, with the most material duplicated from Lean's own validation documentation.
+
+\subsection*{\Co{} (\code{docs/ideas/contour-proof-language}, 38 pages)}
+\emph{Unit:} typed mathematical move with fixed conclusion, dependency context, method contract, certificate. \emph{Sample:} binomial inversion, Lambert bounds, Lagrange-inversion uniqueness, Pascal-tail induction. \emph{Distinctive:} the certificate-assembly theorem with transactional shared metavariables; views as directed transport relations with bounded route search; the strict-Lambert stress test for ``similarly''; forward and backward frontiers in the editor; a module-boundary table listing what each component must \emph{not} decide; a shipped EBNF. \emph{Weakness:} method names (\code{multiply}, \code{reindex}, \code{coefficients}) are presented as new interfaces where they are existing lemmas.
+
+\subsection*{\Lo{} (\code{docs/ideas/loom_proof_language}, 30 pages)}
+\emph{Unit:} contracted mathematical step; recipes. \emph{Sample:} autonomous derivatives, Abel polynomials over a $\mathbb{Q}$-algebra, Boolean-cube expansion. \emph{Distinctive:} the hierarchy of inference risk; the conditional proof skeleton; six verification states as a table; the ranking objective $J(r)$; four correctness questions (typing, statement, contract, explanation); recipe learning from repeated patterns; the EGF interface. \emph{Weakness:} the least concrete implementation plan; the recipe syntax is closest to a new language rather than a Lean dialect.
+
+\subsection*{\ML{} (\code{docs/ideas/mathematical_proof_language}, 35 pages)}
+\emph{Unit:} mathematical action with a logical and an explanatory contract. \emph{Sample:} Abel coefficients, autonomous derivatives, associated Stirling recurrence, weighted scaling. \emph{Distinctive:} effect kinds (proof-only, data-producing, statement-resolving); the reflection/preservation distinction for \code{work in B via f}; the shifted-EGF theorem as a reusable coefficient rule; suggestions as transactions; the semantic-choices panel; the scaling proof as a control against over-engineering. \emph{Weakness:} the surface syntax is the most prose-like and hence the least precisely specified.
+
+\subsection*{\Mo{} (\code{docs/ideas/mosaic_proof_language}, 32 pages)}
+\emph{Unit:} reasoning contract; proof spine, obligation graph, certificates. \emph{Sample:} factorial-strength flatness bound, sharp Lipschitz constant, floor-square-root sum. \emph{Distinctive:} explanatory compression as the objective; false-but-unused checkpoints must fail; checkpoint versus method-constrained profiles; witness contracts for ``sufficiently small''; constructive and classical modes; the five-configuration evaluation; positioning against Visored. \emph{Weakness:} \code{integrate} and \code{count} are the most ambitious methods proposed and the least specified.
+
+\subsection*{\Mv{} (\code{docs/ideas/motive_proof_language_article}, 30 pages)}
+\emph{Unit:} proof move with a contract; landmarks versus routine deductions. \emph{Sample:} binomial inversion, Lambert bounds, geometric Richardson polynomials. \emph{Distinctive:} reasons as refinable library interfaces; the context index by mathematical role; the dominated-convergence counterexample; the Richardson control with the exact normalisation condition; the ten-node reindexing ledger; sixteen conformance tests. \emph{Weakness:} the smallest sample, with two of three files shared with \Co.
+
+\subsection*{\Ou{} (\code{docs/ideas/outline_proof_language}, 34 pages)}
+\emph{Unit:} semantic checkpoint and certified proof plan. \emph{Sample:} Basic, MeanValueBracket, QPascalSummation, Arithmetic, FloorSqrtSum. \emph{Distinctive:} plan/prefer/\code{using only}; the residual-radius theorem re-proved without a sign split; the abstract WLOG proposition; bridge suggestion; the five-file artifact bundle; the benchmark-faults citation; proof planning and Apply2Isar as lineage; the noncommutative-semiring caution for Gaussian coefficients. \emph{Weakness:} the taxonomy table conflates categories that the other reports keep apart.
+
+\subsection*{\Re{} (\code{docs/ideas/reason_proof_language}, 32 pages)}
+\emph{Unit:} claim with a reconstruction contract (an eight-tuple). \emph{Sample:} Basic, Arithmetic, AffineDifferenceOrbit, FloorSqrtSum. \emph{Distinctive:} the fold-through-absolute-value view; explore/resolve/publish modes; search-independence and safe-failure corollaries; inconsistent contexts flagged; privacy of remote services; worker generations and stale replies; claims as cache and repair units; the bidirectional (decompilation) problem; the only executable artifact (a 32-test toy checker). \emph{Weakness:} no pinned commit for either repository.
+
+\subsection*{\Sp{} (\code{docs/ideas/Spine_Proof_Language}, 39 pages)}
+\emph{Unit:} proof spine of typed steps with an authored and a generated layer. \emph{Sample:} Thue--Morse prefixes, characteristic-function uniqueness under an affine recurrence, algebraic inverse germs. \emph{Distinctive:} four kinds of holes; local instances as evidence; the iteration and surviving-support contracts; the hockey-stick alternative proof classified as a different plan; the vanishing-along-a-contracting-orbit proposition as a library improvement to be charged to the baseline; existence, selection, and computation of a root as three operations. \emph{Weakness:} it is the only report whose sample contains no file shared with another, so its friction families rest on its own evidence alone.
+
+\section{Method inventory}
+\label{app:methods}
+The method names proposed across the nine reports, grouped into families. Names are as written in the reports; a name in parentheses marks the report.
+
+\begingroup\sloppy
+\begin{description}[style=nextline]
+\item[Ordered-field algebra and side conditions] \code{algebra}, \code{order}, \code{rational_arithmetic}, \code{positive_square_root} (\MS); \code{multiply(c)}, \code{divide(c)}, \code{normalize}, \code{arithmetic}, \code{algebra using} (\Co); \code{normalize using rational_algebra(A)} (\Lo); \code{rational_scalar_algebra} (\ML); \code{algebra in Real}, \code{order using}, \code{bound} (\Mo); \code{multiply tangent by}, \code{real_algebra}, \code{cancellation} (\Mv); \code{field_arithmetic}, \code{interval_arithmetic}, \code{exact_natural_arithmetic} (\Ou); \code{ordered_arithmetic}, \code{semiring}, \code{scalar_normalization}, \code{additive_normalization} (\Re); \code{algebra}, \code{arithmetic} (\Sp).
+\item[Finite sums and indices] \code{substitute L inside E under binder} (\MS); \code{reindex(k = j+i)}, \code{sum_algebra}, \code{split_last}, \code{finite_sum_normalize}, \code{finite_sum_support} (\Co); \code{reindex T by U}, \code{split target_sum by} (\Lo); \code{reindex by e} (\ML); \code{count fibers} (\Mo); \code{reindex k := j+i}, \code{alternating_row} (\Mv); \code{reindex via}, \code{split the left sum at}, \code{count pairs ... first by ... then by} (\Ou); \code{partition target subsets by membership}, \code{partition_product parity}, \code{count D by} (\Re); \code{finite_sum(split_last, combine)}, \code{surviving_terms}, \code{retain only} (\Sp).
+\item[Casts and representation transport] \code{guarded_cast_normalization}, \code{normalize casts} (\MS); \code{coefficients}, cast-transport view (\Co); typed rational-scalar normaliser (\Lo); \code{work in B via f}, \code{faithful transport}, \code{conclude in Nat by injectivity} (\ML); \code{transport goal to Rational preserving Nat arithmetic} (\Mo); homomorphism transport certificate (\Mv); \code{calculate over Rat} (\Ou); \code{view nat_to_rat} (\Re); guarded arithmetic views, \code{coefficient_homomorphisms} (\Sp).
+\item[Local analysis] \code{differentiate ... at x using}, \code{locality}, \code{chain_rule} (\MS); \code{locally at x on s}, \code{differentiate ih}, \code{derivative_from_local_identity} (\Lo); \code{differentiate IH locally at x on U} (\ML); \code{integrate dom over [0,x]}, \code{derivative_bound}, \code{derivative_of_lipschitz} (\Mo); \code{lower_slope on [a,b]}, \code{intermediate_value}, \code{derivative_bounds on} (\Ou); \code{restrict_to_neighborhood}, \code{differentiate local_identity at z}, \code{affine_orbit_derivative} (\Re); \code{continuity}, \code{geometric_decay}, \code{limit_order}, \code{iterate} (\Sp); dominated-convergence move (\Mv).
+\item[Formal series] \code{associativity} with \code{HasSubst}, \code{substitution_algebra} (\Co); \code{Lagrange_inversion}, \code{formal_exponential_rules} (\Lo); \code{Lagrange_Burmann}, \code{formal_exponential_algebra}, \code{exponential_coefficients}, \code{compare exponential coefficients} (\ML); \code{formal_implicit_root}, \code{positive_power_constant_term} (\Sp).
+\item[Structural and logical] \code{remaining =>} (\MS); \code{routine}, \code{assemble}, \code{apply(thm)} (\Co); \code{by routine}, \code{search} (\Lo); \code{conclude R from h through Q} (\ML); \code{routine} with \code{from only} (\Mo); \code{structural}, \code{by auto} (\Re); \code{plan}, \code{search}, \code{prefer} (\Ou); \code{lean \{\}} escape (all).
+\item[Symmetry and reduction] \code{wlog} schema (\MS, \Co, \ML, \Mv, \Sp); \code{reduce by symmetry x -> -x to 0 <= x} (\Mo); \code{by symmetry swap(x,y), assume x <= y} (\Ou); \code{symmetry abs_neg}, \code{wlog x in S using reduction} (\Re); \code{similarly} as template instantiation (\Co, \Mv).
+\end{description}
+\endgroup
+
+\section{Audit method and reproducibility}
+\label{app:audit}
+The audit script is \code{docs/unified_report/tools/audit_proveit.py}; its JSON output and printed summary are beside it. It was run on the local ProveIt checkout at commit \code{7c4e3f10} over \code{Analysis/FabiusFunction/Lean/FabiusFunction} with the twenty-three sampled files as a comparison group:
+
+\begin{lstlisting}
+python audit_proveit.py <ProveIt>/Analysis/FabiusFunction/Lean/FabiusFunction \
+    --sample <the 23 sampled files>
+\end{lstlisting}
+
+Classification rules, in order of precedence for a tactic line: the head token determines the family for \code{push_cast}-like heads (CAST), decision procedures (SIDE), normalisers (NORM), filter tactics (ANALYSIS); a \code{have}-like head is OBLIG if the line ends in \code{:= by <decision procedure>} and ASSERT otherwise; a \code{rw}/\code{simp}/\code{exact}/\code{refine}/\code{apply}/reshaping head is classified by the lemma names on the line, matched against cast, index, analysis, and natural-arithmetic patterns, and otherwise falls to REWRITE, STRUCT, or REPR by head. Continuation lines are not counted. Comments are stripped before parsing. Theorems are detected by a regular expression on \code{theorem}/\code{lemma}; a proof is term-mode if its first two lines contain no \code{by}.
+
+Limitations are stated in Section~\ref{sec:audit}. The single most consequential is that \code{rw} and \code{simp} lines without a recognised lemma pattern are counted as REWRITE regardless of what they do; the reconstructible share is therefore a lower bound.
+
+Other artifacts in \code{docs/unified_report}: \code{feature_matrix.csv} (Table~\ref{tab:matrix} in machine-readable form), \code{README.md}, and \code{build.sh}. The document builds with \code{latexmk -pdf} on a standard TeX distribution; the bibliography is embedded and no fonts beyond Latin Modern are required.
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\begin{thebibliography}{99}
+\small
+
+\bibitem{r-mathstep} \emph{MathStep: A Proof Language of Mathematical Steps}. Design report, 5 September 2026. \code{docs/ideas/MathStep/MathStep.tex}.
+\bibitem{r-contour} \emph{Contour: A Human-Scale Proof Language over Lean}. Design report, 5 September 2026. \code{docs/ideas/contour-proof-language/contour.tex}.
+\bibitem{r-loom} \emph{Loom: A Contract-Based Language for Human-Scale Formal Proofs}. Design report, 5 September 2026. \code{docs/ideas/loom_proof_language/loom.tex}.
+\bibitem{r-mpl} \emph{Mathematical Intent, Formal Evidence: A Proposal for a Mathematical Proof Layer over Lean}. Design report, 5 September 2026. \code{docs/ideas/mathematical_proof_language/article.tex}.
+\bibitem{r-mosaic} \emph{Mosaic: Mathematical Intent, Explicit Obligations, and Kernel-Checked Proof}. Design report, 5 September 2026. \code{docs/ideas/mosaic_proof_language/mosaic.tex}.
+\bibitem{r-motive} \emph{Motive: Concise Mathematical Reasoning with Kernel-Checked Elaboration}. Design report, 5 September 2026. \code{docs/ideas/motive_proof_language_article/motive.tex}.
+\bibitem{r-outline} \emph{Proofs at the Scale of Ideas: An Intent-Directed, Lean-Checked Proof Language}. Design report, 5 September 2026. \code{docs/ideas/outline_proof_language/outline_proof_language.tex}.
+\bibitem{r-reason} \emph{Reason: A Proof Language of Mathematical Intent}. Design report with executable supplement, 5 September 2026. \code{docs/ideas/reason_proof_language/reason.tex}.
+\bibitem{r-spine} \emph{Spine: A Proof Language for Mathematical Intent}. Design report, 5 September 2026. \code{docs/ideas/Spine_Proof_Language/Spine_Proof_Language.tex}.
+
+\bibitem{proveit} Vladimir Reshetnikov and contributors. \emph{ProveIt}. Local checkout at commit \code{7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5}; the reports pin \code{24ce8bd743eaab64a91ce90725ea00f498d319d2}. \url{https://github.com/VladimirReshetnikov/ProveIt}.
+\bibitem{leant} Vladimir Reshetnikov and contributors. \emph{Leant: a Djex-based synthesis REPL for Lean 4}. Local checkout at commit \code{3a40904be8a410d832d9ab6900b3d3e7b425eccb}, including \code{src/Leant/Synth/Verification.hs}, \code{src/Leant/Synth/Fragment.hs}, \code{docs/synth-internals.md}, \code{docs/candidate-quality.md}, and \code{docs/Leant_Djex_Lean4_Rewrite_Analysis}. \url{https://github.com/VladimirReshetnikov/Leant}.
+
+\bibitem{lean4} Leonardo de Moura and Sebastian Ullrich. The Lean 4 theorem prover and programming language. In \emph{CADE 28}, LNCS 12699, pp.~625--635, 2021. \url{https://doi.org/10.1007/978-3-030-79876-5_37}.
+\bibitem{lean-validation} The Lean development team. \emph{Validating a Lean Proof}, in the Lean Language Reference. \url{https://lean-lang.org/doc/reference/latest/ValidatingProofs/}. Consulted by all nine reports on 5 September 2026.
+\bibitem{mathlib-says} Mathlib contributors. \emph{Mathlib.Tactic.Says}: the \code{says} combinator. Verified present in the Mathlib package pinned by ProveIt (toolchain \code{v4.32.0}). \url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/Says.html}.
+\bibitem{mathlib-gcongr} Mathlib contributors. \emph{Mathlib.Tactic.GCongr}, \emph{Positivity}, \emph{Bound}, \emph{FunProp}, \emph{Zify}, \emph{Qify}, \emph{WLOG}, and the unused-tactic and \code{haveLet} linters. Verified present in the same Mathlib package. \url{https://leanprover-community.github.io/mathlib4_docs/}.
+\bibitem{aesop} Jannis Limperg and Asta Halkj\ae r From. Aesop: white-box best-first proof search for Lean. In \emph{CPP 2023}, pp.~253--266. \url{https://doi.org/10.1145/3573105.3575671}.
+\bibitem{verbose} Patrick Massot. Teaching mathematics using Lean and controlled natural language. In \emph{ITP 2024}, LIPIcs 309, 27:1--27:19. \url{https://doi.org/10.4230/LIPIcs.ITP.2024.27}.
+\bibitem{naproche} Adrian De Lon et al. The Isabelle/Naproche natural language proof assistant. In \emph{CADE 28}, LNCS 12699, pp.~614--624, 2021. \url{https://doi.org/10.1007/978-3-030-79876-5_36}.
+\bibitem{miz3} Freek Wiedijk. A synthesis of the procedural and declarative styles of interactive theorem proving. \emph{Logical Methods in Computer Science} 8(1:30), 2012. \url{https://doi.org/10.2168/LMCS-8(1:30)2012}.
+\bibitem{isar} Makarius Wenzel. \emph{Isar: Intelligible semi-automated reasoning}. \url{https://isabelle.in.tum.de/Isar/}.
+\end{thebibliography}
+\end{document}
