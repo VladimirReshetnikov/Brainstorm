@@ -18,7 +18,7 @@
 \definecolor{accent}{HTML}{247F86}
 \definecolor{pale}{HTML}{F0F5F7}
 \definecolor{muted}{HTML}{52606B}
-\hypersetup{pdftitle={Concord: A Mathematical Language with Certified Computation},pdfauthor={ChatGPT},pdfsubject={Second-iteration proof-language proposal for the Brainstorm campaign}}
+\hypersetup{pdftitle={Meridian: A Mathematical Language with Certified Computation},pdfauthor={ChatGPT},pdfsubject={Second-iteration proof-language proposal for the Brainstorm campaign}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.48em}
 \setlength{\emergencystretch}{2em}
@@ -35,7 +35,7 @@
 \titlespacing*{\subsection}{0pt}{1.6ex plus .5ex}{.45ex}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{muted}Concord \;|\; Mathematical reasoning and certified computation}
+\fancyhead[L]{\small\color{muted}Meridian \;|\; Mathematical reasoning and certified computation}
 \fancyfoot[L]{\small\color{muted}Second brainstorm iteration \;\textbullet\; September 2026}
 \fancyfoot[R]{\small\thepage}
 \renewcommand{\headrulewidth}{.3pt}
@@ -70,7 +70,7 @@
 \vspace*{10mm}
 {\small\sffamily\bfseries\color{accent}BRAINSTORM CAMPAIGN \quad / \quad SECOND ITERATION\par}
 \vspace{13mm}
-{\fontsize{35}{40}\selectfont\bfseries\color{ink}Concord\par}
+{\fontsize{35}{40}\selectfont\bfseries\color{ink}Meridian\par}
 \vspace{4mm}
 {\LARGE\bfseries A Mathematical Language\\with Certified Computation\par}
 \vspace{9mm}
@@ -103,7 +103,7 @@ obligations, preserve the intended statement, and retain evidence rather than
 repeat open-ended discovery. A second iteration should not merely rename this
 architecture. This article proposes a specific extension: a mathematical language
 whose central objects include \emph{certified computations}, not only proof goals.
-The resulting system, provisionally called Concord, combines a structured proof
+The resulting system, provisionally called Meridian, combines a structured proof
 surface with a computer algebra workspace built around formally specified
 algorithms, executable representations, and kernel-checkable evidence.
 
@@ -173,7 +173,7 @@ printed after the answer.
 \end{decisionbox}
 
 The proposal retains the first-round architecture rather than replacing it.
-Concord is initially a Lean-hosted mathematical interface, with an ordinary Lean
+Meridian is initially a Lean-hosted mathematical interface, with an ordinary Lean
 frontend and a structured document frontend over shared methods. Its foundation
 is not a new logic. Its new work lies in the organization of computations and
 their specifications, in predictable transport between representations, and in
@@ -242,7 +242,7 @@ These distinctions govern the design below.
 \subsection{How this proposal differs from another first-round blueprint}
 \begin{longtable}{@{}L{.28\textwidth}L{.64\textwidth}@{}}
 \toprule
-Starting point in the syntheses & Additional decision in Concord \\
+Starting point in the syntheses & Additional decision in Meridian \\
 \midrule
 \endhead
 Typed assertions and an obligation ledger & Computed objects also carry contracts:
@@ -348,7 +348,7 @@ existing Lean notation globally.
 \Needspace{4\baselineskip}
 \subsection{A small proposed surface}
 The following is \emph{proposed syntax}, not executable Lean or an implemented
-Concord parser:
+Meridian parser:
 \par\smallskip\noindent\begin{minipage}{\linewidth}
 \begin{lstlisting}
 context rational_functions:
@@ -490,7 +490,7 @@ Uniqueness without an additional theorem; executable selection from existence al
 
 These distinctions are mathematical rather than cosmetic. Davenport's study of
 verified polynomial factorization explicitly separates checking a product identity
-from verifying irreducibility~\cite{davenport}. Concord should make that
+from verifying irreducibility~\cite{davenport}. Meridian should make that
 separation unavoidable in the result type, not merely repeat it in documentation.
 
 \Needspace{4\baselineskip}
@@ -539,7 +539,7 @@ output is deterministic in one run.
 
 For most proof steps, canonicality is unnecessary. A proof needs a convenient
 representative with a transport theorem. Demanding a global canonical form can
-increase checking cost and make the interface less stable. Concord therefore
+increase checking cost and make the interface less stable. Meridian therefore
 asks for the weakest sufficient mathematical result, while retaining the
 opportunity to request stronger properties explicitly.
 
@@ -553,7 +553,7 @@ certificate~\cite{lverify}. The syntheses also describe an uncommitted
 candidate-bound proposition check; that observation is attributed to those
 snapshots, not asserted as an API executed in this review~\cite{synA,synB}.
 
-Concord records the proposition actually established. A proof of a finite test
+Meridian records the proposition actually established. A proof of a finite test
 conjunction certifies that conjunction. A proof of a universal law certifies the
 law. Some universally quantified propositions over finite types are decidable;
 the distinction is not the presence of a quantifier but the exact specification
@@ -623,7 +623,7 @@ as kernel-only checking.
 Lean's current documentation makes the distinction observable: native computation
 can introduce additional axiom dependencies, and current \code{native_decide}
 uses a per-invocation axiom. A blacklist of one historical axiom name is therefore
-not an adequate publication policy~\cite{leanaxioms}. The strict Concord profile
+not an adequate publication policy~\cite{leanaxioms}. The strict Meridian profile
 requires an explicit transitive allowlist. A separate performance-oriented profile
 may permit additional computation assumptions, but the exported artifact and
 reader view must state that choice.
@@ -675,7 +675,7 @@ reimplementation, or Lean-side checking of exported certificates.
 For Lean specifically, the April 2026 preprint by Shen, Guo, Liu, and Zhi describes
 a computable polynomial interface and certificate-based integration with external
 CAS tools for ideal and Gr\"obner-basis reasoning~\cite{shen}. It should be
-investigated as reusable work, not described as a feature of Concord already
+investigated as reusable work, not described as a feature of Meridian already
 implemented. The older \code{polyrith} workflow is also instructive, but current
 Mathlib documentation marks its external service as defunct and the tactic as
 unsupported~\cite{polyrith}. A second-round implementation plan must verify an
@@ -684,7 +684,7 @@ actual backend rather than rely on an old list of tactic names.
 The proposed contribution is consequently not the invention of reflective
 computation or declarative proof documents. Isar already exemplifies structured
 proof documents and separates proper document constructors from exploratory
-commands~\cite{isar}. Concord's contribution is a particular integration contract
+commands~\cite{isar}. Meridian's contribution is a particular integration contract
 for this campaign: reusable computed objects, their domains and result strength,
 and their place in a readable Lean-checked argument.
 
@@ -758,7 +758,7 @@ all $x$ satisfying $G(x)$.
 \end{definition}
 
 A weaker relation, equality of values on a chosen set, does not assert equality
-of domains. Concord must retain the name of the relation in the certificate.
+of domains. Meridian must retain the name of the relation in the certificate.
 It is a type error in the computational protocol to consume an
 $\EqOn$ certificate where exact partial-function equivalence is required.
 
@@ -891,7 +891,7 @@ where that assumption has been proved. It cannot merge two global equivalence
 classes and then forget the guard. Reuse after undo, substitution, or a change of
 scope must supply a checked context map.
 
-Concord's initial implementation should use a simpler discipline than a global
+Meridian's initial implementation should use a simpler discipline than a global
 conditional equality engine: local normalizers with explicit assumptions,
 immutable input identities, and cached certificates parameterized by their
 actual context. Broader equality saturation is a later optimization. Correctness
@@ -903,7 +903,7 @@ does not require solving that engineering problem first.
 \Needspace{4\baselineskip}
 \subsection{A definition package has a semantic center}
 The syntheses correctly identify definitions as a major source of downstream
-friction~\cite{synA,synB}. Concord should begin with a small number of
+friction~\cite{synA,synB}. Meridian should begin with a small number of
 \emph{definition packages}. Each package contains a semantic type or object,
 one or more executable representations, denotation maps or representation
 relations, invariants, proved interface lemmas, and a scoped normalization policy.
@@ -969,7 +969,7 @@ otherwise be $0$ and $-1$.
 Now add a competing route that represents natural subtraction by
 $\max(a-b,0)$ over the reals. This route can preserve the value without the order
 guard. It does not justify replacing the result by $a-b$. Both routes can be
-correct, but they expose different guards and expressions. Concord records the
+correct, but they expose different guards and expressions. Meridian records the
 chosen route; adding the new route must not silently reinterpret old source.
 The system may propose it as a mathematically visible simplification of the
 requirements.
@@ -1160,7 +1160,7 @@ $W$ is used.
 This is the same local mechanism captured in ProveIt's autonomous theorem. Its
 Lean proof explicitly turns equality on the open set into an eventual equality
 at the neighborhood filter before using derivative congruence~\cite{pautonomous}.
-Concord should expose that mathematical premise while reconstructing the filter
+Meridian should expose that mathematical premise while reconstructing the filter
 plumbing. Equality at a single point would be insufficient: $f(t)=t$ and $g(t)=0$
 agree at zero but have different derivatives there.
 
@@ -1297,7 +1297,7 @@ must survive automation~\cite{pbinomial}.
 The lesson for CAS integration is to compute the \emph{coefficients}, not to
 force every semantic value into the CAS coefficient domain. Mathlib's existing
 \code{match_scalars} and \code{module} tactics already provide relevant
-coefficient-wise reasoning interfaces~\cite{module}. Concord should investigate
+coefficient-wise reasoning interfaces~\cite{module}. Meridian should investigate
 and reuse them before building an overlapping normalization engine.
 
 \Needspace{4\baselineskip}
@@ -1367,7 +1367,7 @@ successive coefficient by that formula. This proves existence and uniqueness
 as a formal series. The proof uses only ring operations and finite coefficient
 sums; it does not invoke analytic convergence.
 
-Concord should represent these as different products of computation:
+Meridian should represent these as different products of computation:
 \par\smallskip\noindent\begin{minipage}{\linewidth}
 \begin{lstlisting}
 calculate c := jet_solution(C = 1 + X*C^2, order = 6)
@@ -1474,7 +1474,7 @@ stage. The inspected engine describes its output as candidate batches rather
 than as behavioral authority; its verification module deliberately treats its
 opaque receipt as acceptance by a callback~\cite{lengine,lverify}.
 
-Concord should preserve that separation. Leant can assemble implications,
+Meridian should preserve that separation. Leant can assemble implications,
 instantiate available providers, and connect the hypotheses produced by one
 computation to the next theorem. It need not become the polynomial factorizer
 or the engine which chooses a branch of an inverse function. Conversely, a CAS
@@ -1551,7 +1551,7 @@ text alongside the state produced by the original tactic~\cite{lmain}.
 
 These mechanisms are reasonable draft-REPL behavior; they should not be
 misdescribed as a proof that the exact displayed edit independently replays to
-a completed document. Concord needs four separate statuses:
+a completed document. Meridian needs four separate statuses:
 \begin{center}
 \begin{tabularx}{\textwidth}{@{}L{.26\textwidth}Y@{}}
 \toprule
@@ -1660,14 +1660,14 @@ an admissible recursive definition with an unresolved cycle of proof debts.
 The familiar relative soundness argument then follows from checked theorem
 application, dependent substitution, and a final check. There is little value
 in presenting that argument as a new foundational theorem. The new proof
-obligations in Concord concern the concrete computational specifications,
+obligations in Meridian concern the concrete computational specifications,
 representation bridges, domain preservation, and correctness of the algorithms
 or checkers. Those are the theorems whose implementation would make the hybrid
 useful.
 
 Logical validity also does not guarantee statement fidelity or explanatory
 quality. Lean's validation guidance explicitly distinguishes the validity of a
-proof from the meaning of the formal statement~\cite{leanvalidation}. Concord
+proof from the meaning of the formal statement~\cite{leanvalidation}. Meridian
 keeps both a resolved semantic header and a human-readable rendering, but does
 not claim that either removes the need for mathematical review.
 
@@ -1701,7 +1701,7 @@ not be mislabeled as search-free replay.
 \begin{lstlisting}
 proof-project/
   document.lean           # Authoring source or Lean companion
-  document.concord        # Optional structured source
+  document.meridian        # Optional structured source
   semantics.json          # Typed identities and interpretation notices
   objects/                # Exact accepted computational data
   certificates/           # Inputs to pinned checkers
@@ -1826,7 +1826,7 @@ Arm & Configuration \\
 \midrule
 A & Original ProveIt Lean as a historical reference, not the sole baseline.\\
 B & Refactored Lean with the same theorem wrappers, verified algorithms,
-certificate checkers, and allowed search inventory as Concord.\\
+certificate checkers, and allowed search inventory as Meridian.\\
 C & Arm B with a generated mathematical document view and retained computation
 records, but ordinary Lean authoring.\\
 D & The proposed mathematical source frontend over exactly the same backend as
@@ -1873,7 +1873,7 @@ specializations remain legal after a calculation.
 \Needspace{4\baselineskip}
 \subsection{Negative neighbors are executable specifications}
 The following are proposed acceptance tests for an implementation, not claims
-that a Concord implementation already passed them. The companion Python script
+that a Meridian implementation already passed them. The companion Python script
 checks selected arithmetic examples only.
 \begin{longtable}{@{}L{.07\textwidth}L{.47\textwidth}L{.38\textwidth}@{}}
 \toprule
@@ -2052,7 +2052,7 @@ layer. The most useful second step is not another set of near-synonymous proof
 verbs. It is to make \emph{certified mathematical computation} a first-class part
 of that layer.
 
-Concord would let the author select an object, a domain, a representation, or an
+Meridian would let the author select an object, a domain, a representation, or an
 ansatz, then ask for computational consequences with explicit guarantees. A
 verified algorithm can produce a result; an external CAS can suggest one; Leant
 can assemble the logical connections. None receives authority to alter the
@@ -2195,7 +2195,7 @@ integer square-root bounds, and several nearby false variants.
 
 The execution recorded \textbf{27 of 27 checks passed}. That result is a test of
 the supplied arithmetic examples and the script, not a formal proof of the
-script's correctness. It is not an evaluation of Concord, a Leant integration,
+script's correctness. It is not an evaluation of Meridian, a Leant integration,
 or a Lean kernel certificate. The universal arguments about partial-expression
 composition, the derivative family, and the formal-series solution are proved
 mathematically in the article; they have not been compiled as new Lean theorems

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact-arithmetic checks for the Concord design article.
+"""Exact-arithmetic checks for the Meridian design article.
 
 These tests are NOT a Lean implementation or a formally verified checker.
 They check finite polynomial certificates and examples using Python's integers

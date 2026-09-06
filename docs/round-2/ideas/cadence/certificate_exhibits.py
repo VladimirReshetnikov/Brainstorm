@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Exact-arithmetic exhibits for the Accord design article.
+"""Exact-arithmetic exhibits for the Cadence design article.
 
-These tests are not Lean proofs and do not implement Accord. They exercise
+These tests are not Lean proofs and do not implement Cadence. They exercise
 small proposed certificate boundaries with Python's exact rational arithmetic.
 No third-party packages or network access are required. Run with Python 3.10+.
 """

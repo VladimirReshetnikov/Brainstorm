@@ -1,12 +1,12 @@
-# Facet: Mathematical Objects, Explicit Views, and Certified Computation
+# Vantage: Mathematical Objects, Explicit Views, and Certified Computation
 
 A second-round proof-language and verified-CAS design article prepared for
 Vladimir Reshetnikov, dated 5 September 2026 (Pacific time).
 
 ## Contents
 
-- `facet.pdf`: the rendered, 43-page article.
-- `facet.tex`: self-contained LaTeX source, with embedded bibliography and TikZ diagram.
+- `vantage.pdf`: the rendered, 43-page article.
+- `vantage.tex`: self-contained LaTeX source, with embedded bibliography and TikZ diagram.
 - `reference_checks.py`: standalone exact-arithmetic checks, requiring Python 3.9+.
 - `reference-checks.json`: results from the delivered run (3,013 checks, ten groups).
 - `source_manifest.json`: exact repository revisions, inspected files, and external references.
@@ -27,7 +27,7 @@ and specify 26 positive/negative-neighbor integration tests.
 
 ## Build
 
-Install a LaTeX distribution with the ordinary packages used by `facet.tex`
+Install a LaTeX distribution with the ordinary packages used by `vantage.tex`
 (including Latin Modern, AMS packages, stmaryrd, TikZ, tcolorbox, listings,
 hyperref, bookmark, and xurl). No external graphics or bibliography database
 is required.
@@ -47,7 +47,7 @@ On Windows with PowerShell:
 Or run the commands directly:
 
 ```text
-latexmk -pdf -interaction=nonstopmode -halt-on-error facet.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error vantage.tex
 python reference_checks.py --output reference-checks.json
 ```
 
@@ -58,7 +58,7 @@ to the delivered files.
 
 ## Evidence status
 
-This is a technical proposal, not an implemented Facet compiler. Illustrative
+This is a technical proposal, not an implemented Vantage compiler. Illustrative
 language syntax and proposed Lean interfaces are specifications. The repository
 review was static, at the recorded revisions; no ProveIt build, Leant backend
 run, or Lean proof compilation was performed for this article.

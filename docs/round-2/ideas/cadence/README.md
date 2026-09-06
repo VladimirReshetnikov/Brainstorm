@@ -1,6 +1,6 @@
-# Accord — second-round proof-language proposal
+# Cadence — second-round proof-language proposal
 
-**Accord: A Mathematical Language of Certified Transformations**
+**Cadence: A Mathematical Language of Certified Transformations**
 
 Prepared for Vladimir Reshetnikov, 5 September 2026 (Pacific time).
 The article is 38 PDF pages, including its source discussion, worked examples,
@@ -9,8 +9,8 @@ protocol sketch, and references.
 
 ## Contents
 
-- `accord.pdf`: the rendered article.
-- `accord.tex`: self-contained LaTeX source, including the bibliography and vector diagram.
+- `cadence.pdf`: the rendered article.
+- `cadence.tex`: self-contained LaTeX source, including the bibliography and vector diagram.
 - `certificate_exhibits.py`: exact-arithmetic Python exhibits; no third-party dependencies.
 - `exhibit_results.json`: the executed exhibit receipt (267 checks passed).
 - `source_register.json`: immutable repository revisions, source paths, Git blob identities,
@@ -24,7 +24,7 @@ With a standard TeX Live or equivalent installation providing the packages named
 in the preamble:
 
 ```sh
-latexmk -pdf -interaction=nonstopmode -halt-on-error accord.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error cadence.tex
 ```
 
 No external bibliography, image, or custom font files are needed. The final build

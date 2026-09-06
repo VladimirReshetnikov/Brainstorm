@@ -1,4 +1,4 @@
-% Build: latexmk -pdf -interaction=nonstopmode -halt-on-error accord.tex
+% Build: latexmk -pdf -interaction=nonstopmode -halt-on-error cadence.tex
 % Self-contained article: embedded bibliography and vector diagram.
 \documentclass[11pt,letterpaper]{article}
 \usepackage[T1]{fontenc}
@@ -30,7 +30,7 @@
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcommand{\code}[1]{\nolinkurl{#1}}
-\newcommand{\Accord}{\textsc{Accord}}
+\newcommand{\Cadence}{\textsc{Cadence}}
 \newcommand{\N}{\mathbb N}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
@@ -54,17 +54,17 @@
 \AfterEndEnvironment{lstlisting}{\end{minipage}\par}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\sffamily Accord: mathematics with certified computation}
+\fancyhead[L]{\small\sffamily Cadence: mathematics with certified computation}
 \fancyhead[R]{\small\sffamily Round-two proposal}
 \fancyfoot[C]{\thepage}
-\hypersetup{pdftitle={Accord: A Mathematical Language of Certified Transformations},pdfauthor={ChatGPT, prepared for Vladimir Reshetnikov},pdfsubject={Second-round proof-language proposal; Lean, Leant, verified computer algebra}}
+\hypersetup{pdftitle={Cadence: A Mathematical Language of Certified Transformations},pdfauthor={ChatGPT, prepared for Vladimir Reshetnikov},pdfsubject={Second-round proof-language proposal; Lean, Leant, verified computer algebra}}
 
 \begin{document}
 \begin{titlepage}
 \color{ink}
 {\sffamily\large PROOF-LANGUAGE DESIGN \quad / \quad SECOND ITERATION\par}
 \vspace{1.05in}
-{\sffamily\bfseries\fontsize{37}{42}\selectfont Accord\par}
+{\sffamily\bfseries\fontsize{37}{42}\selectfont Cadence\par}
 \vspace{.20in}
 {\sffamily\bfseries\fontsize{25}{30}\selectfont A Mathematical Language\\of Certified Transformations\par}
 \vspace{.32in}
@@ -95,7 +95,7 @@ scoped obligations, theorem-backed methods, retained evidence, and fair comparis
 with equally equipped Lean. This article accepts that core and proposes a more
 specific second-round direction: a \emph{relational proof-and-computation language}.
 
-In \Accord, every computational result states its semantic relation to the input:
+In \Cadence, every computational result states its semantic relation to the input:
 equality, equivalence of solution sets, a witnessed property, a certified enclosure,
 or agreement through a specified formal order. Guards, locality, precision, and
 solution completeness are part of the interface rather than informal annotations.
@@ -188,7 +188,7 @@ work. Those descriptions remain attributed to the reports; they are not evidence
 that the feature is present in the pinned committed files inspected here.
 
 This is a static source review. No ProveIt or Leant build was run, and no proposed
-Accord block was elaborated by Lean. The separate arithmetic companion was run;
+Cadence block was elaborated by Lean. The separate arithmetic companion was run;
 its deliberately narrower scope is specified in Section~\ref{sec:exhibits}.
 
 \subsection{What survives the first round}
@@ -249,7 +249,7 @@ choices have become part of the argument}. An exact rational number, a formal
 power series, a real root, and a finite precision approximation can coexist in one
 notebook without having interchangeable semantics.
 
-\Accord\ is a working name for that interface. Its central object is a
+\Cadence\ is a working name for that interface. Its central object is a
 \emph{transformation record} linking a fixed input to an output under a specified
 relation, with all required premises. It can support proof-only use, computation-only
 exploration, and a combined published proof document.
@@ -663,7 +663,7 @@ certificate whose independently checked correctness relates the original input
 to the returned output. The producer can be optimized, replaced, or even
 unverified without changing the logical acceptance rule.
 
-The default Accord publication profile should not rely on undisclosed native
+The default Cadence publication profile should not rely on undisclosed native
 computation axioms. An optional accelerated profile may permit them, but its
 receipt must say what it trusts. Current Lean documentation explains that native
 computation increases the trusted base and, since Lean 4.29, uses dedicated
@@ -777,7 +777,7 @@ it as complete.
 Structured mathematical proof is established prior art; Isar explicitly combines
 structured readable proof with semi-automated reasoning\cite{isar}. Lean's own
 pipeline separates extensible elaboration from kernel checking and exposes
-source-linked elaboration metadata\cite{leanelab}. Accord's contribution is not
+source-linked elaboration metadata\cite{leanelab}. Cadence's contribution is not
 that separation but the relation-specific computational interface built above it.
 
 Verified symbolic algorithms also have substantial precedents. Cohen and Mahboubi
@@ -793,7 +793,7 @@ using interval-style bounds and supports explicit bounding hypotheses for
 unrecognized subexpressions\cite{interval}. It is a particularly relevant
 precedent for distinguishing a proved enclosure from an unverified floating-point
 answer. Porting ideas is not the same as transporting their proofs across kernels;
-Accord still needs Lean-checked implementations or a justified interoperability
+Cadence still needs Lean-checked implementations or a justified interoperability
 mechanism.
 
 \section{Guards and completeness: the first computational example}\label{sec:linear}
@@ -906,7 +906,7 @@ gives
 \]
 For \(n<j\), both the empty sum and the indicator are zero.
 
-An Accord source can retain exactly these choices:
+An Cadence source can retain exactly these choices:
 \begin{lstlisting}
 case n < j:
   conclude by empty_interval
@@ -943,7 +943,7 @@ addition and negation. Consequently the orthogonality identity proves that
  a_n=\sum_{k=0}^{n}(-1)^{n-k}\binom nk\,b_k,
 \]
 with coefficients interpreted as integer scalar actions, without multiplying two
-elements of \(M\). Accord should perform the kernel calculation in \(\Z\), then
+elements of \(M\). Cadence should perform the kernel calculation in \(\Z\), then
 apply the existing triangular-transform interface at the original module type.
 The inspected source already does this\cite{pbinomial}.
 
@@ -1313,7 +1313,7 @@ additional candidates after the quota is satisfied\cite{lverification}.
 
 Its engine retains typed candidate origins, provider bindings, renderer-related
 information, and a distinction between candidates, qualified refutation, and
-no-term outcomes\cite{lengine}. These are useful architectural assets. Accord
+no-term outcomes\cite{lengine}. These are useful architectural assets. Cadence
 should reuse the Haskell engines through a narrow adapter rather than commission
 a wholesale rewrite before measuring their value.
 
@@ -1374,7 +1374,7 @@ independently replayed before it is offered\cite{lmain}. This is a specific
 publication-boundary concern, not an allegation that the Lean kernel accepts
 invalid mathematics.
 
-Accord's adapter should retain four distinct states:
+Cadence's adapter should retain four distinct states:
 \begin{lstlisting}
 ProbeAccepted(original_command, original_state, result_state)
 EditReplayed(exact_displayed_source, original_state, result_state)
@@ -1418,7 +1418,7 @@ A statement seal should be understood as a boundary before untrusted discovery
 can affect meaning, not as a requirement that every Lean elaboration task finishes
 in one sequential pass. Lean's elaboration and macro expansion are interleaved,
 and its information trees relate elaboration results to source syntax
-\cite{leanelab}. Accord should work with that machinery rather than replace it with
+\cite{leanelab}. Cadence should work with that machinery rather than replace it with
 an inaccurate pipeline model.
 
 A node begins as a draft. Resolution fixes its expressions, binders, observations,
@@ -1505,7 +1505,7 @@ claim in the published argument.
 For untrusted generated code, candidate elaboration belongs in a sandbox, with
 accepted terms exported for checking against a separately established statement.
 Current Lean guidance distinguishes ordinary kernel acceptance from stronger
-rechecking and challenge-comparison workflows\cite{leanvalidation}. Accord should
+rechecking and challenge-comparison workflows\cite{leanvalidation}. Cadence should
 reuse appropriate existing validation infrastructure rather than market a ledger
 file as a security boundary.
 
@@ -1519,7 +1519,7 @@ that checking takes constant time or never evaluates an algorithm.
 Retained tactic source alone is a weaker artifact: replaying it can re-execute
 metaprograms and normalization. The syntheses' discussion of \code{says} usefully
 illustrates the distinction between freezing a proposed text and independently
-replaying that text or retaining its proof term\cite{synthesis,review}. Accord
+replaying that text or retaining its proof term\cite{synthesis,review}. Cadence
 should store text for editing, exact evidence for acceptance, and the computational
 certificate when it assists inspection or regeneration.
 
@@ -1537,7 +1537,7 @@ alters the mathematical decomposition or method. An object change selects a
 new witness or representation with observable consequences. A statement change
 alters binders, assumptions, definitions, structures, or the claimed relation.
 
-For Accord, refining a certified interval for the same root is ordinarily an
+For Cadence, refining a certified interval for the same root is ordinarily an
 additional observation, not replacement of the root. Replacing an arbitrary root
 with the positive root is an object change. Upgrading a witness result to a
 complete solution set is a stronger task relation. Replacing precision \(N\) by
@@ -1610,7 +1610,7 @@ implementation cost, not by a checklist intended to resemble a commercial CAS.
 \section{Evaluation that can reject the proposal}\label{sec:evaluation}
 \subsection{Three treatments, with equal mathematical assets}
 Use three treatments: current idiomatic Lean; refactored Lean with the proposed
-methods, object interfaces, CAS checkers, and synthesis services; and the Accord
+methods, object interfaces, CAS checkers, and synthesis services; and the Cadence
 frontend with exactly those same assets. The first-to-second comparison measures
 library and tooling gains. The second-to-third comparison measures the language's
 incremental value. Mixing the two would make every helper lemma look like a syntax
@@ -1730,7 +1730,7 @@ Total & 267\\
 
 The output file \code{exhibit_results.json} records the counts, polynomial
 coefficients, rational enclosure, and Python version. The code does not implement
-an Accord parser, a Lean adapter, a verified compiler, a full CAS, or a general
+an Cadence parser, a Lean adapter, a verified compiler, a full CAS, or a general
 certificate security boundary. Its parameter tests are finite samples. Its
 arithmetic checker is Python code, not a proved Lean checker. The mathematical
 arguments in this article are paper proofs and specializations of cited
@@ -1747,7 +1747,7 @@ The opportunity is not another set of pleasant proof keywords. It is a mathemati
 workbench that connects objects, computational representations, and proved
 properties through explicit contracts.
 
-Accord makes the decisive distinctions part of the task: equality or implication,
+Cadence makes the decisive distinctions part of the task: equality or implication,
 witness or complete solution set, finite jet or full series, pointwise or local
 identity, approximation or exact object, proved algorithm or trusted execution.
 The mathematician chooses the meaning; theorem libraries, verified algorithms,
@@ -1943,14 +1943,14 @@ refute the existence of a different candidate. This distinction is particularly
 important for synthesis and all-solution requests.
 
 \section{Source register and rebuilding}\label{app:sources}
-The archive contains \code{accord.tex}, \code{accord.pdf},
+The archive contains \code{cadence.tex}, \code{cadence.pdf},
 \code{certificate_exhibits.py}, \code{exhibit_results.json},
 \code{source_register.json}, and \code{README.md}. The bibliography is embedded in
 the TeX file. No downloaded font files or external figure files are needed.
 
 Build the article with a standard TeX distribution:
 \begin{lstlisting}
-latexmk -pdf -interaction=nonstopmode -halt-on-error accord.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error cadence.tex
 python certificate_exhibits.py exhibit_results.json
 \end{lstlisting}
 The second command reproduces the arithmetic exhibits, not the PDF's mathematical

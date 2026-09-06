@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact-arithmetic regression checks for the Facet design article.
+"""Exact-arithmetic regression checks for the Vantage design article.
 
 Run with Python 3.9 or later:
     python reference_checks.py --output reference-checks.json

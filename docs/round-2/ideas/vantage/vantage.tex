@@ -1,4 +1,4 @@
-% Build: latexmk -pdf -interaction=nonstopmode -halt-on-error facet.tex
+% Build: latexmk -pdf -interaction=nonstopmode -halt-on-error vantage.tex
 % Self-contained article. No external figures, fonts, or bibliography database.
 \documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
@@ -42,7 +42,7 @@
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\C}{\mathbb C}
 \newcommand{\den}[1]{\llbracket #1\rrbracket}
-\newcommand{\Facet}{\textsc{Facet}}
+\newcommand{\Vantage}{\textsc{Vantage}}
 \newcommand{\Spec}{\operatorname{Spec}}
 \newcommand{\CertCheck}{\operatorname{check}}
 \newcommand{\coeff}{\operatorname{coeff}}
@@ -64,11 +64,11 @@
  framesep=5pt,xleftmargin=5pt,xrightmargin=5pt,aboveskip=.75em,belowskip=.75em}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\sffamily Facet: objects, views, and certified computation}
+\fancyhead[L]{\small\sffamily Vantage: objects, views, and certified computation}
 \fancyhead[R]{\small\sffamily Second-round proposal}
 \fancyfoot[C]{\small\thepage}
 \renewcommand{\headrulewidth}{.3pt}
-\hypersetup{pdftitle={Facet: Mathematical Objects, Explicit Views, and Certified Computation},
+\hypersetup{pdftitle={Vantage: Mathematical Objects, Explicit Views, and Certified Computation},
  pdfauthor={OpenAI, prepared for Vladimir Reshetnikov},
  pdfsubject={Second-round design of a Lean-hosted proof language and verified computer algebra environment},
  bookmarksnumbered=true}
@@ -76,7 +76,7 @@
 \begin{titlepage}
 {\sffamily\small\color{muted}PROOF-LANGUAGE DESIGN \quad / \quad SECOND ITERATION\par}
 \vspace{19mm}
-{\sffamily\bfseries\fontsize{38}{43}\selectfont\color{ink}Facet\par}
+{\sffamily\bfseries\fontsize{38}{43}\selectfont\color{ink}Vantage\par}
 \vspace{5mm}
 {\sffamily\bfseries\fontsize{25}{31}\selectfont\color{ink}
 Mathematical Objects,\\Explicit Views, and\\Certified Computation\par}
@@ -112,7 +112,7 @@ method contracts risk duplicating ordinary theorem types; definitions may create
 more friction than proof syntax; and a certificate that a theorem is true is not
 necessarily a certificate for the explanation printed beside it.
 
-This article proposes \Facet, an object-and-view layer whose primary operation is
+This article proposes \Vantage, an object-and-view layer whose primary operation is
 \emph{a certified change of representation for a specified observation}. The
 logical host remains Lean. The distinguishing design decisions are a separation
 of exact presentations, restricted observations, and one-way abstractions;
@@ -209,7 +209,7 @@ verified before the environment can benefit from it.
 \subsection{What is new relative to the reports}
 The first round already contains theorem-backed views, contextual holes,
 semantic edit classes, and the separation of proof synthesis from data synthesis.
-\Facet\ adopts those ideas. Its proposed increment is to give them a more concrete
+\Vantage\ adopts those ideas. Its proposed increment is to give them a more concrete
 mathematical and implementation boundary:
 
 \begin{enumerate}
@@ -440,7 +440,7 @@ argument. The interface records their roles, but the theorem supplying the
 operation remains authoritative about what is required.
 
 \subsection{No change to definitional equality}
-\Facet\ does not make CAS simplification part of Lean's definitional equality.
+\Vantage\ does not make CAS simplification part of Lean's definitional equality.
 Expressions related by polynomial normalization remain propositionally equal
 unless they were already definitionally equal in Lean. The elaborator inserts
 checked transports where needed.
@@ -928,7 +928,7 @@ computation trace whose verified checker establishes the same relation.
 
 This execution boundary is easy to overlook when saying ``based on formally
 verified algorithms.'' Proving the source algorithm correct is one obligation;
-showing that the value actually used is its result is another. \Facet's strict
+showing that the value actually used is its result is another. \Vantage's strict
 profile requires both. Small calculations can use kernel reduction. Larger
 calculations can use compact certificates or a verified trace checker. A more
 permissive native-computation profile can exist, but its additional trust is
@@ -1582,7 +1582,7 @@ endpoint. A tactic edit changes an elaboration state; a synthesized term is
 checked at a fixed expected type. Both can help, but they carry different replay
 requirements~\cite{l-main,l-fragment}.
 
-For \Facet, the first integration target is term assembly across fixed interfaces.
+For \Vantage, the first integration target is term assembly across fixed interfaces.
 Suppose the local context contains a neighborhood membership proof, an identity
 on that neighborhood, and a derivative certificate for a representative. The
 adapter library exposes ordinary theorems connecting these to the desired
@@ -1791,7 +1791,7 @@ entire ProveIt corpus before obtaining a useful view of it.
 
 \section{Publication, replay, and the reader's evidence}\label{sec:replay}
 \subsection{One artifact, several projections}
-A published \Facet\ proof bundle is specified to contain the source document, an expanded Lean companion,
+A published \Vantage\ proof bundle is specified to contain the source document, an expanded Lean companion,
 the anchored statement and definition manifest, accepted step evidence, computation
 certificates, package versions, the dependency and axiom audit, and a bidirectional
 source map. The human argument, obligation view, and exact evidence view are
@@ -1823,7 +1823,7 @@ plans. There is no promise that serialized Lean internals are portable across
 all versions.
 
 \subsection{A practical trust boundary}
-Lean already separates elaboration from its small logical checker; \Facet\ uses
+Lean already separates elaboration from its small logical checker; \Vantage\ uses
 that architecture instead of inventing a new foundation~\cite{lean-elab}.
 Untrusted producers run outside the acceptance worker. The strict publication
 profile checks exact targets, all formal assertions, computation evidence, and
@@ -2027,7 +2027,7 @@ presented as new discoveries~\cite{synthesis,blueprints}.
 CoqEAL is a relevant precedent for connecting mathematical representations with
 more efficient computational ones through refinement. Its project separates
 abstract algebraic material, computation-oriented data structures, and a
-refinement framework. \Facet\ proposes a language-facing organization around
+refinement framework. \Vantage\ proposes a language-facing organization around
 that general kind of representation discipline, not the invention of verified
 representation changes~\cite{coqeal}.
 
@@ -2078,7 +2078,7 @@ expression is a polynomial, a formal series, a local function, or an algebraic
 root. It should make it easy to use each object in the representation appropriate
 to the argument, while preserving exactly what that representation justifies.
 
-\Facet\ keeps the first round's conservative logical foundation and makes the
+\Vantage\ keeps the first round's conservative logical foundation and makes the
 representation boundary its central language abstraction. Exact presentations
 preserve objects; restricted observations carry precision and domain; directed
 abstractions require the correct transport arrow. Verified algorithms and

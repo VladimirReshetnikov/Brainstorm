@@ -1,12 +1,12 @@
-# Concord: A Mathematical Language with Certified Computation
+# Meridian: A Mathematical Language with Certified Computation
 
 A second-iteration design proposal for Vladimir Reshetnikov's Brainstorm campaign.
 Prepared September 5, 2026 (Pacific time).
 
 ## Files
 
-- `concord.pdf`: the rendered article.
-- `concord.tex`: self-contained LaTeX source with embedded bibliography.
+- `meridian.pdf`: the rendered article.
+- `meridian.tex`: self-contained LaTeX source with embedded bibliography.
 - `check_examples.py`: exact-arithmetic sanity checks for worked examples.
 - `example_checks.json`: recorded outcome of those checks (27/27 passed).
 - `source_manifest.json`: pinned repository revisions, reviewed source paths, and
@@ -32,7 +32,7 @@ Or invoke the command directly (including on Windows with an installed TeX
 system):
 
 ```sh
-latexmk -pdf -interaction=nonstopmode -halt-on-error concord.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error meridian.tex
 ```
 
 If latexmk is unavailable, run pdfLaTeX three times to resolve references and
@@ -55,12 +55,12 @@ residual, rational square-root enclosures, and selected negative neighbors.
 ## Evidence status
 
 This is a proposal, not an implemented proof language or a deployed verified CAS.
-All Concord surface syntax and protocol sketches are explicitly illustrative.
+All Meridian surface syntax and protocol sketches are explicitly illustrative.
 The repository review was static and pinned to the revisions in the manifest.
 ProveIt and Leant were not built or run during this review, and no newly written
 Lean theorem in this package has been kernel-checked. The Python program is not
 a formally verified checker; its finite tests do not establish the correctness
-of an implementation of Concord. Universal mathematical arguments are given in
+of an implementation of Meridian. Universal mathematical arguments are given in
 the article itself.
 
 The 23 adversarial implementation tests in the article are proposed acceptance
