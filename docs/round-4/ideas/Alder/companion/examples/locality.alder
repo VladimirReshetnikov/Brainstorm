@@ -1,0 +1,6 @@
+# Every atom below stands for a *fixed elaborated* proposition in the design.
+atoms open member eqOn eventual derivative_eq
+rule neighborhood : open & member & eqOn -> eventual
+rule derivative_transport : eventual -> derivative_eq
+assume open member eqOn
+show derivative_eq

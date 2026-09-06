@@ -1,0 +1,46 @@
+test_01_alternatives (__main__.RequirementTests.test_01_alternatives) ... ok
+test_02_dominance (__main__.RequirementTests.test_02_dominance) ... ok
+test_03_unseeded_cycle (__main__.RequirementTests.test_03_unseeded_cycle) ... ok
+test_04_seeded_cycle (__main__.RequirementTests.test_04_seeded_cycle) ... ok
+test_05_zero_premise_rule (__main__.RequirementTests.test_05_zero_premise_rule) ... ok
+test_06_known_dominates_prospective (__main__.RequirementTests.test_06_known_dominates_prospective) ... ok
+test_07_repeated_premise_is_not_two_hypotheses (__main__.RequirementTests.test_07_repeated_premise_is_not_two_hypotheses) ... ok
+test_08_parser_and_export (__main__.RequirementTests.test_08_parser_and_export) ... ok
+test_09_bad_parser_input (__main__.RequirementTests.test_09_bad_parser_input) ... ok
+test_10_bad_rule_metadata (__main__.RequirementTests.test_10_bad_rule_metadata) ... ok
+test_11_replay_positive (__main__.RequirementTests.test_11_replay_positive) ... ok
+test_12_wrong_proposition (__main__.RequirementTests.test_12_wrong_proposition) ... ok
+test_13_wrong_rule_arity (__main__.RequirementTests.test_13_wrong_rule_arity) ... ok
+test_14_forged_support (__main__.RequirementTests.test_14_forged_support) ... ok
+test_15_branch_context_and_candidate (__main__.RequirementTests.test_15_branch_context_and_candidate) ... ok
+test_16_changed_rules_even_with_updated_digest (__main__.RequirementTests.test_16_changed_rules_even_with_updated_digest) ... ok
+test_17_unlicensed_leaf (__main__.RequirementTests.test_17_unlicensed_leaf) ... ok
+test_18_cyclic_and_budgeted_certificates (__main__.RequirementTests.test_18_cyclic_and_budgeted_certificates) ... ok
+test_19_observation_consumer_scope (__main__.RequirementTests.test_19_observation_consumer_scope) ... ok
+test_20_rule_order_independence_of_supports (__main__.RequirementTests.test_20_rule_order_independence_of_supports) ... ok
+test_21_random_differential_completeness (__main__.RequirementTests.test_21_random_differential_completeness) ... ok
+test_22_frey_arithmetic_fixtures (__main__.RequirementTests.test_22_frey_arithmetic_fixtures) ... ok
+test_23_realization_and_correlation (__main__.RequirementTests.test_23_realization_and_correlation) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.237s
+
+OK
+{
+  "status": "passed",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "test_methods": 23,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_seconds": 0.237789,
+  "counts": {
+    "random_systems": 400,
+    "subset_closures": 3873,
+    "atom_support_comparisons": 2800,
+    "replayed_random_certificates": 1835,
+    "frey_positive_triples": 288,
+    "frey_single_premise_mutations": 4
+  },
+  "seed": 4406,
+  "scope": "Finite propositional reference model and finite arithmetic fixtures; no Lean execution."
+}

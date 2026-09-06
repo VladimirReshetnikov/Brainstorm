@@ -1,0 +1,7 @@
+context analytic_routes
+atoms dominated l1_summable convergence integral_identity
+known convergence
+offer dominated l1_summable
+rule dominated_route : dominated convergence -> integral_identity
+rule summable_route : l1_summable -> integral_identity
+show integral_identity

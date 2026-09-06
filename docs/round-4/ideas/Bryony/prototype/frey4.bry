@@ -1,0 +1,12 @@
+# Propositional schema of the coefficient-4 arithmetic interface.
+# Atom meanings are described in the article; the rules are model assumptions.
+context FreyArithmetic
+candidate FixedIntegerQuotient4
+policy ArithmeticOnly
+atoms EvenB LargeP DivSixteen NumeratorExact DenomNonzero CastCorrect
+known DenomNonzero
+prospect EvenB LargeP NumeratorExact
+rule power_divisibility : EvenB & LargeP => DivSixteen
+rule multiply_divisibility : DivSixteen => NumeratorExact
+rule exact_cast : NumeratorExact & DenomNonzero => CastCorrect
+goal CastCorrect

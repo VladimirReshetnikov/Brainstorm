@@ -1,0 +1,179 @@
+{
+  "title": "Laurel source register",
+  "date": "2026-09-06",
+  "scope_note": "Locators and reported Git object identities, not a manifest of downloaded source bytes. Source repositories were read, not built or modified. The article and its own companion are separate artifacts.",
+  "version_distinction": {
+    "leant_remote_main_observed": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+    "newer_leant_snapshot_in_round3_reports": "823259f7 (abbreviated in the cited reports)",
+    "qualification": "The newer snapshot is attributed to the reports; it is not relabeled as the independently observed remote main."
+  },
+  "sources": [
+    {
+      "key": "r3a",
+      "title": "From Properties to Proof Obligations: A critical synthesis of the nine round-3 proposals",
+      "kind": "repository_source",
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/synthesis/unified-report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/synthesis/unified-report.tex",
+      "inspection_scope": "Main text read closely, including the common calculus, finite inference, observation adequacy, worked examples, Leant discussion, implementation/evaluation sections, and next-round questions. This is not an independent rerun of the report's experiments or a claim to have read all individual proposals.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "7e84fe893ea2eb28d57bd8d33e166e021adb1687"
+    },
+    {
+      "key": "r3b",
+      "title": "Nine Refinements: Property-Aware Typing in a Mathematician's Proof Language over Lean",
+      "kind": "repository_source",
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/unified_report/unified_report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/unified_report/unified_report.tex",
+      "inspection_scope": "Main text read closely, including the commitment matrix, checked-core discussion, assessment, corrected completeness distinctions, reconciliation, and fourth-round questions. Externally included appendices and experiment logs were not independently audited in full.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "3e78b38f193723bf92c59ddcb374b748099e7b4f"
+    },
+    {
+      "key": "regularity",
+      "title": "Sharp Lipschitz regularity of the Fabius and Rvachev functions",
+      "kind": "repository_source",
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/Regularity.lean",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/Regularity.lean",
+      "inspection_scope": "Full file read: derivative bounds, Lipschitz estimates, leastness arguments, and endpoint majorants. No repository build was run.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "2a2abdfb883b12d99ce266a20b8af6a79300d9e6"
+    },
+    {
+      "key": "freymap",
+      "title": "Frey integral-to-rational model and supporting arithmetic",
+      "kind": "repository_source",
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "inspection_scope": "Full supplied file range read, including exact coefficient casts and the final solution adapter. No FLT build or new axiom audit was run.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "cfe76a66b489c09d49f775a0368addf0da0c14e8"
+    },
+    {
+      "key": "fltreadme",
+      "title": "Fermat's Last Theorem in Lean 4",
+      "kind": "repository_source",
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "README.md",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/README.md",
+      "inspection_scope": "Repository README read. Compilation, comparator, and independent-kernel outcomes are the repository's reports, not executions in this work.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "f3cfcb92443c29a8ce87494f6c9a7b57e40129e9"
+    },
+    {
+      "key": "leantreadme",
+      "title": "Leant README",
+      "kind": "repository_source",
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "README.md",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/README.md",
+      "inspection_scope": "Opening approximately 130 lines read, covering the synthesis REPL, examples, documentation map, and initial highlights.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "7d085baf3fc5069319ff515611c5802a538b5af6"
+    },
+    {
+      "key": "leantinternals",
+      "title": "Leant :synth internals",
+      "kind": "repository_source",
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "docs/synth-internals.md",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/docs/synth-internals.md",
+      "inspection_scope": "Opening 190 lines read, including the documented pipeline overview, historical evidence qualifications, and semantic-origin/provider-binding discussion. The entire long document was not independently audited.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "1723e1409060ee9eaabe21ae2ca9c37be6eaa9a7"
+    },
+    {
+      "key": "lengthcontract",
+      "title": "Leant.Synth.Length.Contract",
+      "kind": "repository_source",
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Length/Contract.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Length/Contract.hs",
+      "inspection_scope": "Full module read: passive assertions, provider-law roles, exact source identities, scalar and joint paired-output contract vocabulary.",
+      "access_method": "GitHub connector read/search",
+      "inspected_on": "2026-09-06",
+      "git_blob_sha_reported_by_connector": "a1f04001c6ccd6c5e018162fa4db7ff5b059972e"
+    },
+    {
+      "key": "leantypes",
+      "title": "Lean Language Reference: The Type System",
+      "kind": "primary_publication_or_official_documentation",
+      "url": "https://lean-lang.org/doc/reference/latest/The-Type-System/",
+      "inspected_on": "2026-09-06",
+      "inspection_scope": "Official type-system documentation. Latest documentation identified itself as 4.34.0-rc2 when consulted; this moving URL is not an immutable version pin.",
+      "access_method": "web tool"
+    },
+    {
+      "key": "funprop",
+      "title": "Mathlib.Tactic.FunProp",
+      "kind": "primary_publication_or_official_documentation",
+      "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/FunProp.html",
+      "inspected_on": "2026-09-06",
+      "inspection_scope": "Official generated documentation for compositional function-property automation and its search/discharger interface. Moving documentation URL.",
+      "access_method": "web tool"
+    },
+    {
+      "key": "mvcgen",
+      "title": "Lean Language Reference: The mvcgen tactic",
+      "kind": "primary_publication_or_official_documentation",
+      "url": "https://lean-lang.org/doc/reference/latest/The--mvcgen--tactic/",
+      "inspected_on": "2026-09-06",
+      "inspection_scope": "Official documentation for verification-condition generation. Used as a host-capability baseline; not executed by this companion.",
+      "access_method": "web tool"
+    },
+    {
+      "key": "explicitref",
+      "title": "Ghalayini and Krishnaswami: Explicit Refinement Types",
+      "kind": "primary_publication_or_official_documentation",
+      "url": "https://arxiv.org/abs/2311.13995",
+      "inspected_on": "2026-09-06",
+      "inspection_scope": "Primary paper metadata and research account, including explicit-evidence refinements; DOI 10.1145/3607837. Not a claim that Laurel implements this paper.",
+      "access_method": "web tool"
+    },
+    {
+      "key": "provenance",
+      "title": "Green, Karvounarakis, and Tannen: Provenance Semirings",
+      "kind": "primary_publication_or_official_documentation",
+      "url": "https://doi.org/10.1145/1265530.1265535",
+      "inspected_on": "2026-09-06",
+      "inspection_scope": "Primary publication metadata for PODS 2007, pages 31-40. Attribution for algebraic provenance, not a source of the specific Laurel frontier algorithm.",
+      "access_method": "web tool"
+    },
+    {
+      "key": "provslides",
+      "title": "Provenance Semirings: author presentation",
+      "kind": "primary_publication_or_official_documentation",
+      "url": "https://www.cis.upenn.edu/~plclub/propr/greg-slides.pdf",
+      "inspected_on": "2026-09-06",
+      "inspection_scope": "Primary author presentation; relevant provenance page inspected in a PDF screenshot. Used for alternative-versus-joint provenance.",
+      "access_method": "web tool"
+    },
+    {
+      "key": "lean4lean",
+      "title": "Carneiro: Lean4Lean: Verifying a Typechecker for Lean, in Lean",
+      "kind": "primary_publication_or_official_documentation",
+      "url": "https://arxiv.org/html/2403.14064v3",
+      "inspected_on": "2026-09-06",
+      "inspection_scope": "Primary paper, version 3 dated 14 September 2025. Used for the metatheory and checking burden of kernel changes, without claiming complete verification of all Lean features.",
+      "access_method": "web tool"
+    }
+  ]
+}

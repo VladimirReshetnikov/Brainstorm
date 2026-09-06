@@ -1,0 +1,28 @@
+{
+  "profile": "LocalDerivative",
+  "fingerprint": "029a576700eb42f87c7e3bfbf9c7c75059a560a27d0f24a947686b63632dccb0",
+  "complete": true,
+  "nodes": 12,
+  "rule_combination_attempts": 14,
+  "sweeps": 2,
+  "goals": {
+    "QuotientReady": {
+      "status": "conditional",
+      "routes": [
+        [
+          "DirectGerm",
+          "Positive"
+        ],
+        [
+          "Open",
+          "Positive"
+        ]
+      ]
+    },
+    "NeverNeeded": {
+      "status": "no_route_in_profile",
+      "routes": []
+    }
+  },
+  "evidence": "Python-validated abstract derivations; not Lean compilation"
+}

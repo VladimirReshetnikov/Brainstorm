@@ -1,0 +1,40 @@
+{
+  "exact_runs": [
+    {
+      "pairs": 2,
+      "minimal_routes": 4,
+      "stored_nodes": 8,
+      "complete": true
+    },
+    {
+      "pairs": 4,
+      "minimal_routes": 16,
+      "stored_nodes": 24,
+      "complete": true
+    },
+    {
+      "pairs": 6,
+      "minimal_routes": 64,
+      "stored_nodes": 76,
+      "complete": true
+    },
+    {
+      "pairs": 8,
+      "minimal_routes": 256,
+      "stored_nodes": 272,
+      "complete": true
+    },
+    {
+      "pairs": 10,
+      "minimal_routes": 1024,
+      "stored_nodes": 1044,
+      "complete": true
+    }
+  ],
+  "capped_run": {
+    "pairs": 10,
+    "max_nodes": 128,
+    "routes_retained": 108,
+    "complete": false
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "status": "requirements_resolved_in_reference_model",
+  "consumer": "exact_quotient(n,d)",
+  "rule_firings": 1,
+  "evidence": [
+    {
+      "epoch": "use-site-snapshot-1",
+      "fact": {
+        "predicate": "positive",
+        "arguments": [
+          "d"
+        ]
+      },
+      "rule": "assume:hdpos",
+      "parents": [],
+      "lean": "hdpos"
+    },
+    {
+      "epoch": "use-site-snapshot-1",
+      "fact": {
+        "predicate": "divides",
+        "arguments": [
+          "d",
+          "n"
+        ]
+      },
+      "rule": "assume:hdiv",
+      "parents": [],
+      "lean": "hdiv"
+    },
+    {
+      "epoch": "use-site-snapshot-1",
+      "fact": {
+        "predicate": "nonzero",
+        "arguments": [
+          "d"
+        ]
+      },
+      "rule": "Nat.ne_of_gt",
+      "parents": [
+        0
+      ],
+      "lean": "(Nat.ne_of_gt hdpos)"
+    }
+  ],
+  "limitations": [
+    "No quotient value is constructed here.",
+    "No Lean compiler was run.",
+    "This is not an integration with Leant."
+  ]
+}

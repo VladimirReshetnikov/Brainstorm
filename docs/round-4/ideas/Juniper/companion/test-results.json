@@ -1,0 +1,111 @@
+{
+  "python": "3.13.5",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "unit_tests": 32,
+  "failures": 0,
+  "errors": 0,
+  "experiments": {
+    "seed": 20260906,
+    "random_profiles": 400,
+    "atoms_per_profile": 7,
+    "offers_per_profile": 4,
+    "rules_per_profile": 12,
+    "exhaustive_support_assignments": 6400,
+    "goal_frontiers_compared_to_oracle": 2800,
+    "reversed_schedule_profiles": 400,
+    "exponential_frontiers": [
+      {
+        "pairs": 1,
+        "offers": 2,
+        "routes": 2,
+        "nodes": 6,
+        "attempts": 8,
+        "seconds_single_run": 3.2648000114932074e-05
+      },
+      {
+        "pairs": 2,
+        "offers": 4,
+        "routes": 4,
+        "nodes": 12,
+        "attempts": 16,
+        "seconds_single_run": 6.955300000299758e-05
+      },
+      {
+        "pairs": 3,
+        "offers": 6,
+        "routes": 8,
+        "nodes": 20,
+        "attempts": 28,
+        "seconds_single_run": 7.533100006185123e-05
+      },
+      {
+        "pairs": 4,
+        "offers": 8,
+        "routes": 16,
+        "nodes": 32,
+        "attempts": 48,
+        "seconds_single_run": 0.00012334200005170715
+      },
+      {
+        "pairs": 5,
+        "offers": 10,
+        "routes": 32,
+        "nodes": 52,
+        "attempts": 84,
+        "seconds_single_run": 0.0002456929998970736
+      },
+      {
+        "pairs": 6,
+        "offers": 12,
+        "routes": 64,
+        "nodes": 88,
+        "attempts": 152,
+        "seconds_single_run": 0.0006161199999041855
+      },
+      {
+        "pairs": 7,
+        "offers": 14,
+        "routes": 128,
+        "nodes": 156,
+        "attempts": 284,
+        "seconds_single_run": 0.0016835579999678885
+      },
+      {
+        "pairs": 8,
+        "offers": 16,
+        "routes": 256,
+        "nodes": 288,
+        "attempts": 544,
+        "seconds_single_run": 0.005189329000131693
+      }
+    ],
+    "valid_Frey_arithmetic_triples": 189,
+    "Frey_boundary_fixtures": {
+      "(3, 2, 5)": {
+        "a2_numerator_mod_4": 0,
+        "a4_numerator_mod_16": 0
+      },
+      "(3, 2, 4)": {
+        "a2_numerator_mod_4": 2,
+        "a4_numerator_mod_16": 0
+      },
+      "(3, 3, 5)": {
+        "a2_numerator_mod_4": 3,
+        "a4_numerator_mod_16": 7
+      },
+      "(3, 2, 3)": {
+        "a2_numerator_mod_4": 0,
+        "a4_numerator_mod_16": 8
+      },
+      "(1, 2, 5)": {
+        "a2_numerator_mod_4": 2,
+        "a4_numerator_mod_16": 0
+      }
+    },
+    "limitations": [
+      "Finite Python tests, not proof of the Python implementation.",
+      "Generic exported Lean was not compiled.",
+      "No actual Lean term reification, grounding, tactic integration, or human study."
+    ]
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "proposal": "Juniper",
+  "review_date": "2026-09-06",
+  "scope": "A proof-language design grounded in selected source declarations and the two round-three main synthesis sources. This is not a whole-repository audit.",
+  "source_pins_are_not_latest_claims": true,
+  "later_Leant_revision_reported_by_syntheses": "823259f7e3c6d24e990d3f48f78c4f1c4f88059e",
+  "later_Leant_note": "The syntheses discuss this later explicit snapshot; this proposal distinguishes those reported observations from its directly inspected 3a40904b sources.",
+  "repository_sources": [
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/synthesis/unified-report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/synthesis/unified-report.tex",
+      "review_scope": "Main LaTeX source read in full; the separately included crosswalk table was not directly fetched.",
+      "git_blob_sha": "7e84fe893ea2eb28d57bd8d33e166e021adb1687"
+    },
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/unified_report/unified_report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/unified_report/unified_report.tex",
+      "review_scope": "Main LaTeX source read in full, including reconciliation and fourth-round questions.",
+      "git_blob_sha": "3e78b38f193723bf92c59ddcb374b748099e7b4f"
+    },
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/unified_report/appendix.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/unified_report/appendix.tex",
+      "review_scope": "Selected appendix material: nine report cards and the beginning of the consolidated negative suite. A complete independent audit of the appendix is not claimed."
+    },
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/ideas/trellis/trellis.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/ideas/trellis/trellis.tex",
+      "review_scope": "Lines 350-525 directly inspected, including finite qualifier closure, grounded propositions, structure selection, and behavioral rules.",
+      "git_blob_sha": "149c24b77003a5a0a1bad50fdcb3bb6222121761"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "review_scope": "Complete source read; successor-case locality and chain-rule bridge examined. No compilation in this review.",
+      "git_blob_sha": "1422b87f31073fed898ff0c8a080ea0a798aef5e"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/InverseDerivativeRecursion.lean",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/InverseDerivativeRecursion.lean",
+      "review_scope": "Introductory scope documentation, formal-recursion declarations, and analytic section from line 280 through the end inspected. No full repository or theorem compilation in this review.",
+      "git_blob_sha": "a2d194e50b9c6b3a27b10c1f0f2853ea0537252d"
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "Definitions/Def_FLTPrelim_FreyPackage.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/Definitions/Def_FLTPrelim_FreyPackage.lean",
+      "review_scope": "Complete source read: bundled data and laws, helper facts, integer and rational curve definitions.",
+      "git_blob_sha": "db1cdbbec434a118a917b33580fc8c81c4fff221"
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "review_scope": "Complete source read: quotient divisibility and casts, coefficient comparison, additional arithmetic lemmas, and short final wrapper.",
+      "git_blob_sha": "cfe76a66b489c09d49f775a0368addf0da0c14e8"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Verification.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs",
+      "review_scope": "Lines 1-240 read: opaque callback receipts, quotas, variant acceptance, and exact-candidate ordering.",
+      "git_blob_sha": "caee3c51cfd226e6c2bb9887f80293343abd486c"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/PostVerification.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/PostVerification.hs",
+      "review_scope": "Complete source read: generative epoch and bounded exact permutation validation.",
+      "git_blob_sha": "a08c49cb17424cefbe4c25cd8e4b2cae5e1cf65a"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Length/Contract.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Length/Contract.hs",
+      "review_scope": "Complete returned source read: passive provider laws, argument roles, unary and paired finite-spine contracts.",
+      "git_blob_sha": "a1f04001c6ccd6c5e018162fa4db7ff5b059972e"
+    }
+  ],
+  "primary_documentation_and_literature": [
+    {
+      "title": "Lean subtype representation",
+      "url": "https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Lean inductive types and representations",
+      "url": "https://lean-lang.org/doc/reference/latest/The-Type-System/Inductive-Types/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Lean holes and metavariables",
+      "url": "https://lean-lang.org/doc/reference/latest/Terms/Holes/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Lean elaboration and compilation",
+      "url": "https://lean-lang.org/doc/reference/latest/Elaboration-and-Compilation/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Mathlib fun_prop",
+      "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/FunProp.html",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Lean grind",
+      "url": "https://lean-lang.org/doc/reference/latest/The--grind--tactic/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Lean mvcgen",
+      "url": "https://lean-lang.org/doc/reference/latest/The--mvcgen--tactic/Overview/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Dunfield and Krishnaswami, Bidirectional Typing",
+      "url": "https://research.cs.queensu.ca/home/jana/papers/bidir-survey/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Polikarpova, Kuraj, Solar-Lezama, Program Synthesis from Polymorphic Refinement Types",
+      "url": "https://arxiv.org/abs/1510.08419",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Ahman et al., Dijkstra Monads for Free",
+      "url": "https://fstar-lang.org/papers/dm4free/",
+      "consulted": "2026-09-06"
+    },
+    {
+      "title": "Carneiro, Lean4Lean",
+      "url": "https://arxiv.org/abs/2403.14064",
+      "consulted": "2026-09-06"
+    }
+  ],
+  "execution": {
+    "python": "3.13.5",
+    "unit_tests_passed": 32,
+    "random_profiles": 400,
+    "goal_frontiers_compared": 2800,
+    "offer_sets_checked": 6400,
+    "reversed_schedule_profiles": 400,
+    "admissible_Frey_fixtures": 189,
+    "inverse_polynomial_orders": 6,
+    "Lean_compiled": false,
+    "full_repository_builds": false,
+    "human_productivity_study": false
+  },
+  "attribution": "Upstream repositories retain their own licenses and contributors. No upstream source files are redistributed in this archive."
+}

@@ -1,0 +1,10 @@
+# Grounded schematic obligations, not a parser for analysis.
+context CauchyCDF
+atom OffSupport Nonzero Continuous FiniteMeasure AESupport Integrable Formula
+assumption OffSupport FiniteMeasure AESupport
+available OffSupport FiniteMeasure AESupport
+rule exclude: OffSupport -> Nonzero
+rule reciprocal: Nonzero -> Continuous
+rule compactSupport: Continuous & FiniteMeasure & AESupport -> Integrable
+rule layerCakeFTC: Integrable & Nonzero & AESupport & FiniteMeasure -> Formula
+goal Formula

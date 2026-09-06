@@ -1,0 +1,179 @@
+{
+  "goal": "CastCorrect",
+  "digest": "cd2d1d04911c2d3c9bd7225cb675af3dce4e0038e9fbf6c5e9484708d9e7f44b",
+  "status": "conditional",
+  "rounds": 2,
+  "insertions": 8,
+  "rule_combinations": 8,
+  "certificates": [
+    {
+      "schema": 1,
+      "snapshot": {
+        "context": "FreyArithmetic",
+        "candidate": "FixedIntegerQuotient4",
+        "policy": "ArithmeticOnly",
+        "atoms": [
+          "EvenB",
+          "LargeP",
+          "DivSixteen",
+          "NumeratorExact",
+          "DenomNonzero",
+          "CastCorrect"
+        ],
+        "known": [
+          "DenomNonzero"
+        ],
+        "prospective": [
+          "EvenB",
+          "LargeP",
+          "NumeratorExact"
+        ],
+        "rules": [
+          {
+            "name": "power_divisibility",
+            "premises": [
+              "EvenB",
+              "LargeP"
+            ],
+            "conclusion": "DivSixteen"
+          },
+          {
+            "name": "multiply_divisibility",
+            "premises": [
+              "DivSixteen"
+            ],
+            "conclusion": "NumeratorExact"
+          },
+          {
+            "name": "exact_cast",
+            "premises": [
+              "NumeratorExact",
+              "DenomNonzero"
+            ],
+            "conclusion": "CastCorrect"
+          }
+        ],
+        "goal": "CastCorrect"
+      },
+      "digest": "cd2d1d04911c2d3c9bd7225cb675af3dce4e0038e9fbf6c5e9484708d9e7f44b",
+      "goal": "CastCorrect",
+      "support": [
+        "NumeratorExact"
+      ],
+      "proof": {
+        "atom": "CastCorrect",
+        "kind": "rule",
+        "rule": "exact_cast",
+        "children": [
+          {
+            "atom": "NumeratorExact",
+            "kind": "prospective",
+            "rule": "",
+            "children": []
+          },
+          {
+            "atom": "DenomNonzero",
+            "kind": "known",
+            "rule": "",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "schema": 1,
+      "snapshot": {
+        "context": "FreyArithmetic",
+        "candidate": "FixedIntegerQuotient4",
+        "policy": "ArithmeticOnly",
+        "atoms": [
+          "EvenB",
+          "LargeP",
+          "DivSixteen",
+          "NumeratorExact",
+          "DenomNonzero",
+          "CastCorrect"
+        ],
+        "known": [
+          "DenomNonzero"
+        ],
+        "prospective": [
+          "EvenB",
+          "LargeP",
+          "NumeratorExact"
+        ],
+        "rules": [
+          {
+            "name": "power_divisibility",
+            "premises": [
+              "EvenB",
+              "LargeP"
+            ],
+            "conclusion": "DivSixteen"
+          },
+          {
+            "name": "multiply_divisibility",
+            "premises": [
+              "DivSixteen"
+            ],
+            "conclusion": "NumeratorExact"
+          },
+          {
+            "name": "exact_cast",
+            "premises": [
+              "NumeratorExact",
+              "DenomNonzero"
+            ],
+            "conclusion": "CastCorrect"
+          }
+        ],
+        "goal": "CastCorrect"
+      },
+      "digest": "cd2d1d04911c2d3c9bd7225cb675af3dce4e0038e9fbf6c5e9484708d9e7f44b",
+      "goal": "CastCorrect",
+      "support": [
+        "EvenB",
+        "LargeP"
+      ],
+      "proof": {
+        "atom": "CastCorrect",
+        "kind": "rule",
+        "rule": "exact_cast",
+        "children": [
+          {
+            "atom": "NumeratorExact",
+            "kind": "rule",
+            "rule": "multiply_divisibility",
+            "children": [
+              {
+                "atom": "DivSixteen",
+                "kind": "rule",
+                "rule": "power_divisibility",
+                "children": [
+                  {
+                    "atom": "EvenB",
+                    "kind": "prospective",
+                    "rule": "",
+                    "children": []
+                  },
+                  {
+                    "atom": "LargeP",
+                    "kind": "prospective",
+                    "rule": "",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "atom": "DenomNonzero",
+            "kind": "known",
+            "rule": "",
+            "children": []
+          }
+        ]
+      }
+    }
+  ]
+}
