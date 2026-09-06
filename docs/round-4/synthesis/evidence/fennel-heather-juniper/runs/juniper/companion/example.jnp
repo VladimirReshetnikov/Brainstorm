@@ -1,0 +1,15 @@
+# Illustrative aliases for fixed propositions, not executable calculus syntax.
+profile LocalDerivative
+atoms OnSet Open Member Germ DerivEq Positive Nonzero QuotientReady
+atoms DirectGerm NeverNeeded
+
+given OnSet Member
+offer Open DirectGerm Positive
+rule neighborhood: OnSet Open Member -> Germ
+rule direct: DirectGerm -> Germ
+rule derivative: Germ -> DerivEq
+rule nonzero: Positive -> Nonzero
+rule quotient: DerivEq Nonzero -> QuotientReady
+rule circular: NeverNeeded -> NeverNeeded
+need QuotientReady
+need NeverNeeded

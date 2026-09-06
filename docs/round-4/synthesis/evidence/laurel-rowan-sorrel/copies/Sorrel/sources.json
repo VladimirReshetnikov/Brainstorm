@@ -1,0 +1,82 @@
+{
+  "inspection_date": "2026-09-06",
+  "method": "Direct GitHub connector reads; official documentation and primary publications through web research.",
+  "repositories": [
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "commit": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/synthesis/unified-report.tex",
+      "blob_sha": "7e84fe893ea2eb28d57bd8d33e166e021adb1687",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/synthesis/unified-report.tex",
+      "inspection": "Main synthesis, examples, reconciliation, implementation questions."
+    },
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "commit": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/unified_report/unified_report.tex",
+      "blob_sha": "3e78b38f193723bf92c59ddcb374b748099e7b4f",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/unified_report/unified_report.tex",
+      "inspection": "Main review, corrections, compiled-artifact account, and fourth-iteration questions."
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/CauchyCDF.lean",
+      "blob_sha": "c1a71b85346b036da5c22d30e54a5f878e89ca41",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/CauchyCDF.lean",
+      "inspection": "Cauchy-CDF formula, proof, probability and Fabius specializations."
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/Regularity.lean",
+      "blob_sha": "2a2abdfb883b12d99ce266a20b8af6a79300d9e6",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/Regularity.lean",
+      "inspection": "Source lines 1-170: Lipschitz bounds, sharpness, endpoint estimates."
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "Definitions/Def_FLTPrelim_FreyPackage.lean",
+      "blob_sha": "db1cdbbec434a118a917b33580fc8c81c4fff221",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/Definitions/Def_FLTPrelim_FreyPackage.lean",
+      "inspection": "Property bundle, helper lemmas, integral and rational Frey curve definitions."
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_Algebra_exists_algHom_equiv_pi.lean",
+      "blob_sha": "bbcb8ea57e0ed64d0271cc36911f8d8b49771388",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_Algebra_exists_algHom_equiv_pi.lean",
+      "inspection": "Finite/free factor hypotheses, representing algebra construction, naturality proof."
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Verification.hs",
+      "blob_sha": "caee3c51cfd226e6c2bb9887f80293343abd486c",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs",
+      "inspection": "Source lines 1-250: callback receipt, quota-aware verification, exact-rendering deduplication."
+    }
+  ],
+  "version_qualification": "The connector resolved Leant main to 3a40904b. The two revised reports additionally discuss 823259f7; their later-pipeline observations are attributed to those reports, not claimed as source checks at 3a40904b.",
+  "official_documentation": [
+    "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/FunProp.html",
+    "https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/",
+    "https://lean-lang.org/doc/reference/latest/Axioms/",
+    "https://lean-lang.org/doc/reference/latest/releases/v4.33.0/"
+  ],
+  "primary_literature": [
+    "https://dekleer.org/Publications/Problem%20Solving%20with%20the%20ATMS.pdf",
+    "https://doi.org/10.1145/1265530.1265535",
+    "https://arxiv.org/abs/1009.1861",
+    "https://arxiv.org/abs/2403.14064"
+  ],
+  "not_claimed": [
+    "Independent audit of all nine individual round-three proposals",
+    "Fresh execution of the round-three Lean cores",
+    "A complete repository build",
+    "Lean compilation of SelectedPlan.lean",
+    "A user-productivity study"
+  ]
+}

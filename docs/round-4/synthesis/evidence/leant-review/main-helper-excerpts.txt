@@ -1,0 +1,120 @@
+760: restoreEnvironmentArtifact st path = do
+761:   result <- runPayload st (unpickleEnvironmentPayload path)
+762:   pure $ case result of
+763:     Left err -> Left (SnapshotTransportError err)
+764:     Right response
+765:       | Just fatal <- respFatal response ->
+766:           Left (SnapshotRejected (trim fatal))
+767:       | hasErrors response ->
+768:           Left (SnapshotRejected "Lean rejected the snapshot environment")
+769:       | Just env <- respEnv response -> Right env
+770:       | otherwise ->
+771:           Left (SnapshotRejected "snapshot restore returned no environment")
+772: 
+773: -- Apply one tactic to a proof state.
+774: runTactic :: St -> Integer -> String -> IO (Either String JValue)
+775: runTactic st proofState tactic = runPayload st $ JObj
+776:   [("tactic", JStr tactic), ("proofState", JInt proofState)]
+777: 
+778: runPayload :: St -> JValue -> IO (Either String JValue)
+779: runPayload st payload = runPayloadAfterBackend st (const payload)
+780: 
+781: -- | Ensure/rebuild first, then construct the request from the resulting
+782: -- state. This is the common timeout/death boundary for commands and snapshot
+
+2380:         Left failure -> reject failure
+2381:         Right _ -> runPrepared
+2382:  where
+2383:   reject failure = emitLn st =<< cRed st
+2384:     ("behavioral query rejected before synthesis: " ++ failure)
+2385: 
+2386:   runPrepared = do
+2387:     state <- readIORef st
+2388:     started <- getCurrentTime
+2389:     let deadline
+2390:           | rsSynthTimeout state <= 0 = Nothing
+2391:           | otherwise = Just $ addUTCTime
+2392:               (fromIntegral $ rsSynthTimeout state) started
+2393:     observations <- newIORef []
+2394:     let initial = BehavioralRun query deadline observations
+2395:     syntax <- runBehavioralCommand st initial True (behavioralSyntaxProgram query)
+2396:     case syntax >>= behavioralCheckedResponse of
+2397:       Left failure -> reject failure
+2398:       Right () -> case resolveSynthCommandGoal state (behavioralType query) of
+2399:         Left failure -> reject failure
+2400:         Right (goal, args, skipped) ->
+2401:           translateSynthGoalWithRetry st (goal ++ "\n") $ \retriedVars translatedGoal parsed -> do
+2402:             let checkedQuery = query { behavioralType = translatedGoal }
+2403:                 active = initial { behavioralRunQuery = checkedQuery }
+2404:             preflight <- runBehavioralCommand st active False
+2405:               (behavioralPreflightProgram checkedQuery)
+2406:             case preflight >>= behavioralCheckedResponse of
+2407:               Left failure -> reject failure
+2408:               Right () -> case startupLengthAssessmentRequest
+2409:                   LengthBehaviorRank (rsLengthAssessmentMode state) of
+2410:                 Left failure -> reject (show failure)
+2411:                 Right assessmentRequest -> do
+2412:                   reportSynthCommandScope st args skipped
+2413:                   withLengthAssessmentRequestContext assessmentRequest $ \context ->
+2414:                     synthGo (Just active) context st args retriedVars translatedGoal parsed
+2415:                   verdicts <- map snd <$> readIORef observations
+2416:                   let passed = length [() | BehavioralSatisfied <- verdicts]
+2417:                       falsified = length [() | BehavioralFalsified <- verdicts]
+2418:                       inconclusive = [why | BehavioralInconclusive why <- verdicts]
+2419:                   emitLn st =<< cDim st
+2420:                     ("supplied behavioral assertion: " ++ show passed ++ " passed, "
+2421:                       ++ show falsified ++ " falsified, " ++ show (length inconclusive)
+2422:                       ++ " inconclusive (checks concern only the supplied assertion)")
+2423:                   forM_ (take 1 inconclusive) $ \why -> emitLn st =<< cDim st
+2424:                     ("behavioral check inconclusive: " ++ why)
+2425: 
+2426: behavioralCheckedResponse :: JValue -> Either String ()
+2427: behavioralCheckedResponse response
+2428:   | Just fatal <- respFatal response = Left fatal
+2429:   | hasErrors response = Left $ intercalate "\n"
+2430:       [message | (severity, message) <- respMessages response, severity == "error"]
+2431:   | not (null $ respSorries response) = Left "Lean reported an unresolved sorry"
+2432:   | isNothing (respEnv response) = Left "Lean returned no checked command environment"
+2433:   | otherwise = Right ()
+2434: 
+2435: -- Use the owned request timeout boundary, never an asynchronous timeout around
+2436: -- a read from the shared protocol stream. A timed-out backend is retired and
+2437: -- its session is replayed by the established recovery path before reuse.
+2438: runBehavioralCommand
+2439:   :: St -> BehavioralRun -> Bool -> String -> IO (Either String JValue)
+2440: runBehavioralCommand st active synthesisEnvironment code = do
+2441:   before <- behavioralRequestSeconds st active
+2442:   case before of
+2443:     Nothing -> pure (Left "the synthesis deadline has no time for another check")
+2444:     Just _ -> do
+2445:       backendOr <- ensureBackend st
+2446:       case backendOr of
+2447:         Left failure -> pure (Left failure)
+2448:         Right backend -> do
+2449:           environmentOr <- if synthesisEnvironment
+2450:             then fmap (fmap Just) (ensureSynthEnv st)
+2451:             else Right . rsEnv <$> readIORef st
+2452:           case environmentOr of
+2453:             Left failure -> pure (Left failure)
+2454:             Right environment -> do
+2455:               seconds <- behavioralRequestSeconds st active
+2456:               case seconds of
+2457:                 Nothing -> pure (Left "the synthesis deadline has no time for another check")
+2458:                 Just limit -> do
+2459:                   result <- request backend (Just limit) (commandPayload environment code)
+2460:                   case result of
+2461:                     Right response -> pure (Right response)
+2462:                     Left RequestTimeout -> do
+2463:                       backendDied st
+2464:                       pure (Left $ "decision timed out after " ++ show limit
+2465:                         ++ "s; the backend was retired for session replay")
+2466:                     Left (ServerClosed stderrText) -> do
+2467:                       backendDied st
+2468:                       pure (Left $ "the Lean server died during the check: " ++ trim stderrText)
+2469:                     Left (BadResponse failure) -> pure (Left $ "bad response: " ++ failure)
+2470: 
+2471: behavioralRequestSeconds :: St -> BehavioralRun -> IO (Maybe Int)
+2472: behavioralRequestSeconds st active = do
+2473:   state <- readIORef st
+2474:   now <- getCurrentTime
+2475:   let localLimit = min 5 $ fromMaybe 5 (rsTimeout state)

@@ -1,0 +1,1386 @@
+{
+  "sealed_utc": "2026-09-06T23:22:13.591879+00:00",
+  "scope": "All committed-package candidates except this manifest and regenerable final validation; intermediate build/render directories excluded.",
+  "files": {
+    ".gitattributes": {
+      "sha256": "f66c42c981640437ef6485423e1946acde23b52c9b8d0e7adf8efe1aa56e7b9b",
+      "bytes": 197
+    },
+    ".gitignore": {
+      "sha256": "268bc50ec9fcdedad2d51f4a53a8dab8da2cc1030be3b2125597ef03e5a4dc5a",
+      "bytes": 26
+    },
+    "build.ps1": {
+      "sha256": "9128e7e37251a0c92a4c82a6d314236246fd0c99e6f177b973682b9a2f236b09",
+      "bytes": 2281
+    },
+    "convergence.json": {
+      "sha256": "a383ad6da7e8a2b359b087deec6ff67d04929d673e8210cc0d7d1ab850afe2b2",
+      "bytes": 12099
+    },
+    "evidence/alder-bryony-clover/adversarial/KeywordClaim.clover": {
+      "sha256": "80d5447f365aa0be836ac2739717f5f23be58fa03a8f17ce0a47a727d697d796",
+      "bytes": 39
+    },
+    "evidence/alder-bryony-clover/adversarial/KeywordClaim.lean": {
+      "sha256": "f26e30aa03a73cf50d1b5b27daef73ca83464df0b6eb2cd76d9fbe9c3397080a",
+      "bytes": 356
+    },
+    "evidence/alder-bryony-clover/adversarial/ShadowCompose.clover": {
+      "sha256": "a74d440cb879beb96c4b3a98a12d5ea6032774defd2d899c793d6686d3406e61",
+      "bytes": 78
+    },
+    "evidence/alder-bryony-clover/adversarial/ShadowCompose.lean": {
+      "sha256": "79acd6330593ae0077eac18d316a3ccd66595ba074b71f4995d5c0f14d6204e9",
+      "bytes": 582
+    },
+    "evidence/alder-bryony-clover/adversarial/ShadowRule.clover": {
+      "sha256": "9be4d7011b7b4d246c199b531f8eee4d255466e19ef837c26e6d46ab619486ba",
+      "bytes": 144
+    },
+    "evidence/alder-bryony-clover/adversarial/ShadowRule.lean": {
+      "sha256": "00ed0964fc05eaa4c5e9ab59df6ad4f7bd1aa0ddc4eb703b08ec759ea491a319",
+      "bytes": 806
+    },
+    "evidence/alder-bryony-clover/adversarial.json": {
+      "sha256": "66f81c91ffacf44c3864ad717f98c1788e0c9e049a47a452849597ee267742f1",
+      "bytes": 3174
+    },
+    "evidence/alder-bryony-clover/adversarial.py": {
+      "sha256": "b6689ace1a84c92c2f1ed287fcf384b3e848b60b09e0fb031a168602df956dc7",
+      "bytes": 3743
+    },
+    "evidence/alder-bryony-clover/convergence.json": {
+      "sha256": "07247393a9f9a75742acf5dfe81f206d64857a47ba66a3dbd24160c9430b84b7",
+      "bytes": 41819
+    },
+    "evidence/alder-bryony-clover/logs/adversarial.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/adversarial.stdout.txt": {
+      "sha256": "66f81c91ffacf44c3864ad717f98c1788e0c9e049a47a452849597ee267742f1",
+      "bytes": 3174
+    },
+    "evidence/alder-bryony-clover/logs/alder/demo.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/alder/demo.stdout.txt": {
+      "sha256": "04604d3b31bbcf5e00c37af53099464cd079bef3b452079313111296b95fe467",
+      "bytes": 80
+    },
+    "evidence/alder-bryony-clover/logs/alder/publication_negative.stderr.txt": {
+      "sha256": "f1df41afe3a28eb36687346f2f31433692907ef8309710888697222e8e0dcc9f",
+      "bytes": 70
+    },
+    "evidence/alder-bryony-clover/logs/alder/publication_negative.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/alder/scope_negative.stderr.txt": {
+      "sha256": "fcadcf46b33170d756aaf75c6364d96564742bb312200678911b79210281c4e4",
+      "bytes": 68
+    },
+    "evidence/alder-bryony-clover/logs/alder/scope_negative.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/alder/tests.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/alder/tests.stdout.txt": {
+      "sha256": "102d2a9386fa407b12c7e56f8b461b3c12691f1167742c51c1c8a67980176adb",
+      "bytes": 1387
+    },
+    "evidence/alder-bryony-clover/logs/bryony/demo.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/bryony/demo.stdout.txt": {
+      "sha256": "91df4cf2577c23dee0a4e476056672b32963024985374ba235284d256278e9b4",
+      "bytes": 268
+    },
+    "evidence/alder-bryony-clover/logs/bryony/tests.stderr.txt": {
+      "sha256": "bdee3b142ce0c75d2e3b79a77239c1eb474d071aecc6e2fc1f41158d823712a8",
+      "bytes": 2342
+    },
+    "evidence/alder-bryony-clover/logs/bryony/tests.stdout.txt": {
+      "sha256": "8aa05d5eed406e4c0fa531b3ea14cff4babf874ace288014f34ec56a553b85ad",
+      "bytes": 570
+    },
+    "evidence/alder-bryony-clover/logs/clover/affine.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/clover/affine.stdout.txt": {
+      "sha256": "f665db7af5eae3f8458efdbb93ae662e48836f437ac3d1681fea287aca77d038",
+      "bytes": 390
+    },
+    "evidence/alder-bryony-clover/logs/clover/demo.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/clover/demo.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/clover/profiles.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/logs/clover/profiles.stdout.txt": {
+      "sha256": "f79a9469ebc873b8f7e09dd626fed593f0c14590d37fa7ef8c8524ac9e734704",
+      "bytes": 990
+    },
+    "evidence/alder-bryony-clover/logs/clover/tests.stderr.txt": {
+      "sha256": "ee2d17a0c46de5b14f1813d908578b00e44cea4fcc5d702d0b5c24f98c061af9",
+      "bytes": 3582
+    },
+    "evidence/alder-bryony-clover/logs/clover/tests.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/alder-bryony-clover/probe-run.json": {
+      "sha256": "b6e0f4c46525cbe8bd73426890a629d7981854a284e5db3941ba10f0ed881102",
+      "bytes": 444
+    },
+    "evidence/alder-bryony-clover/reproduce.py": {
+      "sha256": "8ba10e45f1d70456e27cd1119b2dc96770d91f272b912356d6f4cbf88113e1ff",
+      "bytes": 5029
+    },
+    "evidence/alder-bryony-clover/reproduction.json": {
+      "sha256": "6f8b8de2dd82a98e96474cc9ea7a499b6ceaaab56ac4059056c7402096d679db",
+      "bytes": 23357
+    },
+    "evidence/alder-bryony-clover/review-results.json": {
+      "sha256": "8bb9a4057c53a55b7533c87e76380da067f013b3340f47e67257549e54613fa8",
+      "bytes": 4940
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/alder_core.py": {
+      "sha256": "3d43b866f9505f9f790e4e1a907fd143e19df8e5916d2c7662b2c634f0d5c0a0",
+      "bytes": 15076
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/examples/locality.alder": {
+      "sha256": "b3cb695834427aaa1888cdb4f89e9aa464ebaba9e3ac5ffe6abaa644586e1987",
+      "bytes": 274
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/examples/quotient.alder": {
+      "sha256": "8e61f43900732d4c0f67c0203e4a97d8913f817e249b4c11f02a05fdaaae363f",
+      "bytes": 505
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/examples/scope_rejected.alder": {
+      "sha256": "24db52b823d7670666484bfcefe13a412fafa295cdfdf65bba575eb0f1906172",
+      "bytes": 129
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/examples/unused_claim_rejected.alder": {
+      "sha256": "7c53df8228e7b7c5f561a5126512fb5bd849cfec44d4bdef42046c6c9ff0a49e",
+      "bytes": 182
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/generated/locality.json": {
+      "sha256": "023469800e337f1684decfb40bad494289c11145f2a6b69ce7c4d360a40e1aef",
+      "bytes": 265
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/generated/Locality.lean": {
+      "sha256": "fda11d39e9887a9eac58eb8e84fca45f121e95ba77959fd51228f2e44f2e4b65",
+      "bytes": 496
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/generated/quotient.json": {
+      "sha256": "ae9c1ae12b6ca04a902ead06513f634392fee48a82ecc460bceb5e5a8a1c3a19",
+      "bytes": 896
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/generated/Quotient.lean": {
+      "sha256": "e7206a8a5389b0aac7cce13ab00225c29e6704dcb1b2fd50e6aca936a02b493f",
+      "bytes": 1937
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/observations.py": {
+      "sha256": "8011b125501a51ca93b8c16c140304f2aab4bdf536cc18e6ae7b45e9d3453241",
+      "bytes": 4261
+    },
+    "evidence/alder-bryony-clover/runs/alder/companion/test_alder.py": {
+      "sha256": "80f9de2d63f395fee740fd5c27227c69f9ed2c2172baf6d3afad9bcd601b980a",
+      "bytes": 9351
+    },
+    "evidence/alder-bryony-clover/runs/alder/evidence/source_register.json": {
+      "sha256": "9ac049f9f3eafa805b8319838d7e314d5109c3a88294b29d4b665e86d769bf9e",
+      "bytes": 8326
+    },
+    "evidence/alder-bryony-clover/runs/alder/evidence/test_results.json": {
+      "sha256": "102d2a9386fa407b12c7e56f8b461b3c12691f1167742c51c1c8a67980176adb",
+      "bytes": 1387
+    },
+    "evidence/alder-bryony-clover/runs/alder/evidence/validation.json": {
+      "sha256": "688f29b64f6d4a0b32113c669eedca5073973e71351a27a5825040f1b581a92d",
+      "bytes": 1315
+    },
+    "evidence/alder-bryony-clover/runs/alder/README.md": {
+      "sha256": "906bbcaa38daadea268e2e3b221f62e7c44d4bdd9b577a818476c639e829f2d7",
+      "bytes": 5158
+    },
+    "evidence/alder-bryony-clover/runs/bryony/evidence/frey4/requirements.json": {
+      "sha256": "ea556ad4b19c7a74de710047e5e25d1232f6649b27e6c99cf774b613d6c9207c",
+      "bytes": 4484
+    },
+    "evidence/alder-bryony-clover/runs/bryony/evidence/frey4/Requirements.lean": {
+      "sha256": "2a422124d7a3c69cce3edebb325b53dbddce99f1d497269e9b8bdae7fdf48fae",
+      "bytes": 871
+    },
+    "evidence/alder-bryony-clover/runs/bryony/evidence/pdf-review.json": {
+      "sha256": "245bad11b9be8a43e8a47da6c2a7eb2822e28768ecd51ead528828833559c6b5",
+      "bytes": 680
+    },
+    "evidence/alder-bryony-clover/runs/bryony/evidence/results.json": {
+      "sha256": "8aa05d5eed406e4c0fa531b3ea14cff4babf874ace288014f34ec56a553b85ad",
+      "bytes": 570
+    },
+    "evidence/alder-bryony-clover/runs/bryony/prototype/bryony.py": {
+      "sha256": "a1716ac9661bb1b5663e6760927eb9fdb7a2f26429fe0249d0282577cc407658",
+      "bytes": 12766
+    },
+    "evidence/alder-bryony-clover/runs/bryony/prototype/frey4.bry": {
+      "sha256": "d6fe1f181c9d200c74d85ef6665129da7ace383604bae4a5ae7825c6d8b7a4fc",
+      "bytes": 541
+    },
+    "evidence/alder-bryony-clover/runs/bryony/prototype/test_bryony.py": {
+      "sha256": "791194f4e7f18480b826496b468b3a581f7228fb235e559238a81d7aef5aaa3f",
+      "bytes": 10020
+    },
+    "evidence/alder-bryony-clover/runs/bryony/README.md": {
+      "sha256": "38b1529ae1e0069f2d2ce045bce6662ae497c74e51868eac943a5edc6a70dbb1",
+      "bytes": 4232
+    },
+    "evidence/alder-bryony-clover/runs/bryony/sources.json": {
+      "sha256": "6bd79182a95d9eb1effabe9ed7d0ca2094fd1c7139d6339f30f9c53deffae87b",
+      "bytes": 6116
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/affine-result.json": {
+      "sha256": "f665db7af5eae3f8458efdbb93ae662e48836f437ac3d1681fea287aca77d038",
+      "bytes": 390
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/affine_basis.py": {
+      "sha256": "03b36b5a30f5955d285587ced9d274056150c06d6f986e4e3d6699ccd7e5cb4c",
+      "bytes": 4504
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/clover_slice.py": {
+      "sha256": "edc539b437064d5fbd7a687f62c7ec0ef02ab8243f26058ba071c8456d452af5",
+      "bytes": 20496
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/CloverCore.lean": {
+      "sha256": "b1b6a59f8927cc725703877283a14acd5bdc3bedd62f7189286aeb66e10a4577",
+      "bytes": 1888
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/compare_profiles.py": {
+      "sha256": "049e826c588eb475357dc5c0a3fc7addd5e1ebaaffca22b9e8aa2be33eedd5fd",
+      "bytes": 860
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/demo-result.json": {
+      "sha256": "994cffd86f650b8251f9acfc80c2372e36cae54528920ebcba7803329fd7e32f",
+      "bytes": 2472
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/demo.clover": {
+      "sha256": "a64b84cceea7c92574b5e21fc77add21fc8961b05f079e786d2f59799c001546",
+      "bytes": 486
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/EXECUTION_STATUS.json": {
+      "sha256": "fa92444b201fe701e7fd0c39cb8eff931192f5289aa00b5827ca979afb6a4808",
+      "bytes": 505
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/GeneratedExamples.lean": {
+      "sha256": "25a48335c3d9615253def8f567bbbe8cc40319a17dae47fffdcb474a383e9c0c",
+      "bytes": 1775
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/profile-comparison.json": {
+      "sha256": "f79a9469ebc873b8f7e09dd626fed593f0c14590d37fa7ef8c8524ac9e734704",
+      "bytes": 990
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/test-output.txt": {
+      "sha256": "8fac85d963d96635e4b7484dc15c0211ecb851f6f1921752b80bed467a1a7bdd",
+      "bytes": 3542
+    },
+    "evidence/alder-bryony-clover/runs/clover/companion/test_clover_slice.py": {
+      "sha256": "db77261ffcd3427feb67f6e05537e703e6c4f46c5bec65f7483ab63e47c8f4bc",
+      "bytes": 10112
+    },
+    "evidence/alder-bryony-clover/runs/clover/PDF_VALIDATION.json": {
+      "sha256": "a6d7074250c460e91c9679969a2637f3245e426da5666b871a3560695d5bfa88",
+      "bytes": 599
+    },
+    "evidence/alder-bryony-clover/runs/clover/README.md": {
+      "sha256": "7cd387a054f9dee305ff4a549c5c3a59b41954d3076c71553310ff36ec46c2f9",
+      "bytes": 6568
+    },
+    "evidence/alder-bryony-clover/runs/clover/SOURCE_MANIFEST.json": {
+      "sha256": "45ca7efcf2f20612707094de8f14ccbef7ed7bd1a1d2a66fe81bface2792b1f9",
+      "bytes": 3822
+    },
+    "evidence/alder-bryony-clover/summarize.py": {
+      "sha256": "3992dba52a76e12e94de9410fd72cba57297bbb2b38a8c4917aa5feb0e2cabef",
+      "bytes": 12339
+    },
+    "evidence/build-receipt.json": {
+      "sha256": "53d8c7292dd0277160f19bf94275caac15be18716aa1332d34b3637c47d262c9",
+      "bytes": 362
+    },
+    "evidence/build.log": {
+      "sha256": "fbf1d0432c89690a0e42ed23237884bfaf17da6eac60d2489149abdf832e8bf8",
+      "bytes": 33073
+    },
+    "evidence/fennel-heather-juniper/adversarial/cross-profiles.json": {
+      "sha256": "717f108e7c6c5b716e9ebddfb56405ba1e42139beee8281729a25507be56b644",
+      "bytes": 105212
+    },
+    "evidence/fennel-heather-juniper/adversarial/diagonal-certificate.json": {
+      "sha256": "a5700122beed89e6fed06e1fdf67c079823935a59519610c6d2921ae7a2a0095",
+      "bytes": 481
+    },
+    "evidence/fennel-heather-juniper/adversarial/diagonal.lean": {
+      "sha256": "bb9c1b1fcaa95296900cb14d2fdf1de2a669e192b9a8a5daa45635194a6c390a",
+      "bytes": 442
+    },
+    "evidence/fennel-heather-juniper/adversarial/even-certificate.json": {
+      "sha256": "ab10f1e315dc015f9cb01f83e0c0ff7ba4b9e945a9e98fd84a3b11520dca5378",
+      "bytes": 487
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/output/query_0_route_0.json": {
+      "sha256": "5689fea0e35a73002a604f3e7e8afb456a9dc5b9c9ab50e1652c5ad5a9ce6415",
+      "bytes": 437
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/output/query_0_route_0.lean": {
+      "sha256": "ca3ade4cf3a87917566d9cd8b1584de0462623159e50767d757b27d23b9a500f",
+      "bytes": 314
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/output/summary.json": {
+      "sha256": "a377b355745051faf3ca1873f30a82b8aaba2c80412309b346e48176d398f60b",
+      "bytes": 186
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/stage0.source": {
+      "sha256": "b33472b61b304224a18d0fa12dc62de4b35cf082eaf58063cd9dc3e016cc65a9",
+      "bytes": 73
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/stage0.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/stage0.stdout.txt": {
+      "sha256": "5712a284955f5a9d7dc467d59d58e8934062edd41b7b052ce742c965fb474ab1",
+      "bytes": 206
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/stage1.source": {
+      "sha256": "d5e5ec33aeb4bafd545b87b0a0e6aa1fa221df4925e1e8d58b98b8d3fd671ebc",
+      "bytes": 55
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/stage1.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/adversarial/fennel-reuse/stage1.stdout.txt": {
+      "sha256": "a377b355745051faf3ca1873f30a82b8aaba2c80412309b346e48176d398f60b",
+      "bytes": 186
+    },
+    "evidence/fennel-heather-juniper/adversarial/free-certificate.json": {
+      "sha256": "6a8fa23266c6bea51900a2c38c51837267e6d0912b3f4e0a869c6e53c7928e80",
+      "bytes": 568
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/output/same.json": {
+      "sha256": "ba661f34fff7cf0dce3d4d69e5602fd774199de11ec8ea473dbe5ae1fa0632d8",
+      "bytes": 477
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/output/same.lean": {
+      "sha256": "1e0b524937929f8a5a4c8d5bae6ad1eb9c3cc6aca9c61c163fdfa06e069897ae",
+      "bytes": 419
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/stage0.source": {
+      "sha256": "d73dc3c2b326811332798283adb1e6823a63beb751681e06d766aaa4741c4016",
+      "bytes": 74
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/stage0.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/stage0.stdout.txt": {
+      "sha256": "35254b73750c66f08b9bfbca5bcd028d3d768421749b3a944530f1dd38cdfe3d",
+      "bytes": 75
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/stage1.source": {
+      "sha256": "b57a49bca52b1702f82c47c4f97d667afc45741edcf49434aa17b926fe32d53f",
+      "bytes": 73
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/stage1.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/adversarial/heather-reuse/stage1.stdout.txt": {
+      "sha256": "2f8f764767f8fc20c6827a7234c7f15e15121c500024b954350baca39368d29a",
+      "bytes": 77
+    },
+    "evidence/fennel-heather-juniper/audit.json": {
+      "sha256": "2e8f89b52bb8e5db80da42bf7d52ff3eb4de2bdc46d0fd57a9e5b4f32fcfbff4",
+      "bytes": 23375
+    },
+    "evidence/fennel-heather-juniper/audit.py": {
+      "sha256": "f1ca353036be95699d06de1770206f0962b5478d7e5ea8df54a77143be72c9b4",
+      "bytes": 12856
+    },
+    "evidence/fennel-heather-juniper/audit.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/audit.stdout.txt": {
+      "sha256": "d6516e5cdc7d4a6359a4825db75cb225d27de1298bd00cb8753ad4e07e622d3c",
+      "bytes": 3917
+    },
+    "evidence/fennel-heather-juniper/convergence.json": {
+      "sha256": "3ac303214cee59ac975d6d668397044c70da7554972e1c8664758ff3fa718f3c",
+      "bytes": 19234
+    },
+    "evidence/fennel-heather-juniper/logs/fennel/demo.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/fennel/demo.stdout.txt": {
+      "sha256": "d5c656c26334ba8285df7ebbd765ef6e387215ad45e771b367e20e427188084c",
+      "bytes": 945
+    },
+    "evidence/fennel-heather-juniper/logs/fennel/stress.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/fennel/stress.stdout.txt": {
+      "sha256": "fbdf7f8dcfd6e33227b4d304cf80612037bbb38f73e96a15fdfbdf749e8638fd",
+      "bytes": 722
+    },
+    "evidence/fennel-heather-juniper/logs/fennel/tests.stderr.txt": {
+      "sha256": "9750ba8a4bd0f1fc5940cdc9eab1ac0882f22461d5896b6e28f0315552445b5e",
+      "bytes": 2385
+    },
+    "evidence/fennel-heather-juniper/logs/fennel/tests.stdout.txt": {
+      "sha256": "34829fd7717af2061fb27cf201e423b9428e521dd13dd940f601fdd889601d6d",
+      "bytes": 1031
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-diagonal.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-diagonal.stdout.txt": {
+      "sha256": "2d226463c68a47260e6d074abe40f1b3c05eca36aefe418ce59420bc0ed32342",
+      "bytes": 87
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-empty.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-empty.stdout.txt": {
+      "sha256": "55a6e909dc9c549909ce22ff4e8ffe561c090d64000514b01a973b51026239b1",
+      "bytes": 86
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-even.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-even.stdout.txt": {
+      "sha256": "5a76b4249426903972fa527c4b0cb643ffb3bb1d5286a40568951cd554c2bd76",
+      "bytes": 90
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-free.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-free.stdout.txt": {
+      "sha256": "5d8d1b6ebb87dc4acbe9e3fd65f6561c78fe8163175c948604496c6aec657037",
+      "bytes": 92
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-refuted.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/heather/demo-refuted.stdout.txt": {
+      "sha256": "816afdd5b3fa1b99685fcf5cb0ef1e4a04e61abb7ea2c4341973e933a25e6341",
+      "bytes": 81
+    },
+    "evidence/fennel-heather-juniper/logs/heather/tests.stderr.txt": {
+      "sha256": "8e8fac4de2e50b6c503ed7599ba0aec423462d5cbc9f60aaad74bc4d1b400168",
+      "bytes": 1936
+    },
+    "evidence/fennel-heather-juniper/logs/heather/tests.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/heather/use-site.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/heather/use-site.stdout.txt": {
+      "sha256": "8959806eda2da7064e43e38f33d24f5506b01887a82707f0989b091463cefb31",
+      "bytes": 80
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/capped.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/capped.stdout.txt": {
+      "sha256": "01fdf935907409044a2a2d624b8dce71f543d60ff0e850a54035142fe72511c9",
+      "bytes": 485
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/demo.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/demo.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/inverse.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/inverse.stdout.txt": {
+      "sha256": "af0b8bce978350cd57c8da1422fc2f0a2ed4b91234263eb7327278fe97461083",
+      "bytes": 819
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/tests.stderr.txt": {
+      "sha256": "f81d7e6c9fcbcd46d2f19b35bb3036bfb9664eea88735a5063573e8e81a557da",
+      "bytes": 2862
+    },
+    "evidence/fennel-heather-juniper/logs/juniper/tests.stdout.txt": {
+      "sha256": "1c3ae6dd14b07a3dc182fff96ef82a55fa0e5e40635d72ea1646c31276659000",
+      "bytes": 2771
+    },
+    "evidence/fennel-heather-juniper/README.md": {
+      "sha256": "b8cf74bd92e98fadcfd8a18ebe4ccc6a69335e7aac27d76f287811c2b982aa22",
+      "bytes": 2822
+    },
+    "evidence/fennel-heather-juniper/reproduce.py": {
+      "sha256": "9c42bed2e03fbb8e26a8fa33402cd1fc2b2238fe2c3d080a12151fefb8bd77c5",
+      "bytes": 6379
+    },
+    "evidence/fennel-heather-juniper/reproduction.json": {
+      "sha256": "1064746f9c4f11b10e644322f96d783f2d110e4239df059fb756d2ed1494019e",
+      "bytes": 44221
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/evidence/stress_results.json": {
+      "sha256": "fbdf7f8dcfd6e33227b4d304cf80612037bbb38f73e96a15fdfbdf749e8638fd",
+      "bytes": 722
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/evidence/test_results.json": {
+      "sha256": "34829fd7717af2061fb27cf201e423b9428e521dd13dd940f601fdd889601d6d",
+      "bytes": 1031
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/fennel.py": {
+      "sha256": "a3b34f659dbd407c8541ba9af457309ba95314ac700de376d44a66518af543f9",
+      "bytes": 15204
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_0_route_0.json": {
+      "sha256": "e67a41f5d516b66ac71cd069d24088a673ca670225d39317766e845ea0c76121",
+      "bytes": 597
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_0_route_0.lean": {
+      "sha256": "e43462026b8ec51e2bcbfc8ad682a29bf3f807ba1c75c27a30efd302518321e2",
+      "bytes": 396
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_1_route_0.json": {
+      "sha256": "cb36b3bd9ac942df833a31b956fa91c8c20093e69ef8647821953f91c326512a",
+      "bytes": 518
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_1_route_0.lean": {
+      "sha256": "00a769d6d1077ba444762d595f65f67ad5f6c4b0096a948fc19fae2d8cc10274",
+      "bytes": 358
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_1_route_1.json": {
+      "sha256": "dd3a4e0007df03c54e570b8203c6c7a9d17cffca9350bd1e0a6a0825be48d909",
+      "bytes": 1312
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_1_route_1.lean": {
+      "sha256": "2e6f61abf859f329b3488e69e0b4e3a9f09383c1b27bc6a0451c41e5c50697a3",
+      "bytes": 596
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_2_route_0.json": {
+      "sha256": "120f3aeb53b238f260d55a868bb68043387a8bcbb6a5c616beb7347c26f6e254",
+      "bytes": 1312
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/query_2_route_0.lean": {
+      "sha256": "e9b6e1cfa9e0dfe46418a0e3467197c7236e3f033ed021932c48e28adf2895f7",
+      "bytes": 594
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/generated/summary.json": {
+      "sha256": "d5c656c26334ba8285df7ebbd765ef6e387215ad45e771b367e20e427188084c",
+      "bytes": 945
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/quotients.fnl": {
+      "sha256": "49549fcee86a2ab3d56532e0ba5a84d7a9bbd3e97b8b02eb0c9343ce61dcf4e6",
+      "bytes": 638
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/stress_frontiers.py": {
+      "sha256": "e224dfb78abb6d76d5f6883051e5eb93f617e4fd68ce747d09f2420ea1db4d5b",
+      "bytes": 1102
+    },
+    "evidence/fennel-heather-juniper/runs/fennel/prototype/test_fennel.py": {
+      "sha256": "e743143056a9f89bc152c054e1b9c02d607357be7c937cca17c68ed156ff7f9a",
+      "bytes": 9362
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/examples/diagonal.hthr": {
+      "sha256": "9d149e54391b33960576e9b39c22b74f54977f2fc6188be8983b9f3af0e51b4e",
+      "bytes": 110
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/examples/empty.hthr": {
+      "sha256": "60d22a5b26fb33218f76cb8c288b54769106de6cd51ac7cc3e82dd574a4ce392",
+      "bytes": 81
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/examples/even.hthr": {
+      "sha256": "0957f46883bf36063cf9970a97146257fea41f9428be538bd050daa6c9bd9744",
+      "bytes": 90
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/examples/free.hthr": {
+      "sha256": "8bacaa94d5ff7edd96fb9f75abc46d3b39873142e8dc5da7ee91019335931187",
+      "bytes": 120
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/examples/refuted.hthr": {
+      "sha256": "17959fefb2e515d38609b17798b63fba8280b89f1b7e7bb6a40f90c710d7a185",
+      "bytes": 73
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/diagonal_balance.json": {
+      "sha256": "11d30fa96ffb69360031b089e59209438f1335b2bf92315308aa4fd1df5c08c0",
+      "bytes": 481
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/diagonal_balance.lean": {
+      "sha256": "38823095f2510e9fc9486f7298b6da815b0d2520d850d2db259d7f26309a6b84",
+      "bytes": 448
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/drop_all.json": {
+      "sha256": "127f241301f03d2d2f66a3cfd5f1e03188402d4cd1254bfb65dd50eb93e43d49",
+      "bytes": 477
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/empty_preserves.json": {
+      "sha256": "1c0dd832d7dbe0f0b100904443640babe1aa1b115abac93016f88c42b3f832c1",
+      "bytes": 417
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/empty_preserves.lean": {
+      "sha256": "b09559daa9a48b2691294fdb067f9faf914f5f80a692effbb8fdf7eef6a9674e",
+      "bytes": 430
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/even_reverse_length.json": {
+      "sha256": "218c3b73b79ebd84d4ab5f8302ce1333b3eaf6b702b112dee314ec9c8910af3c",
+      "bytes": 441
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/even_reverse_length.lean": {
+      "sha256": "0074d3e2951c0a6f392d4590093d7d2ce7ae36aab73d92aab548488126cbd061",
+      "bytes": 427
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/reverse_append_length.json": {
+      "sha256": "4c1a2a62fb4803330c3842759b1dc841417627c96f6183a9dab942aa2a12cf39",
+      "bytes": 515
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/reverse_append_length.lean": {
+      "sha256": "e484e2330dd4f49209e24412e38772a26d85a0c0ebbd3fd15990213e0539d2b8",
+      "bytes": 435
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/use_site.json": {
+      "sha256": "709014ef4d9aacd57b8ff58c1549f8cef0fd9ae7c011564e4ed3e48c677b9d5a",
+      "bytes": 1066
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/generated/UseSite.lean": {
+      "sha256": "58ed372b63cece9591698bcb7ec7ad39c79537a81b58ff16a79bd029d81e29d4",
+      "bytes": 336
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/heather.py": {
+      "sha256": "29b16fdb508735eba83d19362e097b81521b83dd45b93de2606e80b4abd85ec5",
+      "bytes": 17513
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/test_heather.py": {
+      "sha256": "a3d287edc4147274c84873e0828ce3b29e5c896178f3d6e625b8d6c74c9d4465",
+      "bytes": 9878
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/test_results.json": {
+      "sha256": "04ae637b7a36ac6ad91cc0495470f5b5c2a89cdce15f0acfcb966bee0114e59a",
+      "bytes": 423
+    },
+    "evidence/fennel-heather-juniper/runs/heather/companion/use_site_demo.py": {
+      "sha256": "33ca719d1c8d961960baddb5a586efd5d29fde8f9a977c1426e3fcfcdaf7a228",
+      "bytes": 1465
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/example-result.json": {
+      "sha256": "d40bad957f829ef24881054bf6cc5223f87671866a9a314df0ddaabc67de1b0c",
+      "bytes": 625
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/example.jnp": {
+      "sha256": "22e3c0e8ea329397648d5928f5c04891196a3f0e20b95183bfcfc0847c6382e8",
+      "bytes": 521
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/Generated.lean": {
+      "sha256": "c2fa1451f02a79216067668318d2dfe3951f0f2f76455e7efe02068e389e4add",
+      "bytes": 1344
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/inverse-results.json": {
+      "sha256": "af0b8bce978350cd57c8da1422fc2f0a2ed4b91234263eb7327278fe97461083",
+      "bytes": 819
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/inverse_polynomials.py": {
+      "sha256": "46b5d85bb3c848c1c28d2aa972de08c2fae96e8f13eee70213f8134cc65900e2",
+      "bytes": 3096
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/juniper_frontier.py": {
+      "sha256": "9ee540b02d2bcd1b1606941c65a2394433bbf72d71cdc3e0a21c1efe246b64a4",
+      "bytes": 13440
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/test-results.json": {
+      "sha256": "1c3ae6dd14b07a3dc182fff96ef82a55fa0e5e40635d72ea1646c31276659000",
+      "bytes": 2771
+    },
+    "evidence/fennel-heather-juniper/runs/juniper/companion/test_frontier.py": {
+      "sha256": "2fb7261f5c5a417b4ccf713b41bee8c88b5de893e1aa8810e306286adf42aa51",
+      "bytes": 10046
+    },
+    "evidence/laurel-rowan-sorrel/check_anchors.py": {
+      "sha256": "b942efddb1de39d2f0a0b6c49a0328e3cae6b396f76d85c0751b9350cf7318e6",
+      "bytes": 1062
+    },
+    "evidence/laurel-rowan-sorrel/convergence-anchor-check.json": {
+      "sha256": "bba93a85b714021bd2c3146a9baf6a6cec1f7b14627d74e7d0be239b93380844",
+      "bytes": 22321
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/evidence/pdf_validation.json": {
+      "sha256": "7f5b95faa5d6b769a271622ff362159d4a46ec540306fee3e78471398527db2c",
+      "bytes": 1078
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/evidence/test_results.json": {
+      "sha256": "92d8814bb941f1d54260244c9c9ef991920c53f4710b12488c808538f332f2e9",
+      "bytes": 904
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/evidence/test_stderr.txt": {
+      "sha256": "7097492168f3bc13aee45f462c98d88ddab6662e895cc2329da1eda3e107362e",
+      "bytes": 1819
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/evidence/test_stdout.txt": {
+      "sha256": "29dfdc4e9bc15c86adbfd48b500ec5b59c35da5505d8376f35c07e5f8a9f926c",
+      "bytes": 885
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/evidence/width_experiment.json": {
+      "sha256": "10fd4419548d3950811eb7c01a641c45be6ce5fd28adfe67b196070a873a71f0",
+      "bytes": 912
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/evidence/width_stdout.txt": {
+      "sha256": "7a330464a6179f6ac077854dbe3fdedf0180498c4c9e243ace3d2a849fe6b1e4",
+      "bytes": 870
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/Laurel.pdf": {
+      "sha256": "643495096d8c5d21775162efce541cca07bebb31fe8bfdc44858f2dd8f3347d1",
+      "bytes": 345374
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/Laurel.tex": {
+      "sha256": "499bd15183a424564d57d9b66198bd256f064f435b5827c137d8ce3dd36c45ab",
+      "bytes": 116619
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/bench_frontier.py": {
+      "sha256": "80defe987870d8bde697e7b0516cb45c07d3ef38c0ab0906010f588dd5c4e45a",
+      "bytes": 1355
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/examples/alternatives.laurel": {
+      "sha256": "d840f55f5334f64ea98ae22a41a271def7593d1c02b55ffef39b97b8d99fbbcc",
+      "bytes": 272
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/examples/cycle.laurel": {
+      "sha256": "e451eba229a20045a4d3559aa78e0eb45504f45ae08d1e5de98510fadb0e3b65",
+      "bytes": 74
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/examples/frey_a4.laurel": {
+      "sha256": "0ead9f7a67a6b91c46cbc70ec755c98ee2009d300dd915ae4291213cb3fd4fd8",
+      "bytes": 356
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/examples/quotient.laurel": {
+      "sha256": "cd9492cb893bbe63e733df793e06de3776bca9275f102e173e47deacf0d71ced",
+      "bytes": 274
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/alternatives.json": {
+      "sha256": "0ceda05597387d23619b2c5985e529ea5f2fff14c73ed3afc6a3fc1eea239356",
+      "bytes": 450
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/alternatives.lean": {
+      "sha256": "0e4e95f9af7b84edff55c91e19d663e9c9e96837f56b94aef9fa417b8b983dda",
+      "bytes": 755
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/cycle.json": {
+      "sha256": "c61f3ad6db560895ef41a10d262081d2e9ffb73cf842a8e1388d431b4e9f64cf",
+      "bytes": 368
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/cycle.lean": {
+      "sha256": "97c088080be00357ae3cd8d6548f78498d5649fe78a3c9fe3e7123f6168cb709",
+      "bytes": 341
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/frey_a4.json": {
+      "sha256": "8422884808124b7c04fc02870b6e9f8b8174035d7446bf4fa3d3f5c47f068b22",
+      "bytes": 436
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/frey_a4.lean": {
+      "sha256": "24946266f75f53649c304e79a4b2c25ce9032d128a0b4bb281bf03745c9986d9",
+      "bytes": 860
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/quotient.json": {
+      "sha256": "9462446faf51e99f6a50948bc6326e754ecf891e2ca90f86d737753d6182d446",
+      "bytes": 477
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/generated/quotient.lean": {
+      "sha256": "af394e21a0a0ff3b4d52eccbf328bc4bfa2695f58861acc782a898ee01218a9f",
+      "bytes": 1149
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/laurel_core.py": {
+      "sha256": "54dc4fc79745d17f1d9442779081d6ada3993ee20127ffe5a996565d5dc92fb8",
+      "bytes": 14244
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/prototype/test_core.py": {
+      "sha256": "668545b205f7bc898ecb0a3d8bdd9a11ff9e359bc4b5d0f7986b10e0f41629e8",
+      "bytes": 11777
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/README.md": {
+      "sha256": "58b82db16bad3373cc1106ff0c6868bb18e8c4e40b0808d83290ab0df33bfe21",
+      "bytes": 6505
+    },
+    "evidence/laurel-rowan-sorrel/copies/Laurel/sources.json": {
+      "sha256": "a14c3ca29080448df783c04bfff5a8815c77866356fe6ab6e0e936925b0436d8",
+      "bytes": 10708
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/demo_results.json": {
+      "sha256": "10bea5e7a0954293fea41f3180194968a9bb163b0241af1e12edfd73a691214a",
+      "bytes": 1683
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/README.md": {
+      "sha256": "6cbd340839f210d8445d27571e3ea77562d433760a872123eb7390a26c2b415a",
+      "bytes": 4199
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/Rowan.pdf": {
+      "sha256": "9869b57d0e0c9c408349af4c272baae65821118a873e987ff6ca5ac6669ed98d",
+      "bytes": 586947
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/Rowan.tex": {
+      "sha256": "374744d45a5ce000d4cd44d2ed3c964b6c4a7be9d4e91a5eceaf16ddc9a01e6d",
+      "bytes": 117955
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/rowan_model.py": {
+      "sha256": "35f125b84452d778904fcf1416aebfce46636d8898e1bc1df8bc468afd559c18",
+      "bytes": 19075
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/sources.json": {
+      "sha256": "c018a2390e4a3025ac199bd4c20bad3fd5fae5229b39d1f8e36dfee855f6562a",
+      "bytes": 6238
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/test_log.txt": {
+      "sha256": "7ffc8b7958eaa730a371fb70ce05607f0765112533a85ece94c0310e7a7ad2ea",
+      "bytes": 3067
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/test_results.json": {
+      "sha256": "cb10a29bc7bf4f1f1fadff05368fbb0ab545d9c5fca2d2a9dbf5d3504ebe744c",
+      "bytes": 469
+    },
+    "evidence/laurel-rowan-sorrel/copies/Rowan/test_rowan.py": {
+      "sha256": "edaeb38be9f43227af521ebb54bb769c4bb47a4b5a653ad725fa3ed456a474d8",
+      "bytes": 14479
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/examples/cauchy.sorrel": {
+      "sha256": "c8cf90a34c0b76cd384c3e3edcefdf75c26c938406b2ad8b8d202595b3a43055",
+      "bytes": 489
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/examples/cauchy_result.json": {
+      "sha256": "847a4a4b6a1c2afe67505421d7b505f75220835aa882f5c3bdc2d393614a5d4b",
+      "bytes": 419
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/examples/quotient.sorrel": {
+      "sha256": "db5657206685e668033a14285963b81f0dc867776978c65034253ec2d0ad1ff0",
+      "bytes": 457
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/examples/quotient_result.json": {
+      "sha256": "0cb6fbc5a5c617f4448fac5098b6865e63264c98c84304888d3acae71f0dfcb9",
+      "bytes": 526
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/README.md": {
+      "sha256": "222c9a635e3a5bc2223d18a1d87d2045ea68080c52a235dbd750e8111ad6e5d9",
+      "bytes": 3338
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/SelectedPlan.lean": {
+      "sha256": "4b0c0569ea75ff9fb10a0139ebc2023425d19568516549bafbb5d6ea6f31c568",
+      "bytes": 684
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/sorrel.pdf": {
+      "sha256": "dd74399a9af5df95b3a71da6f36fa1af468b271243437689045f7420807a2ae7",
+      "bytes": 476699
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/sorrel.tex": {
+      "sha256": "0e206f9d1dec8bee11a88cb6f124133b3bc65e637e1a89f89235323d3ee307d4",
+      "bytes": 102901
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/sorrel_model.py": {
+      "sha256": "92687cd52bc55bdda80fc485908a219000c311c56727370580da891c82df71a6",
+      "bytes": 19475
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/sources.json": {
+      "sha256": "1dba70e231d5e4447f67eb8b37a7ec8fed8becd54b181602e51284891da04b9d",
+      "bytes": 4802
+    },
+    "evidence/laurel-rowan-sorrel/copies/Sorrel/test_results.json": {
+      "sha256": "67bbae9ed2f2f06b856c1c3f945314e0fd86d36fcdf383fa9d4d83cd7c3142e2",
+      "bytes": 1714
+    },
+    "evidence/laurel-rowan-sorrel/laneconvergence.json": {
+      "sha256": "e04b8b49277022350c532dd05b117b13c26045885e0c984ee366a0a9ec2f1c5b",
+      "bytes": 14433
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-alternatives.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-alternatives.stdout.txt": {
+      "sha256": "0ceda05597387d23619b2c5985e529ea5f2fff14c73ed3afc6a3fc1eea239356",
+      "bytes": 450
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-budget-zero.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-budget-zero.stdout.txt": {
+      "sha256": "2528325e49cec2ffb9ff940cd57609dc9f929fc0130261c0e73c38936c26f9c1",
+      "bytes": 376
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-cycle.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-cycle.stdout.txt": {
+      "sha256": "c61f3ad6db560895ef41a10d262081d2e9ffb73cf842a8e1388d431b4e9f64cf",
+      "bytes": 368
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-frey_a4.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-frey_a4.stdout.txt": {
+      "sha256": "8422884808124b7c04fc02870b6e9f8b8174035d7446bf4fa3d3f5c47f068b22",
+      "bytes": 436
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-quotient.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-quotient.stdout.txt": {
+      "sha256": "9462446faf51e99f6a50948bc6326e754ecf891e2ca90f86d737753d6182d446",
+      "bytes": 477
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-tests.stderr.txt": {
+      "sha256": "fbeb28d01ca128a52bf0cd8c0e7ba8508065a51e9d1f09cddcb0ee39d4137190",
+      "bytes": 1843
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-tests.stdout.txt": {
+      "sha256": "92d8814bb941f1d54260244c9c9ef991920c53f4710b12488c808538f332f2e9",
+      "bytes": 904
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-width.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/laurel-width.stdout.txt": {
+      "sha256": "10fd4419548d3950811eb7c01a641c45be6ce5fd28adfe67b196070a873a71f0",
+      "bytes": 912
+    },
+    "evidence/laurel-rowan-sorrel/logs/rowan-demo.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/rowan-demo.stdout.txt": {
+      "sha256": "ee6648b85fecfb9992788efe910d70cd2f5893f1d4ed5c3c131511ba6992e895",
+      "bytes": 1761
+    },
+    "evidence/laurel-rowan-sorrel/logs/rowan-tests.stderr.txt": {
+      "sha256": "b8bf6dacaf6a31991543ca01c7e95499dbb18e0381c8799ab21ffd25767c774d",
+      "bytes": 3104
+    },
+    "evidence/laurel-rowan-sorrel/logs/rowan-tests.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/semantic-probes.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/semantic-probes.stdout.txt": {
+      "sha256": "6e1f1482b38b945e2b11114186fea6b5de0cb45a60c55ed59953af28c03aeb38",
+      "bytes": 3393
+    },
+    "evidence/laurel-rowan-sorrel/logs/sorrel-cauchy.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/sorrel-cauchy.stdout.txt": {
+      "sha256": "847a4a4b6a1c2afe67505421d7b505f75220835aa882f5c3bdc2d393614a5d4b",
+      "bytes": 419
+    },
+    "evidence/laurel-rowan-sorrel/logs/sorrel-quotient.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/sorrel-quotient.stdout.txt": {
+      "sha256": "0cb6fbc5a5c617f4448fac5098b6865e63264c98c84304888d3acae71f0dfcb9",
+      "bytes": 526
+    },
+    "evidence/laurel-rowan-sorrel/logs/sorrel-tests.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/laurel-rowan-sorrel/logs/sorrel-tests.stdout.txt": {
+      "sha256": "67bbae9ed2f2f06b856c1c3f945314e0fd86d36fcdf383fa9d4d83cd7c3142e2",
+      "bytes": 1714
+    },
+    "evidence/laurel-rowan-sorrel/probe-receipt.json": {
+      "sha256": "f84638c21575ec2a086421010784284ab9cb1b554edf8681f0df748cc825d181",
+      "bytes": 5478
+    },
+    "evidence/laurel-rowan-sorrel/README.md": {
+      "sha256": "090b4a7485204f8c0e2318ec133b5a3776a9d5592bc020e56baabfe6c960d80d",
+      "bytes": 2001
+    },
+    "evidence/laurel-rowan-sorrel/receipt.json": {
+      "sha256": "719f8388a8ad5206b1c904425a018c16f596fb9c25591430fb556ac22da4bc50",
+      "bytes": 28308
+    },
+    "evidence/laurel-rowan-sorrel/reproduce.py": {
+      "sha256": "55c6a91fcca6d5c6fc95fba5ffeec6d211aa989bd38aa8dc71fa5ae14cb76073",
+      "bytes": 4478
+    },
+    "evidence/laurel-rowan-sorrel/semantic-probes.json": {
+      "sha256": "6e1f1482b38b945e2b11114186fea6b5de0cb45a60c55ed59953af28c03aeb38",
+      "bytes": 3393
+    },
+    "evidence/laurel-rowan-sorrel/semantic_probes.py": {
+      "sha256": "6a9012e367fb702004bb2bf2bb3b13154b594379814407ccd50a3d6a9ff21631",
+      "bytes": 4791
+    },
+    "evidence/laurel-rowan-sorrel/SorrelSelectionProbe.lean": {
+      "sha256": "0447b16b0e4e20297f78c4afed3edcf086569f81cdfb5b879ae1c1075d485d1e",
+      "bytes": 420
+    },
+    "evidence/laurel-rowan-sorrel/verify_lane.py": {
+      "sha256": "98c24be44a848c029dc79e2760878e71102c4d2ff3dfc7902225fa1b11360776",
+      "bytes": 3137
+    },
+    "evidence/lean/execution-receipt.json": {
+      "sha256": "5ad20307b9246f34727545dafa62459ebeabc435fe8309fde5f075496adc3112",
+      "bytes": 23430
+    },
+    "evidence/lean/followups/execution-receipt.json": {
+      "sha256": "a54f1185d85884c8139c523ec0235030e5aa5152789f1074f0ed8d9dc1fc1772",
+      "bytes": 6614
+    },
+    "evidence/lean/followups/FreySharper.lean": {
+      "sha256": "925cbe6088dd18459ff6f336a0ec75df2ed6f14fc612c3e143e1f4acc6ab4711",
+      "bytes": 2055
+    },
+    "evidence/lean/followups/FreySharper.log": {
+      "sha256": "a98e2444f8665359c31eaa028f4b15cea88486517aed2df5ebfeb6e07372eaed",
+      "bytes": 340
+    },
+    "evidence/lean/followups/HeatherEvenRepaired.lean": {
+      "sha256": "66c8a4525791e111d3c96c01758053fb294461aa404ef783a9797ae1a689b951",
+      "bytes": 519
+    },
+    "evidence/lean/followups/HeatherEvenRepaired.log": {
+      "sha256": "1536451d36ee43ae895beaebcf99b6e57ac7ca9ee9b8a4f575005beb86a85750",
+      "bytes": 1583
+    },
+    "evidence/lean/followups/KeywordClaim.lean": {
+      "sha256": "f26e30aa03a73cf50d1b5b27daef73ca83464df0b6eb2cd76d9fbe9c3397080a",
+      "bytes": 356
+    },
+    "evidence/lean/followups/KeywordClaim.log": {
+      "sha256": "18d5f0fd84570a68f5da5178fffdf5a004d3dba97c2d6f70533831acf57bea11",
+      "bytes": 78
+    },
+    "evidence/lean/followups/ShadowCompose.lean": {
+      "sha256": "79acd6330593ae0077eac18d316a3ccd66595ba074b71f4995d5c0f14d6204e9",
+      "bytes": 582
+    },
+    "evidence/lean/followups/ShadowCompose.log": {
+      "sha256": "8715bc1327e8255c34cec73d454546fc4375c373b634a2b4f39b7891ce8f1375",
+      "bytes": 1177
+    },
+    "evidence/lean/followups/ShadowRule.lean": {
+      "sha256": "00ed0964fc05eaa4c5e9ab59df6ad4f7bd1aa0ddc4eb703b08ec759ea491a319",
+      "bytes": 806
+    },
+    "evidence/lean/followups/ShadowRule.log": {
+      "sha256": "2f62f7f8cb05126eaddaa9c4ab72f8eb26015c509d1f6765cf9d2ea687b43bec",
+      "bytes": 701
+    },
+    "evidence/lean/followups/SorrelSelectionProbe.lean": {
+      "sha256": "0447b16b0e4e20297f78c4afed3edcf086569f81cdfb5b879ae1c1075d485d1e",
+      "bytes": 420
+    },
+    "evidence/lean/followups/SorrelSelectionProbe.log": {
+      "sha256": "1f6401e95c1f6586a43471de86526686fce9177f15124a0b6c23e0c231243142",
+      "bytes": 493
+    },
+    "evidence/lean/originals/Alder/companion/generated/Locality.lean": {
+      "sha256": "275eec5b59840a5652428f88f14246174ea4fe7633d7a95a5e0d60b8975f92d4",
+      "bytes": 478
+    },
+    "evidence/lean/originals/Alder/companion/generated/Locality.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/lean/originals/Alder/companion/generated/Quotient.lean": {
+      "sha256": "6e70e7b513bdee374d5fe356ae25ce4843416dffa4f191d178dcdd2448642663",
+      "bytes": 1856
+    },
+    "evidence/lean/originals/Alder/companion/generated/Quotient.log": {
+      "sha256": "8858e4fbd5a54216ac2dd3e236932c464adaae643c7aafe8c75486c53c0547b4",
+      "bytes": 2350
+    },
+    "evidence/lean/originals/Bryony/evidence/frey4/Requirements.lean": {
+      "sha256": "79fbd8824baf1d6f7e1a8352d3770fd8104d99ffdf84297986e4434028e12984",
+      "bytes": 834
+    },
+    "evidence/lean/originals/Bryony/evidence/frey4/Requirements.log": {
+      "sha256": "55589770b8b6ad1f7ed74dc1714de9456a4119c810f0f2ea9dc9d8f60e6487cb",
+      "bytes": 478
+    },
+    "evidence/lean/originals/Clover/companion/CloverCore.lean": {
+      "sha256": "b1b6a59f8927cc725703877283a14acd5bdc3bedd62f7189286aeb66e10a4577",
+      "bytes": 1888
+    },
+    "evidence/lean/originals/Clover/companion/CloverCore.log": {
+      "sha256": "042245103d0b3e43a77bfe36dc52354138949b598cdb624a7b153f19670848b1",
+      "bytes": 397
+    },
+    "evidence/lean/originals/Clover/companion/GeneratedExamples.lean": {
+      "sha256": "05c43e524688e1f9750fc88f11c5864029ae35fd5c994889eba0761c6d520f29",
+      "bytes": 1732
+    },
+    "evidence/lean/originals/Clover/companion/GeneratedExamples.log": {
+      "sha256": "6d2dca3bc851750b16be08a83950237faa24dc9e0e806c0ee8149c7774901c8d",
+      "bytes": 745
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_0_route_0.lean": {
+      "sha256": "f5ea0247df9b0f483966f6a6b302a930a2045aeec2ef43353d13fb7f29e7460e",
+      "bytes": 383
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_0_route_0.log": {
+      "sha256": "53c8cd1fd4604c419e83cfe563095e6531c8f6e9fa2de73e0adf9f306054318d",
+      "bytes": 1694
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_1_route_0.lean": {
+      "sha256": "0902a4fc63b06d78d381b06e61a71b6b04f31cf5ef877aa4d23014e58891c64c",
+      "bytes": 347
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_1_route_0.log": {
+      "sha256": "23fde5ae0018029b63e4d5cf633c8339dd1de251d6ed7b6680e7884584b4c99f",
+      "bytes": 1934
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_1_route_1.lean": {
+      "sha256": "9f6608bac2c6bf8753b4ebf88201fe6b89601054d93199d202d368f47aa98638",
+      "bytes": 575
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_1_route_1.log": {
+      "sha256": "0ce09f6ecc33f7abd8739ad44e36a5a15940b39595f57445529928fc12620ae8",
+      "bytes": 726
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_2_route_0.lean": {
+      "sha256": "056858036d06336307de05174a2010388c1458b347798569f40b3f0b9bbaa795",
+      "bytes": 573
+    },
+    "evidence/lean/originals/Fennel/prototype/generated/query_2_route_0.log": {
+      "sha256": "2e3fe09146cd84383fb3c6b596f38fcc1edb2a4f6d00af03f70ae0e5c251ac4e",
+      "bytes": 726
+    },
+    "evidence/lean/originals/Heather/companion/generated/diagonal_balance.lean": {
+      "sha256": "223e89674a133e62c8d003a0229df10065960c42fc9872b7545915dcc452c007",
+      "bytes": 438
+    },
+    "evidence/lean/originals/Heather/companion/generated/diagonal_balance.log": {
+      "sha256": "edc0f182b11bcd1cc1bea59f246e3d5294cc19f9d48e3cdf337f8c3751806d8e",
+      "bytes": 1014
+    },
+    "evidence/lean/originals/Heather/companion/generated/empty_preserves.lean": {
+      "sha256": "a320b4ca9590139af7e23289f578f9b5501c53705c7b8cdf12e50dd7a64db300",
+      "bytes": 416
+    },
+    "evidence/lean/originals/Heather/companion/generated/empty_preserves.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/lean/originals/Heather/companion/generated/even_reverse_length.lean": {
+      "sha256": "7e8f1d8c0d2e668e82f6d53d2a950d20d9d0710613320382b9ddc2dca24eb48e",
+      "bytes": 417
+    },
+    "evidence/lean/originals/Heather/companion/generated/even_reverse_length.log": {
+      "sha256": "b26bf5cd09d2ef060bbea3a862df828f20126c98a9d3f508ea9162816aa73101",
+      "bytes": 1080
+    },
+    "evidence/lean/originals/Heather/companion/generated/reverse_append_length.lean": {
+      "sha256": "95110bc520c594108096aee58792e4ee2eeac0a387cf1920a9652ed9ac7e0eb6",
+      "bytes": 425
+    },
+    "evidence/lean/originals/Heather/companion/generated/reverse_append_length.log": {
+      "sha256": "2dd92a6717f9b0d15066a572f020b54f1819b1ab7108221c77dbfd0cee7883d8",
+      "bytes": 679
+    },
+    "evidence/lean/originals/Heather/companion/generated/UseSite.lean": {
+      "sha256": "a90fb67d5a8d57103f83800616b08651398f42baebafb395c9f4d432fb33cffd",
+      "bytes": 328
+    },
+    "evidence/lean/originals/Heather/companion/generated/UseSite.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/lean/originals/Juniper/companion/Generated.lean": {
+      "sha256": "5df816e0d6a70fb2e27ab74b58a2b81354a15cba3e7195890637aa5d5e070f0b",
+      "bytes": 1291
+    },
+    "evidence/lean/originals/Juniper/companion/Generated.log": {
+      "sha256": "c0a88eb95ec15a788c94e4489a0a01560d68924431e9ddc9d00a9bee0e8eab8b",
+      "bytes": 1416
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/alternatives.lean": {
+      "sha256": "dcbc807b62cefbf0daa03dc5a2e7001de5320e7a4dad7a0225dfa4c935baa292",
+      "bytes": 726
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/alternatives.log": {
+      "sha256": "17a84b36d1542a64b90feac75dcf8b4b787dcdfe2d4f384f9c6bb8c868ccc58e",
+      "bytes": 720
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/cycle.lean": {
+      "sha256": "a0f513fdf9996a6aef7d264d4ffa703e21af3b7e343d4c717dfcc5cd317202b2",
+      "bytes": 331
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/cycle.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/frey_a4.lean": {
+      "sha256": "17097746e7adf8f8a9821a80b0813a07e19182d988c4c606a3b77515888f9256",
+      "bytes": 826
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/frey_a4.log": {
+      "sha256": "02f49fc81cc4cfa8bf5e38d5d61651992e3d66d0075ed9b55dda24643a6a20cd",
+      "bytes": 470
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/quotient.lean": {
+      "sha256": "d999ca76508cd79a00dac09223b899d43c5622ea8d27aa63f808d994afe629af",
+      "bytes": 1101
+    },
+    "evidence/lean/originals/Laurel/prototype/generated/quotient.log": {
+      "sha256": "9e853afe7e9a51d7cad99e73275c804280c848411d72b9c92134a2330c9f5347",
+      "bytes": 944
+    },
+    "evidence/lean/originals/Sorrel/SelectedPlan.lean": {
+      "sha256": "086dc1ba96e89ebb8238c61e593a1f99f5d1425450f83c0fa3abdf033a144dc5",
+      "bytes": 661
+    },
+    "evidence/lean/originals/Sorrel/SelectedPlan.log": {
+      "sha256": "09cc8c8880e8f63262c1f747cc41614ab756fb84dbdca7fb0aba920dbd666c7d",
+      "bytes": 478
+    },
+    "evidence/leant-review/capture.py": {
+      "sha256": "050ff11597cb00077495139f5b1baf65dbeea5ecc85d35bf4649bed7d2016a10",
+      "bytes": 4046
+    },
+    "evidence/leant-review/finalize-register.py": {
+      "sha256": "a91b9b419da2bebc2d1af3779054afff5f888d66ba73018d3069f2eabe95d1f4",
+      "bytes": 3437
+    },
+    "evidence/leant-review/fragment-excerpts.txt": {
+      "sha256": "4b5657753eaefd905c56fddffb23978d0e9e696289b15b9872f582a43127c0c6",
+      "bytes": 1801
+    },
+    "evidence/leant-review/main-excerpts.txt": {
+      "sha256": "804d6af2072fb2091c5fa5f59cc3883c8fd7a5a5834b74c144ff0f07520a8aeb",
+      "bytes": 23655
+    },
+    "evidence/leant-review/main-helper-excerpts.txt": {
+      "sha256": "ee804ca4f6f66dc26579f3b32a9fcba873a9169a28780607a40556211c134b65",
+      "bytes": 6920
+    },
+    "evidence/leant-review/README.md": {
+      "sha256": "13a3ca04772e2559ccde71c918bb0d57b9c42ac06bc3bac5f5f00459f939eb21",
+      "bytes": 1553
+    },
+    "evidence/leant-review/source-register.json": {
+      "sha256": "fd69138ff814a53ffbc5e123654d02ccbedcaf18af17bcaebd63dd8d4fdae7f4",
+      "bytes": 9734
+    },
+    "evidence/python-validation.json": {
+      "sha256": "1ba5072d0b58214b2b7228d5a76166efae97dd3e1ac395f67b400d32e96ae063",
+      "bytes": 43401
+    },
+    "evidence/visual-review.json": {
+      "sha256": "8989309b350d4923cd2298a3ee52e8fb828b014ce378f7b3a73c9533a1787d71",
+      "bytes": 1113
+    },
+    "README.md": {
+      "sha256": "be07ac979d889334bf6cdd3fe1daab4d22d25b4f130a137a980721bfb5460587",
+      "bytes": 7438
+    },
+    "review-notes/alder-bryony-clover.md": {
+      "sha256": "f8ff9d8aed148a89b93bffe03199632d1f802e76fab147e08d54926e970e11e3",
+      "bytes": 29594
+    },
+    "review-notes/fennel-heather-juniper.md": {
+      "sha256": "2b0635b14a848ebbb48aa1e9160c43b6e15805078545e5e2c193b09da105c9a6",
+      "bytes": 32362
+    },
+    "review-notes/final-review-alder-bryony-clover.md": {
+      "sha256": "dc00615db1cd571673d174fce65e2d888444446d0b8c9b342bc99893a1bbc516",
+      "bytes": 12460
+    },
+    "review-notes/final-review-fennel-heather-juniper.md": {
+      "sha256": "bdf64ad3fe7829d2b2c3176d3127e09f85e8cd86669eff3b9ec26ef3bdc6de36",
+      "bytes": 9949
+    },
+    "review-notes/final-review-laurel-rowan-sorrel.md": {
+      "sha256": "a3a7c84e61776bf6ccf304682e2bcc6f1e29a7278e5060e6fbd44ec32c757222",
+      "bytes": 9173
+    },
+    "review-notes/laurel-rowan-sorrel.md": {
+      "sha256": "b9bed21ff99e0225100aabe3915cfedfebaac59f3153d891d206e15727735d3d",
+      "bytes": 22318
+    },
+    "review-notes/leant-baseline.md": {
+      "sha256": "a343649bbe367018df1aa5d55bf3f8e1bf7cd84e8861c8093ec61d4057b5d6d5",
+      "bytes": 11275
+    },
+    "scripts/check_followups.py": {
+      "sha256": "3ec4f670edd5e2b595658424389b9457ea21c46b9fbe4fef6e790afdfe64bbd8",
+      "bytes": 3877
+    },
+    "scripts/check_lean.py": {
+      "sha256": "eb1132280bed05a7e098ceb38eb8801087be9116deca7d750f1bacedbdac4b5f",
+      "bytes": 4477
+    },
+    "scripts/render_review.py": {
+      "sha256": "25bba6ce2b24780cd1f5f9c8f2607e97309d467447dd3d740c310d56d2794f1f",
+      "bytes": 1587
+    },
+    "scripts/verify_convergence.py": {
+      "sha256": "d10b75c507e7d5f68b5123237ac7f4d02f63cdc5b412341090a779b2d3fa9b88",
+      "bytes": 16377
+    },
+    "scripts/verify_python_evidence.py": {
+      "sha256": "51f5b934a2a2eb5e0f65576e80b9409c163a6f5923612a3ffb9ba5c928d6453c",
+      "bytes": 27847
+    },
+    "scripts/verify_report.py": {
+      "sha256": "4cd14fb4363e5e08c5e199dbf530b2d18ce53e1c228a8129469ed8bbb0fee160",
+      "bytes": 6167
+    },
+    "scripts/verify_sources.py": {
+      "sha256": "b1458f2cb265312dcb16daea5dbcd0c034245b5ae10ebfadcd55e4185894b521",
+      "bytes": 3354
+    },
+    "source-register.json": {
+      "sha256": "0496b707b8f9a6f6642f859c8923c4f90387d74a0cc63187b36c0a44395e4fc6",
+      "bytes": 49494
+    },
+    "unified-report.pdf": {
+      "sha256": "cc70618bf5b7343bf570aa2618226871985c0bd09b50f59b6491aa5e07f7ad19",
+      "bytes": 492193
+    },
+    "unified-report.tex": {
+      "sha256": "e0d9cc682edb6c822b3f760c4bb9a2b060b730b4e29149659ba243bcab231deb",
+      "bytes": 92431
+    }
+  }
+}

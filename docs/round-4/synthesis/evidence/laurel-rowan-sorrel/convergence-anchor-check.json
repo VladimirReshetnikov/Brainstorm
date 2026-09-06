@@ -1,0 +1,569 @@
+[
+  {
+    "report": "Laurel",
+    "dimension": "conservative_core",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:684",
+    "source_line": "\\section{How far should Lean's type system change?}\\label{sec:kernel}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "conservative_core",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:828",
+    "source_line": "\\section{An implementation plan with exit conditions}\\label{sec:implementation}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "residual_contract",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:288",
+    "source_line": "For a fixed proposition $G$, the central judgment is",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "residual_contract",
+    "anchor": "docs/round-4/ideas/Laurel/prototype/laurel_core.py:127",
+    "source_line": "def check_proof(profile: Profile, proof: Proof, target: str,",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:323",
+    "source_line": "Fix a finite set $V$ of atoms, a set $K\\subseteq V$ of known facts, a set $O\\subseteq V$ of propositions allowed to appear as residual obligations, and a finite set of Horn rules",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:379",
+    "source_line": "\\subsection{Why minimal supports are not weakest preconditions}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:392",
+    "source_line": "The implementation in this archive uses a simple scan-and-antichain algorithm. It is suitable for specification and small tests, not a claim of an optimized editor engine. The width experiment reproduces the expected growth up to $1,024$ supports at $k=10$. Larger systems may use decision diagrams, lazy route enumeration, support-width caps, or demand-specific ranking. Such choices must change the status to partial when they discard alternatives. A partial frontier still has sound conditional proofs by Theorem~\\ref{thm:conditional}; it is not necessarily the complete or globally subset-minimal frontier.",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "bounded_grounding",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:397",
+    "source_line": "\\subsection{The theorem registry is checked metadata}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "bounded_grounding",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:405",
+    "source_line": "The first implementation should use a finite \\emph{term pool} extracted from the fixed goal, local facts, and explicitly selected method arguments. It includes their typed subexpressions and a bounded set of declared observations, such as the image of a denominator under a selected ring map. Predicate templates are instantiated only at terms in this pool.",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "premise_authority",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:307",
+    "source_line": "\\subsection{Dependent obligations and authorized witnesses}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "premise_authority",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:397",
+    "source_line": "\\subsection{The theorem registry is checked metadata}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "fixed_request",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:298",
+    "source_line": "Not every construction produces a carrier term already available in $\\Gamma$. Applying a function on a refined domain may require an unresolved proof. In that case the result is a term under the residual telescope,",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "fixed_request",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:307",
+    "source_line": "\\subsection{Dependent obligations and authorized witnesses}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "rewrite_lifetime",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:425",
+    "source_line": "\\section{Repair, rewriting, and evidence lifetime}\\label{sec:repair}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "rewrite_lifetime",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:438",
+    "source_line": "\\subsection{Rewriting changes an anchor only through evidence}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "admissible_observations",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:468",
+    "source_line": "\\subsection{A generalization: the realized affine observation span}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "admissible_observations",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:506",
+    "source_line": "For \\code{List Empty}, the empty list alone spans all realized lifts, since there are no other inputs. The two coefficient vectors for $0$ and $n$ differ but induce the same functional on this one-dimensional span. A checker requiring unrestricted coefficient equality is sound when it accepts, but need not accept every true source equality.",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "source_bridge",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:455",
+    "source_line": "For a synthesis request, fix a source specification $\\operatorname{Spec}(f)$ and an authorized type for $f$. A successful candidate needs a proof of the specification about the exact accepted function. An abstract behavioral service may help find that proof, but three bridges are distinct: the candidate representation denotes the accepted source term; the provider laws used by the abstraction hold for their exact source providers; and the accepted abstract property implies the requested source property.",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "source_bridge",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:745",
+    "source_line": "\\section{Trust, methods, and faithful mathematical explanation}\\label{sec:trust}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "method_fidelity",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:745",
+    "source_line": "\\section{Trust, methods, and faithful mathematical explanation}\\label{sec:trust}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "method_fidelity",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:758",
+    "source_line": "\\subsection{No hidden publication debt}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:554",
+    "source_line": "\\section{Worked case I: exact Frey quotients}\\label{sec:frey}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:639",
+    "source_line": "\\begin{proposition}[A derivative-attainment route to sharpness]",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:666",
+    "source_line": "\\section{Worked case III: locality, measures, and quantifiers}\\label{sec:locality}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "matched_evaluation",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:849",
+    "source_line": "\\section{Evaluation that can falsify the proposal}\\label{sec:evaluation}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Laurel",
+    "dimension": "matched_evaluation",
+    "anchor": "docs/round-4/ideas/Laurel/Laurel.tex:867",
+    "source_line": "\\section{Answers to the round-three implementation questions}\\label{sec:crosswalk}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "conservative_core",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1558",
+    "source_line": "\\section{How far should Lean's type system be extended?}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "conservative_core",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1681",
+    "source_line": "using no axioms beyond those admitted by the selected Lean environment and",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "residual_contract",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:779",
+    "source_line": "\\subsection{The frontier is explanatory, not a weakest-precondition oracle}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "residual_contract",
+    "anchor": "docs/round-4/ideas/Rowan/rowan_model.py:254",
+    "source_line": "    # A valid, nonminimal explanatory frontier. Cycles without a leaf retain",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:724",
+    "source_line": "\\subsection{Backward relevance, then forward closure}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:779",
+    "source_line": "\\subsection{The frontier is explanatory, not a weakest-precondition oracle}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "bounded_grounding",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:673",
+    "source_line": "\\subsection{The finite automatic fragment}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "bounded_grounding",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:711",
+    "source_line": "For dependent telescopes, enumerate left to right and check each selected",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "bounded_grounding",
+    "anchor": "docs/round-4/ideas/Rowan/rowan_model.py:122",
+    "source_line": "def ground(schemas: Sequence[Schema], terms: Sequence[Term],",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "premise_authority",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:649",
+    "source_line": "\\subsection{Support restrictions include data that carry assumptions}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "premise_authority",
+    "anchor": "docs/round-4/ideas/Rowan/rowan_model.py:179",
+    "source_line": "                  and (request.allowed_support is None or a.name in request.allowed_support))",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "fixed_request",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:568",
+    "source_line": "parameters contain no unresolved metavariables. They may contain the fixed",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "fixed_request",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:600",
+    "source_line": "context, check it against the sealed target, reject unresolved goals, inspect",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "rewrite_lifetime",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:817",
+    "source_line": "\\subsection{A proof can outlive a printed expression, but not its context}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "rewrite_lifetime",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:837",
+    "source_line": "of an old local identifier establishes neither fact.",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "admissible_observations",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1248",
+    "source_line": "\\subsection{A complete affine criterion on supplied semilinear images}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "admissible_observations",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1304",
+    "source_line": "Suppose two fixed source expressions have the proved length denotation above,",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "source_bridge",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1108",
+    "source_line": "\\subsection{Observe possible inputs, not an arbitrary ambient space}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "source_bridge",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1489",
+    "source_line": "\\subsection{Synthesis supplies evidence, not a different problem}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "method_fidelity",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:636",
+    "source_line": "Theorem validity & Does the term prove $T$ under the selected assumptions and axiom policy? & An unsolved premise or an unauthorized axiom.\\\\",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "method_fidelity",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:649",
+    "source_line": "\\subsection{Support restrictions include data that carry assumptions}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:905",
+    "source_line": "\\subsection{The exact theorem to preserve}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:979",
+    "source_line": "\\subsection{A satisfiable arithmetic context}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1733",
+    "source_line": "\\section{Worked development III: a higher-order construction contract}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "matched_evaluation",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1931",
+    "source_line": "\\subsection{Matched arms separate three possible explanations}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Rowan",
+    "dimension": "matched_evaluation",
+    "anchor": "docs/round-4/ideas/Rowan/Rowan.tex:1995",
+    "source_line": "\\section{Answers to the next-round questions and remaining risks}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "conservative_core",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1400",
+    "source_line": "\\section{Implementation architecture and its first useful slice}\\label{sec:implementation}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "conservative_core",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1446",
+    "source_line": "Input grammar beyond the proof-implicit binder is optional until these slices",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "residual_contract",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:574",
+    "source_line": "\\subsection{A residual telescope is not a set of suggestions}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "residual_contract",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:817",
+    "source_line": "\\subsection{The residual-frontier theorem}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "residual_contract",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel_model.py:152",
+    "source_line": "def frontier(problem: Problem, result: Result, goal: Atom | None = None) -> list[Support]:",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:757",
+    "source_line": "\\subsection{Soundness and termination}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:845",
+    "source_line": "A bounded run may retain only a sound subset of the final label families.",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "alternative_minimality",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel_model.py:86",
+    "source_line": "def solve(problem: Problem, max_attempts: int | None = None) -> Result:",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "bounded_grounding",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:869",
+    "source_line": "\\subsection{A finite rule set must actually be generated finitely}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "bounded_grounding",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:891",
+    "source_line": "synthesis outside the permitted fragment, or a new unresolved structure are",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "premise_authority",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:657",
+    "source_line": "\\subsection{Residual interfaces as reusable mathematical lemmas}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "premise_authority",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:676",
+    "source_line": "\\subsection{Why a method record is not just a proof term}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "fixed_request",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:637",
+    "source_line": "\\subsection{The semantic header is fixed before proof search}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "fixed_request",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:644",
+    "source_line": "Sorrel classifies unresolved metavariables before launching a provider.",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "rewrite_lifetime",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:915",
+    "source_line": "\\subsection{Anchors are typed expressions, not identifiers}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "rewrite_lifetime",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:950",
+    "source_line": "under the word ``scope-safe.''",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "admissible_observations",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1284",
+    "source_line": "sufficient but stronger than necessary; realization of the particular witness",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "admissible_observations",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1310",
+    "source_line": "acceptance boundary. A fluent explanation is not behavioral evidence, and a",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "source_bridge",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1269",
+    "source_line": "specification. The exact selected function term must occur in the theorem",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "source_bridge",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1302",
+    "source_line": "A successful suggestion is accepted by replaying the exact selected source in",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "source_bridge",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1316",
+    "source_line": "\\subsection{One request, several permissible execution lanes}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "method_fidelity",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:676",
+    "source_line": "\\subsection{Why a method record is not just a proof term}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "method_fidelity",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:851",
+    "source_line": "Rules must be filtered for a required-method policy \\emph{before} computing",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:954",
+    "source_line": "\\subsection{Statement and source correspondence}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1061",
+    "source_line": "\\subsection{An explicit consumer registration for almost-everywhere rows}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "mathematical_transfer",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1162",
+    "source_line": "\\subsection{A representing algebra needs a dependent package}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "matched_evaluation",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1557",
+    "source_line": "\\subsection{Matched arms}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "matched_evaluation",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1624",
+    "source_line": "\\subsection{Stopping rules}",
+    "valid_nonblank": true
+  },
+  {
+    "report": "Sorrel",
+    "dimension": "matched_evaluation",
+    "anchor": "docs/round-4/ideas/Sorrel/sorrel.tex:1636",
+    "source_line": "\\section{Answers to the two reports' fourth-iteration questions}\\label{sec:crosswalk}",
+    "valid_nonblank": true
+  }
+]

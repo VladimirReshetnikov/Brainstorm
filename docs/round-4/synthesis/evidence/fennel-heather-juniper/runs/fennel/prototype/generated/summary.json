@@ -1,0 +1,53 @@
+[
+  {
+    "query": "fourth_coefficient",
+    "status": "proved-in-fragment",
+    "closure_complete": true,
+    "supports": [
+      []
+    ],
+    "attempts": 8,
+    "stored_nodes": 10,
+    "rounds": 2
+  },
+  {
+    "query": "second_coefficient",
+    "status": "conditional",
+    "closure_complete": true,
+    "supports": [
+      [
+        "cached"
+      ],
+      [
+        "odd",
+        "residue"
+      ]
+    ],
+    "attempts": 8,
+    "stored_nodes": 10,
+    "rounds": 2
+  },
+  {
+    "query": "arithmetic_route",
+    "status": "conditional",
+    "closure_complete": true,
+    "supports": [
+      [
+        "odd",
+        "residue"
+      ]
+    ],
+    "attempts": 6,
+    "stored_nodes": 9,
+    "rounds": 2
+  },
+  {
+    "query": "unrelated_target",
+    "status": "no-route-found",
+    "closure_complete": true,
+    "supports": [],
+    "attempts": 8,
+    "stored_nodes": 10,
+    "rounds": 2
+  }
+]

@@ -1,0 +1,107 @@
+{
+  "scope": "Fresh Python semantic probes; no Lean compilation, frontend implementation, or source-registry truth established.",
+  "probes": [
+    {
+      "id": "rowan-cycle-plus-leaf-frontier",
+      "rules": [
+        "A -> A",
+        "A & B -> Goal"
+      ],
+      "known": [],
+      "reported_frontier": [
+        "B()"
+      ],
+      "after_assuming_entire_reported_frontier": "open",
+      "remaining_frontier": [
+        "Goal()"
+      ],
+      "conclusion": "The explanatory frontier is not necessarily a sufficient residual contract; derived-proof checking remains intact."
+    },
+    {
+      "id": "sorrel-export-selection-vs-available-route",
+      "available": [
+        "B",
+        "C"
+      ],
+      "result": {
+        "context": "Selection",
+        "goal": "Goal",
+        "status": "supported_in_model",
+        "support_inventory_complete": true,
+        "minimal_supports": [
+          [
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "residual_frontier": [
+          []
+        ],
+        "attempts": 4,
+        "insertions": 2,
+        "rounds": 2,
+        "scope": "finite propositional model, not mathematical or Lean-kernel verification"
+      },
+      "cli_selected_support": [
+        "A"
+      ],
+      "selected_residual": [
+        "A"
+      ],
+      "conclusion": "CLI chooses the smallest total support, even when another route is already available; export is still a valid conditional theorem, not a false closed proof."
+    },
+    {
+      "id": "laurel-rejects-insufficient-offer-under-cycle",
+      "result": {
+        "context": "CycleLeaf",
+        "profile_sha256": "5820eb316d3b6560aa004108102dca5fb1ccd0fbacce1791213a2720eea8fe56",
+        "target": "Goal",
+        "status": "no_route_in_profile",
+        "complete": true,
+        "supports": [],
+        "rounds": 1,
+        "premise_combinations": 0,
+        "support_insertions": 1,
+        "certificate_boundary": "symbolic Horn assumptions; not Lean-checked"
+      },
+      "conclusion": "No offered subset is falsely returned as a sufficient route."
+    },
+    {
+      "id": "partial-minimality-is-relative-to-discovered-routes",
+      "partial": {
+        "context": "Budget",
+        "profile_sha256": "87a20084cd046859e3262bd3361972d02e0d55d0774e2630f3612689cc12cb4e",
+        "target": "Goal",
+        "status": "conditional",
+        "complete": false,
+        "supports": [
+          [
+            "B"
+          ]
+        ],
+        "rounds": 1,
+        "premise_combinations": 1,
+        "support_insertions": 3,
+        "certificate_boundary": "symbolic Horn assumptions; not Lean-checked"
+      },
+      "complete": {
+        "context": "Budget",
+        "profile_sha256": "87a20084cd046859e3262bd3361972d02e0d55d0774e2630f3612689cc12cb4e",
+        "target": "Goal",
+        "status": "established_in_profile",
+        "complete": true,
+        "supports": [
+          []
+        ],
+        "rounds": 2,
+        "premise_combinations": 4,
+        "support_insertions": 4,
+        "certificate_boundary": "symbolic Horn assumptions; not Lean-checked"
+      },
+      "conclusion": "The partial conditional proof is sound while its support is dominated by a later route; the report correctly qualifies this."
+    }
+  ]
+}

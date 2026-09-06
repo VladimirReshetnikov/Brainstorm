@@ -1,0 +1,8 @@
+context quotient_derivative
+atoms df dg positive negative nonzero derivative
+known df dg
+offer positive negative nonzero
+rule positive_nonzero : positive -> nonzero
+rule negative_nonzero : negative -> nonzero
+rule quotient_rule : df dg nonzero -> derivative
+show derivative

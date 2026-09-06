@@ -1,0 +1,52 @@
+{
+  "python": "3.14.4",
+  "boundary_tests": 27,
+  "boundary_success": true,
+  "finite_comparison": {
+    "seed": 20260906,
+    "graphs": 2000,
+    "subset_closure_comparisons": 12872,
+    "selected_target_certificate_checks": 1820,
+    "max_stored_nodes_in_random_suite": 20
+  },
+  "arithmetic_fixtures": [
+    {
+      "a": 3,
+      "b": 2,
+      "p": 5,
+      "div4": true,
+      "div16": true
+    },
+    {
+      "a": 3,
+      "b": 2,
+      "p": 4,
+      "div4": false,
+      "div16": true
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "p": 5,
+      "div4": false,
+      "div16": false
+    },
+    {
+      "a": 3,
+      "b": 2,
+      "p": 3,
+      "div4": true,
+      "div16": false
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "p": 5,
+      "div4": false,
+      "div16": true
+    }
+  ],
+  "lean_compilation": "not run; no Lean executable available",
+  "scope": "finite Horn prototype; no dependent Lean elaboration, no user study",
+  "elapsed_seconds_single_run": 0.487796
+}

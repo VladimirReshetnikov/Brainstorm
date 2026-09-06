@@ -1,0 +1,16 @@
+-- The actual implemented grammar, not the full language proposed in the article.
+fix f g r k : End
+assume retraction : left_inverse r f
+assume outer : injective g
+claim composite : injective (g . f)
+assume renamed : same g k
+claim transported : injective (k . f)
+
+scope
+  fix j : End
+  assume local : involutive j
+  claim local_composite : injective (j . f)
+end
+
+-- This is unfinished, not false. No involution or inverse for k is known.
+claim unsupported_strengthening : involutive k

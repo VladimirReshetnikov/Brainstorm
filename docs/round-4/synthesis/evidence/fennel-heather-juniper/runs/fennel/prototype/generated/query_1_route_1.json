@@ -1,0 +1,75 @@
+{
+  "format": "fennel-horn-1",
+  "fingerprint": "6d6f6f4d0de855d18e44bbf270dc63786294cb25c01de8eb32ffd84c5378e16c",
+  "target": "Cast4",
+  "root": 6,
+  "nodes": [
+    {
+      "kind": "root",
+      "atom": "EvenB",
+      "name": "even",
+      "children": [],
+      "support": []
+    },
+    {
+      "kind": "root",
+      "atom": "LargeP",
+      "name": "large",
+      "children": [],
+      "support": []
+    },
+    {
+      "kind": "root",
+      "atom": "Nonzero4",
+      "name": "denom",
+      "children": [],
+      "support": []
+    },
+    {
+      "kind": "root",
+      "atom": "OddP",
+      "name": "odd",
+      "children": [],
+      "support": [
+        "odd"
+      ]
+    },
+    {
+      "kind": "root",
+      "atom": "ResidueA",
+      "name": "residue",
+      "children": [],
+      "support": [
+        "residue"
+      ]
+    },
+    {
+      "kind": "rule",
+      "atom": "Div4",
+      "name": "congr4",
+      "children": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "support": [
+        "odd",
+        "residue"
+      ]
+    },
+    {
+      "kind": "rule",
+      "atom": "Cast4",
+      "name": "cast",
+      "children": [
+        5,
+        2
+      ],
+      "support": [
+        "odd",
+        "residue"
+      ]
+    }
+  ]
+}

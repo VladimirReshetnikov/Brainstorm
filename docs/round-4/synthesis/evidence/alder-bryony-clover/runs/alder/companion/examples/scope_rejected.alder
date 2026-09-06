@@ -1,0 +1,7 @@
+atoms positive nonzero
+rule positive_nonzero : positive -> nonzero
+begin local
+  assume positive
+  show nonzero
+end
+show nonzero

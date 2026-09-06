@@ -1,0 +1,121 @@
+{
+  "scope": "Fresh Python probes and file comparison only; no Lean compilation.",
+  "command": [
+    "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "semantic_probes.py"
+  ],
+  "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\laurel-rowan-sorrel",
+  "exit_code": 0,
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "streams": {
+    "stdout": {
+      "path": "logs/semantic-probes.stdout.txt",
+      "sha256": "6e1f1482b38b945e2b11114186fea6b5de0cb45a60c55ed59953af28c03aeb38"
+    },
+    "stderr": {
+      "path": "logs/semantic-probes.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "source_sha256": "6a9012e367fb702004bb2bf2bb3b13154b594379814407ccd50a3d6a9ff21631",
+  "result_sha256": "6e1f1482b38b945e2b11114186fea6b5de0cb45a60c55ed59953af28c03aeb38",
+  "generated_lean_sha256": "0447b16b0e4e20297f78c4afed3edcf086569f81cdfb5b879ae1c1075d485d1e",
+  "input_file_counts": {
+    "Laurel": 25,
+    "Rowan": 9,
+    "Sorrel": 11
+  },
+  "all_inputs_unchanged_since_reproduction": true,
+  "no_bytecode_in_lane": true,
+  "generated_artifact_comparison": [
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/alternatives.json",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "e832f78d7a0b9527f4b7aa098d085d82c912f1c919c98ada759f6e0c9118d5e6",
+      "fresh_sha256": "0ceda05597387d23619b2c5985e529ea5f2fff14c73ed3afc6a3fc1eea239356"
+    },
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/alternatives.lean",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "dcbc807b62cefbf0daa03dc5a2e7001de5320e7a4dad7a0225dfa4c935baa292",
+      "fresh_sha256": "0e4e95f9af7b84edff55c91e19d663e9c9e96837f56b94aef9fa417b8b983dda"
+    },
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/cycle.json",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "c7842ac3516237606f59310fa348aaab98653aa3a69f9df227b4ffaa6ff1ebda",
+      "fresh_sha256": "c61f3ad6db560895ef41a10d262081d2e9ffb73cf842a8e1388d431b4e9f64cf"
+    },
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/cycle.lean",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "a0f513fdf9996a6aef7d264d4ffa703e21af3b7e343d4c717dfcc5cd317202b2",
+      "fresh_sha256": "97c088080be00357ae3cd8d6548f78498d5649fe78a3c9fe3e7123f6168cb709"
+    },
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/frey_a4.json",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "dd98afdfd3c0dae22e3b94cdeb2d2422e1b3c46c374f15035b119757bb54782f",
+      "fresh_sha256": "8422884808124b7c04fc02870b6e9f8b8174035d7446bf4fa3d3f5c47f068b22"
+    },
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/frey_a4.lean",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "17097746e7adf8f8a9821a80b0813a07e19182d988c4c606a3b77515888f9256",
+      "fresh_sha256": "24946266f75f53649c304e79a4b2c25ce9032d128a0b4bb281bf03745c9986d9"
+    },
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/quotient.json",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "10cf19184ad05cc5f6bdeb8c34f9e00b9704c8017bbb2f45cec56b08b16acd32",
+      "fresh_sha256": "9462446faf51e99f6a50948bc6326e754ecf891e2ca90f86d737753d6182d446"
+    },
+    {
+      "package": "Laurel",
+      "path": "prototype/generated/quotient.lean",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "d999ca76508cd79a00dac09223b899d43c5622ea8d27aa63f808d994afe629af",
+      "fresh_sha256": "af394e21a0a0ff3b4d52eccbf328bc4bfa2695f58861acc782a898ee01218a9f"
+    },
+    {
+      "package": "Sorrel",
+      "path": "examples/cauchy_result.json",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "305492997a9f6c84864dcddc13171b4b87860cf00dfae9e27ed657e38fa96e33",
+      "fresh_sha256": "847a4a4b6a1c2afe67505421d7b505f75220835aa882f5c3bdc2d393614a5d4b"
+    },
+    {
+      "package": "Sorrel",
+      "path": "examples/quotient_result.json",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "f99ece9de20ca0e38634ddc439ff24ad458b7620b9c3258f8f9fd45dd3e9e50c",
+      "fresh_sha256": "0cb6fbc5a5c617f4448fac5098b6865e63264c98c84304888d3acae71f0dfcb9"
+    },
+    {
+      "package": "Sorrel",
+      "path": "SelectedPlan.lean",
+      "byte_identical_to_author_input": false,
+      "text_identical_after_universal_newlines": true,
+      "original_sha256": "086dc1ba96e89ebb8238c61e593a1f99f5d1425450f83c0fa3abdf033a144dc5",
+      "fresh_sha256": "4b0c0569ea75ff9fb10a0139ebc2023425d19568516549bafbb5d6ea6f31c568"
+    }
+  ]
+}

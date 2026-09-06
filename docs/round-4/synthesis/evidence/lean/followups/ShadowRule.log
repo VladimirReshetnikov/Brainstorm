@@ -1,0 +1,18 @@
+ShadowRule.lean:10:5: warning: Variable name `retract_4` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ShadowRule.lean:11:5: warning: Variable name `outer_5` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ShadowRule.lean:22:63: error: Application type mismatch: The argument
+  f_1
+has type
+  A → A
+of sort `Type u` but is expected to have type
+  Type ?u.24
+of sort `Type (?u.24 + 1)` in the application
+  inj_comp f_1

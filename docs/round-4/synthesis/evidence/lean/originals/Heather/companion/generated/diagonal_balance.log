@@ -1,0 +1,21 @@
+diagonal_balance.lean:9:33: warning: This simp argument is unused:
+  List.length_reverse
+
+Hint: Omit it from the simp argument list.
+  simp only [List.length_append, L̵i̵s̵t̵.̵l̵e̵n̵g̵t̵h̵_̵r̵e̵v̵e̵r̵s̵e̵,̵ ̵List.length_nil, List.length_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+diagonal_balance.lean:9:54: warning: This simp argument is unused:
+  List.length_nil
+
+Hint: Omit it from the simp argument list.
+  simp only [List.length_append, List.length_reverse, List.length_n̵i̵l̵,̵ ̵L̵i̵s̵t̵.̵l̵e̵n̵g̵t̵h̵_̵cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+diagonal_balance.lean:9:71: warning: This simp argument is unused:
+  List.length_cons
+
+Hint: Omit it from the simp argument list.
+  simp only [List.length_append, List.length_reverse, List.length_nil,̵ ̵L̵i̵s̵t̵.̵l̵e̵n̵g̵t̵h̵_̵c̵o̵n̵s̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

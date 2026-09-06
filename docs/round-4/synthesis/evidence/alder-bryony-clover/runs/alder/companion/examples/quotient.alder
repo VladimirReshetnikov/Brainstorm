@@ -1,0 +1,16 @@
+# Opaque proposition-level model, NOT a parser of integer expressions.
+atoms positive nonzero exact cast unit invertible balanced
+rule positive_nonzero : positive -> nonzero
+rule exact_balance : exact -> balanced
+rule cast_exact : balanced & nonzero -> cast
+rule unit_nonzero : unit -> nonzero
+rule unit_invertible : unit -> invertible
+assume exact
+repair positive unit
+explain cast
+begin positive_case
+  assume positive
+  show cast
+end
+# The child's positive evidence is no longer in scope.
+explain cast

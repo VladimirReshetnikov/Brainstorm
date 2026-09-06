@@ -1,0 +1,682 @@
+{
+  "pin": "58ced1ce667b3ba1ed162a0c6280959536c8bc5f",
+  "created_utc": "2026-09-06T22:39:56.895340+00:00",
+  "python_executable": "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+  "python_version": "3.14.4",
+  "input_hashes_before": {
+    "docs/round-4/ideas/Fennel/evidence/build_validation.json": "dbc08055f8e87c992f5f6815ee5ea5666febec33bc30d94b7952e2b7963ba1f7",
+    "docs/round-4/ideas/Fennel/evidence/example_stdout.txt": "975a5cb267f899a0648b718a3f83474bb7e3237ae65f9a6e5303f5882eaeb5ea",
+    "docs/round-4/ideas/Fennel/evidence/source_manifest.json": "6b5e25ae3d6e9b3f8d0901f69e90c2d15222aa1f3ef054b11de862ca549d878a",
+    "docs/round-4/ideas/Fennel/evidence/stress_results.json": "0463fb1045da1100dd54ab1b9dd825021b896d536e2ae62dbf3fad395c2d4346",
+    "docs/round-4/ideas/Fennel/evidence/stress_stdout.txt": "0463fb1045da1100dd54ab1b9dd825021b896d536e2ae62dbf3fad395c2d4346",
+    "docs/round-4/ideas/Fennel/evidence/test_results.json": "f1ca733b22ca2461777f3f787e696388b65737ed657757203cfd882f0bc4cf75",
+    "docs/round-4/ideas/Fennel/evidence/test_stderr.txt": "1a8df9f62cb394d76c32085996b96f41d7758fe845abfc90b712622119858ad1",
+    "docs/round-4/ideas/Fennel/evidence/test_stdout.txt": "f1ca733b22ca2461777f3f787e696388b65737ed657757203cfd882f0bc4cf75",
+    "docs/round-4/ideas/Fennel/Fennel.pdf": "7c8b2b6df50eeef812133b6273dacedbd12752a591313507a41e26c60ee7d4f9",
+    "docs/round-4/ideas/Fennel/Fennel.tex": "a9606a623c074fbe381c79141c12ad458e5a531fdd2959102d8873623d1a05b3",
+    "docs/round-4/ideas/Fennel/prototype/fennel.py": "a3b34f659dbd407c8541ba9af457309ba95314ac700de376d44a66518af543f9",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.json": "3606607e891cd4535fde9c5e356d01723f1a48218db16a3b3894068f339a7b1f",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.lean": "f5ea0247df9b0f483966f6a6b302a930a2045aeec2ef43353d13fb7f29e7460e",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.json": "8ae84460e37e0bf82d6dddb6d0452f47dbe066b0e7d91a4e33010983cbd5a4b3",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.lean": "0902a4fc63b06d78d381b06e61a71b6b04f31cf5ef877aa4d23014e58891c64c",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.json": "1fe3b85c1ba6d9876e7123245db2f204e4ab92344335ad7c6d41811542ecd488",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.lean": "9f6608bac2c6bf8753b4ebf88201fe6b89601054d93199d202d368f47aa98638",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.json": "2a10a7d08ba90800ba5735c1e8d3c9e70ee4056f3e04d84f67c70b1a35e11597",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.lean": "056858036d06336307de05174a2010388c1458b347798569f40b3f0b9bbaa795",
+    "docs/round-4/ideas/Fennel/prototype/generated/summary.json": "975a5cb267f899a0648b718a3f83474bb7e3237ae65f9a6e5303f5882eaeb5ea",
+    "docs/round-4/ideas/Fennel/prototype/quotients.fnl": "49549fcee86a2ab3d56532e0ba5a84d7a9bbd3e97b8b02eb0c9343ce61dcf4e6",
+    "docs/round-4/ideas/Fennel/prototype/stress_frontiers.py": "e224dfb78abb6d76d5f6883051e5eb93f617e4fd68ce747d09f2420ea1db4d5b",
+    "docs/round-4/ideas/Fennel/prototype/test_fennel.py": "e743143056a9f89bc152c054e1b9c02d607357be7c937cca17c68ed156ff7f9a",
+    "docs/round-4/ideas/Fennel/README.md": "2f2fbc56f8621336eb6d5259753937404b9b0b3b35c9f128b597e599d90756de",
+    "docs/round-4/ideas/Heather/companion/examples/diagonal.hthr": "9d149e54391b33960576e9b39c22b74f54977f2fc6188be8983b9f3af0e51b4e",
+    "docs/round-4/ideas/Heather/companion/examples/empty.hthr": "60d22a5b26fb33218f76cb8c288b54769106de6cd51ac7cc3e82dd574a4ce392",
+    "docs/round-4/ideas/Heather/companion/examples/even.hthr": "0957f46883bf36063cf9970a97146257fea41f9428be538bd050daa6c9bd9744",
+    "docs/round-4/ideas/Heather/companion/examples/free.hthr": "8bacaa94d5ff7edd96fb9f75abc46d3b39873142e8dc5da7ee91019335931187",
+    "docs/round-4/ideas/Heather/companion/examples/refuted.hthr": "17959fefb2e515d38609b17798b63fba8280b89f1b7e7bb6a40f90c710d7a185",
+    "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.json": "12d50f1f43a54211c78b4aeaddd5416071ed3144b20ba3d86265ad2d1feb27b1",
+    "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.lean": "223e89674a133e62c8d003a0229df10065960c42fc9872b7545915dcc452c007",
+    "docs/round-4/ideas/Heather/companion/generated/drop_all.json": "7517d014e35b192b8463419de88eb09a563cbf40801b306e5c1d436452a03156",
+    "docs/round-4/ideas/Heather/companion/generated/empty_preserves.json": "efb1ae5433fbeaefde0062704ccd766af73aacd575f399db32f2b57e9207fe34",
+    "docs/round-4/ideas/Heather/companion/generated/empty_preserves.lean": "a320b4ca9590139af7e23289f578f9b5501c53705c7b8cdf12e50dd7a64db300",
+    "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.json": "ec6f252000c75defd8083a690f39b580f86ccc7af5afd64826342630ab077e81",
+    "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.lean": "7e8f1d8c0d2e668e82f6d53d2a950d20d9d0710613320382b9ddc2dca24eb48e",
+    "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.json": "586a322a83344512cbcb0e2d8e90a9671b63488efdabb6291265e693d1d25da4",
+    "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.lean": "95110bc520c594108096aee58792e4ee2eeac0a387cf1920a9652ed9ac7e0eb6",
+    "docs/round-4/ideas/Heather/companion/generated/use_site.json": "0c0a099cd8a4b3c04e096e450dd197d34d35bf13340ca994ef51f70150f083e5",
+    "docs/round-4/ideas/Heather/companion/generated/UseSite.lean": "a90fb67d5a8d57103f83800616b08651398f42baebafb395c9f4d432fb33cffd",
+    "docs/round-4/ideas/Heather/companion/heather.py": "29b16fdb508735eba83d19362e097b81521b83dd45b93de2606e80b4abd85ec5",
+    "docs/round-4/ideas/Heather/companion/README.md": "e3d8dbdb13db9aedd5b5ee8d3ea749fd168b6664013448fcdd41a1e74586ef40",
+    "docs/round-4/ideas/Heather/companion/test_heather.py": "a3d287edc4147274c84873e0828ce3b29e5c896178f3d6e625b8d6c74c9d4465",
+    "docs/round-4/ideas/Heather/companion/test_log.txt": "b6ffc1336e9e746724e952105bb2c693c8a91a4fd5a55770bfa01afd7d14f9a5",
+    "docs/round-4/ideas/Heather/companion/test_results.json": "269a76d7a7adc5904fef4131cd68d123f9ea0c49a561fbd5503dae266c0f7666",
+    "docs/round-4/ideas/Heather/companion/use_site_demo.py": "33ca719d1c8d961960baddb5a586efd5d29fde8f9a977c1426e3fcfcdaf7a228",
+    "docs/round-4/ideas/Heather/Heather.pdf": "0865e34df72fcef22b0557578c6b7e60bc7782495cdab033f1b75ca6508e2600",
+    "docs/round-4/ideas/Heather/Heather.tex": "73aee7559e7fc361ad2a868eb7eeb40f9f8c5f7bc84077b4a1033f49aa437f69",
+    "docs/round-4/ideas/Heather/README.md": "7b1792fd82e8773d9efb4dafa0bbbdc73599ab1e380185b4a9f543e56685da8f",
+    "docs/round-4/ideas/Heather/source_manifest.json": "87f49aad108734f6e464b0b0488f6b1dcc213919718048a85ec72297b08e1865",
+    "docs/round-4/ideas/Heather/validation.json": "110846e5ef328755509466cde0a3c0538abe6b03fd6087d2740a733cc7123b16",
+    "docs/round-4/ideas/Juniper/build.sh": "42d1b84e92e5c079ef4be12a3750f774bcf2b870fa6f64737c7f2b0a6ecf2fb2",
+    "docs/round-4/ideas/Juniper/companion/example-result.json": "02b51714da1af57e2dd0b81be21bac0624d1c9946283b6f82fe2306926017b65",
+    "docs/round-4/ideas/Juniper/companion/example.jnp": "22e3c0e8ea329397648d5928f5c04891196a3f0e20b95183bfcfc0847c6382e8",
+    "docs/round-4/ideas/Juniper/companion/Generated.lean": "5df816e0d6a70fb2e27ab74b58a2b81354a15cba3e7195890637aa5d5e070f0b",
+    "docs/round-4/ideas/Juniper/companion/inverse-results.json": "7da6a5ade9ebb28c8b5a30423ff3cd8a9907047463946376d026389c76ed984c",
+    "docs/round-4/ideas/Juniper/companion/inverse-run.log": "7da6a5ade9ebb28c8b5a30423ff3cd8a9907047463946376d026389c76ed984c",
+    "docs/round-4/ideas/Juniper/companion/inverse_polynomials.py": "46b5d85bb3c848c1c28d2aa972de08c2fae96e8f13eee70213f8134cc65900e2",
+    "docs/round-4/ideas/Juniper/companion/juniper_frontier.py": "9ee540b02d2bcd1b1606941c65a2394433bbf72d71cdc3e0a21c1efe246b64a4",
+    "docs/round-4/ideas/Juniper/companion/test-results.json": "64520a9fd3ab4036c8078c732cf57857dc21554ffc3982382e3a6da23692ed68",
+    "docs/round-4/ideas/Juniper/companion/test-run.log": "2c4406d6e90ab91c091f5d6c7bceceddd279782dedd2bb82066154fede64e970",
+    "docs/round-4/ideas/Juniper/companion/test_frontier.py": "2fb7261f5c5a417b4ccf713b41bee8c88b5de893e1aa8810e306286adf42aa51",
+    "docs/round-4/ideas/Juniper/Juniper.pdf": "9df77ce2d979e2e709516b5269bf8ac8b2ac49cebd31f39bfbf8ed10267dfe57",
+    "docs/round-4/ideas/Juniper/Juniper.tex": "12fadd560c7262c69a39f95f30a4272f3b0fad0ad47de122af80a3f2202d583a",
+    "docs/round-4/ideas/Juniper/README.md": "91d5677e1c21cf7a839852a17ad67e3f6bb71a8f7ed5ed8855315c39f286eb24",
+    "docs/round-4/ideas/Juniper/source-manifest.json": "07e0d0af805d935ad78414bf7297774b0f2a8d13bf0162e9dc10e50c297c02c2"
+  },
+  "input_git_blobs": {
+    "docs/round-4/ideas/Fennel/Fennel.pdf": "6caec01d9df1d96d0a86bbd816d28217a165049c",
+    "docs/round-4/ideas/Fennel/Fennel.tex": "bdf1f6088b9df7e54ba7aabd17661b967f9d372f",
+    "docs/round-4/ideas/Fennel/README.md": "3e6d8665fe0ca8f2b4125a9813500fe89601d1dc",
+    "docs/round-4/ideas/Fennel/evidence/build_validation.json": "47e8ff116d2d1887b9dbe76539a28d216a0adfaf",
+    "docs/round-4/ideas/Fennel/evidence/example_stdout.txt": "b2ba9517fb17eb7cf4cd3e32c2824d9ad6130c8b",
+    "docs/round-4/ideas/Fennel/evidence/source_manifest.json": "a023cb2d9bdc865ac0c9d789a0d045cf6951866b",
+    "docs/round-4/ideas/Fennel/evidence/stress_results.json": "1ac556cd992227747bff2f4e42f833abba8572af",
+    "docs/round-4/ideas/Fennel/evidence/stress_stdout.txt": "1ac556cd992227747bff2f4e42f833abba8572af",
+    "docs/round-4/ideas/Fennel/evidence/test_results.json": "34b8d5f6c49c05d9e65aa442dd853e1c8687e84a",
+    "docs/round-4/ideas/Fennel/evidence/test_stderr.txt": "cc573bfc327a30781cf641560c01350a4cda2184",
+    "docs/round-4/ideas/Fennel/evidence/test_stdout.txt": "34b8d5f6c49c05d9e65aa442dd853e1c8687e84a",
+    "docs/round-4/ideas/Fennel/prototype/fennel.py": "397bf526b1666f923fe758819e0d5cb7865002d1",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.json": "8098a6b95b9b9b23fbc89e6cfbb801879a095c29",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.lean": "790a1399f137c3714f83a61c449fadda2c935b57",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.json": "d8fc3f52615003a943c2cc633b3d5d0d34f225ce",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.lean": "235dfd3f4a8edabaa2de89e17c832df0cc6bc076",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.json": "6b2b5e2c4bc61e5cb195014237933c3915143276",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.lean": "b444b4d63bfbce799d642373954319564e4e1af2",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.json": "9086bb26896c9175794fab552583b9ac311e0aa0",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.lean": "c6ef8c0b0bf32c49e9cb9fb9d7c0b1dd5e3a1d71",
+    "docs/round-4/ideas/Fennel/prototype/generated/summary.json": "b2ba9517fb17eb7cf4cd3e32c2824d9ad6130c8b",
+    "docs/round-4/ideas/Fennel/prototype/quotients.fnl": "2b441ac3bc3b04f3052c38112d111bcc987494c6",
+    "docs/round-4/ideas/Fennel/prototype/stress_frontiers.py": "75358bd7cd1178a0d8b943eb61d570cbc24041fc",
+    "docs/round-4/ideas/Fennel/prototype/test_fennel.py": "4ff4a9119961d1e3fa587511402efb5b9fc702e1",
+    "docs/round-4/ideas/Heather/Heather.pdf": "67a18f0336c57864114dd78d37be09a40774fc5b",
+    "docs/round-4/ideas/Heather/Heather.tex": "5314f69633bc5cc58d4b5b9a527381ac282ed202",
+    "docs/round-4/ideas/Heather/README.md": "e679a533b4495d899a0447e9e6275023aa229a8f",
+    "docs/round-4/ideas/Heather/companion/README.md": "e0095ef9bdc5aee50abcdf2deb92443bf0d00d40",
+    "docs/round-4/ideas/Heather/companion/examples/diagonal.hthr": "85a58991977421394fa0ffff32e55d5e7b7dc3e0",
+    "docs/round-4/ideas/Heather/companion/examples/empty.hthr": "dba4921e339e8735710a20496a76d90e96ffc58d",
+    "docs/round-4/ideas/Heather/companion/examples/even.hthr": "763b07c72487db9cfa30a72d6af4adf3db99ed67",
+    "docs/round-4/ideas/Heather/companion/examples/free.hthr": "2cdbc402cfed4cc33b170b01d435a922be0fd864",
+    "docs/round-4/ideas/Heather/companion/examples/refuted.hthr": "48047c4a861926dde02d448a01de13f3a1c3ddb3",
+    "docs/round-4/ideas/Heather/companion/generated/UseSite.lean": "2ca3c86d47295c009aa408aa1de2a0154621bfe7",
+    "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.json": "83f73b0f551e88f416e671cca135910ff6f39a5d",
+    "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.lean": "2a0239cff3bfca6038dccfca93a76fc00a39ccea",
+    "docs/round-4/ideas/Heather/companion/generated/drop_all.json": "99bbb1a95ea8029851bcf0a8a47f5cdcbad7b9af",
+    "docs/round-4/ideas/Heather/companion/generated/empty_preserves.json": "04b9518218c93946a9f41445957d04d654379e69",
+    "docs/round-4/ideas/Heather/companion/generated/empty_preserves.lean": "578f87564cf608905f30cca66331b418e8ffa087",
+    "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.json": "2757c0244cb0a5e4979d3c4a5b08504b12b96215",
+    "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.lean": "93137a9e023b72a45f228736dba71de8b931e7ca",
+    "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.json": "cdcd5746d8b98fac3fd9368f391ffed20a7b27af",
+    "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.lean": "df0088f3be8472a767030bcf130cbf6ad2649f2c",
+    "docs/round-4/ideas/Heather/companion/generated/use_site.json": "bca77384f29b788a5bbcf9c2a2b93d206d8739f7",
+    "docs/round-4/ideas/Heather/companion/heather.py": "e5a018c05f350b299b585453ebb7a111948daa1d",
+    "docs/round-4/ideas/Heather/companion/test_heather.py": "3ba73651e58ab1a11f2c65acaaf3e6110e726444",
+    "docs/round-4/ideas/Heather/companion/test_log.txt": "32cb7dc3d3a02d5a180f720a4a2599c5e9f5fdbd",
+    "docs/round-4/ideas/Heather/companion/test_results.json": "74128b4252086369d11485b4edec6ea5cba1853a",
+    "docs/round-4/ideas/Heather/companion/use_site_demo.py": "8e2e0a7dcc14d0cbf191375dc3b79c743edf9c21",
+    "docs/round-4/ideas/Heather/source_manifest.json": "add7beff3164c65cff8976c7938cd7fc52d6566e",
+    "docs/round-4/ideas/Heather/validation.json": "78f85b8cee16eabe8f9bf260f2c792aa25b16a9d",
+    "docs/round-4/ideas/Juniper/Juniper.pdf": "fb516c12c98364cb3b684e77023fbc0de5bc622d",
+    "docs/round-4/ideas/Juniper/Juniper.tex": "3a627c522afd39801a9d5910f02245fd5fcf4064",
+    "docs/round-4/ideas/Juniper/README.md": "64b032dceb82393eb8db6bec052a9aa703b865a0",
+    "docs/round-4/ideas/Juniper/build.sh": "6bd1384cfa7e728ef3b966a30f84692de3ea1320",
+    "docs/round-4/ideas/Juniper/companion/Generated.lean": "ceb48098b4ac949db6158b1429ae41e39ad5df1c",
+    "docs/round-4/ideas/Juniper/companion/example-result.json": "06b84bbee4aaa142ffac83970e4c7ff034143b9c",
+    "docs/round-4/ideas/Juniper/companion/example.jnp": "f3be5c56ebdddf3d85a3e30944138f0b385b8993",
+    "docs/round-4/ideas/Juniper/companion/inverse-results.json": "f7e3242fdea15a305ee675e60486afc8a874fdc4",
+    "docs/round-4/ideas/Juniper/companion/inverse-run.log": "f7e3242fdea15a305ee675e60486afc8a874fdc4",
+    "docs/round-4/ideas/Juniper/companion/inverse_polynomials.py": "fb4ef932a9c9859f9a6188522b662998a82086b7",
+    "docs/round-4/ideas/Juniper/companion/juniper_frontier.py": "89fc62cbb13a1ac2912746219a73e44226e6cff9",
+    "docs/round-4/ideas/Juniper/companion/test-results.json": "d594fbf3f0769b237060b1a32a6764925f12ca9e",
+    "docs/round-4/ideas/Juniper/companion/test-run.log": "691427fa03de5f9aa6aa0a2cf54755e665e246b9",
+    "docs/round-4/ideas/Juniper/companion/test_frontier.py": "24f1dd6f3f87fc8e52440309d580899b68861911",
+    "docs/round-4/ideas/Juniper/source-manifest.json": "e3905f4f71d1fef8e9c73096a9ce45f8c867a62e"
+  },
+  "input_bytes_match_pin": true,
+  "scripts_read_before_execution": true,
+  "adaptations": [
+    "Runtime copies only; original scripts are byte-identical.",
+    "-B and PYTHONDONTWRITEBYTECODE=1 prevent bytecode writes.",
+    "PYTHONUTF8=1 and PYTHONIOENCODING=utf-8 make Windows text output explicit.",
+    "Each documented working directory is reproduced inside this evidence lane; no source edits.",
+    "Initial capture stopped before copies or executions because lowercase Windows paths did not match case-sensitive Git paths; corrected harness uses canonical title-case input names."
+  ],
+  "copied_sources": [
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/fennel.py",
+      "copy": "runs/fennel/prototype/fennel.py",
+      "sha256": "a3b34f659dbd407c8541ba9af457309ba95314ac700de376d44a66518af543f9"
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/quotients.fnl",
+      "copy": "runs/fennel/prototype/quotients.fnl",
+      "sha256": "49549fcee86a2ab3d56532e0ba5a84d7a9bbd3e97b8b02eb0c9343ce61dcf4e6"
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/stress_frontiers.py",
+      "copy": "runs/fennel/prototype/stress_frontiers.py",
+      "sha256": "e224dfb78abb6d76d5f6883051e5eb93f617e4fd68ce747d09f2420ea1db4d5b"
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/test_fennel.py",
+      "copy": "runs/fennel/prototype/test_fennel.py",
+      "sha256": "e743143056a9f89bc152c054e1b9c02d607357be7c937cca17c68ed156ff7f9a"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/examples/diagonal.hthr",
+      "copy": "runs/heather/companion/examples/diagonal.hthr",
+      "sha256": "9d149e54391b33960576e9b39c22b74f54977f2fc6188be8983b9f3af0e51b4e"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/examples/empty.hthr",
+      "copy": "runs/heather/companion/examples/empty.hthr",
+      "sha256": "60d22a5b26fb33218f76cb8c288b54769106de6cd51ac7cc3e82dd574a4ce392"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/examples/even.hthr",
+      "copy": "runs/heather/companion/examples/even.hthr",
+      "sha256": "0957f46883bf36063cf9970a97146257fea41f9428be538bd050daa6c9bd9744"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/examples/free.hthr",
+      "copy": "runs/heather/companion/examples/free.hthr",
+      "sha256": "8bacaa94d5ff7edd96fb9f75abc46d3b39873142e8dc5da7ee91019335931187"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/examples/refuted.hthr",
+      "copy": "runs/heather/companion/examples/refuted.hthr",
+      "sha256": "17959fefb2e515d38609b17798b63fba8280b89f1b7e7bb6a40f90c710d7a185"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/heather.py",
+      "copy": "runs/heather/companion/heather.py",
+      "sha256": "29b16fdb508735eba83d19362e097b81521b83dd45b93de2606e80b4abd85ec5"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/test_heather.py",
+      "copy": "runs/heather/companion/test_heather.py",
+      "sha256": "a3d287edc4147274c84873e0828ce3b29e5c896178f3d6e625b8d6c74c9d4465"
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/use_site_demo.py",
+      "copy": "runs/heather/companion/use_site_demo.py",
+      "sha256": "33ca719d1c8d961960baddb5a586efd5d29fde8f9a977c1426e3fcfcdaf7a228"
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/example.jnp",
+      "copy": "runs/juniper/companion/example.jnp",
+      "sha256": "22e3c0e8ea329397648d5928f5c04891196a3f0e20b95183bfcfc0847c6382e8"
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/inverse_polynomials.py",
+      "copy": "runs/juniper/companion/inverse_polynomials.py",
+      "sha256": "46b5d85bb3c848c1c28d2aa972de08c2fae96e8f13eee70213f8134cc65900e2"
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/juniper_frontier.py",
+      "copy": "runs/juniper/companion/juniper_frontier.py",
+      "sha256": "9ee540b02d2bcd1b1606941c65a2394433bbf72d71cdc3e0a21c1efe246b64a4"
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/test_frontier.py",
+      "copy": "runs/juniper/companion/test_frontier.py",
+      "sha256": "2fb7261f5c5a417b4ccf713b41bee8c88b5de893e1aa8810e306286adf42aa51"
+    }
+  ],
+  "runs": [
+    {
+      "report": "fennel",
+      "label": "demo",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/fennel",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "prototype/fennel.py",
+        "prototype/quotients.fnl",
+        "--out",
+        "prototype/generated"
+      ],
+      "exit_code": 0,
+      "seconds": 0.22989779998897575,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/fennel/demo.stdout.txt",
+          "sha256": "d5c656c26334ba8285df7ebbd765ef6e387215ad45e771b367e20e427188084c"
+        },
+        "stderr": {
+          "path": "logs/fennel/demo.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "fennel",
+      "label": "tests",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/fennel",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "prototype/test_fennel.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.7630081000097562,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/fennel/tests.stdout.txt",
+          "sha256": "34829fd7717af2061fb27cf201e423b9428e521dd13dd940f601fdd889601d6d"
+        },
+        "stderr": {
+          "path": "logs/fennel/tests.stderr.txt",
+          "sha256": "9750ba8a4bd0f1fc5940cdc9eab1ac0882f22461d5896b6e28f0315552445b5e"
+        }
+      }
+    },
+    {
+      "report": "fennel",
+      "label": "stress",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/fennel",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "prototype/stress_frontiers.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.39935820002574474,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/fennel/stress.stdout.txt",
+          "sha256": "fbdf7f8dcfd6e33227b4d304cf80612037bbb38f73e96a15fdfbdf749e8638fd"
+        },
+        "stderr": {
+          "path": "logs/fennel/stress.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "heather",
+      "label": "tests",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "test_heather.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.6180901000043377,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/heather/tests.stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "logs/heather/tests.stderr.txt",
+          "sha256": "8e8fac4de2e50b6c503ed7599ba0aec423462d5cbc9f60aaad74bc4d1b400168"
+        }
+      }
+    },
+    {
+      "report": "heather",
+      "label": "use-site",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "use_site_demo.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.39044259997899644,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/heather/use-site.stdout.txt",
+          "sha256": "8959806eda2da7064e43e38f33d24f5506b01887a82707f0989b091463cefb31"
+        },
+        "stderr": {
+          "path": "logs/heather/use-site.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "heather",
+      "label": "demo-diagonal",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "heather.py",
+        "examples/diagonal.hthr",
+        "--output",
+        "generated"
+      ],
+      "exit_code": 0,
+      "seconds": 0.540074500022456,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/heather/demo-diagonal.stdout.txt",
+          "sha256": "2d226463c68a47260e6d074abe40f1b3c05eca36aefe418ce59420bc0ed32342"
+        },
+        "stderr": {
+          "path": "logs/heather/demo-diagonal.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "heather",
+      "label": "demo-empty",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "heather.py",
+        "examples/empty.hthr",
+        "--output",
+        "generated"
+      ],
+      "exit_code": 0,
+      "seconds": 0.5765141000156291,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/heather/demo-empty.stdout.txt",
+          "sha256": "55a6e909dc9c549909ce22ff4e8ffe561c090d64000514b01a973b51026239b1"
+        },
+        "stderr": {
+          "path": "logs/heather/demo-empty.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "heather",
+      "label": "demo-free",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "heather.py",
+        "examples/free.hthr",
+        "--output",
+        "generated"
+      ],
+      "exit_code": 0,
+      "seconds": 0.559900500025833,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/heather/demo-free.stdout.txt",
+          "sha256": "5d8d1b6ebb87dc4acbe9e3fd65f6561c78fe8163175c948604496c6aec657037"
+        },
+        "stderr": {
+          "path": "logs/heather/demo-free.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "heather",
+      "label": "demo-even",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "heather.py",
+        "examples/even.hthr",
+        "--output",
+        "generated"
+      ],
+      "exit_code": 0,
+      "seconds": 0.434689999994589,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/heather/demo-even.stdout.txt",
+          "sha256": "5a76b4249426903972fa527c4b0cb643ffb3bb1d5286a40568951cd554c2bd76"
+        },
+        "stderr": {
+          "path": "logs/heather/demo-even.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "heather",
+      "label": "demo-refuted",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "heather.py",
+        "examples/refuted.hthr",
+        "--output",
+        "generated"
+      ],
+      "exit_code": 0,
+      "seconds": 0.4775126999884378,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/heather/demo-refuted.stdout.txt",
+          "sha256": "816afdd5b3fa1b99685fcf5cb0ef1e4a04e61abb7ea2c4341973e933a25e6341"
+        },
+        "stderr": {
+          "path": "logs/heather/demo-refuted.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "juniper",
+      "label": "tests",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "test_frontier.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.4493447999993805,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/juniper/tests.stdout.txt",
+          "sha256": "1c3ae6dd14b07a3dc182fff96ef82a55fa0e5e40635d72ea1646c31276659000"
+        },
+        "stderr": {
+          "path": "logs/juniper/tests.stderr.txt",
+          "sha256": "f81d7e6c9fcbcd46d2f19b35bb3036bfb9664eea88735a5063573e8e81a557da"
+        }
+      }
+    },
+    {
+      "report": "juniper",
+      "label": "inverse",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "inverse_polynomials.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3122543999925256,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/juniper/inverse.stdout.txt",
+          "sha256": "af0b8bce978350cd57c8da1422fc2f0a2ed4b91234263eb7327278fe97461083"
+        },
+        "stderr": {
+          "path": "logs/juniper/inverse.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "juniper",
+      "label": "demo",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "juniper_frontier.py",
+        "example.jnp",
+        "--json",
+        "example-result.json",
+        "--lean",
+        "Generated.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 0.5261540999927092,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/juniper/demo.stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "logs/juniper/demo.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "report": "juniper",
+      "label": "capped",
+      "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "juniper_frontier.py",
+        "example.jnp",
+        "--max-attempts",
+        "2"
+      ],
+      "exit_code": 0,
+      "seconds": 0.4462976999930106,
+      "timeout_seconds": 180,
+      "logs": {
+        "stdout": {
+          "path": "logs/juniper/capped.stdout.txt",
+          "sha256": "01fdf935907409044a2a2d624b8dce71f543d60ff0e850a54035142fe72511c9"
+        },
+        "stderr": {
+          "path": "logs/juniper/capped.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  ],
+  "input_hashes_after": {
+    "docs/round-4/ideas/Fennel/evidence/build_validation.json": "dbc08055f8e87c992f5f6815ee5ea5666febec33bc30d94b7952e2b7963ba1f7",
+    "docs/round-4/ideas/Fennel/evidence/example_stdout.txt": "975a5cb267f899a0648b718a3f83474bb7e3237ae65f9a6e5303f5882eaeb5ea",
+    "docs/round-4/ideas/Fennel/evidence/source_manifest.json": "6b5e25ae3d6e9b3f8d0901f69e90c2d15222aa1f3ef054b11de862ca549d878a",
+    "docs/round-4/ideas/Fennel/evidence/stress_results.json": "0463fb1045da1100dd54ab1b9dd825021b896d536e2ae62dbf3fad395c2d4346",
+    "docs/round-4/ideas/Fennel/evidence/stress_stdout.txt": "0463fb1045da1100dd54ab1b9dd825021b896d536e2ae62dbf3fad395c2d4346",
+    "docs/round-4/ideas/Fennel/evidence/test_results.json": "f1ca733b22ca2461777f3f787e696388b65737ed657757203cfd882f0bc4cf75",
+    "docs/round-4/ideas/Fennel/evidence/test_stderr.txt": "1a8df9f62cb394d76c32085996b96f41d7758fe845abfc90b712622119858ad1",
+    "docs/round-4/ideas/Fennel/evidence/test_stdout.txt": "f1ca733b22ca2461777f3f787e696388b65737ed657757203cfd882f0bc4cf75",
+    "docs/round-4/ideas/Fennel/Fennel.pdf": "7c8b2b6df50eeef812133b6273dacedbd12752a591313507a41e26c60ee7d4f9",
+    "docs/round-4/ideas/Fennel/Fennel.tex": "a9606a623c074fbe381c79141c12ad458e5a531fdd2959102d8873623d1a05b3",
+    "docs/round-4/ideas/Fennel/prototype/fennel.py": "a3b34f659dbd407c8541ba9af457309ba95314ac700de376d44a66518af543f9",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.json": "3606607e891cd4535fde9c5e356d01723f1a48218db16a3b3894068f339a7b1f",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.lean": "f5ea0247df9b0f483966f6a6b302a930a2045aeec2ef43353d13fb7f29e7460e",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.json": "8ae84460e37e0bf82d6dddb6d0452f47dbe066b0e7d91a4e33010983cbd5a4b3",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.lean": "0902a4fc63b06d78d381b06e61a71b6b04f31cf5ef877aa4d23014e58891c64c",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.json": "1fe3b85c1ba6d9876e7123245db2f204e4ab92344335ad7c6d41811542ecd488",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.lean": "9f6608bac2c6bf8753b4ebf88201fe6b89601054d93199d202d368f47aa98638",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.json": "2a10a7d08ba90800ba5735c1e8d3c9e70ee4056f3e04d84f67c70b1a35e11597",
+    "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.lean": "056858036d06336307de05174a2010388c1458b347798569f40b3f0b9bbaa795",
+    "docs/round-4/ideas/Fennel/prototype/generated/summary.json": "975a5cb267f899a0648b718a3f83474bb7e3237ae65f9a6e5303f5882eaeb5ea",
+    "docs/round-4/ideas/Fennel/prototype/quotients.fnl": "49549fcee86a2ab3d56532e0ba5a84d7a9bbd3e97b8b02eb0c9343ce61dcf4e6",
+    "docs/round-4/ideas/Fennel/prototype/stress_frontiers.py": "e224dfb78abb6d76d5f6883051e5eb93f617e4fd68ce747d09f2420ea1db4d5b",
+    "docs/round-4/ideas/Fennel/prototype/test_fennel.py": "e743143056a9f89bc152c054e1b9c02d607357be7c937cca17c68ed156ff7f9a",
+    "docs/round-4/ideas/Fennel/README.md": "2f2fbc56f8621336eb6d5259753937404b9b0b3b35c9f128b597e599d90756de",
+    "docs/round-4/ideas/Heather/companion/examples/diagonal.hthr": "9d149e54391b33960576e9b39c22b74f54977f2fc6188be8983b9f3af0e51b4e",
+    "docs/round-4/ideas/Heather/companion/examples/empty.hthr": "60d22a5b26fb33218f76cb8c288b54769106de6cd51ac7cc3e82dd574a4ce392",
+    "docs/round-4/ideas/Heather/companion/examples/even.hthr": "0957f46883bf36063cf9970a97146257fea41f9428be538bd050daa6c9bd9744",
+    "docs/round-4/ideas/Heather/companion/examples/free.hthr": "8bacaa94d5ff7edd96fb9f75abc46d3b39873142e8dc5da7ee91019335931187",
+    "docs/round-4/ideas/Heather/companion/examples/refuted.hthr": "17959fefb2e515d38609b17798b63fba8280b89f1b7e7bb6a40f90c710d7a185",
+    "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.json": "12d50f1f43a54211c78b4aeaddd5416071ed3144b20ba3d86265ad2d1feb27b1",
+    "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.lean": "223e89674a133e62c8d003a0229df10065960c42fc9872b7545915dcc452c007",
+    "docs/round-4/ideas/Heather/companion/generated/drop_all.json": "7517d014e35b192b8463419de88eb09a563cbf40801b306e5c1d436452a03156",
+    "docs/round-4/ideas/Heather/companion/generated/empty_preserves.json": "efb1ae5433fbeaefde0062704ccd766af73aacd575f399db32f2b57e9207fe34",
+    "docs/round-4/ideas/Heather/companion/generated/empty_preserves.lean": "a320b4ca9590139af7e23289f578f9b5501c53705c7b8cdf12e50dd7a64db300",
+    "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.json": "ec6f252000c75defd8083a690f39b580f86ccc7af5afd64826342630ab077e81",
+    "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.lean": "7e8f1d8c0d2e668e82f6d53d2a950d20d9d0710613320382b9ddc2dca24eb48e",
+    "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.json": "586a322a83344512cbcb0e2d8e90a9671b63488efdabb6291265e693d1d25da4",
+    "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.lean": "95110bc520c594108096aee58792e4ee2eeac0a387cf1920a9652ed9ac7e0eb6",
+    "docs/round-4/ideas/Heather/companion/generated/use_site.json": "0c0a099cd8a4b3c04e096e450dd197d34d35bf13340ca994ef51f70150f083e5",
+    "docs/round-4/ideas/Heather/companion/generated/UseSite.lean": "a90fb67d5a8d57103f83800616b08651398f42baebafb395c9f4d432fb33cffd",
+    "docs/round-4/ideas/Heather/companion/heather.py": "29b16fdb508735eba83d19362e097b81521b83dd45b93de2606e80b4abd85ec5",
+    "docs/round-4/ideas/Heather/companion/README.md": "e3d8dbdb13db9aedd5b5ee8d3ea749fd168b6664013448fcdd41a1e74586ef40",
+    "docs/round-4/ideas/Heather/companion/test_heather.py": "a3d287edc4147274c84873e0828ce3b29e5c896178f3d6e625b8d6c74c9d4465",
+    "docs/round-4/ideas/Heather/companion/test_log.txt": "b6ffc1336e9e746724e952105bb2c693c8a91a4fd5a55770bfa01afd7d14f9a5",
+    "docs/round-4/ideas/Heather/companion/test_results.json": "269a76d7a7adc5904fef4131cd68d123f9ea0c49a561fbd5503dae266c0f7666",
+    "docs/round-4/ideas/Heather/companion/use_site_demo.py": "33ca719d1c8d961960baddb5a586efd5d29fde8f9a977c1426e3fcfcdaf7a228",
+    "docs/round-4/ideas/Heather/Heather.pdf": "0865e34df72fcef22b0557578c6b7e60bc7782495cdab033f1b75ca6508e2600",
+    "docs/round-4/ideas/Heather/Heather.tex": "73aee7559e7fc361ad2a868eb7eeb40f9f8c5f7bc84077b4a1033f49aa437f69",
+    "docs/round-4/ideas/Heather/README.md": "7b1792fd82e8773d9efb4dafa0bbbdc73599ab1e380185b4a9f543e56685da8f",
+    "docs/round-4/ideas/Heather/source_manifest.json": "87f49aad108734f6e464b0b0488f6b1dcc213919718048a85ec72297b08e1865",
+    "docs/round-4/ideas/Heather/validation.json": "110846e5ef328755509466cde0a3c0538abe6b03fd6087d2740a733cc7123b16",
+    "docs/round-4/ideas/Juniper/build.sh": "42d1b84e92e5c079ef4be12a3750f774bcf2b870fa6f64737c7f2b0a6ecf2fb2",
+    "docs/round-4/ideas/Juniper/companion/example-result.json": "02b51714da1af57e2dd0b81be21bac0624d1c9946283b6f82fe2306926017b65",
+    "docs/round-4/ideas/Juniper/companion/example.jnp": "22e3c0e8ea329397648d5928f5c04891196a3f0e20b95183bfcfc0847c6382e8",
+    "docs/round-4/ideas/Juniper/companion/Generated.lean": "5df816e0d6a70fb2e27ab74b58a2b81354a15cba3e7195890637aa5d5e070f0b",
+    "docs/round-4/ideas/Juniper/companion/inverse-results.json": "7da6a5ade9ebb28c8b5a30423ff3cd8a9907047463946376d026389c76ed984c",
+    "docs/round-4/ideas/Juniper/companion/inverse-run.log": "7da6a5ade9ebb28c8b5a30423ff3cd8a9907047463946376d026389c76ed984c",
+    "docs/round-4/ideas/Juniper/companion/inverse_polynomials.py": "46b5d85bb3c848c1c28d2aa972de08c2fae96e8f13eee70213f8134cc65900e2",
+    "docs/round-4/ideas/Juniper/companion/juniper_frontier.py": "9ee540b02d2bcd1b1606941c65a2394433bbf72d71cdc3e0a21c1efe246b64a4",
+    "docs/round-4/ideas/Juniper/companion/test-results.json": "64520a9fd3ab4036c8078c732cf57857dc21554ffc3982382e3a6da23692ed68",
+    "docs/round-4/ideas/Juniper/companion/test-run.log": "2c4406d6e90ab91c091f5d6c7bceceddd279782dedd2bb82066154fede64e970",
+    "docs/round-4/ideas/Juniper/companion/test_frontier.py": "2fb7261f5c5a417b4ccf713b41bee8c88b5de893e1aa8810e306286adf42aa51",
+    "docs/round-4/ideas/Juniper/Juniper.pdf": "9df77ce2d979e2e709516b5269bf8ac8b2ac49cebd31f39bfbf8ed10267dfe57",
+    "docs/round-4/ideas/Juniper/Juniper.tex": "12fadd560c7262c69a39f95f30a4272f3b0fad0ad47de122af80a3f2202d583a",
+    "docs/round-4/ideas/Juniper/README.md": "91d5677e1c21cf7a839852a17ad67e3f6bb71a8f7ed5ed8855315c39f286eb24",
+    "docs/round-4/ideas/Juniper/source-manifest.json": "07e0d0af805d935ad78414bf7297774b0f2a8d13bf0162e9dc10e50c297c02c2"
+  },
+  "inputs_unchanged": true,
+  "runtime_artifacts": {
+    "runs/fennel/evidence/stress_results.json": "fbdf7f8dcfd6e33227b4d304cf80612037bbb38f73e96a15fdfbdf749e8638fd",
+    "runs/fennel/evidence/test_results.json": "34829fd7717af2061fb27cf201e423b9428e521dd13dd940f601fdd889601d6d",
+    "runs/fennel/prototype/generated/query_0_route_0.json": "e67a41f5d516b66ac71cd069d24088a673ca670225d39317766e845ea0c76121",
+    "runs/fennel/prototype/generated/query_0_route_0.lean": "e43462026b8ec51e2bcbfc8ad682a29bf3f807ba1c75c27a30efd302518321e2",
+    "runs/fennel/prototype/generated/query_1_route_0.json": "cb36b3bd9ac942df833a31b956fa91c8c20093e69ef8647821953f91c326512a",
+    "runs/fennel/prototype/generated/query_1_route_0.lean": "00a769d6d1077ba444762d595f65f67ad5f6c4b0096a948fc19fae2d8cc10274",
+    "runs/fennel/prototype/generated/query_1_route_1.json": "dd3a4e0007df03c54e570b8203c6c7a9d17cffca9350bd1e0a6a0825be48d909",
+    "runs/fennel/prototype/generated/query_1_route_1.lean": "2e6f61abf859f329b3488e69e0b4e3a9f09383c1b27bc6a0451c41e5c50697a3",
+    "runs/fennel/prototype/generated/query_2_route_0.json": "120f3aeb53b238f260d55a868bb68043387a8bcbb6a5c616beb7347c26f6e254",
+    "runs/fennel/prototype/generated/query_2_route_0.lean": "e9b6e1cfa9e0dfe46418a0e3467197c7236e3f033ed021932c48e28adf2895f7",
+    "runs/fennel/prototype/generated/summary.json": "d5c656c26334ba8285df7ebbd765ef6e387215ad45e771b367e20e427188084c",
+    "runs/heather/companion/generated/diagonal_balance.json": "11d30fa96ffb69360031b089e59209438f1335b2bf92315308aa4fd1df5c08c0",
+    "runs/heather/companion/generated/diagonal_balance.lean": "38823095f2510e9fc9486f7298b6da815b0d2520d850d2db259d7f26309a6b84",
+    "runs/heather/companion/generated/drop_all.json": "127f241301f03d2d2f66a3cfd5f1e03188402d4cd1254bfb65dd50eb93e43d49",
+    "runs/heather/companion/generated/empty_preserves.json": "1c0dd832d7dbe0f0b100904443640babe1aa1b115abac93016f88c42b3f832c1",
+    "runs/heather/companion/generated/empty_preserves.lean": "b09559daa9a48b2691294fdb067f9faf914f5f80a692effbb8fdf7eef6a9674e",
+    "runs/heather/companion/generated/even_reverse_length.json": "218c3b73b79ebd84d4ab5f8302ce1333b3eaf6b702b112dee314ec9c8910af3c",
+    "runs/heather/companion/generated/even_reverse_length.lean": "0074d3e2951c0a6f392d4590093d7d2ce7ae36aab73d92aab548488126cbd061",
+    "runs/heather/companion/generated/reverse_append_length.json": "4c1a2a62fb4803330c3842759b1dc841417627c96f6183a9dab942aa2a12cf39",
+    "runs/heather/companion/generated/reverse_append_length.lean": "e484e2330dd4f49209e24412e38772a26d85a0c0ebbd3fd15990213e0539d2b8",
+    "runs/heather/companion/generated/use_site.json": "709014ef4d9aacd57b8ff58c1549f8cef0fd9ae7c011564e4ed3e48c677b9d5a",
+    "runs/heather/companion/generated/UseSite.lean": "58ed372b63cece9591698bcb7ec7ad39c79537a81b58ff16a79bd029d81e29d4",
+    "runs/heather/companion/test_results.json": "04ae637b7a36ac6ad91cc0495470f5b5c2a89cdce15f0acfcb966bee0114e59a",
+    "runs/juniper/companion/example-result.json": "d40bad957f829ef24881054bf6cc5223f87671866a9a314df0ddaabc67de1b0c",
+    "runs/juniper/companion/Generated.lean": "c2fa1451f02a79216067668318d2dfe3951f0f2f76455e7efe02068e389e4add",
+    "runs/juniper/companion/inverse-results.json": "af0b8bce978350cd57c8da1422fc2f0a2ed4b91234263eb7327278fe97461083",
+    "runs/juniper/companion/test-results.json": "1c3ae6dd14b07a3dc182fff96ef82a55fa0e5e40635d72ea1646c31276659000"
+  },
+  "bytecode_files": []
+}

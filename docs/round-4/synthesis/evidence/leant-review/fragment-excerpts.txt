@@ -1,0 +1,36 @@
+1555:   , "          ++ \" \" ++ frag ++ \")\""
+1556:   , "    logInfo (\"(providers\" ++ body ++ \")\")"
+1557:   ]
+1558:  where
+1559:   leanString s = '"' : concatMap escape s ++ "\""
+1560:   escape '"' = "\\\""
+1561:   escape '\\' = "\\\\"
+1562:   escape c = [c]
+1563: 
+1564: -- | Verify a candidate in the user's actual session. @noncomputable@ disables
+1565: -- executable-code generation without weakening elaboration, universe
+1566: -- checking, safety checking, or the kernel type check.
+1567: candidateVerificationProgram :: String -> String -> String
+1568: candidateVerificationProgram goal term =
+1569:   "set_option autoImplicit true in noncomputable example : ("
+1570:     ++ goal ++ ") := (" ++ term ++ ")"
+1571: 
+1572: -- S-expression parsing ------------------------------------------------------
+1573: 
+1574: -- | Select and parse the serializer output from one command's info-message
+1575: -- bodies.  Lean can emit unrelated info messages while elaborating the raw
+1576: -- goal, including text chosen by user code, so a prefix match is not authority
+1577: -- by itself.  Refuse unless exactly one message has the serializer's goal
+1578: -- envelope; in particular, never let an earlier forged envelope shadow the
+1579: -- serializer's real structural result.
+1580: parseUniqueGoalTranslation :: [String] -> Either String ParsedGoal
+1581: parseUniqueGoalTranslation messages =
+1582:   case
+1583:       [ trimmed
+1584:       | message <- messages
+1585:       , let trimmed = trimGoalTranslation message
+1586:       , "(goal " `isPrefixOf` trimmed
+1587:       ] of
+1588:     [] -> Left "goal translation produced no output"
+1589:     [translated] -> case parseGoalSexp translated of
+1590:       Left err -> Left ("goal translation failed: " ++ err)

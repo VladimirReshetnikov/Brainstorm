@@ -1,0 +1,1027 @@
+{
+  "status": "passed",
+  "validated_utc": "2026-09-06T23:14:25.726652+00:00",
+  "input_pin": "58ced1ce667b3ba1ed162a0c6280959536c8bc5f",
+  "validator": "scripts/verify_python_evidence.py",
+  "validator_sha256": "51f5b934a2a2eb5e0f65576e80b9409c163a6f5923612a3ffb9ba5c928d6453c",
+  "source_register_sha256": "0496b707b8f9a6f6642f859c8923c4f90387d74a0cc63187b36c0a44395e4fc6",
+  "verified_receipt_sha256": {
+    "evidence/alder-bryony-clover/reproduction.json": "6f8b8de2dd82a98e96474cc9ea7a499b6ceaaab56ac4059056c7402096d679db",
+    "evidence/alder-bryony-clover/adversarial.json": "66f81c91ffacf44c3864ad717f98c1788e0c9e049a47a452849597ee267742f1",
+    "evidence/fennel-heather-juniper/reproduction.json": "1064746f9c4f11b10e644322f96d783f2d110e4239df059fb756d2ed1494019e",
+    "evidence/fennel-heather-juniper/audit.json": "2e8f89b52bb8e5db80da42bf7d52ff3eb4de2bdc46d0fd57a9e5b4f32fcfbff4",
+    "evidence/laurel-rowan-sorrel/receipt.json": "719f8388a8ad5206b1c904425a018c16f596fb9c25591430fb556ac22da4bc50",
+    "evidence/laurel-rowan-sorrel/probe-receipt.json": "f84638c21575ec2a086421010784284ab9cb1b554edf8681f0df748cc825d181"
+  },
+  "additional_retained_file_sha256": {
+    "evidence/alder-bryony-clover/reproduce.py": "8ba10e45f1d70456e27cd1119b2dc96770d91f272b912356d6f4cbf88113e1ff",
+    "evidence/alder-bryony-clover/adversarial.py": "b6689ace1a84c92c2f1ed287fcf384b3e848b60b09e0fb031a168602df956dc7",
+    "evidence/alder-bryony-clover/logs/adversarial.stdout.txt": "66f81c91ffacf44c3864ad717f98c1788e0c9e049a47a452849597ee267742f1",
+    "evidence/alder-bryony-clover/logs/adversarial.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/fennel-heather-juniper/reproduce.py": "9c42bed2e03fbb8e26a8fa33402cd1fc2b2238fe2c3d080a12151fefb8bd77c5",
+    "evidence/fennel-heather-juniper/audit.py": "f1ca353036be95699d06de1770206f0962b5478d7e5ea8df54a77143be72c9b4",
+    "evidence/fennel-heather-juniper/audit.stdout.txt": "d6516e5cdc7d4a6359a4825db75cb225d27de1298bd00cb8753ad4e07e622d3c",
+    "evidence/fennel-heather-juniper/audit.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/laurel-rowan-sorrel/reproduce.py": "55c6a91fcca6d5c6fc95fba5ffeec6d211aa989bd38aa8dc71fa5ae14cb76073",
+    "evidence/laurel-rowan-sorrel/semantic_probes.py": "6a9012e367fb702004bb2bf2bb3b13154b594379814407ccd50a3d6a9ff21631",
+    "evidence/laurel-rowan-sorrel/semantic-probes.json": "6e1f1482b38b945e2b11114186fea6b5de0cb45a60c55ed59953af28c03aeb38",
+    "evidence/laurel-rowan-sorrel/SorrelSelectionProbe.lean": "0447b16b0e4e20297f78c4afed3edcf086569f81cdfb5b879ae1c1075d485d1e"
+  },
+  "base_jobs": 36,
+  "base_zero_exits": 34,
+  "base_expected_rejection_exits": 2,
+  "input_files_verified": 159,
+  "lanes": [
+    {
+      "lane": "alder-bryony-clover",
+      "status": "passed",
+      "input_files": 48,
+      "copied_runtime_sources": 15,
+      "post_run_files_verified": 39,
+      "base_jobs": [
+        {
+          "label": "alder-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "companion/test_alder.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/alder",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/alder/tests.stdout.txt",
+              "sha256": "102d2a9386fa407b12c7e56f8b461b3c12691f1167742c51c1c8a67980176adb"
+            },
+            "stderr": {
+              "path": "logs/alder/tests.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "alder-demo",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "companion/alder_core.py",
+            "companion/examples/quotient.alder",
+            "--lean",
+            "companion/generated/Quotient.lean",
+            "--events",
+            "companion/generated/quotient.json"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/alder",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/alder/demo.stdout.txt",
+              "sha256": "04604d3b31bbcf5e00c37af53099464cd079bef3b452079313111296b95fe467"
+            },
+            "stderr": {
+              "path": "logs/alder/demo.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "alder-scope_negative",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "companion/alder_core.py",
+            "companion/examples/scope_rejected.alder",
+            "--lean",
+            "scope-refused.lean",
+            "--events",
+            "scope-refused.json"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/alder",
+          "exit_code": 1,
+          "expected_outcome": "intentional rejection",
+          "streams": {
+            "stdout": {
+              "path": "logs/alder/scope_negative.stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr": {
+              "path": "logs/alder/scope_negative.stderr.txt",
+              "sha256": "fcadcf46b33170d756aaf75c6364d96564742bb312200678911b79210281c4e4"
+            }
+          }
+        },
+        {
+          "label": "alder-publication_negative",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "companion/alder_core.py",
+            "companion/examples/unused_claim_rejected.alder",
+            "--lean",
+            "publication-refused.lean",
+            "--events",
+            "publication-refused.json"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/alder",
+          "exit_code": 1,
+          "expected_outcome": "intentional rejection",
+          "streams": {
+            "stdout": {
+              "path": "logs/alder/publication_negative.stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr": {
+              "path": "logs/alder/publication_negative.stderr.txt",
+              "sha256": "f1df41afe3a28eb36687346f2f31433692907ef8309710888697222e8e0dcc9f"
+            }
+          }
+        },
+        {
+          "label": "bryony-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "prototype/test_bryony.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/bryony",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/bryony/tests.stdout.txt",
+              "sha256": "8aa05d5eed406e4c0fa531b3ea14cff4babf874ace288014f34ec56a553b85ad"
+            },
+            "stderr": {
+              "path": "logs/bryony/tests.stderr.txt",
+              "sha256": "bdee3b142ce0c75d2e3b79a77239c1eb474d071aecc6e2fc1f41158d823712a8"
+            }
+          }
+        },
+        {
+          "label": "bryony-demo",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "prototype/bryony.py",
+            "prototype/frey4.bry",
+            "--output",
+            "evidence/frey4"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/bryony",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/bryony/demo.stdout.txt",
+              "sha256": "91df4cf2577c23dee0a4e476056672b32963024985374ba235284d256278e9b4"
+            },
+            "stderr": {
+              "path": "logs/bryony/demo.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "clover-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "-m",
+            "unittest",
+            "-v",
+            "test_clover_slice"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/clover/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/clover/tests.stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr": {
+              "path": "logs/clover/tests.stderr.txt",
+              "sha256": "ee2d17a0c46de5b14f1813d908578b00e44cea4fcc5d702d0b5c24f98c061af9"
+            }
+          }
+        },
+        {
+          "label": "clover-demo",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "clover_slice.py",
+            "demo.clover",
+            "--json",
+            "demo-result.json",
+            "--lean",
+            "GeneratedExamples.lean"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/clover/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/clover/demo.stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr": {
+              "path": "logs/clover/demo.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "clover-affine",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "affine_basis.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/clover/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/clover/affine.stdout.txt",
+              "sha256": "f665db7af5eae3f8458efdbb93ae662e48836f437ac3d1681fea287aca77d038"
+            },
+            "stderr": {
+              "path": "logs/clover/affine.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "clover-profiles",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "compare_profiles.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/alder-bryony-clover/runs/clover/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/clover/profiles.stdout.txt",
+              "sha256": "f79a9469ebc873b8f7e09dd626fed593f0c14590d37fa7ef8c8524ac9e734704"
+            },
+            "stderr": {
+              "path": "logs/clover/profiles.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        }
+      ],
+      "base_jobs_count": 10,
+      "additional": {
+        "case_count": 4,
+        "artifact_count": 6,
+        "command": [
+          "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-B",
+          "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\alder-bryony-clover\\adversarial.py"
+        ],
+        "completion_evidence": "passed receipt matches retained stdout; no top-level exit code retained",
+        "scope": "Review-authored adversarial inputs with unmodified imported parser/exporter. No Lean compilation, source edits, or behavioral integration."
+      }
+    },
+    {
+      "lane": "fennel-heather-juniper",
+      "status": "passed",
+      "input_files": 66,
+      "copied_runtime_sources": 16,
+      "post_run_files_verified": 43,
+      "base_jobs": [
+        {
+          "label": "fennel-demo",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "prototype/fennel.py",
+            "prototype/quotients.fnl",
+            "--out",
+            "prototype/generated"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/fennel",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/fennel/demo.stdout.txt",
+              "sha256": "d5c656c26334ba8285df7ebbd765ef6e387215ad45e771b367e20e427188084c"
+            },
+            "stderr": {
+              "path": "logs/fennel/demo.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "fennel-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "prototype/test_fennel.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/fennel",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/fennel/tests.stdout.txt",
+              "sha256": "34829fd7717af2061fb27cf201e423b9428e521dd13dd940f601fdd889601d6d"
+            },
+            "stderr": {
+              "path": "logs/fennel/tests.stderr.txt",
+              "sha256": "9750ba8a4bd0f1fc5940cdc9eab1ac0882f22461d5896b6e28f0315552445b5e"
+            }
+          }
+        },
+        {
+          "label": "fennel-stress",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "prototype/stress_frontiers.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/fennel",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/fennel/stress.stdout.txt",
+              "sha256": "fbdf7f8dcfd6e33227b4d304cf80612037bbb38f73e96a15fdfbdf749e8638fd"
+            },
+            "stderr": {
+              "path": "logs/fennel/stress.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "heather-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "test_heather.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/heather/tests.stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr": {
+              "path": "logs/heather/tests.stderr.txt",
+              "sha256": "8e8fac4de2e50b6c503ed7599ba0aec423462d5cbc9f60aaad74bc4d1b400168"
+            }
+          }
+        },
+        {
+          "label": "heather-use-site",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "use_site_demo.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/heather/use-site.stdout.txt",
+              "sha256": "8959806eda2da7064e43e38f33d24f5506b01887a82707f0989b091463cefb31"
+            },
+            "stderr": {
+              "path": "logs/heather/use-site.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "heather-demo-diagonal",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "heather.py",
+            "examples/diagonal.hthr",
+            "--output",
+            "generated"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/heather/demo-diagonal.stdout.txt",
+              "sha256": "2d226463c68a47260e6d074abe40f1b3c05eca36aefe418ce59420bc0ed32342"
+            },
+            "stderr": {
+              "path": "logs/heather/demo-diagonal.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "heather-demo-empty",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "heather.py",
+            "examples/empty.hthr",
+            "--output",
+            "generated"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/heather/demo-empty.stdout.txt",
+              "sha256": "55a6e909dc9c549909ce22ff4e8ffe561c090d64000514b01a973b51026239b1"
+            },
+            "stderr": {
+              "path": "logs/heather/demo-empty.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "heather-demo-free",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "heather.py",
+            "examples/free.hthr",
+            "--output",
+            "generated"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/heather/demo-free.stdout.txt",
+              "sha256": "5d8d1b6ebb87dc4acbe9e3fd65f6561c78fe8163175c948604496c6aec657037"
+            },
+            "stderr": {
+              "path": "logs/heather/demo-free.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "heather-demo-even",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "heather.py",
+            "examples/even.hthr",
+            "--output",
+            "generated"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/heather/demo-even.stdout.txt",
+              "sha256": "5a76b4249426903972fa527c4b0cb643ffb3bb1d5286a40568951cd554c2bd76"
+            },
+            "stderr": {
+              "path": "logs/heather/demo-even.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "heather-demo-refuted",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "heather.py",
+            "examples/refuted.hthr",
+            "--output",
+            "generated"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/heather/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/heather/demo-refuted.stdout.txt",
+              "sha256": "816afdd5b3fa1b99685fcf5cb0ef1e4a04e61abb7ea2c4341973e933a25e6341"
+            },
+            "stderr": {
+              "path": "logs/heather/demo-refuted.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "juniper-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "test_frontier.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/juniper/tests.stdout.txt",
+              "sha256": "1c3ae6dd14b07a3dc182fff96ef82a55fa0e5e40635d72ea1646c31276659000"
+            },
+            "stderr": {
+              "path": "logs/juniper/tests.stderr.txt",
+              "sha256": "f81d7e6c9fcbcd46d2f19b35bb3036bfb9664eea88735a5063573e8e81a557da"
+            }
+          }
+        },
+        {
+          "label": "juniper-inverse",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "inverse_polynomials.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/juniper/inverse.stdout.txt",
+              "sha256": "af0b8bce978350cd57c8da1422fc2f0a2ed4b91234263eb7327278fe97461083"
+            },
+            "stderr": {
+              "path": "logs/juniper/inverse.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "juniper-demo",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "juniper_frontier.py",
+            "example.jnp",
+            "--json",
+            "example-result.json",
+            "--lean",
+            "Generated.lean"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/juniper/demo.stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr": {
+              "path": "logs/juniper/demo.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "juniper-capped",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "juniper_frontier.py",
+            "example.jnp",
+            "--max-attempts",
+            "2"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/fennel-heather-juniper/runs/juniper/companion",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/juniper/capped.stdout.txt",
+              "sha256": "01fdf935907409044a2a2d624b8dce71f543d60ff0e850a54035142fe72511c9"
+            },
+            "stderr": {
+              "path": "logs/juniper/capped.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        }
+      ],
+      "base_jobs_count": 14,
+      "additional": {
+        "scope": "bounded Python and artifact checks, no Lean execution",
+        "command": [
+          "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-B",
+          "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\audit.py"
+        ],
+        "completion_evidence": "completed hash-bound audit and matching stdout; no top-level exit code retained",
+        "cross_implementation": {
+          "profiles": 128,
+          "atom_frontiers_compared": 768,
+          "selected_Fennel_routes_checked": 89,
+          "Juniper_results_checked": 128,
+          "domain": "6 atoms; 0-2 known; 0-3 distinct offered atoms disjoint from known; 0-10 rules; 0-3 ordered premises, repetitions/cycles allowed",
+          "limits": "100000 attempts and 10000 Fennel nodes; all completed; only one named Fennel pending root per offered atom"
+        },
+        "free_even_pairs": 49,
+        "comparison_artifacts": 27,
+        "probe_groups": [
+          "admissible_domains",
+          "coverage_boundary",
+          "cross_implementation",
+          "fennel_stale_output",
+          "heather_stale_output",
+          "named_root_boundary",
+          "same_affine_hull"
+        ],
+        "stale_output_subprocesses": [
+          {
+            "command": [
+              "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+              "-B",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\fennel\\prototype\\fennel.py",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\stage0.source",
+              "--out",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\output"
+            ],
+            "cwd": "adversarial/fennel-reuse",
+            "exit_code": 0,
+            "timeout_seconds": 30
+          },
+          {
+            "command": [
+              "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+              "-B",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\fennel\\prototype\\fennel.py",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\stage1.source",
+              "--out",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\output"
+            ],
+            "cwd": "adversarial/fennel-reuse",
+            "exit_code": 0,
+            "timeout_seconds": 30
+          },
+          {
+            "command": [
+              "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+              "-B",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\heather\\companion\\heather.py",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\stage0.source",
+              "--output",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\output"
+            ],
+            "cwd": "adversarial/heather-reuse",
+            "exit_code": 0,
+            "timeout_seconds": 30
+          },
+          {
+            "command": [
+              "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+              "-B",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\heather\\companion\\heather.py",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\stage1.source",
+              "--output",
+              "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\output"
+            ],
+            "cwd": "adversarial/heather-reuse",
+            "exit_code": 0,
+            "timeout_seconds": 30
+          }
+        ]
+      }
+    },
+    {
+      "lane": "laurel-rowan-sorrel",
+      "status": "passed",
+      "input_files": 45,
+      "copied_runtime_sources": 12,
+      "post_run_files_verified": 45,
+      "base_jobs": [
+        {
+          "label": "laurel-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "test_core.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Laurel/prototype",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/laurel-tests.stdout.txt",
+              "sha256": "92d8814bb941f1d54260244c9c9ef991920c53f4710b12488c808538f332f2e9"
+            },
+            "stderr": {
+              "path": "logs/laurel-tests.stderr.txt",
+              "sha256": "fbeb28d01ca128a52bf0cd8c0e7ba8508065a51e9d1f09cddcb0ee39d4137190"
+            }
+          }
+        },
+        {
+          "label": "laurel-width",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "bench_frontier.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Laurel/prototype",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/laurel-width.stdout.txt",
+              "sha256": "10fd4419548d3950811eb7c01a641c45be6ce5fd28adfe67b196070a873a71f0"
+            },
+            "stderr": {
+              "path": "logs/laurel-width.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "laurel-quotient",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "laurel_core.py",
+            "examples/quotient.laurel",
+            "--json",
+            "generated/quotient.json",
+            "--lean",
+            "generated/quotient.lean"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Laurel/prototype",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/laurel-quotient.stdout.txt",
+              "sha256": "9462446faf51e99f6a50948bc6326e754ecf891e2ca90f86d737753d6182d446"
+            },
+            "stderr": {
+              "path": "logs/laurel-quotient.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "laurel-frey_a4",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "laurel_core.py",
+            "examples/frey_a4.laurel",
+            "--json",
+            "generated/frey_a4.json",
+            "--lean",
+            "generated/frey_a4.lean"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Laurel/prototype",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/laurel-frey_a4.stdout.txt",
+              "sha256": "8422884808124b7c04fc02870b6e9f8b8174035d7446bf4fa3d3f5c47f068b22"
+            },
+            "stderr": {
+              "path": "logs/laurel-frey_a4.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "laurel-alternatives",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "laurel_core.py",
+            "examples/alternatives.laurel",
+            "--json",
+            "generated/alternatives.json",
+            "--lean",
+            "generated/alternatives.lean"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Laurel/prototype",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/laurel-alternatives.stdout.txt",
+              "sha256": "0ceda05597387d23619b2c5985e529ea5f2fff14c73ed3afc6a3fc1eea239356"
+            },
+            "stderr": {
+              "path": "logs/laurel-alternatives.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "laurel-cycle",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "laurel_core.py",
+            "examples/cycle.laurel",
+            "--json",
+            "generated/cycle.json",
+            "--lean",
+            "generated/cycle.lean"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Laurel/prototype",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/laurel-cycle.stdout.txt",
+              "sha256": "c61f3ad6db560895ef41a10d262081d2e9ffb73cf842a8e1388d431b4e9f64cf"
+            },
+            "stderr": {
+              "path": "logs/laurel-cycle.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "laurel-budget-zero",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "laurel_core.py",
+            "examples/quotient.laurel",
+            "--budget",
+            "0"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Laurel/prototype",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/laurel-budget-zero.stdout.txt",
+              "sha256": "2528325e49cec2ffb9ff940cd57609dc9f929fc0130261c0e73c38936c26f9c1"
+            },
+            "stderr": {
+              "path": "logs/laurel-budget-zero.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "rowan-demo",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "rowan_model.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Rowan",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/rowan-demo.stdout.txt",
+              "sha256": "ee6648b85fecfb9992788efe910d70cd2f5893f1d4ed5c3c131511ba6992e895"
+            },
+            "stderr": {
+              "path": "logs/rowan-demo.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "rowan-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "test_rowan.py"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Rowan",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/rowan-tests.stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr": {
+              "path": "logs/rowan-tests.stderr.txt",
+              "sha256": "b8bf6dacaf6a31991543ca01c7e95499dbb18e0381c8799ab21ffd25767c774d"
+            }
+          }
+        },
+        {
+          "label": "sorrel-tests",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "sorrel_model.py",
+            "--test",
+            "--json",
+            "test_results.json"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Sorrel",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/sorrel-tests.stdout.txt",
+              "sha256": "67bbae9ed2f2f06b856c1c3f945314e0fd86d36fcdf383fa9d4d83cd7c3142e2"
+            },
+            "stderr": {
+              "path": "logs/sorrel-tests.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "sorrel-quotient",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "sorrel_model.py",
+            "examples/quotient.sorrel",
+            "--json",
+            "examples/quotient_result.json",
+            "--export-lean",
+            "SelectedPlan.lean"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Sorrel",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/sorrel-quotient.stdout.txt",
+              "sha256": "0cb6fbc5a5c617f4448fac5098b6865e63264c98c84304888d3acae71f0dfcb9"
+            },
+            "stderr": {
+              "path": "logs/sorrel-quotient.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "label": "sorrel-cauchy",
+          "command": [
+            "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-B",
+            "sorrel_model.py",
+            "examples/cauchy.sorrel",
+            "--json",
+            "examples/cauchy_result.json"
+          ],
+          "cwd": "docs/round-4/synthesis/evidence/laurel-rowan-sorrel/copies/Sorrel",
+          "exit_code": 0,
+          "expected_outcome": "successful command",
+          "streams": {
+            "stdout": {
+              "path": "logs/sorrel-cauchy.stdout.txt",
+              "sha256": "847a4a4b6a1c2afe67505421d7b505f75220835aa882f5c3bdc2d393614a5d4b"
+            },
+            "stderr": {
+              "path": "logs/sorrel-cauchy.stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        }
+      ],
+      "base_jobs_count": 12,
+      "additional": {
+        "scope": "Fresh Python probes and file comparison only; no Lean compilation.",
+        "command": [
+          "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-B",
+          "semantic_probes.py"
+        ],
+        "exit_code": 0,
+        "case_count": 4,
+        "probe_ids": [
+          "rowan-cycle-plus-leaf-frontier",
+          "sorrel-export-selection-vs-available-route",
+          "laurel-rejects-insufficient-offer-under-cycle",
+          "partial-minimality-is-relative-to-discovered-routes"
+        ],
+        "comparison_artifacts": 11
+      }
+    }
+  ],
+  "scope": "Fresh validation of retained Python execution evidence, exact expected command outcomes, original/copy hashes and post-run artifacts. No experiments rerun.",
+  "limitations": [
+    "Receipt validation is consistency/provenance evidence, not a proof of Python semantics, a new benchmark run, Lean acceptance, or visual QA.",
+    "Source bytes and lane records are bound to source-register; immutable Git object verification is performed separately by verify_sources.py.",
+    "Generated files are checked against recorded post-run hashes. Author/fresh equality is required only for explicitly described parity comparisons; intentional generated differences remain legitimate.",
+    "ABC adversarial and FHJ audit receipts omit a top-level process exit code. Their complete output/receipt agreement is checked; no missing exit code is fabricated.",
+    "ABC reproduction/adversarial and FHJ reproduction do not hash-bind their original runner source. Current runner hashes are retained as packaging evidence, not retroactive proof of historical runner bytes.",
+    "Some copies retain historical PDF/build/Lean-status metadata. Hash validation of those files does not repeat their claimed builds or imply the same status in this environment."
+  ]
+}

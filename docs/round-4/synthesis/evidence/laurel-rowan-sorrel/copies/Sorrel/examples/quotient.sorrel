@@ -1,0 +1,11 @@
+# Schematic theorem interfaces. Atoms abbreviate whole propositions.
+# Rule truth is assumed in this model, not checked as number theory.
+context ExactQuotient
+atom EvenB LargeP OddP ResidueA Direct4 Dvd4 Dvd16 Both
+assumption EvenB LargeP OddP ResidueA Direct4
+available EvenB LargeP ResidueA
+rule power16: EvenB & LargeP -> Dvd16
+rule power4: EvenB & LargeP & OddP & ResidueA -> Dvd4
+rule direct: Direct4 -> Dvd4
+rule pair: Dvd4 & Dvd16 -> Both
+goal Both

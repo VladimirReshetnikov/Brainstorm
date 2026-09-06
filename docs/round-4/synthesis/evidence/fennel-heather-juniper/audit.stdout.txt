@@ -1,0 +1,88 @@
+{
+  "compared_artifacts": 27,
+  "probes": {
+    "cross_implementation": {
+      "profiles": 128,
+      "atom_frontiers_compared": 768,
+      "selected_Fennel_routes_checked": 89,
+      "Juniper_results_checked": 128,
+      "domain": "6 atoms; 0-2 known; 0-3 distinct offered atoms disjoint from known; 0-10 rules; 0-3 ordered premises, repetitions/cycles allowed",
+      "limits": "100000 attempts and 10000 Fennel nodes; all completed; only one named Fennel pending root per offered atom"
+    },
+    "named_root_boundary": {
+      "Fennel_supports": [
+        [
+          "first"
+        ],
+        [
+          "second"
+        ]
+      ],
+      "Juniper_duplicate_offer_refusal": "invalid or repeated offer atom"
+    },
+    "coverage_boundary": {
+      "omitted_complete_route": "complete frontier is not rule-closed",
+      "same_sound_subset_when_declared_incomplete": "accepted",
+      "forged_truncation_complete": "complete frontier is not rule-closed",
+      "Fennel_limit": "Per-route checker has no complete-family input or coverage theorem; no whole-frontier completeness acceptance API to forge."
+    },
+    "admissible_domains": {
+      "diagonal_status": "model_proved",
+      "free_status": "counterexample",
+      "free_counterexample_lengths": [
+        1,
+        0
+      ],
+      "cross_domain_receipt_rejected": true,
+      "even_negative_lengths": [
+        2
+      ],
+      "odd_length_negative_rejected": true,
+      "empty_singleton_refused": "cannot construct an element of Empty"
+    },
+    "same_affine_hull": {
+      "free_even_expression_pairs": 49,
+      "equality_acceptance_matches": true,
+      "limit": "Finite implementation check; same rational affine hull is the paper argument, not a theorem proved by these samples."
+    },
+    "fennel_stale_output": {
+      "stages": [
+        {
+          "stage": 0,
+          "stdout": "[\r\n  {\r\n    \"query\": \"target\",\r\n    \"status\": \"proved-in-fragment\",\r\n    \"closure_complete\": true,\r\n    \"supports\": [\r\n      []\r\n    ],\r\n    \"attempts\": 2,\r\n    \"stored_nodes\": 2,\r\n    \"rounds\": 2\r\n  }\r\n]",
+          "lean_hashes": {
+            "query_0_route_0.lean": "ca3ade4cf3a87917566d9cd8b1584de0462623159e50767d757b27d23b9a500f"
+          }
+        },
+        {
+          "stage": 1,
+          "stdout": "[\r\n  {\r\n    \"query\": \"target\",\r\n    \"status\": \"no-route-found\",\r\n    \"closure_complete\": true,\r\n    \"supports\": [],\r\n    \"attempts\": 0,\r\n    \"stored_nodes\": 1,\r\n    \"rounds\": 1\r\n  }\r\n]",
+          "lean_hashes": {
+            "query_0_route_0.lean": "ca3ade4cf3a87917566d9cd8b1584de0462623159e50767d757b27d23b9a500f"
+          }
+        }
+      ],
+      "interpretation": "Old positive Lean source remains beside fresh negative/no-route metadata; no source proof is accepted by this probe. Publication must use a fresh output directory or a checked request-bound manifest."
+    },
+    "heather_stale_output": {
+      "stages": [
+        {
+          "stage": 0,
+          "stdout": "{\"name\": \"same\", \"status\": \"model_proved\", \"lean_status\": \"not_compiled\"}",
+          "lean_hashes": {
+            "same.lean": "1e0b524937929f8a5a4c8d5bae6ad1eb9c3cc6aca9c61c163fdfa06e069897ae"
+          }
+        },
+        {
+          "stage": 1,
+          "stdout": "{\"name\": \"same\", \"status\": \"counterexample\", \"lean_status\": \"not_compiled\"}",
+          "lean_hashes": {
+            "same.lean": "1e0b524937929f8a5a4c8d5bae6ad1eb9c3cc6aca9c61c163fdfa06e069897ae"
+          }
+        }
+      ],
+      "interpretation": "Old positive Lean source remains beside fresh negative/no-route metadata; no source proof is accepted by this probe. Publication must use a fresh output directory or a checked request-bound manifest."
+    }
+  },
+  "input_files_unchanged": 66
+}

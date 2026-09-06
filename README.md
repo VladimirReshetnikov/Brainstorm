@@ -3,7 +3,23 @@
 The independent proposals explore ways to express mathematics more concisely
 and naturally while retaining rigorous verification.
 
-The latest [unified report: From Properties to Proof Obligations](docs/round-3/synthesis/unified-report.pdf)
+The latest [unified report: From Proof Obligations to Checkable Plans](docs/round-4/synthesis/unified-report.pdf)
+is a self-contained critical synthesis of the nine [round-4 reports](docs/round-4/ideas):
+Alder, Bryony, Clover, Fennel, Heather, Juniper, Laurel, Rowan, and Sorrel.
+It compares conditional proof plans, six finite support-antichain engines,
+concrete grounding, realizable behavioral observations, and Leant integration.
+Fresh reproduction and adversarial review distinguish valid plans, faithful
+exports, complete requests, and measured authoring benefits.
+
+The [TeX source](docs/round-4/synthesis/unified-report.tex),
+[convergence index](docs/round-4/synthesis/convergence.json),
+[source register](docs/round-4/synthesis/source-register.json), and
+[build and evidence guide](docs/round-4/synthesis/README.md) accompany the PDF.
+All 36 documented Python invocations meet expected exits. Nineteen of twenty
+supplied Lean files compile unchanged; the original failure, separately checked
+repair, sharper Frey lemmas, and additional export failures are retained.
+
+The previous [unified report: From Properties to Proof Obligations](docs/round-3/synthesis/unified-report.pdf)
 is a self-contained synthesis of the nine [round-3 proposals](docs/round-3/ideas):
 Basalt, Fiber, Gneiss, Karst, Moraine, Obsidian, Schist, Tephra, and Trellis.
 It evaluates scoped refinements, behavioral contracts, predictable inference,
@@ -48,5 +64,5 @@ Round 1 remains available:
 - [Claude synthesis](docs/round-1/unified_report/unified_report.pdf), including
   the additional Leant study and discussion questions.
 
-The round-3 and round-2 reports each explain their relevant earlier concepts
+The round-4, round-3, and round-2 reports each explain their relevant earlier concepts
 directly; the earlier syntheses are optional background reading.

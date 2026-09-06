@@ -1,0 +1,388 @@
+{
+  "checked_utc": "2026-09-06T22:40:30.774279+00:00",
+  "input_commit": "58ced1ce667b3ba1ed162a0c6280959536c8bc5f",
+  "executable": "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+  "version": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "LEAN_NUM_THREADS": "0",
+  "proveit_head": "7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5",
+  "manifest_sha256": "95e215b005fe9aacc1e5490c781d57e3044d2da5ca452495cfcd0e4eff908665",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "manifest_revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "actual_revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "plausible",
+      "manifest_revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+      "actual_revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "manifest_revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "actual_revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "importGraph",
+      "manifest_revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+      "actual_revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "proofwidgets",
+      "manifest_revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+      "actual_revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "aesop",
+      "manifest_revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+      "actual_revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "Qq",
+      "manifest_revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+      "actual_revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "batteries",
+      "manifest_revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+      "actual_revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "library_present": true
+    },
+    {
+      "name": "Cli",
+      "manifest_revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+      "actual_revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+      "tracked_source_status": "",
+      "library_path": "C:\\ProveIt\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+      "library_present": false
+    }
+  ],
+  "scope": "Fresh acceptance attempts of byte-identical copies of all supplied Lean sources. Existing dependency artifacts are used, not rebuilt or fully audited. A successful opaque-Prop template proves conditional implication assembly only.",
+  "cases": [
+    {
+      "input": "docs/round-4/ideas/Alder/companion/generated/Locality.lean",
+      "copy": "evidence/lean/originals/Alder/companion/generated/Locality.lean",
+      "source_sha256": "275eec5b59840a5652428f88f14246174ea4fe7633d7a95a5e0d60b8975f92d4",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "Locality.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Alder\\companion\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 3.429435199999716,
+      "log": "evidence/lean/originals/Alder/companion/generated/Locality.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "input": "docs/round-4/ideas/Alder/companion/generated/Quotient.lean",
+      "copy": "evidence/lean/originals/Alder/companion/generated/Quotient.lean",
+      "source_sha256": "6e70e7b513bdee374d5fe356ae25ce4843416dffa4f191d178dcdd2448642663",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "Quotient.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Alder\\companion\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 3.7384648000006564,
+      "log": "evidence/lean/originals/Alder/companion/generated/Quotient.log",
+      "log_sha256": "8858e4fbd5a54216ac2dd3e236932c464adaae643c7aafe8c75486c53c0547b4"
+    },
+    {
+      "input": "docs/round-4/ideas/Bryony/evidence/frey4/Requirements.lean",
+      "copy": "evidence/lean/originals/Bryony/evidence/frey4/Requirements.lean",
+      "source_sha256": "79fbd8824baf1d6f7e1a8352d3770fd8104d99ffdf84297986e4434028e12984",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "Requirements.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Bryony\\evidence\\frey4",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 5.13352030000533,
+      "log": "evidence/lean/originals/Bryony/evidence/frey4/Requirements.log",
+      "log_sha256": "55589770b8b6ad1f7ed74dc1714de9456a4119c810f0f2ea9dc9d8f60e6487cb"
+    },
+    {
+      "input": "docs/round-4/ideas/Clover/companion/CloverCore.lean",
+      "copy": "evidence/lean/originals/Clover/companion/CloverCore.lean",
+      "source_sha256": "b1b6a59f8927cc725703877283a14acd5bdc3bedd62f7189286aeb66e10a4577",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "CloverCore.lean",
+        "-o",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\.build\\lean\\CloverCore.olean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Clover\\companion",
+      "LEAN_PATH": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\.build\\lean",
+      "exit_code": 0,
+      "seconds": 5.369384799996624,
+      "log": "evidence/lean/originals/Clover/companion/CloverCore.log",
+      "log_sha256": "042245103d0b3e43a77bfe36dc52354138949b598cdb624a7b153f19670848b1"
+    },
+    {
+      "input": "docs/round-4/ideas/Clover/companion/GeneratedExamples.lean",
+      "copy": "evidence/lean/originals/Clover/companion/GeneratedExamples.lean",
+      "source_sha256": "05c43e524688e1f9750fc88f11c5864029ae35fd5c994889eba0761c6d520f29",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "GeneratedExamples.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Clover\\companion",
+      "LEAN_PATH": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\.build\\lean",
+      "exit_code": 0,
+      "seconds": 4.550345900002867,
+      "log": "evidence/lean/originals/Clover/companion/GeneratedExamples.log",
+      "log_sha256": "6d2dca3bc851750b16be08a83950237faa24dc9e0e806c0ee8149c7774901c8d"
+    },
+    {
+      "input": "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.lean",
+      "copy": "evidence/lean/originals/Fennel/prototype/generated/query_0_route_0.lean",
+      "source_sha256": "f5ea0247df9b0f483966f6a6b302a930a2045aeec2ef43353d13fb7f29e7460e",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "query_0_route_0.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Fennel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 5.947602600004757,
+      "log": "evidence/lean/originals/Fennel/prototype/generated/query_0_route_0.log",
+      "log_sha256": "53c8cd1fd4604c419e83cfe563095e6531c8f6e9fa2de73e0adf9f306054318d"
+    },
+    {
+      "input": "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.lean",
+      "copy": "evidence/lean/originals/Fennel/prototype/generated/query_1_route_0.lean",
+      "source_sha256": "0902a4fc63b06d78d381b06e61a71b6b04f31cf5ef877aa4d23014e58891c64c",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "query_1_route_0.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Fennel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 5.50886079997872,
+      "log": "evidence/lean/originals/Fennel/prototype/generated/query_1_route_0.log",
+      "log_sha256": "23fde5ae0018029b63e4d5cf633c8339dd1de251d6ed7b6680e7884584b4c99f"
+    },
+    {
+      "input": "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.lean",
+      "copy": "evidence/lean/originals/Fennel/prototype/generated/query_1_route_1.lean",
+      "source_sha256": "9f6608bac2c6bf8753b4ebf88201fe6b89601054d93199d202d368f47aa98638",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "query_1_route_1.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Fennel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 5.263184100011131,
+      "log": "evidence/lean/originals/Fennel/prototype/generated/query_1_route_1.log",
+      "log_sha256": "0ce09f6ecc33f7abd8739ad44e36a5a15940b39595f57445529928fc12620ae8"
+    },
+    {
+      "input": "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.lean",
+      "copy": "evidence/lean/originals/Fennel/prototype/generated/query_2_route_0.lean",
+      "source_sha256": "056858036d06336307de05174a2010388c1458b347798569f40b3f0b9bbaa795",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "query_2_route_0.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Fennel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 3.976498999982141,
+      "log": "evidence/lean/originals/Fennel/prototype/generated/query_2_route_0.log",
+      "log_sha256": "2e3fe09146cd84383fb3c6b596f38fcc1edb2a4f6d00af03f70ae0e5c251ac4e"
+    },
+    {
+      "input": "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.lean",
+      "copy": "evidence/lean/originals/Heather/companion/generated/diagonal_balance.lean",
+      "source_sha256": "223e89674a133e62c8d003a0229df10065960c42fc9872b7545915dcc452c007",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "diagonal_balance.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Heather\\companion\\generated",
+      "LEAN_PATH": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "exit_code": 0,
+      "seconds": 602.2986739000189,
+      "log": "evidence/lean/originals/Heather/companion/generated/diagonal_balance.log",
+      "log_sha256": "edc0f182b11bcd1cc1bea59f246e3d5294cc19f9d48e3cdf337f8c3751806d8e"
+    },
+    {
+      "input": "docs/round-4/ideas/Heather/companion/generated/empty_preserves.lean",
+      "copy": "evidence/lean/originals/Heather/companion/generated/empty_preserves.lean",
+      "source_sha256": "a320b4ca9590139af7e23289f578f9b5501c53705c7b8cdf12e50dd7a64db300",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "empty_preserves.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Heather\\companion\\generated",
+      "LEAN_PATH": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "exit_code": 0,
+      "seconds": 97.11204449998331,
+      "log": "evidence/lean/originals/Heather/companion/generated/empty_preserves.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "input": "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.lean",
+      "copy": "evidence/lean/originals/Heather/companion/generated/even_reverse_length.lean",
+      "source_sha256": "7e8f1d8c0d2e668e82f6d53d2a950d20d9d0710613320382b9ddc2dca24eb48e",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "even_reverse_length.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Heather\\companion\\generated",
+      "LEAN_PATH": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "exit_code": 1,
+      "seconds": 85.93834829999832,
+      "log": "evidence/lean/originals/Heather/companion/generated/even_reverse_length.log",
+      "log_sha256": "b26bf5cd09d2ef060bbea3a862df828f20126c98a9d3f508ea9162816aa73101"
+    },
+    {
+      "input": "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.lean",
+      "copy": "evidence/lean/originals/Heather/companion/generated/reverse_append_length.lean",
+      "source_sha256": "95110bc520c594108096aee58792e4ee2eeac0a387cf1920a9652ed9ac7e0eb6",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "reverse_append_length.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Heather\\companion\\generated",
+      "LEAN_PATH": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "exit_code": 0,
+      "seconds": 204.4296306000033,
+      "log": "evidence/lean/originals/Heather/companion/generated/reverse_append_length.log",
+      "log_sha256": "2dd92a6717f9b0d15066a572f020b54f1819b1ab7108221c77dbfd0cee7883d8"
+    },
+    {
+      "input": "docs/round-4/ideas/Heather/companion/generated/UseSite.lean",
+      "copy": "evidence/lean/originals/Heather/companion/generated/UseSite.lean",
+      "source_sha256": "a90fb67d5a8d57103f83800616b08651398f42baebafb395c9f4d432fb33cffd",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "UseSite.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Heather\\companion\\generated",
+      "LEAN_PATH": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "exit_code": 0,
+      "seconds": 434.1441300000006,
+      "log": "evidence/lean/originals/Heather/companion/generated/UseSite.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "input": "docs/round-4/ideas/Juniper/companion/Generated.lean",
+      "copy": "evidence/lean/originals/Juniper/companion/Generated.lean",
+      "source_sha256": "5df816e0d6a70fb2e27ab74b58a2b81354a15cba3e7195890637aa5d5e070f0b",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "Generated.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Juniper\\companion",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 3.5061277999775484,
+      "log": "evidence/lean/originals/Juniper/companion/Generated.log",
+      "log_sha256": "c0a88eb95ec15a788c94e4489a0a01560d68924431e9ddc9d00a9bee0e8eab8b"
+    },
+    {
+      "input": "docs/round-4/ideas/Laurel/prototype/generated/alternatives.lean",
+      "copy": "evidence/lean/originals/Laurel/prototype/generated/alternatives.lean",
+      "source_sha256": "dcbc807b62cefbf0daa03dc5a2e7001de5320e7a4dad7a0225dfa4c935baa292",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "alternatives.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Laurel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 2.7182329000206664,
+      "log": "evidence/lean/originals/Laurel/prototype/generated/alternatives.log",
+      "log_sha256": "17a84b36d1542a64b90feac75dcf8b4b787dcdfe2d4f384f9c6bb8c868ccc58e"
+    },
+    {
+      "input": "docs/round-4/ideas/Laurel/prototype/generated/cycle.lean",
+      "copy": "evidence/lean/originals/Laurel/prototype/generated/cycle.lean",
+      "source_sha256": "a0f513fdf9996a6aef7d264d4ffa703e21af3b7e343d4c717dfcc5cd317202b2",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "cycle.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Laurel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 3.2976238999981433,
+      "log": "evidence/lean/originals/Laurel/prototype/generated/cycle.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "input": "docs/round-4/ideas/Laurel/prototype/generated/frey_a4.lean",
+      "copy": "evidence/lean/originals/Laurel/prototype/generated/frey_a4.lean",
+      "source_sha256": "17097746e7adf8f8a9821a80b0813a07e19182d988c4c606a3b77515888f9256",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "frey_a4.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Laurel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 3.0292420999903698,
+      "log": "evidence/lean/originals/Laurel/prototype/generated/frey_a4.log",
+      "log_sha256": "02f49fc81cc4cfa8bf5e38d5d61651992e3d66d0075ed9b55dda24643a6a20cd"
+    },
+    {
+      "input": "docs/round-4/ideas/Laurel/prototype/generated/quotient.lean",
+      "copy": "evidence/lean/originals/Laurel/prototype/generated/quotient.lean",
+      "source_sha256": "d999ca76508cd79a00dac09223b899d43c5622ea8d27aa63f808d994afe629af",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "quotient.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Laurel\\prototype\\generated",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 2.7216798000154085,
+      "log": "evidence/lean/originals/Laurel/prototype/generated/quotient.log",
+      "log_sha256": "9e853afe7e9a51d7cad99e73275c804280c848411d72b9c92134a2330c9f5347"
+    },
+    {
+      "input": "docs/round-4/ideas/Sorrel/SelectedPlan.lean",
+      "copy": "evidence/lean/originals/Sorrel/SelectedPlan.lean",
+      "source_sha256": "086dc1ba96e89ebb8238c61e593a1f99f5d1425450f83c0fa3abdf033a144dc5",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "SelectedPlan.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\lean\\originals\\Sorrel",
+      "LEAN_PATH": null,
+      "exit_code": 0,
+      "seconds": 1.7184830000041984,
+      "log": "evidence/lean/originals/Sorrel/SelectedPlan.log",
+      "log_sha256": "09cc8c8880e8f63262c1f747cc41614ab756fb84dbdca7fb0aba920dbd666c7d"
+    }
+  ]
+}

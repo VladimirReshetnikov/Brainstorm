@@ -1,0 +1,8 @@
+# Symbolic fixture. These rule names are assumptions, not imported Lean theorems.
+context frey_a4
+atoms even_b large_p div16 cast16_nonzero coefficient_identity
+known large_p cast16_nonzero
+offer even_b div16
+rule power_divisibility : even_b large_p -> div16
+rule quotient_transport : div16 cast16_nonzero -> coefficient_identity
+show coefficient_identity
