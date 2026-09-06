@@ -1,0 +1,950 @@
+{
+  "scope": "Source inspection only; no Lean or Leant build/test/replay receipts. Original reports read without mutation.",
+  "review_date_pacific": "2026-09-05",
+  "brainstorm_corpus_commit": "ddbc1d4",
+  "reports": [
+    {
+      "path": "docs/ideas/contour-proof-language/contour.tex",
+      "bytes": 108453,
+      "sha256": "32e70229996293cd5afe0e9b1b107e46411838b8173e57c9931f21634c845f4b",
+      "lines": 1431,
+      "head_blob": "da09d97a27cc7412ce17b31d9c2ef8ffadb55aac",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/loom_proof_language/loom.tex",
+      "bytes": 95443,
+      "sha256": "e73929fbf7cda46348ec6e97b45339c11be565d376ada7cc2adca2db695b1909",
+      "lines": 1100,
+      "head_blob": "42f91feb40f309565cf5a7583d4859837f5a40c2",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/mathematical_proof_language/article.tex",
+      "bytes": 99740,
+      "sha256": "c013aa3204f17eb3b358737a349d65b0229fe0bf465dc6ae58fb63c8d02b4756",
+      "lines": 1247,
+      "head_blob": "38d0d43db0450f9f21893596cd8b8d0de8370b7c",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/MathStep/MathStep.tex",
+      "bytes": 126440,
+      "sha256": "16e0e7d25f4a6fd051c8be53677ffb46fb4d66d1d18afbda3c84a11cd0f69ce9",
+      "lines": 1411,
+      "head_blob": "a405dc8f253bbe1e0040581e3140949adc8ff47f",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/mosaic_proof_language/mosaic.tex",
+      "bytes": 94783,
+      "sha256": "b4d1c536d8155ebadd6324a0d27146cb6e9c90b5d98e954d06f3811b22b47ecc",
+      "lines": 1026,
+      "head_blob": "046cb6abd14606899f6d99137ad2f6a002f9355b",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/motive_proof_language_article/motive.tex",
+      "bytes": 86625,
+      "sha256": "0fce7d86cf678b09e1379c1f8b02454f0cc2057ccff8bd80b39bdbc9abda0374",
+      "lines": 974,
+      "head_blob": "f8365801c4278a075370e7c49c5aeacf6bd6caf5",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/outline_proof_language/outline_proof_language.tex",
+      "bytes": 106359,
+      "sha256": "6fceb97210b715f6dc55519245b14aebc41415374209731cd4ed2d4cbf9503e0",
+      "lines": 1288,
+      "head_blob": "b53fd1cc8bfdbb3d9d2754d3662bec2812f80fbf",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/reason_proof_language/reason.tex",
+      "bytes": 101772,
+      "sha256": "de7fe9e512603634d8972ac5f2741cd5248d82b6bee68b2912f4cb694349b40b",
+      "lines": 1153,
+      "head_blob": "a0d5e6b778022eda0ce5d517cc86a29eaca3a16a",
+      "matches_head_ignoring_crlf": true
+    },
+    {
+      "path": "docs/ideas/Spine_Proof_Language/Spine_Proof_Language.tex",
+      "bytes": 121548,
+      "sha256": "847aec9d60ae842bb3883604a976ae440a5eb7228cd2525895cf3d20ed076653",
+      "lines": 1242,
+      "head_blob": "c514c96ce1fadfeb6136d56c000f9537df8ccba7",
+      "matches_head_ignoring_crlf": true
+    }
+  ],
+  "leant": {
+    "path": "C:\\Leant",
+    "head": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+    "status_at_capture": "M README.md\n M leant.cabal\n M lib/Djex\n M src/Leant/Synth/Verification.hs\n M src/Main.hs\n M test-unit/Spec.hs\n?? docs/behavioral-synthesis.md\n?? src/Leant/Synth/Behavioral.hs\n?? test-church/behavior_probe.py\n?? test-church/test_behavior_probe.py\n?? test/synth-behavior.golden\n?? test/synth-behavior.txt",
+    "djex_gitlink": "45e35b29defde91e956f01b4bd69cd55c8779a0e",
+    "djex_checked_out": "63e7b2fa46d62c633e0b5a24a463e22b9e939df4",
+    "archive": "evidence/leant-reviewed-source.zip",
+    "files": [
+      {
+        "path": "LICENSE",
+        "bytes": 937,
+        "sha256": "10dffd0e723d19db3dde534db4ab104d65cd03241a571478406c71cde6cb2bf9",
+        "lines": 16,
+        "head_blob": "9b28e8e3eea53c2f7ca3151bda818cdf7953386e",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "README.md",
+        "bytes": 84412,
+        "sha256": "355d6029eeabfa0791d6c67a82ecd2711671178038a4dbbe30c111bf11cb1d88",
+        "lines": 1552,
+        "head_blob": "7d085baf3fc5069319ff515611c5802a538b5af6",
+        "matches_head_ignoring_crlf": false
+      },
+      {
+        "path": "leant.cabal",
+        "bytes": 7400,
+        "sha256": "e05ae1a7c9ee54491856e3215e57b60543bea85cdf21c6fdb3894972e40c19e4",
+        "lines": 234,
+        "head_blob": "c4322e609c63767618ecc0db9f64a65e1b4ab267",
+        "matches_head_ignoring_crlf": false
+      },
+      {
+        "path": "src/Main.hs",
+        "bytes": 256977,
+        "sha256": "4a081070ef63ab43379528e9114802f3acbeb5962e3fa980479dd31ba42dfa43",
+        "lines": 5819,
+        "head_blob": "77d9bd5fc34c2e888d76c3bd1d43cfaeaefb2fc2",
+        "matches_head_ignoring_crlf": false
+      },
+      {
+        "path": "src/Leant/Backend.hs",
+        "bytes": 24822,
+        "sha256": "efe32ad4130d226f283e397924dad48bc6438cb586f2eea27bf3f92c71de8efc",
+        "lines": 725,
+        "head_blob": "5fa9e59d4ccee29791beda3f604b8d1de8c908bd",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "src/Leant/Synth/Engine.hs",
+        "bytes": 215757,
+        "sha256": "43b34d8c4d6d9e7ea1a292289d2336f6f67db6babbb96d2bbdb1931a5d930ff0",
+        "lines": 4847,
+        "head_blob": "1064c8215506e172401cd7c5c06d7e8222e0befa",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "src/Leant/Synth/Fragment.hs",
+        "bytes": 114967,
+        "sha256": "9c550fc6095dafacee2e025bcbc75940c404d649a42d5fd8f308df651b56ac30",
+        "lines": 2440,
+        "head_blob": "ab523ffd5e93a0ddc8c5d893a79e032562319aa1",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "src/Leant/Synth/Verification.hs",
+        "bytes": 13084,
+        "sha256": "4045c4cb2560704694d87bc7f20f378f0503ebda77daa492b068bd46e596bc88",
+        "lines": 312,
+        "head_blob": "caee3c51cfd226e6c2bb9887f80293343abd486c",
+        "matches_head_ignoring_crlf": false
+      },
+      {
+        "path": "src/Leant/Synth/Replay.hs",
+        "bytes": 1114,
+        "sha256": "42ef1df6dd9586ade2e6582264ead4086b662b532e7ba1109989daa8d7c900e7",
+        "lines": 30,
+        "head_blob": "298749c8904678c88c1dcc030eb0ec95e68fdd9c",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "src/Leant/Synth/Behavioral.hs",
+        "bytes": 3126,
+        "sha256": "df5117bf817b765aa7bd8517e8f9f09b23b0d747d31a897f5d90c848f8b34da6",
+        "lines": 90,
+        "matches_head_ignoring_crlf": false,
+        "untracked_at_capture": true
+      },
+      {
+        "path": "src/Leant/Synth/PostVerification.hs",
+        "bytes": 7779,
+        "sha256": "b2f1374db9689e6d49ee1d7770f70e5b7e9bceada187dbd3af1c186b536c46d7",
+        "lines": 197,
+        "head_blob": "a08c49cb17424cefbe4c25cd8e4b2cae5e1cf65a",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "src/Leant/Synth/Length/Selection/Generic.hs",
+        "bytes": 12515,
+        "sha256": "56f001ee6de3366e031f909dc11976fda5538d9d28a5384f6158488561e64871",
+        "lines": 297,
+        "head_blob": "79007d772807f987e4fa8810e1f2cda2bada4759",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "src/Leant/Synth/Length/Integration.hs",
+        "bytes": 25277,
+        "sha256": "776765c73682c75e9b93d2b579f24ccea6bc866b71cf721c7d5a26e6c51d77ff",
+        "lines": 558,
+        "head_blob": "ab2c61d3f302e26f575b30131c361948c7f6a07e",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "docs/candidate-quality.md",
+        "bytes": 21649,
+        "sha256": "1356d84d1557cea6016d7f09651d18dc39bd073501e9cd64293c8e333c0b482e",
+        "lines": 382,
+        "head_blob": "8978999e8d7fbc139d9bdadd2c75517d5d1c8960",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "docs/length-ranking.md",
+        "bytes": 104174,
+        "sha256": "5420592d1f91155188cc82ea4576c5050afb395c9935b002531731440c344fc4",
+        "lines": 1892,
+        "head_blob": "ab4767cd6a466583a28de56eea7080bcd44e9f3d",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "docs/behavioral-synthesis.md",
+        "bytes": 9143,
+        "sha256": "2ce7127e04e422b5155fe8c2610a38a943ed3feaf275379b29b4f959ea34cf81",
+        "lines": 156,
+        "matches_head_ignoring_crlf": false,
+        "untracked_at_capture": true
+      },
+      {
+        "path": "test/prove-suggest.txt",
+        "bytes": 1034,
+        "sha256": "26cc0811ce647abe6ae0212d2d3ddc7feec95aa3f9ab742da20e8699c46cb4f9",
+        "lines": 47,
+        "head_blob": "634d16148b38b7077e77233c393b1d589ac5ea41",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "test/prove-suggest.golden",
+        "bytes": 5054,
+        "sha256": "2842eae4230e1fc2957af0eedd5682f04afd9a130a127382b626c3f8168e792a",
+        "lines": 146,
+        "head_blob": "4b50f1748fccf575dc4581ac5117ec42ec7c7430",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "test/run-tests.sh",
+        "bytes": 3839,
+        "sha256": "2ab1f5ca729cdd795d3f208024a58c97072a34aa3f664dd1047a09cf0292b4fa",
+        "lines": 113,
+        "head_blob": "a785bdb95d12273c271536031c532a746295ed71",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "test/synth-basic.txt",
+        "bytes": 309,
+        "sha256": "701a76e39f01d078498399039dcf0842bc5ccd008f1c5b6894d6da1e72edd32d",
+        "lines": 9,
+        "head_blob": "0ebb2ce449b8dc3af123280b580e5474f5a61487",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "test/synth-basic.golden",
+        "bytes": 1087,
+        "sha256": "af76c969f9d6619d5741cb87e75bd47ee2fe53d336636857efac1483c3d387bd",
+        "lines": 28,
+        "head_blob": "ea058de47a3329a07cfaec0d5953c0c7ed9d4ec4",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "test/synth-behavior.txt",
+        "bytes": 791,
+        "sha256": "9662bb7b4860e009ea416c777f07ce39a0c0e46f173c09979d791bc4400ca543",
+        "lines": 21,
+        "matches_head_ignoring_crlf": false,
+        "untracked_at_capture": true
+      },
+      {
+        "path": "test/synth-behavior.golden",
+        "bytes": 2888,
+        "sha256": "3f6d77c8ce5498b41b7e757e39a5b4852ffbbc15e669875bc7c258776a9df34d",
+        "lines": 71,
+        "matches_head_ignoring_crlf": false,
+        "untracked_at_capture": true
+      },
+      {
+        "path": "test-unit/Spec.hs",
+        "bytes": 1370771,
+        "sha256": "0a54e244ff96aad655690745ffa91b564e8eeb83f6f3cc28fe7f4fc2bcbf8824",
+        "lines": 28132,
+        "head_blob": "99b3b111545ee80ab946be1cacf6379b6d34c323",
+        "matches_head_ignoring_crlf": false
+      }
+    ]
+  },
+  "proveit": {
+    "path": "C:\\ProveIt",
+    "head": "7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5",
+    "files": [
+      {
+        "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+        "bytes": 9230,
+        "sha256": "d0a652cfb58f6b342a15ff18b018074e2211cb8571db2712896e32bed6d2bf64",
+        "lines": 196,
+        "head_blob": "c6b0fe63a4faf8708b71e9b93aa2ce7406464d84",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+        "bytes": 3399,
+        "sha256": "ba6799f7fa77687a08f14a4049604fac822ea090d05ec5685bf8578d18d56144",
+        "lines": 77,
+        "head_blob": "1422b87f31073fed898ff0c8a080ea0a798aef5e",
+        "matches_head_ignoring_crlf": true
+      },
+      {
+        "path": "NumberTheory/IntegerSums/Lean/IntegerSums/FloorSqrtSum.lean",
+        "bytes": 5649,
+        "sha256": "da8cf3523727201a3cbdc82bdcbecf5c97f764d14731d9e93dee9465b77e78ff",
+        "lines": 165,
+        "head_blob": "d486bfdc6ede0e723fe5300a4f2b0ad64bc0d19f",
+        "matches_head_ignoring_crlf": true
+      }
+    ]
+  },
+  "protocol": {
+    "path": "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\lean_interact\\cache\\augustepoiroux\\repl\\repl_v1.3.18_lean-toolchain-v4.32.0",
+    "scope": "Available cached source, not a verified active Leant backend binary",
+    "archive": "evidence/repl-protocol-source.zip",
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363",
+        "bytes": 11558
+      },
+      {
+        "path": "REPL/Main.lean",
+        "sha256": "ac68d5fec8947db3c4555afdb0d6f000f1cacf711eebb8d30daf1c6fec544fb7",
+        "bytes": 21586
+      },
+      {
+        "path": "REPL/JSON.lean",
+        "sha256": "74552505ebf2a92b2ed28733a11110aef5716f8c5c6cf5b7884e3febb962d245",
+        "bytes": 7681
+      },
+      {
+        "path": "REPL/Snapshots.lean",
+        "sha256": "d99de5bfe3928a7e8715d45d74c1e2ff9f13a5cf954525fd88ade71b0398f837",
+        "bytes": 13354
+      }
+    ]
+  },
+  "crosswalk": {
+    "meaning": "Explicit textual support, not empirical votes. Section numbers and one-based TeX line ranges refer to the supplied source reports.",
+    "features": {
+      "H": "Lean host and existing checking foundation",
+      "C": "Claims/checkpoints as visible authoring units",
+      "O": "Scoped typed obligations and method contracts",
+      "F": "Statement/object fidelity before proof search",
+      "R": "Retained evidence and replay distinct from discovery",
+      "E": "Fair Lean baselines and abstraction/adapter costs"
+    },
+    "reports": [
+      {
+        "name": "Contour",
+        "path": "docs/ideas/contour-proof-language/contour.tex",
+        "H": {
+          "sections": "14.1",
+          "lines": [
+            [
+              1012,
+              1018
+            ]
+          ]
+        },
+        "C": {
+          "sections": "4.1, 4.3",
+          "lines": [
+            [
+              261,
+              284
+            ],
+            [
+              300,
+              320
+            ]
+          ]
+        },
+        "O": {
+          "sections": "9.3-4, 11.1",
+          "lines": [
+            [
+              677,
+              711
+            ],
+            [
+              839,
+              845
+            ]
+          ]
+        },
+        "F": {
+          "sections": "9.1",
+          "lines": [
+            [
+              653,
+              661
+            ]
+          ]
+        },
+        "R": {
+          "sections": "13.2-4",
+          "lines": [
+            [
+              976,
+              1007
+            ]
+          ]
+        },
+        "E": {
+          "sections": "15.1-3",
+          "lines": [
+            [
+              1068,
+              1090
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Loom",
+        "path": "docs/ideas/loom_proof_language/loom.tex",
+        "H": {
+          "sections": "3.1, 12.1",
+          "lines": [
+            [
+              173,
+              194
+            ],
+            [
+              812,
+              816
+            ]
+          ]
+        },
+        "C": {
+          "sections": "3.2",
+          "lines": [
+            [
+              198,
+              202
+            ]
+          ]
+        },
+        "O": {
+          "sections": "8.1-4",
+          "lines": [
+            [
+              550,
+              615
+            ]
+          ]
+        },
+        "F": {
+          "sections": "3.4, 7.4",
+          "lines": [
+            [
+              212,
+              216
+            ],
+            [
+              526,
+              543
+            ]
+          ]
+        },
+        "R": {
+          "sections": "10.1",
+          "lines": [
+            [
+              737,
+              741
+            ]
+          ]
+        },
+        "E": {
+          "sections": "13.1-2",
+          "lines": [
+            [
+              845,
+              855
+            ]
+          ]
+        }
+      },
+      {
+        "name": "MathStep",
+        "path": "docs/ideas/MathStep/MathStep.tex",
+        "H": {
+          "sections": "18.1",
+          "lines": [
+            [
+              1084,
+              1089
+            ]
+          ]
+        },
+        "C": {
+          "sections": "3.3",
+          "lines": [
+            [
+              243,
+              254
+            ]
+          ]
+        },
+        "O": {
+          "sections": "9.1, 11.3",
+          "lines": [
+            [
+              642,
+              659
+            ],
+            [
+              772,
+              800
+            ]
+          ]
+        },
+        "F": {
+          "sections": "4.2, 14.3",
+          "lines": [
+            [
+              277,
+              282
+            ],
+            [
+              954,
+              977
+            ]
+          ]
+        },
+        "R": {
+          "sections": "15.1-4",
+          "lines": [
+            [
+              988,
+              1030
+            ]
+          ]
+        },
+        "E": {
+          "sections": "19.1-4",
+          "lines": [
+            [
+              1133,
+              1184
+            ]
+          ]
+        }
+      },
+      {
+        "name": "MPL",
+        "path": "docs/ideas/mathematical_proof_language/article.tex",
+        "H": {
+          "sections": "16.1",
+          "lines": [
+            [
+              914,
+              918
+            ]
+          ]
+        },
+        "C": {
+          "sections": "5.2",
+          "lines": [
+            [
+              303,
+              316
+            ]
+          ]
+        },
+        "O": {
+          "sections": "5, 11.3-4",
+          "lines": [
+            [
+              289,
+              334
+            ],
+            [
+              707,
+              740
+            ]
+          ]
+        },
+        "F": {
+          "sections": "12",
+          "lines": [
+            [
+              751,
+              777
+            ]
+          ]
+        },
+        "R": {
+          "sections": "14.4",
+          "lines": [
+            [
+              872,
+              878
+            ]
+          ]
+        },
+        "E": {
+          "sections": "17",
+          "lines": [
+            [
+              964,
+              1018
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Mosaic",
+        "path": "docs/ideas/mosaic_proof_language/mosaic.tex",
+        "H": {
+          "sections": "11.1",
+          "lines": [
+            [
+              661,
+              668
+            ]
+          ]
+        },
+        "C": {
+          "sections": "4.1-2, 5.1",
+          "lines": [
+            [
+              199,
+              209
+            ],
+            [
+              225,
+              244
+            ]
+          ]
+        },
+        "O": {
+          "sections": "9.1, 9.6",
+          "lines": [
+            [
+              535,
+              543
+            ],
+            [
+              594,
+              599
+            ]
+          ]
+        },
+        "F": {
+          "sections": "5.3, 10.4",
+          "lines": [
+            [
+              259,
+              270
+            ],
+            [
+              654,
+              657
+            ]
+          ]
+        },
+        "R": {
+          "sections": "9.5",
+          "lines": [
+            [
+              587,
+              592
+            ]
+          ]
+        },
+        "E": {
+          "sections": "13.2-3",
+          "lines": [
+            [
+              790,
+              806
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Motive",
+        "path": "docs/ideas/motive_proof_language_article/motive.tex",
+        "H": {
+          "sections": "4.2, 10",
+          "lines": [
+            [
+              257,
+              261
+            ],
+            [
+              637,
+              640
+            ]
+          ]
+        },
+        "C": {
+          "sections": "4",
+          "lines": [
+            [
+              233,
+              238
+            ]
+          ]
+        },
+        "O": {
+          "sections": "6.1-3",
+          "lines": [
+            [
+              423,
+              469
+            ]
+          ]
+        },
+        "F": {
+          "sections": "4.2, 9.2",
+          "lines": [
+            [
+              257,
+              261
+            ],
+            [
+              608,
+              612
+            ]
+          ]
+        },
+        "R": {
+          "sections": "9.5",
+          "lines": [
+            [
+              629,
+              633
+            ]
+          ]
+        },
+        "E": {
+          "sections": "11.1-3",
+          "lines": [
+            [
+              692,
+              712
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Outline",
+        "path": "docs/ideas/outline_proof_language/outline_proof_language.tex",
+        "H": {
+          "sections": "5.1, 15.1",
+          "lines": [
+            [
+              255,
+              269
+            ],
+            [
+              905,
+              907
+            ]
+          ]
+        },
+        "C": {
+          "sections": "4.1",
+          "lines": [
+            [
+              218,
+              228
+            ]
+          ]
+        },
+        "O": {
+          "sections": "7.1, 10.1-2",
+          "lines": [
+            [
+              395,
+              404
+            ],
+            [
+              617,
+              658
+            ]
+          ]
+        },
+        "F": {
+          "sections": "4.2",
+          "lines": [
+            [
+              231,
+              235
+            ]
+          ]
+        },
+        "R": {
+          "sections": "12.4-5",
+          "lines": [
+            [
+              779,
+              798
+            ]
+          ]
+        },
+        "E": {
+          "sections": "14.2-3",
+          "lines": [
+            [
+              860,
+              888
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Reason",
+        "path": "docs/ideas/reason_proof_language/reason.tex",
+        "H": {
+          "sections": "16.1",
+          "lines": [
+            [
+              880,
+              884
+            ]
+          ]
+        },
+        "C": {
+          "sections": "3.2",
+          "lines": [
+            [
+              183,
+              192
+            ]
+          ]
+        },
+        "O": {
+          "sections": "3.4, 10",
+          "lines": [
+            [
+              200,
+              218
+            ],
+            [
+              605,
+              615
+            ]
+          ]
+        },
+        "F": {
+          "sections": "11.1",
+          "lines": [
+            [
+              688,
+              694
+            ]
+          ]
+        },
+        "R": {
+          "sections": "13.3",
+          "lines": [
+            [
+              795,
+              810
+            ]
+          ]
+        },
+        "E": {
+          "sections": "17.1-3",
+          "lines": [
+            [
+              919,
+              953
+            ],
+            [
+              255,
+              259
+            ],
+            [
+              369,
+              371
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Spine",
+        "path": "docs/ideas/Spine_Proof_Language/Spine_Proof_Language.tex",
+        "H": {
+          "sections": "15.1",
+          "lines": [
+            [
+              929,
+              934
+            ]
+          ]
+        },
+        "C": {
+          "sections": "3.1",
+          "lines": [
+            [
+              247,
+              252
+            ]
+          ]
+        },
+        "O": {
+          "sections": "7.2-6",
+          "lines": [
+            [
+              538,
+              609
+            ]
+          ]
+        },
+        "F": {
+          "sections": "7.1, 9",
+          "lines": [
+            [
+              531,
+              536
+            ],
+            [
+              647,
+              668
+            ]
+          ]
+        },
+        "R": {
+          "sections": "12.4-7",
+          "lines": [
+            [
+              813,
+              855
+            ]
+          ]
+        },
+        "E": {
+          "sections": "16",
+          "lines": [
+            [
+              965,
+              1017
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "external_documentation": [
+    "https://lean-lang.org/doc/reference/latest/Elaboration-and-Compilation/",
+    "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+    "https://isabelle.in.tum.de/dist/library/Doc/Prog_Prove/Isar.html"
+  ]
+}
