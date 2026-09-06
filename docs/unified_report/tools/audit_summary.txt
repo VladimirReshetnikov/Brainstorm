@@ -1,0 +1,32 @@
+== C:/ProveIt/Analysis/FabiusFunction/Lean/FabiusFunction files 1004 theorems 12322 invocations 90637 term-mode 1300
+  ASSERT     31.7%  (28727)
+  REWRITE    19.5%  (17715)
+  STRUCT     16.4%  (14892)
+  ANALYSIS    7.2%  (6524)
+  REPR        5.2%  (4688)
+  INDEX       4.8%  (4338)
+  NORM        4.4%  (3965)
+  SIDE        4.3%  (3941)
+  CAST        4.0%  (3604)
+  OBLIG       2.5%  (2243)
+  proof lines {'median': 6.0, 'mean': 11.6, 'p90': 27, 'max': 428, 'le3': 3633, 'gt30': 998}
+  inline obligations [('omega', 646), ('positivity', 497), ('linarith', 305), ('exact_mod_cast', 257), ('ring', 159), ('simpa', 85), ('simp', 85), ('norm_num', 67), ('nlinarith', 55), ('decide', 23), ('push_cast', 21), ('fun_prop', 17)]
+  cast lemmas [('smul_eq_mul', 249), ('map_mul', 205), ('map_sub', 140), ('map_one', 137), ('map_add', 108), ('Nat.cast_one', 91), ('zpow_natCast', 88), ('map_sum', 84), ('map_natCast', 77), ('Nat.cast_sub', 69), ('Nat.cast_zero', 66), ('map_pow', 65)]
+  class bigrams [[['ASSERT', 'ASSERT'], 11249], [['ASSERT', 'REWRITE'], 5677], [['REWRITE', 'ASSERT'], 3629], [['STRUCT', 'STRUCT'], 3306], [['STRUCT', 'ASSERT'], 3230], [['ASSERT', 'STRUCT'], 3000], [['REWRITE', 'STRUCT'], 2752], [['STRUCT', 'REWRITE'], 2487], [['REWRITE', 'REWRITE'], 2414], [['ASSERT', 'ANALYSIS'], 2182]]
+  head bigrams [[['have', 'have'], 8111], [['have', 'rw'], 5486], [['rw', 'have'], 2702], [['rw', 'exact'], 2648], [['rw', 'rw'], 1874], [['exact', 'have'], 1430], [['rw', 'ring'], 1283], [['rw', 'simp'], 1209], [['apply', 'intro'], 1137], [['calc', 'calc_step'], 1104], [['have', 'intro'], 1025], [['have', 'simpa'], 1012]]
+== sampled-by-reports files 23 theorems 274 invocations 1329 term-mode 45
+  ASSERT     27.0%  (359)
+  REWRITE    20.8%  (277)
+  STRUCT     18.1%  (240)
+  INDEX       7.1%  (94)
+  SIDE        6.2%  (82)
+  CAST        5.9%  (78)
+  REPR        5.6%  (74)
+  NORM        3.5%  (47)
+  OBLIG       3.0%  (40)
+  ANALYSIS    2.9%  (38)
+  proof lines {'median': 4.0, 'mean': 7.3, 'p90': 15, 'max': 71, 'le3': 118, 'gt30': 10}
+  inline obligations [('omega', 16), ('positivity', 10), ('linarith', 6), ('nlinarith', 4), ('norm_num', 1), ('ring', 1), ('simp', 1), ('exact_mod_cast', 1)]
+  cast lemmas [('map_mul', 6), ('smul_eq_mul', 5), ('map_natCast', 4), ('thueMorsePowerSumRing_intCast', 4), ('Nat.cast_sub', 3), ('map_add', 3), ('Algebra.algebraMap_self', 3), ('Nat.cast_add', 3), ('coe_substAlgHom', 2), ('map_one', 2), ('map_sub', 2), ('algebraMap', 2)]
+  class bigrams [[['ASSERT', 'ASSERT'], 133], [['ASSERT', 'REWRITE'], 75], [['STRUCT', 'STRUCT'], 50], [['REWRITE', 'STRUCT'], 45], [['REWRITE', 'REWRITE'], 38], [['REWRITE', 'ASSERT'], 35], [['STRUCT', 'ASSERT'], 34], [['STRUCT', 'REWRITE'], 32], [['ASSERT', 'STRUCT'], 30], [['ASSERT', 'SIDE'], 25]]
+  head bigrams [[['have', 'have'], 106], [['have', 'rw'], 87], [['rw', 'exact'], 35], [['rw', 'have'], 34], [['rw', 'simp'], 34], [['rw', 'rw'], 29], [['simp', 'rw'], 25], [['exact', 'have'], 24], [['intro', 'exact'], 21], [['apply', 'intro'], 20], [['rw', 'ring'], 15], [['have', 'simp'], 14]]
