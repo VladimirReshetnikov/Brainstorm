@@ -1,0 +1,119 @@
+{
+  "scope": "Source/companion review and exact Python reproduction only; no Lean, Leant, Git mutation, or PDF builds.",
+  "python_version": "3.14.4",
+  "bytecode_disabled": true,
+  "reported_counts": {
+    "noema_tests": 25,
+    "prism_finite_checks": 2475,
+    "vantage_finite_checks": 3013
+  },
+  "comparison_differences": {
+    "noema": {
+      "python_version": {
+        "delivered": "3.13.5",
+        "reproduced": "3.14.4"
+      }
+    },
+    "prism": {},
+    "vantage": {},
+    "prism-certificates": {}
+  },
+  "input_files": [
+    {
+      "path": "docs/round-2/ideas/noema/build.sh",
+      "sha256": "6b770ec80501158f453e7b970a2e36d630230758943bf47904d5b1ad07d7aea2"
+    },
+    {
+      "path": "docs/round-2/ideas/noema/certificate_demo.py",
+      "sha256": "e570749bd1cfce50fe8f7080571c81a7b661133d74540353147efa17559cf92c"
+    },
+    {
+      "path": "docs/round-2/ideas/noema/experiment-results.json",
+      "sha256": "9a04bfce91c490d4cdd600ece03f56e9e49e271b132e34dc3b17a3f08355e0c5"
+    },
+    {
+      "path": "docs/round-2/ideas/noema/noema.pdf",
+      "sha256": "d3435a748b5b0cfa482a9280acc1e0d026b88013cc1ee33ae0e107be01fe070e"
+    },
+    {
+      "path": "docs/round-2/ideas/noema/noema.tex",
+      "sha256": "85767e08fe37bca4352095c6307be173bb41d1a6c35fe49580a3af7afab4cdec"
+    },
+    {
+      "path": "docs/round-2/ideas/noema/README.md",
+      "sha256": "be03d351e420597de95fef40c265b98921e50090f236369995a4f26d3ae24545"
+    },
+    {
+      "path": "docs/round-2/ideas/noema/source-register.json",
+      "sha256": "6ace7f5dff0d9d09091094f6ca5d6d0a39797d4411738a52363f138e912850ea"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/evidence/source-register.json",
+      "sha256": "979b446e45dd4e0ece7fec2dc740597bb5f2a9689af36ec0cab1729e63dbda07"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/evidence/validation.json",
+      "sha256": "2f67d45ba0ddf5cbd7ab4427c9cd5b6a5892f58228bbf559bf3327c512831e15"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/experiments/certificates.json",
+      "sha256": "a434227eedd8a5ac85462fa2173345bafca80ed91cfc1eddf8f14fce91f49fe0"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/experiments/exact_experiments.py",
+      "sha256": "de65663257b16776c7663d8e22dc9dc01222a666583d51b174f31596f8902a96"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/experiments/results.json",
+      "sha256": "28f1d1e0a0963c11d4547bae7c9645fbc4f03788aa0ab7867e8f4d2496508e96"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/prism.pdf",
+      "sha256": "bd1139f72e0610ed30032ca6450633b725c794f4f4739ee1966c1480d5e1fc42"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/prism.tex",
+      "sha256": "97e6c0fba9994912d7c4ce605f0e14d9f97e7b9f300ee7e5de72aba8f0aef054"
+    },
+    {
+      "path": "docs/round-2/ideas/prism/README.md",
+      "sha256": "35b5ba6660397ada8357e87be216c1765c489e1d4ac70c3a61a46c1ccdd1639f"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/build-report.json",
+      "sha256": "26bf8b5f161d8ce19135edaaa52165f9be53f547e97a94f3c4f8503ce8d2f7ab"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/build.ps1",
+      "sha256": "b8f7c18554753620d3fcafee75575507c47ce8bcb67d713c22b0daeaaf789aed"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/build.sh",
+      "sha256": "c423b207042551ec8591b03ff2e8df797fc8bf2733494863f99825759247175a"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/README.md",
+      "sha256": "7606ce1fe469f955ea2c739f6707041ab49dd2299558f20b9d4a9042747c5e63"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/reference-checks.json",
+      "sha256": "0ef2315d73d05a64e4ea97f71f68c87f8a5e8047f210f48c7edadde0382d7bb6"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/reference_checks.py",
+      "sha256": "54d70bd48fedd1544b095a7909c9bbab61583046234196dbfd95c4cbb3a08147"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/source_manifest.json",
+      "sha256": "fa28f2b7c1defeeb9060442d6b6a64128514b2e2c008826732e5e8ecb54838bf"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/vantage.pdf",
+      "sha256": "ba3d3da45298105ba0f98c1bf1d6b63725f033740e37738863248232f13bf344"
+    },
+    {
+      "path": "docs/round-2/ideas/vantage/vantage.tex",
+      "sha256": "16002b6f0d2745c21c84bf3f299ca247cc0f678b87b56c9fcd5176e0e35c0771"
+    }
+  ]
+}

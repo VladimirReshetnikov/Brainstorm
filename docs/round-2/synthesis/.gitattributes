@@ -1,0 +1,4 @@
+# Preserve the exact bytes bound by the source, build, and execution receipts.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Captured evidence keeps the whitespace emitted by the original tools.
+evidence/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol

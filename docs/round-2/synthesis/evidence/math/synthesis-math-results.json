@@ -1,0 +1,111 @@
+{
+  "status": "all_finite_sanity_checks_passed",
+  "groups": [
+    {
+      "name": "telescoping_range",
+      "status": "passed",
+      "counterexample": {
+        "a": 3,
+        "b": 1,
+        "sum": 0,
+        "rhs": -1
+      },
+      "ordered_positive_cases": 36,
+      "scope": "Finite checks; a <= b is a sufficient contract, with empty ranges handled separately."
+    },
+    {
+      "name": "nonunit_residual_z4",
+      "status": "passed",
+      "ring": "Z/4",
+      "F": "2Y",
+      "Delta": [
+        0,
+        0
+      ],
+      "J": [
+        0,
+        2
+      ],
+      "N": 2,
+      "residual": [
+        0,
+        0
+      ],
+      "derivative_constant": 2,
+      "scope": "Concrete counterexample to replacing unit derivative by nonzero derivative."
+    },
+    {
+      "name": "differentiation_precision",
+      "status": "passed",
+      "orders": [
+        1,
+        12
+      ],
+      "input": "t^N versus 0 over Q",
+      "scope": "12 concrete counterexamples; not a formal proof of the general precision rule."
+    },
+    {
+      "name": "ideal_membership_reflection",
+      "status": "passed",
+      "generator_Zx": [
+        "0",
+        "2"
+      ],
+      "target_Zx": [
+        "0",
+        "1"
+      ],
+      "multiplier_Qx": [
+        "1/2"
+      ],
+      "obstruction": "Every coefficient of (2x)q in Z[x] is even; the target x has coefficient 1.",
+      "scope": "Exact witness and modular data; the coefficient argument is supplied as mathematics, not machine formalization."
+    },
+    {
+      "name": "locus_coefficients",
+      "status": "passed",
+      "coefficients_degrees_1_to_5": [
+        "4/9",
+        "-64/81",
+        "2048/729",
+        "-81920/6561",
+        "3670016/59049"
+      ],
+      "precision": 6,
+      "first_nonzero_residual_degree": 6,
+      "first_nonzero_residual_coefficient": "58720256/177147",
+      "scope": "Five coefficients and their exact residual; no universal existence/uniqueness or analytic claim."
+    },
+    {
+      "name": "lambert_shifted_index",
+      "status": "passed",
+      "polynomials_P0_to_P3": [
+        [
+          "1"
+        ],
+        [
+          "-2",
+          "-1"
+        ],
+        [
+          "9",
+          "8",
+          "2"
+        ],
+        [
+          "-64",
+          "-79",
+          "-36",
+          "-6"
+        ]
+      ],
+      "index_relation": "Synthesis P_n equals Prism's P_(n+1)",
+      "cross_multiplied_steps": 3,
+      "scope": "Finite exact polynomial identities only; not analytic derivative existence or a universal-index proof."
+    }
+  ],
+  "group_count": 6,
+  "python_version": "3.14.4",
+  "script_sha256": "51ba632725ebb68054fe29b3b9fb8acfeb9d1219fed1fd59be19e6f4e554d779",
+  "scope": "Finite exact arithmetic and concrete counterexamples only. No Lean, Leant, compiler, verified checker, or usability claim."
+}

@@ -1,0 +1,723 @@
+{
+  "scope": "Source-stated design commitments in these three reports only; not implementation evidence, independent empirical confirmation, or nine-report consensus.",
+  "source_base": "docs/round-2/ideas/{lowercase report}/{lowercase report}.tex",
+  "source_checkout": "f333ff6cefc8b1f5c9aae79613d10ef95a7ba928",
+  "feature_definitions": {
+    "R": "computation result states exact relation/guarantee",
+    "O": "fixed mathematical objects with certified representations/observations",
+    "G": "scoped guards and composition without silently strengthening meaning",
+    "V": "verified algorithm/checker distinguished from actual trusted execution and reification",
+    "D": "ordinary theorem/definition packages with separate operational policy",
+    "L": "provider exact target, displayed edit replay, honest negative outcomes",
+    "P": "retained evidence/replay publication boundary",
+    "E": "equally equipped Lean baselines, negative neighbors, measurable stopping criteria"
+  },
+  "rows": [
+    {
+      "report": "Accord",
+      "feature": "R",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "6.1",
+          "tex_lines": [
+            519,
+            549
+          ]
+        },
+        {
+          "section": "6.2",
+          "tex_lines": [
+            551,
+            574
+          ]
+        }
+      ],
+      "note": "Mathematical answer kind and validation state are independent; consumers require the exact Spec.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Accord",
+      "feature": "O",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.1",
+          "tex_lines": [
+            409,
+            420
+          ]
+        },
+        {
+          "section": "5.2",
+          "tex_lines": [
+            422,
+            447
+          ]
+        },
+        {
+          "section": "5.5",
+          "tex_lines": [
+            500,
+            515
+          ]
+        }
+      ],
+      "note": "Ordinary semantic definitions, relational representations, observation-specific transport and coherence.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Accord",
+      "feature": "G",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "8.1",
+          "tex_lines": [
+            775,
+            788
+          ]
+        },
+        {
+          "section": "8.2",
+          "tex_lines": [
+            794,
+            826
+          ]
+        },
+        {
+          "section": "8.3",
+          "tex_lines": [
+            828,
+            839
+          ]
+        }
+      ],
+      "note": "Ordered guards, explicit relational composition, no promotion of generated guards to public assumptions.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Accord",
+      "feature": "V",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "7.1",
+          "tex_lines": [
+            612,
+            648
+          ]
+        },
+        {
+          "section": "7.2",
+          "tex_lines": [
+            650,
+            666
+          ]
+        }
+      ],
+      "note": "Algorithm soundness and concrete execution linkage are separate; original-expression reification must be justified.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Accord",
+      "feature": "D",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.1",
+          "tex_lines": [
+            409,
+            420
+          ]
+        },
+        {
+          "section": "14.1",
+          "tex_lines": [
+            1410,
+            1426
+          ]
+        }
+      ],
+      "note": "Ordinary definitions and wrapper theorems, maintained semantic roles, separately versioned operational policy.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Accord",
+      "feature": "L",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "13.2",
+          "tex_lines": [
+            1319,
+            1346
+          ]
+        },
+        {
+          "section": "13.4",
+          "tex_lines": [
+            1373,
+            1393
+          ]
+        },
+        {
+          "section": "13.5",
+          "tex_lines": [
+            1395,
+            1406
+          ]
+        }
+      ],
+      "note": "Exact host-owned context and target; displayed edit replay; exhaustion is not mathematical refutation.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Accord",
+      "feature": "P",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "14.3",
+          "tex_lines": [
+            1448,
+            1463
+          ]
+        },
+        {
+          "section": "14.4",
+          "tex_lines": [
+            1465,
+            1482
+          ]
+        }
+      ],
+      "note": "Five publication checks including display guarantee; retained evidence and defined replay.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Accord",
+      "feature": "E",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "17.1",
+          "tex_lines": [
+            1588,
+            1600
+          ]
+        },
+        {
+          "section": "17.3",
+          "tex_lines": [
+            1621,
+            1637
+          ]
+        },
+        {
+          "section": "17.4",
+          "tex_lines": [
+            1639,
+            1659
+          ]
+        },
+        {
+          "section": "17.5",
+          "tex_lines": [
+            1661,
+            1673
+          ]
+        }
+      ],
+      "note": "Three equally equipped treatments, nearby invalid cases, actual costs and stopping rules.",
+      "qualification": "Qualitative go/no-go rules and measurable outcomes, not measured numerical thresholds."
+    },
+    {
+      "report": "Cadence",
+      "feature": "R",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "2.3",
+          "tex_lines": [
+            286,
+            301
+          ]
+        },
+        {
+          "section": "4.1",
+          "tex_lines": [
+            403,
+            432
+          ]
+        }
+      ],
+      "note": "Result relation and evidence mechanism are orthogonal; exact dependent relation checked.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Cadence",
+      "feature": "O",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.1",
+          "tex_lines": [
+            507,
+            543
+          ]
+        },
+        {
+          "section": "5.4",
+          "tex_lines": [
+            583,
+            614
+          ]
+        }
+      ],
+      "note": "Stable semantic anchor and observation-bounded representation coherence; accepted routes persist.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Cadence",
+      "feature": "G",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "4.2",
+          "tex_lines": [
+            434,
+            449
+          ]
+        },
+        {
+          "section": "4.3",
+          "tex_lines": [
+            451,
+            466
+          ]
+        },
+        {
+          "section": "7.3",
+          "tex_lines": [
+            846,
+            872
+          ]
+        },
+        {
+          "section": "13.2",
+          "tex_lines": [
+            1436,
+            1447
+          ]
+        }
+      ],
+      "note": "Conditional facts stay guarded; composition and parameter specialization need their actual relation theorem.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Cadence",
+      "feature": "V",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "6.2",
+          "tex_lines": [
+            653,
+            677
+          ]
+        },
+        {
+          "section": "6.3",
+          "tex_lines": [
+            679,
+            690
+          ]
+        },
+        {
+          "section": "12.2",
+          "tex_lines": [
+            1325,
+            1341
+          ]
+        }
+      ],
+      "note": "Concrete output must be linked to proved algorithm; optimized representations require checked refinement/certificates and exact host target.",
+      "qualification": "Explicit execution and refinement boundary; less detailed syntax-reification treatment than Accord §7.2."
+    },
+    {
+      "report": "Cadence",
+      "feature": "D",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.1",
+          "tex_lines": [
+            507,
+            529
+          ]
+        },
+        {
+          "section": "5.5",
+          "tex_lines": [
+            622,
+            632
+          ]
+        },
+        {
+          "section": "4.4",
+          "tex_lines": [
+            468,
+            491
+          ]
+        }
+      ],
+      "note": "Ordinary definitions/wrappers plus separately versioned lexical operational policy, without one universal method calculus.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Cadence",
+      "feature": "L",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "12.2",
+          "tex_lines": [
+            1325,
+            1341
+          ]
+        },
+        {
+          "section": "12.3",
+          "tex_lines": [
+            1343,
+            1367
+          ]
+        },
+        {
+          "section": "12.4",
+          "tex_lines": [
+            1369,
+            1395
+          ]
+        }
+      ],
+      "note": "Exact original context and target; four edit/completion states; negative evidence requires checked bridge.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Cadence",
+      "feature": "P",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "14.1",
+          "tex_lines": [
+            1491,
+            1510
+          ]
+        },
+        {
+          "section": "14.2",
+          "tex_lines": [
+            1512,
+            1530
+          ]
+        }
+      ],
+      "note": "Retains exact evidence, all formal assertion nodes, dependency and axiom closure; discovery-free checking can compute.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Cadence",
+      "feature": "E",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "16.1",
+          "tex_lines": [
+            1611,
+            1630
+          ]
+        },
+        {
+          "section": "16.2",
+          "tex_lines": [
+            1632,
+            1653
+          ]
+        },
+        {
+          "section": "16.3",
+          "tex_lines": [
+            1655,
+            1695
+          ]
+        },
+        {
+          "section": "16.4",
+          "tex_lines": [
+            1697,
+            1709
+          ]
+        }
+      ],
+      "note": "Same-assets three-way experiment, paired positives/negatives, infrastructure costs and no-new-syntax stopping rule.",
+      "qualification": "Numerical usability thresholds explicitly deferred until a pilot; semantic requirements are hard gates."
+    },
+    {
+      "report": "Concord",
+      "feature": "R",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "4.1",
+          "tex_lines": [
+            252,
+            280
+          ]
+        },
+        {
+          "section": "4.4",
+          "tex_lines": [
+            311,
+            318
+          ]
+        }
+      ],
+      "note": "Dependent contracted query output and exact specification; status vector distinguishes strength from validation.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Concord",
+      "feature": "O",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "6.1",
+          "tex_lines": [
+            393,
+            398
+          ]
+        },
+        {
+          "section": "6.2",
+          "tex_lines": [
+            400,
+            413
+          ]
+        },
+        {
+          "section": "6.5",
+          "tex_lines": [
+            447,
+            452
+          ]
+        }
+      ],
+      "note": "Original objects with observation-indexed certified views; stable accepted data and closed observation interface.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Concord",
+      "feature": "G",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "4.2",
+          "tex_lines": [
+            283,
+            296
+          ]
+        },
+        {
+          "section": "6.3",
+          "tex_lines": [
+            415,
+            429
+          ]
+        },
+        {
+          "section": "14.4",
+          "tex_lines": [
+            909,
+            914
+          ]
+        }
+      ],
+      "note": "Ordered dependent pending telescope and guarded composition at retained intermediate object; scope and conventions remain explicit.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Concord",
+      "feature": "V",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.1",
+          "tex_lines": [
+            322,
+            344
+          ]
+        },
+        {
+          "section": "5.2",
+          "tex_lines": [
+            346,
+            356
+          ]
+        },
+        {
+          "section": "5.3",
+          "tex_lines": [
+            358,
+            372
+          ]
+        }
+      ],
+      "note": "Algorithm, implementation/refinement, concrete run, reification and exact original query checking distinguished.",
+      "qualification": "Reification is explicitly in architecture; detailed syntax bridge remains an implementation obligation."
+    },
+    {
+      "report": "Concord",
+      "feature": "D",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "4.3",
+          "tex_lines": [
+            298,
+            309
+          ]
+        },
+        {
+          "section": "6.1",
+          "tex_lines": [
+            393,
+            398
+          ]
+        },
+        {
+          "section": "14.3",
+          "tex_lines": [
+            887,
+            907
+          ]
+        }
+      ],
+      "note": "Ordinary theorem wrappers with separate policy versions; definition templates must earn constructions and bridge proofs.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Concord",
+      "feature": "L",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "12.1",
+          "tex_lines": [
+            800,
+            805
+          ]
+        },
+        {
+          "section": "12.3",
+          "tex_lines": [
+            830,
+            835
+          ]
+        },
+        {
+          "section": "13.2",
+          "tex_lines": [
+            855,
+            862
+          ]
+        },
+        {
+          "section": "13.3",
+          "tex_lines": [
+            864,
+            869
+          ]
+        }
+      ],
+      "note": "Exact closed request, independent displayed edit replay, nonderivability/negation/counterexample separation.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Concord",
+      "feature": "P",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "15.1",
+          "tex_lines": [
+            918,
+            923
+          ]
+        },
+        {
+          "section": "15.2",
+          "tex_lines": [
+            925,
+            928
+          ]
+        },
+        {
+          "section": "15.3",
+          "tex_lines": [
+            930,
+            935
+          ]
+        }
+      ],
+      "note": "Exact chosen data, terms/certificates, assertion map and versions; explicit search-free vs term-only replay profiles.",
+      "qualification": "Design commitment; not implemented."
+    },
+    {
+      "report": "Concord",
+      "feature": "E",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "17.1",
+          "tex_lines": [
+            960,
+            977
+          ]
+        },
+        {
+          "section": "17.2",
+          "tex_lines": [
+            979,
+            988
+          ]
+        },
+        {
+          "section": "17.3",
+          "tex_lines": [
+            990,
+            1011
+          ]
+        },
+        {
+          "section": "17.4",
+          "tex_lines": [
+            1013,
+            1018
+          ]
+        },
+        {
+          "section": "17.5",
+          "tex_lines": [
+            1020,
+            1023
+          ]
+        }
+      ],
+      "note": "Same-assets three-way baseline; held-out positive/negative/edited tasks; cost, comprehension and stopping rules.",
+      "qualification": "Numerical thresholds depend on pilot; demand-tracking and method-conformance ablations specifically permitted."
+    }
+  ]
+}

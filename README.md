@@ -1,19 +1,29 @@
 # Brainstorm: mathematical proof-language design
 
-The independent proposals in [`docs/ideas`](docs/ideas) explore ways to express
-mathematics more concisely and naturally while retaining rigorous verification.
+The independent proposals explore ways to express mathematics more concisely
+and naturally while retaining rigorous verification.
 
-The [unified report](docs/synthesis/unified-report.pdf) compares all nine proposals,
-evaluates their common design and unresolved choices, reviews Leant's implemented
-term synthesis and tactic suggestions, and proposes questions and experiments for
-the next iteration. Its [TeX source](docs/synthesis/unified-report.tex),
-[source crosswalk](docs/synthesis/convergence.json), and
-[build and evidence notes](docs/synthesis/README.md) are included.
+The latest [unified report: Mathematical Objects, Certified Computation](docs/round-2/synthesis/unified-report.pdf)
+is a self-contained synthesis of the nine [round-2 proposals](docs/round-2/ideas):
+Accord, Cadence, Concord, Facet, Locus, Meridian, Noema, Prism, and Vantage.
+It evaluates their shared architecture, mathematical contracts, distinctive
+contributions, implementation limits, and questions for the next iteration.
+It includes reproduced Python companions and focused Lean checks, with precise
+boundaries between design proposals, finite computations, and kernel evidence.
 
-The report incorporates selected ideas from Claude's secondary synthesis,
-including theorem-based method interfaces, explicit statement conventions, and
-definition design, with a qualified assessment of its reproducible corpus tally.
+The [TeX source](docs/round-2/synthesis/unified-report.tex),
+[72-cell convergence crosswalk](docs/round-2/synthesis/convergence.json),
+[source register](docs/round-2/synthesis/source-register.json), and
+[build and evidence notes](docs/round-2/synthesis/README.md) accompany the PDF.
 
-The nine inputs are Contour, Loom, MathStep, Mathematical Intent / MPL, Mosaic,
-Motive, Outline, Reason, and Spine. Their original report packages remain under
-`docs/ideas`.
+Round 1 remains available:
+
+- [Original nine proposals](docs/round-1/ideas): Contour, Loom, MathStep,
+  Mathematical Intent / MPL, Mosaic, Motive, Outline, Reason, and Spine.
+- [Codex synthesis](docs/round-1/synthesis/unified-report.pdf), including the
+  original Leant term-synthesis and tactic-suggestion source review.
+- [Claude synthesis](docs/round-1/unified_report/unified_report.pdf), including
+  the additional Leant study and discussion questions.
+
+The round-2 report explains the relevant earlier concepts directly; reading
+either round-1 synthesis is optional.

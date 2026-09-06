@@ -1,0 +1,856 @@
+{
+  "scope": "Source-stated design commitments in these three reports only; not implementation evidence, independent empirical confirmation, or nine-report consensus.",
+  "source_base": "docs/round-2/ideas/{lowercase report}/{lowercase report}.tex",
+  "source_checkout": "f333ff6cefc8b1f5c9aae79613d10ef95a7ba928",
+  "feature_definitions": {
+    "R": "computation result states exact relation/guarantee",
+    "O": "fixed mathematical objects with certified representations/observations",
+    "G": "scoped guards and composition without silently strengthening meaning",
+    "V": "verified algorithm/checker distinguished from actual trusted execution and reification",
+    "D": "ordinary theorem/definition packages with separate operational policy",
+    "L": "provider exact target, displayed edit replay, honest negative outcomes",
+    "P": "retained evidence/replay publication boundary",
+    "E": "equally equipped Lean baselines, negative neighbors, measurable stopping criteria"
+  },
+  "rows": [
+    {
+      "report": "Noema",
+      "feature": "R",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "3.1",
+          "tex_lines": [
+            155,
+            173
+          ]
+        },
+        {
+          "section": "4.1",
+          "tex_lines": [
+            207,
+            222
+          ]
+        }
+      ],
+      "note": "Claims, transformations and constructions fix different result specifications; local equality, jets and enclosures are not global equality.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Noema",
+      "feature": "O",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "7.1",
+          "tex_lines": [
+            401,
+            408
+          ]
+        },
+        {
+          "section": "7.2",
+          "tex_lines": [
+            410,
+            424
+          ]
+        },
+        {
+          "section": "7.3",
+          "tex_lines": [
+            426,
+            431
+          ]
+        }
+      ],
+      "note": "Definition packages retain the mathematical object; arbitrary series, canonical constructions and finite jets have separate certified relationships.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Noema",
+      "feature": "G",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.1",
+          "tex_lines": [
+            268,
+            287
+          ]
+        },
+        {
+          "section": "5.2",
+          "tex_lines": [
+            289,
+            294
+          ]
+        },
+        {
+          "section": "5.3",
+          "tex_lines": [
+            296,
+            316
+          ]
+        },
+        {
+          "section": "5.4",
+          "tex_lines": [
+            318,
+            331
+          ]
+        }
+      ],
+      "note": "Conditional results retain sufficient guards; dependent stages bind the actual intermediate object before later guards; no silent hypothesis strengthening.",
+      "qualification": "Proposed dependent guard calculus. The Python experiment implements only a narrow request-bound rational-polynomial guard model, not dependent Lean contexts."
+    },
+    {
+      "report": "Noema",
+      "feature": "V",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "6.1",
+          "tex_lines": [
+            334,
+            337
+          ]
+        },
+        {
+          "section": "6.2",
+          "tex_lines": [
+            339,
+            350
+          ]
+        },
+        {
+          "section": "6.3",
+          "tex_lines": [
+            352,
+            367
+          ]
+        },
+        {
+          "section": "6.4",
+          "tex_lines": [
+            369,
+            374
+          ]
+        }
+      ],
+      "note": "Algorithm correctness, justified concrete execution, checker soundness and original-expression reification are separate obligations.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Noema",
+      "feature": "D",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "7.1",
+          "tex_lines": [
+            401,
+            408
+          ]
+        },
+        {
+          "section": "7.2",
+          "tex_lines": [
+            410,
+            424
+          ]
+        },
+        {
+          "section": "7.5",
+          "tex_lines": [
+            454,
+            459
+          ]
+        },
+        {
+          "section": "8.2",
+          "tex_lines": [
+            489,
+            494
+          ]
+        }
+      ],
+      "note": "Ordinary definitions and theorem wrappers supply logic; stable project role IDs and search/display policy are separately maintained.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Noema",
+      "feature": "L",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "8.4",
+          "tex_lines": [
+            503,
+            522
+          ]
+        },
+        {
+          "section": "8.5",
+          "tex_lines": [
+            524,
+            527
+          ]
+        },
+        {
+          "section": "8.6",
+          "tex_lines": [
+            529,
+            534
+          ]
+        }
+      ],
+      "note": "Lean owns exact targets and origins; displayed edits require same-origin replay; refutation requires checked original-target evidence or proved adequacy and certificate.",
+      "qualification": "Protocol is proposed. Python tests origin/revision/scope labels for polynomial requests, not a live Leant adapter or exact-source replay."
+    },
+    {
+      "report": "Noema",
+      "feature": "P",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "10.1",
+          "tex_lines": [
+            733,
+            740
+          ]
+        },
+        {
+          "section": "10.3",
+          "tex_lines": [
+            749,
+            754
+          ]
+        },
+        {
+          "section": "10.4",
+          "tex_lines": [
+            756,
+            761
+          ]
+        }
+      ],
+      "note": "Every formal assertion is checked; retained terms or certificates certify a pinned environment; discovery-free replay differs from saved tactic execution.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Noema",
+      "feature": "E",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "11.2",
+          "tex_lines": [
+            780,
+            789
+          ]
+        },
+        {
+          "section": "11.3",
+          "tex_lines": [
+            791,
+            796
+          ]
+        },
+        {
+          "section": "11.4",
+          "tex_lines": [
+            798,
+            823
+          ]
+        },
+        {
+          "section": "11.5",
+          "tex_lines": [
+            825,
+            828
+          ]
+        }
+      ],
+      "note": "Three equally equipped frontend/library treatments, negative neighbors, cost and reader measures, and library/renderer stopping alternatives.",
+      "qualification": "Evaluation design, not measured usability. Only the 25-test exact-arithmetic companion was executed and reproduced."
+    },
+    {
+      "report": "Prism",
+      "feature": "R",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "4.1",
+          "tex_lines": [
+            235,
+            246
+          ]
+        },
+        {
+          "section": "4.2",
+          "tex_lines": [
+            248,
+            264
+          ]
+        },
+        {
+          "section": "4.3",
+          "tex_lines": [
+            266,
+            284
+          ]
+        }
+      ],
+      "note": "Answer(q) pairs a result with its exact Claim; derivative existence, complete solutions, conditional answers, jets and bounds remain distinct.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Prism",
+      "feature": "O",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.1",
+          "tex_lines": [
+            292,
+            299
+          ]
+        },
+        {
+          "section": "5.2",
+          "tex_lines": [
+            301,
+            309
+          ]
+        },
+        {
+          "section": "5.3",
+          "tex_lines": [
+            311,
+            326
+          ]
+        },
+        {
+          "section": "5.4",
+          "tex_lines": [
+            328,
+            331
+          ]
+        }
+      ],
+      "note": "General representation relation anchored to a fixed semantic witness; exact observations justify coherence; representation-dependent clients require invalidation.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Prism",
+      "feature": "G",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "4.3",
+          "tex_lines": [
+            266,
+            284
+          ]
+        },
+        {
+          "section": "6.1",
+          "tex_lines": [
+            341,
+            358
+          ]
+        },
+        {
+          "section": "6.2",
+          "tex_lines": [
+            360,
+            379
+          ]
+        },
+        {
+          "section": "6.4",
+          "tex_lines": [
+            390,
+            393
+          ]
+        }
+      ],
+      "note": "Ordered dependent guards preserve intermediate values, scope and Nat arithmetic semantics; conditional results do not strengthen public targets.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Prism",
+      "feature": "V",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "7.1",
+          "tex_lines": [
+            396,
+            409
+          ]
+        },
+        {
+          "section": "7.2",
+          "tex_lines": [
+            411,
+            418
+          ]
+        }
+      ],
+      "note": "Verified algorithms and certificate producers share a claim boundary; reification, justified execution and reconstruction at the original target are explicit.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Prism",
+      "feature": "D",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "10.2",
+          "tex_lines": [
+            640,
+            653
+          ]
+        },
+        {
+          "section": "13.1",
+          "tex_lines": [
+            811,
+            816
+          ]
+        },
+        {
+          "section": "13.2",
+          "tex_lines": [
+            818,
+            825
+          ]
+        },
+        {
+          "section": "15.4",
+          "tex_lines": [
+            930,
+            934
+          ]
+        }
+      ],
+      "note": "Ordinary definition laws and stable wrapper schemas provide logical interfaces; operational policy and structural/computational mechanisms remain separate.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Prism",
+      "feature": "L",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "6.3",
+          "tex_lines": [
+            381,
+            388
+          ]
+        },
+        {
+          "section": "14.2",
+          "tex_lines": [
+            863,
+            883
+          ]
+        },
+        {
+          "section": "14.3",
+          "tex_lines": [
+            885,
+            894
+          ]
+        },
+        {
+          "section": "14.4",
+          "tex_lines": [
+            896,
+            901
+          ]
+        },
+        {
+          "section": "14.5",
+          "tex_lines": [
+            903,
+            906
+          ]
+        }
+      ],
+      "note": "Host-owned exact targets and opaque handles; distinct claim/document/displayed-edit receipts; directional negative transfer rather than exhaustion as negation.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Prism",
+      "feature": "P",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "15.3",
+          "tex_lines": [
+            923,
+            928
+          ]
+        },
+        {
+          "section": "16.1",
+          "tex_lines": [
+            936,
+            939
+          ]
+        },
+        {
+          "section": "16.2",
+          "tex_lines": [
+            941,
+            956
+          ]
+        },
+        {
+          "section": "16.3",
+          "tex_lines": [
+            958,
+            963
+          ]
+        }
+      ],
+      "note": "All authored assertions and constrained method trees; source, certificate and retained-term replay are named separately; upgrades produce new checked evidence.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Prism",
+      "feature": "E",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "18.1",
+          "tex_lines": [
+            1023,
+            1026
+          ]
+        },
+        {
+          "section": "18.2",
+          "tex_lines": [
+            1028,
+            1033
+          ]
+        },
+        {
+          "section": "18.3",
+          "tex_lines": [
+            1035,
+            1038
+          ]
+        },
+        {
+          "section": "18.4",
+          "tex_lines": [
+            1040,
+            1043
+          ]
+        },
+        {
+          "section": "C",
+          "tex_lines": [
+            1140,
+            1169
+          ]
+        }
+      ],
+      "note": "Equally equipped Lean is decisive; measure package/provider/surface effects, reader tasks and repair; publish negative neighbors and component stopping rules.",
+      "qualification": "Evaluation remains proposed; 2475 finite arithmetic checks are reproduced, not frontend, Lean or Leant integration tests."
+    },
+    {
+      "report": "Vantage",
+      "feature": "R",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "7.1",
+          "tex_lines": [
+            894,
+            910
+          ]
+        },
+        {
+          "section": "7.5",
+          "tex_lines": [
+            989,
+            1015
+          ]
+        },
+        {
+          "section": "7.6",
+          "tex_lines": [
+            1017,
+            1028
+          ]
+        }
+      ],
+      "note": "Queries specify exact relations; Exact, Conditional, Covered and Enclosure outputs differ; complete solutions require exceptional-branch coverage.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Vantage",
+      "feature": "O",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "3.1",
+          "tex_lines": [
+            352,
+            367
+          ]
+        },
+        {
+          "section": "3.2",
+          "tex_lines": [
+            369,
+            391
+          ]
+        },
+        {
+          "section": "3.3",
+          "tex_lines": [
+            393,
+            420
+          ]
+        },
+        {
+          "section": "5.1",
+          "tex_lines": [
+            620,
+            653
+          ]
+        }
+      ],
+      "note": "Functional exact presentations are separated from restricted observations and abstractions; same-anchor coherence preserves semantic observations, not arbitrary representation details.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Vantage",
+      "feature": "G",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "3.4",
+          "tex_lines": [
+            422,
+            440
+          ]
+        },
+        {
+          "section": "5.2",
+          "tex_lines": [
+            655,
+            678
+          ]
+        },
+        {
+          "section": "5.3",
+          "tex_lines": [
+            680,
+            703
+          ]
+        }
+      ],
+      "note": "Supports are dependent scoped propositions; failed routes roll back; natural subtraction/exact division retain their own ordered guards.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Vantage",
+      "feature": "V",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "7.2",
+          "tex_lines": [
+            912,
+            941
+          ]
+        },
+        {
+          "section": "7.3",
+          "tex_lines": [
+            943,
+            966
+          ]
+        },
+        {
+          "section": "7.4",
+          "tex_lines": [
+            968,
+            987
+          ]
+        }
+      ],
+      "note": "Actual execution must be linked to the proved algorithm; verified checker evaluation and exact original-expression reification are separate requirements.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Vantage",
+      "feature": "D",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "6.1",
+          "tex_lines": [
+            790,
+            806
+          ]
+        },
+        {
+          "section": "6.2",
+          "tex_lines": [
+            808,
+            819
+          ]
+        },
+        {
+          "section": "12.1",
+          "tex_lines": [
+            1709,
+            1722
+          ]
+        },
+        {
+          "section": "12.4",
+          "tex_lines": [
+            1752,
+            1762
+          ]
+        },
+        {
+          "section": "12.5",
+          "tex_lines": [
+            1764,
+            1776
+          ]
+        }
+      ],
+      "note": "Project-owned ordinary theorem/definition interfaces, typed roles, independent logical and operational versions, and explicit profile conflicts.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Vantage",
+      "feature": "L",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "5.7",
+          "tex_lines": [
+            761,
+            787
+          ]
+        },
+        {
+          "section": "11.2",
+          "tex_lines": [
+            1598,
+            1627
+          ]
+        },
+        {
+          "section": "11.3",
+          "tex_lines": [
+            1629,
+            1649
+          ]
+        },
+        {
+          "section": "11.4",
+          "tex_lines": [
+            1651,
+            1673
+          ]
+        }
+      ],
+      "note": "Exact request ownership and displayed-source replay; separate provider services and scope-sensitive transactions; calculus nonderivability is not object-level negation.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Vantage",
+      "feature": "P",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "6.5",
+          "tex_lines": [
+            865,
+            877
+          ]
+        },
+        {
+          "section": "13.1",
+          "tex_lines": [
+            1793,
+            1803
+          ]
+        },
+        {
+          "section": "13.2",
+          "tex_lines": [
+            1805,
+            1823
+          ]
+        },
+        {
+          "section": "13.3",
+          "tex_lines": [
+            1825,
+            1838
+          ]
+        }
+      ],
+      "note": "Publication checks all assertions and computational specs; retained terms/certificates have pinned authority, and migration requires new receipts.",
+      "qualification": "Design commitment; no implemented language or Lean-verified integration is delivered."
+    },
+    {
+      "report": "Vantage",
+      "feature": "E",
+      "status": "explicit",
+      "references": [
+        {
+          "section": "15.1",
+          "tex_lines": [
+            1962,
+            1973
+          ]
+        },
+        {
+          "section": "15.2",
+          "tex_lines": [
+            1975,
+            1987
+          ]
+        },
+        {
+          "section": "15.3",
+          "tex_lines": [
+            1989,
+            2003
+          ]
+        },
+        {
+          "section": "15.4",
+          "tex_lines": [
+            2005,
+            2018
+          ]
+        },
+        {
+          "section": "B",
+          "tex_lines": [
+            2137,
+            2178
+          ]
+        }
+      ],
+      "note": "Three baselines plus normalized-coefficient ablation; no leakage or imaginary amortization; negative integration requirements and measured stopping decisions.",
+      "qualification": "Evaluation and 26 integration tests are proposed; 3013 finite Python checks in ten groups were reproduced, not an implemented Vantage/Lean CAS."
+    }
+  ]
+}

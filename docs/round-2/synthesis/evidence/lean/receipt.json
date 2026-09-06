@@ -1,0 +1,93 @@
+{
+  "scope": "Focused ordinary Lean theorem elaboration and axiom audit only; no proposed language or checker implemented.",
+  "started_utc": "2026-09-06T04:37:49.8336587Z",
+  "completed_utc": "2026-09-06T04:38:45.0208928Z",
+  "wall_seconds": 55.1776221,
+  "exit_code": 0,
+  "executable": "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+  "version": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "arguments": [
+    "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-2\\synthesis\\evidence\\lean\\FocusedChecks.lean"
+  ],
+  "environment": {
+    "LAKE_JOBS": "1",
+    "LEAN_NUM_THREADS": "0",
+    "LEAN_PATH": "C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean"
+  },
+  "source_sha256": "CF715598FEFF84F97FB42849037AD372329B0A563D5CC073ED934D5B9E1725D9",
+  "log_sha256": "7AC0EFBBC3088D46520C3AC11DD59334E96F5B2DFF8191C25CF6BB93828F0AAC",
+  "mathlib_head": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "declared_dependencies": [
+    {
+      "name": "mathlib",
+      "rev": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "inputRev": "v4.32.0"
+    },
+    {
+      "name": "plausible",
+      "rev": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+      "inputRev": "main"
+    },
+    {
+      "name": "LeanSearchClient",
+      "rev": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "inputRev": "main"
+    },
+    {
+      "name": "importGraph",
+      "rev": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+      "inputRev": "main"
+    },
+    {
+      "name": "proofwidgets",
+      "rev": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+      "inputRev": "main"
+    },
+    {
+      "name": "aesop",
+      "rev": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+      "inputRev": "master"
+    },
+    {
+      "name": "Qq",
+      "rev": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+      "inputRev": "master"
+    },
+    {
+      "name": "batteries",
+      "rev": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+      "inputRev": "main"
+    },
+    {
+      "name": "Cli",
+      "rev": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+      "inputRev": "v4.32.0"
+    }
+  ],
+  "direct_import_hashes": [
+    {
+      "import_olean": "Mathlib/Data/Real/Basic.olean",
+      "sha256": "8097D6032476AF4520F0C0A08F69EB04C7ADBDEDB5FC0E719AF580878D817D6E"
+    },
+    {
+      "import_olean": "Mathlib/Data/Nat/Choose/Basic.olean",
+      "sha256": "492188D04BF8C8CFFBB1200B992AF79A8F3E38CDA5DEF9AAB7509462C6CDD318"
+    },
+    {
+      "import_olean": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.olean",
+      "sha256": "B0168A86E6B80DE8B640E4E4110A5FE9525E3AB4664764C611A742CBAB5FA50F"
+    },
+    {
+      "import_olean": "Mathlib/Tactic/NormNum.olean",
+      "sha256": "54E0A5E892E05629D6B26FE7B0FCC4277A7B0F47E15D237013292829B78AEE0D"
+    },
+    {
+      "import_olean": "Mathlib/Tactic/Ring.olean",
+      "sha256": "CC12DFA66DB7EF6AE4CD2D7A4E035DDFFACA827168243F728812776B77836EB4"
+    }
+  ],
+  "dependency_limit": "Existing cached dependencies were used as supplied; no full transitive artifact integrity or kernel recheck audit was performed.",
+  "lake_invoked": false,
+  "builds_or_downloads_requested": false,
+  "read_only_repositories_modified": false
+}

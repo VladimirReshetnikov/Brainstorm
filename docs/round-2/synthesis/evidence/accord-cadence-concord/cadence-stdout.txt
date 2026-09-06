@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "scope": "Python exact-arithmetic exhibits; not Lean proofs",
+  "python": "3.14.4",
+  "checks": 267,
+  "groups": {
+    "polynomial_certificate_positive": 1,
+    "polynomial_certificate_corruptions": 4,
+    "polynomial_certificate_arity_rejected": 1,
+    "linear_solution_sample_equivalence": 60,
+    "abel_coefficients_mod_t10": 190,
+    "formal_exponential_guard_rejected": 1,
+    "nilpotent_nonfield_control": 1,
+    "jet_equality_not_series_equality": 1,
+    "lambert_derivative_numerator": 5,
+    "lambert_P3_control": 1,
+    "rational_root_bracket": 1,
+    "bad_root_bracket_rejected": 1
+  },
+  "abel_precision": 10,
+  "abel_parameter_pairs": 19,
+  "lambert_coefficients_low_to_high": [
+    [
+      "1"
+    ],
+    [
+      "-2",
+      "-1"
+    ],
+    [
+      "9",
+      "8",
+      "2"
+    ],
+    [
+      "-64",
+      "-79",
+      "-36",
+      "-6"
+    ],
+    [
+      "625",
+      "974",
+      "622",
+      "192",
+      "24"
+    ],
+    [
+      "-7776",
+      "-14543",
+      "-11758",
+      "-5126",
+      "-1200",
+      "-120"
+    ]
+  ],
+  "cubic_root_certificate": {
+    "lower": "1389067/1048576",
+    "upper": "2778135/2097152",
+    "steps": 20,
+    "midpoint": "5556269/4194304",
+    "residual_bound": "62040774837259/147573952589676412928",
+    "width": "1/2097152"
+  }
+}
