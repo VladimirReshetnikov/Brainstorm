@@ -3,8 +3,22 @@
 The independent proposals explore ways to express mathematics more concisely
 and naturally while retaining rigorous verification.
 
-The latest [unified report: Mathematical Objects, Certified Computation](docs/round-2/synthesis/unified-report.pdf)
-is a self-contained synthesis of the nine [round-2 proposals](docs/round-2/ideas):
+The latest [unified report: From Properties to Proof Obligations](docs/round-3/synthesis/unified-report.pdf)
+is a self-contained synthesis of the nine [round-3 proposals](docs/round-3/ideas):
+Basalt, Fiber, Gneiss, Karst, Moraine, Obsidian, Schist, Tephra, and Trellis.
+It evaluates scoped refinements, behavioral contracts, predictable inference,
+certified observations, Leant integration, and the implementation experiments
+needed to justify a new authoring layer. The review reproduces all nine Python
+companions and compiles all seven supplied Lean specimens unchanged, with
+precise limits on what each artifact establishes.
+
+The [TeX source](docs/round-3/synthesis/unified-report.tex),
+[90-cell convergence crosswalk](docs/round-3/synthesis/convergence.json),
+[source register](docs/round-3/synthesis/source-register.json), and
+[build and evidence notes](docs/round-3/synthesis/README.md) accompany the PDF.
+
+The previous [unified report: Mathematical Objects, Certified Computation](docs/round-2/synthesis/unified-report.pdf)
+synthesizes the nine [round-2 proposals](docs/round-2/ideas):
 Accord, Cadence, Concord, Facet, Locus, Meridian, Noema, Prism, and Vantage.
 It evaluates their shared architecture, mathematical contracts, distinctive
 contributions, implementation limits, and questions for the next iteration.
@@ -30,5 +44,5 @@ Round 1 remains available:
 - [Claude synthesis](docs/round-1/unified_report/unified_report.pdf), including
   the additional Leant study and discussion questions.
 
-The round-2 report explains the relevant earlier concepts directly; reading
-either round-1 synthesis is optional.
+The round-3 and round-2 reports each explain their relevant earlier concepts
+directly; the earlier syntheses are optional background reading.

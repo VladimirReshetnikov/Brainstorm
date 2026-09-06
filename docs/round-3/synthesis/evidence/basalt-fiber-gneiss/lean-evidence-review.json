@@ -1,0 +1,153 @@
+{
+  "scope": "Independent read-only source/log hash and count audit; no Lean execution in this lane.",
+  "version": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "results": [
+    {
+      "proposal": "basalt",
+      "source": "docs/round-3/ideas/basalt/companions/ContractCore.lean",
+      "named_theorem_declarations": [
+        "weaken_value",
+        "observationCongruence"
+      ],
+      "named_theorem_count": 2,
+      "audited_unique_declarations": {
+        "Basalt.weaken_value": "does not depend on any axioms",
+        "Basalt.observationCongruence": "does not depend on any axioms"
+      }
+    },
+    {
+      "proposal": "fiber",
+      "source": "docs/round-3/ideas/fiber/CoreEncoding.lean",
+      "named_theorem_declarations": [
+        "weaken_preserves_value",
+        "compose_behavior",
+        "certificate_bridge"
+      ],
+      "named_theorem_count": 3,
+      "audited_unique_declarations": {
+        "Fiber.weaken_preserves_value": "does not depend on any axioms",
+        "Fiber.compose_behavior": "does not depend on any axioms",
+        "Fiber.certificate_bridge": "does not depend on any axioms"
+      }
+    },
+    {
+      "proposal": "gneiss",
+      "source": "docs/round-3/ideas/gneiss/GneissCore.lean",
+      "named_theorem_declarations": [
+        "respects_comp",
+        "complete_iff"
+      ],
+      "named_theorem_count": 2,
+      "audited_unique_declarations": {
+        "Gneiss.respects_comp": "does not depend on any axioms",
+        "Gneiss.complete_iff": "does not depend on any axioms"
+      }
+    },
+    {
+      "proposal": "karst",
+      "source": "docs/round-3/ideas/karst/examples/KarstCore.lean",
+      "named_theorem_declarations": [
+        "viewIntro",
+        "viewConsequence",
+        "viewIntersection",
+        "packView_val",
+        "transportView",
+        "behConsequence",
+        "behCompose",
+        "injCompose",
+        "involutionInj",
+        "fixesPointPreservesComplement",
+        "surjectiveCannotOmit",
+        "dropAllLengthOnEmpty"
+      ],
+      "named_theorem_count": 12,
+      "audited_unique_declarations": {
+        "KarstCore.viewConsequence": "does not depend on any axioms",
+        "KarstCore.viewIntersection": "does not depend on any axioms",
+        "KarstCore.packView_val": "does not depend on any axioms",
+        "KarstCore.transportView": "does not depend on any axioms",
+        "KarstCore.behConsequence": "does not depend on any axioms",
+        "KarstCore.behCompose": "does not depend on any axioms",
+        "KarstCore.injCompose": "does not depend on any axioms",
+        "KarstCore.involutionInj": "does not depend on any axioms",
+        "KarstCore.fixesPointPreservesComplement": "does not depend on any axioms",
+        "KarstCore.surjectiveCannotOmit": "does not depend on any axioms",
+        "KarstCore.dropAllLengthOnEmpty": "does not depend on any axioms"
+      }
+    },
+    {
+      "proposal": "moraine",
+      "source": "docs/round-3/ideas/moraine/companion/Contracts.lean",
+      "named_theorem_declarations": [
+        "weaken_preserves_value",
+        "strengthen_preserves_value",
+        "refinement_refl",
+        "refinement_trans",
+        "evidence_transport",
+        "row_project",
+        "mapSpec_apply",
+        "mapSpec_weaken",
+        "mapSpec_compose",
+        "relSpec_compose",
+        "inversePair_injective",
+        "inversePair_surjective",
+        "on_to_witnessedLocal",
+        "join_cases",
+        "model_sound",
+        "promote_model_spec"
+      ],
+      "named_theorem_count": 16,
+      "audited_unique_declarations": {
+        "MoraineReference.mapSpec_compose": "does not depend on any axioms",
+        "MoraineReference.LengthExpr.model_sound": "depends on axioms: [propext]",
+        "MoraineReference.LengthExpr.promote_model_spec": "depends on axioms: [propext]"
+      }
+    },
+    {
+      "proposal": "schist",
+      "source": "docs/round-3/ideas/schist/SchistCore.lean",
+      "named_theorem_declarations": [
+        "weaken_value",
+        "contract_consequence",
+        "contract_compose",
+        "req_compose",
+        "eval_nf",
+        "check_sound",
+        "original_target",
+        "corrupted_rejected"
+      ],
+      "named_theorem_count": 8,
+      "audited_unique_declarations": {
+        "Schist.weaken_value": "does not depend on any axioms",
+        "Schist.contract_consequence": "does not depend on any axioms",
+        "Schist.contract_compose": "does not depend on any axioms",
+        "Schist.req_compose": "does not depend on any axioms",
+        "Schist.AffineCertificate.eval_nf": "depends on axioms: [propext]",
+        "Schist.AffineCertificate.check_sound": "depends on axioms: [propext]",
+        "Schist.AffineCertificate.original_target": "depends on axioms: [propext]",
+        "Schist.AffineCertificate.corrupted_rejected": "does not depend on any axioms"
+      }
+    },
+    {
+      "proposal": "tephra",
+      "source": "docs/round-3/ideas/tephra/TephraCore.lean",
+      "named_theorem_declarations": [
+        "Contract.weaken",
+        "Contract.comp",
+        "restrict_value",
+        "restrict_comp",
+        "refinement_intersection",
+        "refute_universal"
+      ],
+      "named_theorem_count": 6,
+      "audited_unique_declarations": {
+        "Tephra.Contract.comp": "does not depend on any axioms",
+        "Tephra.restrict_comp": "does not depend on any axioms",
+        "Tephra.refute_universal": "does not depend on any axioms"
+      }
+    }
+  ],
+  "original_named_theorems": 49,
+  "unique_audited_original_declarations": 32,
+  "additional_synthesis_theorems": 2
+}
