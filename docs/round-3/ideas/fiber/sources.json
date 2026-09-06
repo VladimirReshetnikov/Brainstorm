@@ -1,0 +1,153 @@
+{
+  "review_date": "2026-09-06",
+  "method": "GitHub connector source reads; no repository rebuilds",
+  "repositories": {
+    "Brainstorm": {
+      "name": "VladimirReshetnikov/Brainstorm",
+      "commit": "b052ec011beb96a7c48df2a9988823f0f779b445"
+    },
+    "ProveIt": {
+      "name": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2"
+    },
+    "Leant": {
+      "name": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb"
+    },
+    "FLT": {
+      "name": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef"
+    }
+  },
+  "sources": [
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "commit": "b052ec011beb96a7c48df2a9988823f0f779b445",
+      "path": "docs/round-2/synthesis/unified-report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/b052ec011beb96a7c48df2a9988823f0f779b445/docs/round-2/synthesis/unified-report.tex",
+      "read_scope": "Main TeX text read in successive ranges; external crosswalk input not separately fetched.",
+      "git_blob_sha1": "ae7c21dac1ba615e36dff07ea6f6a1c433a40108"
+    },
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "commit": "b052ec011beb96a7c48df2a9988823f0f779b445",
+      "path": "docs/round-2/unified_report/unified_report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/b052ec011beb96a7c48df2a9988823f0f779b445/docs/round-2/unified_report/unified_report.tex",
+      "read_scope": "Main TeX text read in successive ranges, including revised corrections and question register.",
+      "git_blob_sha1": "de10daae20af19285ee07a476caa94e577f7d7d9"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "lean-toolchain",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/lean-toolchain",
+      "read_scope": "Read: leanprover/lean4:v4.32.0."
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "read_scope": "Full file read.",
+      "git_blob_sha1": "1422b87f31073fed898ff0c8a080ea0a798aef5e"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+      "read_scope": "Lines 1-165 read, including generic additive-group interface.",
+      "git_blob_sha1": "c6b0fe63a4faf8708b71e9b93aa2ce7406464d84"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/UniformSplineWeakConvergence.lean",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/UniformSplineWeakConvergence.lean",
+      "read_scope": "Full file read.",
+      "git_blob_sha1": "bf2105d636b5a55e740a42f97e92a43ebe2aba24"
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "README.md",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/README.md",
+      "read_scope": "Read; repository validation claims not reproduced.",
+      "git_blob_sha1": "f3cfcb92443c29a8ce87494f6c9a7b57e40129e9"
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "PROOF-PATH.md",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/PROOF-PATH.md",
+      "read_scope": "Full file read.",
+      "git_blob_sha1": "5a5d69b8f946ddc7587e300632cf924d6bf3373c"
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "Definitions/Def_FLTPrelim_FreyPackage.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/Definitions/Def_FLTPrelim_FreyPackage.lean",
+      "read_scope": "Full file read.",
+      "git_blob_sha1": "db1cdbbec434a118a917b33580fc8c81c4fff221"
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "read_scope": "Full file read.",
+      "git_blob_sha1": "cfe76a66b489c09d49f775a0368addf0da0c14e8"
+    },
+    {
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_FreyPackage_no_frey_package.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_FreyPackage_no_frey_package.lean",
+      "read_scope": "Selected large attribute blocks and final solution from source search; not full file."
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "README.md",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/README.md",
+      "read_scope": "Relevant introductory and behavioral-synthesis sections; response was not full-file."
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Engine.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Engine.hs",
+      "read_scope": "Lines 1-230: engine boundary, exact-typed variants, and imports.",
+      "git_blob_sha1": "1064c8215506e172401cd7c5c06d7e8222e0befa"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Verification.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs",
+      "read_scope": "Full file read.",
+      "git_blob_sha1": "caee3c51cfd226e6c2bb9887f80293343abd486c"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "docs/length-ranking.md",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/docs/length-ranking.md",
+      "read_scope": "Lines 1-145: implemented authority boundary and explicitly proposed work.",
+      "git_blob_sha1": "ab4767cd6a466583a28de56eea7080bcd44e9f3d"
+    }
+  ],
+  "public_references": [
+    "https://lean-lang.org/doc/reference/latest/The-Type-System/",
+    "https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/",
+    "https://lean-lang.org/doc/reference/latest/Coercions/",
+    "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+    "https://arxiv.org/abs/1510.08419",
+    "https://people.csail.mit.edu/asolar/SynthesisCourse/Lecture22.htm",
+    "https://ucsd-progsys.github.io/liquidhaskell/papers/",
+    "https://fstar-lang.org/tutorial/book/part1/part1_getting_off_the_ground.html",
+    "https://fstar-lang.org/papers/dm4free/",
+    "https://docs.racket-lang.org/ts-guide/occurrence-typing.html"
+  ]
+}

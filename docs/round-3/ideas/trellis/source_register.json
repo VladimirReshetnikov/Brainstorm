@@ -1,0 +1,237 @@
+{
+  "article": "Trellis: Property-Rich Mathematics with Proof-Explicit Elaboration",
+  "access_date": "2026-09-06",
+  "purpose": "Source provenance and reading scope, not a record of repository builds or formal verification.",
+  "git_blob_note": "Observed Git blob SHA-1 values identify repository file contents. They are not SHA-256 hashes of locally archived source files; original repository sources are not redistributed.",
+  "repositories": {
+    "VladimirReshetnikov/Brainstorm": "b052ec011beb96a7c48df2a9988823f0f779b445",
+    "VladimirReshetnikov/ProveIt": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+    "anthropics/fermats-last-theorem": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+    "VladimirReshetnikov/Leant": "3a40904be8a410d832d9ab6900b3d3e7b425eccb"
+  },
+  "repository_files": [
+    {
+      "bibliography_key": "synA",
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "b052ec011beb96a7c48df2a9988823f0f779b445",
+      "path": "docs/round-2/synthesis/unified-report.tex",
+      "git_blob_sha1_observed": "ae7c21dac1ba615e36dff07ea6f6a1c433a40108",
+      "reading_scope": "Read full TeX through successive ranges, including reciprocal corrections, appendices, implementation criticism, and questions.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/b052ec011beb96a7c48df2a9988823f0f779b445/docs/round-2/synthesis/unified-report.tex"
+    },
+    {
+      "bibliography_key": "synB",
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "b052ec011beb96a7c48df2a9988823f0f779b445",
+      "path": "docs/round-2/unified_report/unified_report.tex",
+      "git_blob_sha1_observed": "de10daae20af19285ee07a476caa94e577f7d7d9",
+      "reading_scope": "Read full TeX through successive ranges, including reciprocal corrections, tables, appendices, and questions. Truncated tool responses were followed by additional overlapping ranges.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/b052ec011beb96a7c48df2a9988823f0f779b445/docs/round-2/unified_report/unified_report.tex"
+    },
+    {
+      "bibliography_key": "regularity",
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/Regularity.lean",
+      "git_blob_sha1_observed": "2a2abdfb883b12d99ce266a20b8af6a79300d9e6",
+      "reading_scope": "Read full source: global Lipschitz bounds, optimality, and endpoint estimates.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/Regularity.lean"
+    },
+    {
+      "bibliography_key": "spTaylor",
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "NumberTheory/IntegerPoints/Lean/IntegerPoints/SP1Taylor.lean",
+      "git_blob_sha1_observed": "8dd7e6c359cc1f85282b3206eaf1e49660c889b4",
+      "reading_scope": "Read lines 1–130 for the Data structure, derivative functions and laws, and remainders; retrieved the exact Phi definition separately through repository search.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/NumberTheory/IntegerPoints/Lean/IntegerPoints/SP1Taylor.lean"
+    },
+    {
+      "bibliography_key": "spParts",
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "NumberTheory/IntegerPoints/Lean/IntegerPoints/SP2Parts.lean",
+      "git_blob_sha1_observed": "f3ca8a6fea2ad0e043cc8ac56f3208fab5b9c5d9",
+      "reading_scope": "Read lines 1–165: small-error lemma, quotient derivative, and initial bounds. No claim to have reviewed the whole stationary-phase proof.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/NumberTheory/IntegerPoints/Lean/IntegerPoints/SP2Parts.lean"
+    },
+    {
+      "bibliography_key": "freyDef",
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "Definitions/Def_FLTPrelim_FreyPackage.lean",
+      "git_blob_sha1_observed": "db1cdbbec434a118a917b33580fc8c81c4fff221",
+      "reading_scope": "Read full source, including provenance, fields, derived number-theoretic lemmas, and integral/rational curve definitions.",
+      "pinned_url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/Definitions/Def_FLTPrelim_FreyPackage.lean"
+    },
+    {
+      "bibliography_key": "freyEnd",
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_FreyPackage_no_frey_package.lean",
+      "git_blob_sha1_observed": "285ecf230276505ab9ddbb0ba025665b68196891",
+      "reading_scope": "Inspected generated instance/simplifier preambles in several returned ranges and read the mathematical ending, lines 136–150. Did not audit every generated preamble declaration.",
+      "pinned_url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_FreyPackage_no_frey_package.lean"
+    },
+    {
+      "bibliography_key": "fltPath",
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "PROOF-PATH.md",
+      "git_blob_sha1_observed": "5a5d69b8f946ddc7587e300632cf924d6bf3373c",
+      "reading_scope": "Read full proof-path description and exact-strength qualifications; descriptions are repository reports.",
+      "pinned_url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/PROOF-PATH.md"
+    },
+    {
+      "bibliography_key": "fltReadme",
+      "repository": "anthropics/fermats-last-theorem",
+      "revision": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "README.md",
+      "git_blob_sha1_observed": "f3cfcb92443c29a8ce87494f6c9a7b57e40129e9",
+      "reading_scope": "Read full README. Its build, comparator, and independent-kernel claims were not rerun.",
+      "pinned_url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/README.md"
+    },
+    {
+      "bibliography_key": "leantVerification",
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Verification.hs",
+      "git_blob_sha1_observed": "caee3c51cfd226e6c2bb9887f80293343abd486c",
+      "reading_scope": "Read full callback-receipt, verification-batch, and candidate-group verification implementation.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs"
+    },
+    {
+      "bibliography_key": "leantBehavior",
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/BehavioralSelection.hs",
+      "git_blob_sha1_observed": "6887c30133f72d984d3a128e6c8cd37acb37aae3",
+      "reading_scope": "Read full exported interface and its authority limitations; not the entire Internal implementation.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/BehavioralSelection.hs"
+    },
+    {
+      "bibliography_key": "leantLength",
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Length/Contract.hs",
+      "git_blob_sha1_observed": "a1f04001c6ccd6c5e018162fa4db7ff5b059972e",
+      "reading_scope": "Read full passive contract vocabulary, identity/role provenance, provider-law, and candidate-case policies.",
+      "pinned_url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Length/Contract.hs"
+    }
+  ],
+  "external_primary_sources": [
+    {
+      "bibliography_key": "leanSubtype",
+      "title": "Lean Language Reference: Subtypes",
+      "urls": [
+        "https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "leanTypes",
+      "title": "Lean Language Reference: The Type System",
+      "urls": [
+        "https://lean-lang.org/doc/reference/latest/The-Type-System/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "leanClasses",
+      "title": "Lean Language Reference: Type Classes",
+      "urls": [
+        "https://lean-lang.org/doc/reference/latest/Type-Classes/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "leanInstances",
+      "title": "Lean Language Reference: Instance Synthesis",
+      "urls": [
+        "https://lean-lang.org/doc/reference/latest/Type-Classes/Instance-Synthesis/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "leanQuotients",
+      "title": "Lean Language Reference: Quotients",
+      "urls": [
+        "https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "leanValidation",
+      "title": "Lean Language Reference: Validating a Lean Proof",
+      "urls": [
+        "https://lean-lang.org/doc/reference/latest/ValidatingProofs/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "leanTutorials",
+      "title": "Lean Tutorials, including verification with mvcgen",
+      "urls": [
+        "https://lean-lang.org/doc/tutorials/latest/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "leanRelease",
+      "title": "Lean 4.33.0 release notes",
+      "urls": [
+        "https://lean-lang.org/doc/reference/latest/releases/v4.33.0/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "liquid",
+      "title": "Rondon, Kawaguchi, Jhala: Liquid Types (authors publication page)",
+      "urls": [
+        "https://goto.ucsd.edu/~rjhala/papers/liquid_types.html"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "fstar",
+      "title": "F* tutorial and project overview",
+      "urls": [
+        "https://fstar-lang.org/tutorial/book/part1/part1_getting_off_the_ground.html",
+        "https://fstar-lang.org/"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "synquid",
+      "title": "Polikarpova, Kuraj, Solar-Lezama: Program Synthesis from Polymorphic Refinement Types",
+      "urls": [
+        "https://arxiv.org/abs/1510.08419"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "functoriality",
+      "title": "Laurent, Lennon-Bertrand, Maillard: Definitional Functoriality for Dependent (Sub)Types",
+      "urls": [
+        "https://arxiv.org/abs/2310.14929"
+      ],
+      "access_date": "2026-09-06"
+    },
+    {
+      "bibliography_key": "lean4lean",
+      "title": "Carneiro: Lean4Lean: Towards a Verified Typechecker for Lean, in Lean",
+      "urls": [
+        "https://arxiv.org/abs/2403.14064"
+      ],
+      "access_date": "2026-09-06"
+    }
+  ],
+  "limits": {
+    "lean_compiler_run": false,
+    "lean_kernel_run": false,
+    "repositories_rebuilt": false,
+    "leant_executable_run": false,
+    "individual_round_two_proposals_read_directly": false,
+    "direct_proposal_attribution": "Individual round-two designs are discussed through the two requested syntheses, not claimed as independent full rereadings."
+  }
+}

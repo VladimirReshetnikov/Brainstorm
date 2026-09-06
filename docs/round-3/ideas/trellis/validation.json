@@ -1,0 +1,44 @@
+{
+  "article": "Trellis: Property-Rich Mathematics with Proof-Explicit Elaboration",
+  "validated_utc": "2026-09-06T18:42:04.631613+00:00",
+  "pdf": {
+    "pages": 37,
+    "bytes": 486918,
+    "sha256": "40d6f492791f2bff790926578784c8df6f10288108cc0ea629d9794981d60715",
+    "extracted_word_count_approximate": 17503,
+    "all_pages_rendered": true,
+    "all_pages_visually_reviewed_via_contact_sheets": true,
+    "text_outside_page_count": 0,
+    "unicode_replacement_character_count": 0,
+    "note": "Page layout and mathematical text were reviewed; this is document validation, not a Lean proof check."
+  },
+  "tex": {
+    "sha256": "0171182586035f79f9c6d9ce7c98af944b2569538f4d2a43f5a42d933eca9cea",
+    "self_contained_bibliography": true,
+    "bibliography_entries": 25,
+    "build_command": "bash build.sh",
+    "build_script_executed_successfully": true,
+    "pdflatex_passes": 3,
+    "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+    "warnings_errors_or_overfull_underfull_boxes": false
+  },
+  "reference_tests": {
+    "python_version": "3.13.5",
+    "command": "python3 companions/trellis_reference.py --output companions/results.json",
+    "status": "all reference tests passed",
+    "test_count": 31,
+    "positive_count": 9,
+    "negative_count": 22,
+    "results_sha256": "4b8d8ff96798dd7a3da274e101caeab030978cfc699b9fb08d5af13babd2ac56"
+  },
+  "evidence_limits": {
+    "lean_compiler_run": false,
+    "lean_kernel_run": false,
+    "repositories_rebuilt": false,
+    "leant_executable_run": false,
+    "language_implementation": false,
+    "python_formally_verified": false,
+    "usability_or_compression_experiment_run": false
+  },
+  "reproducibility_note": "Rebuilding may change PDF metadata and its checksum. This validation record describes the delivered snapshot."
+}

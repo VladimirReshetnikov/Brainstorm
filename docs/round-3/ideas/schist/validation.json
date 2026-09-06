@@ -1,0 +1,74 @@
+{
+  "generated_utc": "2026-09-06T18:40:13.903390+00:00",
+  "artifact_title": "Schist: A Property-Aware Mathematical Language over Lean",
+  "pdf": {
+    "pages": 32,
+    "bytes": 478303,
+    "text_characters": 94691,
+    "encrypted": false,
+    "metadata": {
+      "format": "PDF 1.7",
+      "title": "Schist: A Property-Aware Mathematical Language over Lean",
+      "author": "GPT-6 Astra Pro, prepared for Vladimir Reshetnikov",
+      "subject": "Third-round proof-language proposal: scoped refinements, behavioral contracts, and proof-carrying elaboration",
+      "keywords": "",
+      "creator": "LaTeX with hyperref",
+      "producer": "pdfTeX-1.40.26",
+      "creationDate": "D:20260906183614Z",
+      "modDate": "D:20260906183614Z",
+      "trapped": "",
+      "encryption": null
+    },
+    "visual_review": {
+      "renderer": "pdftoppm (Poppler), plus PyMuPDF detail renders",
+      "all_pages_reviewed_in_contact_sheets": true,
+      "detailed_readability_spot_check_pages": [
+        15
+      ],
+      "result": "No clipping, overlapping text, broken glyphs, or isolated section headings observed."
+    },
+    "programmatic_margin_test": "All text blocks within x=42..page_width-42, y=25..page_height-20 points",
+    "out_of_bounds_text_blocks": [],
+    "replacement_character_present": false
+  },
+  "latex": {
+    "build": "latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=../build schist.tex",
+    "build_succeeded": true,
+    "warnings_or_overflow_or_missing_references": [],
+    "self_contained_tex": true
+  },
+  "python": {
+    "command": "python3 check_examples.py",
+    "version": "3.13.5",
+    "exit_code": 0,
+    "test_methods": 10,
+    "result": "pass",
+    "scope": "Finite exact-arithmetic sanity checks; not Lean verification or validation of the proposed frontend."
+  },
+  "lean": {
+    "compiled": false,
+    "lean_on_path": null,
+    "lake_on_path": null,
+    "static_scan": "No authored axiom declarations, sorry placeholders, or native_decide invocations outside comments.",
+    "axiom_inventory_checked": false,
+    "scope": "Authored reference library only. Successful elaboration, compiler soundness and frontend implementation are not claimed."
+  },
+  "research": {
+    "source_manifest": "source_manifest.json",
+    "independent_repository_builds": false,
+    "productivity_or_performance_study": false
+  },
+  "hash_algorithm": "SHA-256",
+  "hash_scope": "All payload files other than this validation record; hashes describe the delivered files, not future rebuilds.",
+  "payload_hashes": {
+    "README.md": "0fc188364b3970fc09c169ae0e65f890bfd5471adad246aaeea242ab5fb2b006",
+    "SchistCore.lean": "da34da394099ee65e1dd099135347ffaa870c964b61a86e654fbcebb52e1d8b0",
+    "build.sh": "b141a7b71d0be7b38d124581a8696e7090830fa3591954093f5cf114a5424b90",
+    "check_examples.py": "8a1414c185fb8130cdef2d0dcdf2fe444dbc6159bcba35d176114b09e05dcc03",
+    "checks.log": "ad3e10505eafc1b3a155c021aac4d4f76794010117a87cd294f0904ead33712f",
+    "latex-build.log": "c9d975547dbda891d47e0e9ed5c77c5e31ad2908ecbc7057b5f82e9046784079",
+    "source_manifest.json": "83a1138a4f2c396ff3692f6a95196de2809aa307dd1413ea93df59b072983990",
+    "schist.pdf": "54c91e75af58ad89db35963d86050e398c05b1f01979b7311393f511a26497af",
+    "schist.tex": "70391c8b00a0c92997446f1fb3fd69874d4da2fbaeab20f519a8c22fd0be3da1"
+  }
+}

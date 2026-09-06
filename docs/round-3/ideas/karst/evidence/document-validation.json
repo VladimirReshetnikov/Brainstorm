@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-06",
+  "pdf": "karst.pdf",
+  "pages": 40,
+  "build_command": "latexmk -pdf -outdir=build -interaction=nonstopmode -halt-on-error karst.tex",
+  "build_exit_status": 0,
+  "pdf_engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+  "visual_review": "All 40 pages rendered and inspected in five contact sheets using PyMuPDF; selected finite-proof, checker-soundness, and jet pages also rendered with pdftoppm and inspected at higher resolution.",
+  "layout_fixes": [
+    "Contents fitted to one page.",
+    "Listings kept together rather than split across pages."
+  ],
+  "final_log": {
+    "overfull_boxes": 0,
+    "undefined_citations_or_references": 0,
+    "warnings_matched": 0
+  },
+  "bibliography_entries": 22,
+  "unresolved_bibliography_keys": [],
+  "text_edge_outliers": [],
+  "pdf_sha256": "3b1471e8fa03aa2b0b7017444343f436290e74ba356c2f49ec233a6bca8f6ed9",
+  "tex_sha256": "e351bf17d017d4de18f477a943e9f917f1cf1993f9521613278f87fcc389e84b",
+  "python_version": "3.13.5",
+  "companion_execution": "Successful; actual group outcomes are in results.json and stdout in run.log.",
+  "lean_execution": "Not performed: Lean model remains uncompiled.",
+  "scope": "Document and finite-companion validation only; no claim of language implementation, universal machine verification, repository-wide verification, or productivity measurement."
+}

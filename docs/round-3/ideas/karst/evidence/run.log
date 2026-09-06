@@ -1,0 +1,61 @@
+{
+  "status": "all finite checks passed",
+  "seed": 20260906,
+  "evidence_level": "Python sanity checks; no Lean execution",
+  "groups": [
+    {
+      "name": "finite_endomaps",
+      "cases": 3414,
+      "status": "passed",
+      "interpretation": "All maps on carriers of sizes 0..5; 154 injective maps also pass normalization/restriction. Not an infinite theorem."
+    },
+    {
+      "name": "polynomial_protocol_neighbors",
+      "cases": 7,
+      "status": "passed",
+      "interpretation": "Valid identity, corrupted multiplier, malformed dimensions/exponents, both arity mismatches, valid zero case."
+    },
+    {
+      "name": "polynomial_denotation_samples",
+      "cases": 720,
+      "status": "passed",
+      "interpretation": "Seeded samples in integers, Z/4Z, and Z/5Z, in 1..3 variables. Tests, not universal soundness proof."
+    },
+    {
+      "name": "sorting_behavior_samples",
+      "cases": 364,
+      "status": "passed",
+      "interpretation": "Sorting checked on all lists of length <=5 over {0,1,2}; reverse, repeat-first, and empty-output distinguish weaker guarantees."
+    },
+    {
+      "name": "length_counterexample_realizability",
+      "cases": 1,
+      "status": "passed",
+      "interpretation": "An abstract nonzero input length does not supply an input of List Empty. No claim about Leant eligibility or a Leant defect."
+    },
+    {
+      "name": "frey_exact_quotient_samples",
+      "cases": 312,
+      "status": "passed",
+      "interpretation": "Only parity/congruence denominator claims; no FLT hypothesis, FLT proof, or curve-theorem verification is being tested."
+    },
+    {
+      "name": "formal_jet_neighbors",
+      "cases": 5,
+      "status": "passed",
+      "interpretation": "Rational residual and derivative, wrong constant branch, precision demand, nonunit/nonregular modulo-4 neighbor."
+    },
+    {
+      "name": "synthetic_scope_and_origin_neighbors",
+      "cases": 11,
+      "status": "passed",
+      "interpretation": "Metadata model only: lexical use, origin/structure/revision changes, no sibling leakage, no cyclic or missing dependency. Does not check Lean proofs."
+    }
+  ],
+  "limitations": [
+    "No Karst parser/elaborator exists in this package.",
+    "No repository was built and no Lean source was compiled here.",
+    "Finite tests are not universal mathematical or compiler proofs.",
+    "Scope checks use synthetic identities, not Lean expression serialization."
+  ]
+}

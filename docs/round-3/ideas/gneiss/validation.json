@@ -1,0 +1,45 @@
+{
+  "article": "GNEISS",
+  "prepared_date": "2026-09-06",
+  "pdf": {
+    "pages": 37,
+    "compiled": true,
+    "build_command": "sh build.sh",
+    "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+    "log_findings": {
+      "overfull_boxes": 0,
+      "undefined_references_or_citations": 0,
+      "missing_characters": 0,
+      "multiply_defined_labels": 0
+    },
+    "visual_review": "All body-page layouts reviewed in rendered contact sheets; final changed pages and representative theorem, checker, diagram, and bibliography pages inspected at page size. No clipping or missing glyphs observed.",
+    "rendering": "37 final pages rendered to PNG at 110 dpi using the PDF skill render_pdf.py script."
+  },
+  "python": {
+    "version": "3.13.5",
+    "command": "python3 contract_model.py > tests.log 2>&1",
+    "result": {
+      "model": "GNEISS acceptance model v1",
+      "tests": 32,
+      "failures": 0,
+      "errors": 0,
+      "status": "passed",
+      "lean_compiled": false,
+      "formal_verification_of_python": false,
+      "scope": "contract assembly and exact finite arithmetic only"
+    }
+  },
+  "bibliography": {
+    "entries": 19,
+    "all_citation_keys_resolved": true
+  },
+  "lean": {
+    "compiled": false,
+    "reason": "No Lean executable available in the preparation environment.",
+    "specimen": "GneissCore.lean",
+    "new_kernel_checked_mathematical_results_claimed": false
+  },
+  "implemented_frontend": false,
+  "productivity_benchmark_performed": false,
+  "scope": "Paper mathematical arguments plus an executed restricted reference model; not an end-to-end verified proof-language implementation."
+}
