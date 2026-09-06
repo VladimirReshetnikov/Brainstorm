@@ -1,0 +1,89 @@
+@HasDerivAt.congr_of_eventuallyEq : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {f f₁ : 𝕜 → F} {f' : F} {x : 𝕜},
+  HasDerivAt f f' x → f₁ =ᶠ[nhds x] f → HasDerivAt f₁ f' x
+@Filter.EventuallyEq.deriv_eq : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {f f₁ : 𝕜 → F} {x : 𝕜},
+  f₁ =ᶠ[nhds x] f → deriv f₁ x = deriv f x
+@IsOpen.mem_nhds : ∀ {X : Type u_1} [inst : TopologicalSpace X] {x : X} {s : Set X}, IsOpen s → x ∈ s → s ∈ nhds x
+@HasDerivAt.comp : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] (x : 𝕜) {𝕜' : Type u_2}
+  [inst_1 : NontriviallyNormedField 𝕜'] [inst_2 : NormedAlgebra 𝕜 𝕜'] {h : 𝕜 → 𝕜'} {h₂ : 𝕜' → 𝕜'} {h' h₂' : 𝕜'},
+  HasDerivAt h₂ h₂' (h x) → HasDerivAt h h' x → HasDerivAt (h₂ ∘ h) (h₂' * h') x
+@PowerSeries.coeff_mul : ∀ {R : Type u_1} [inst : Semiring R] (n : ℕ) (φ ψ : PowerSeries R),
+  (PowerSeries.coeff n) (φ * ψ) =
+    ∑ p ∈ Finset.HasAntidiagonal.antidiagonal n, (PowerSeries.coeff p.1) φ * (PowerSeries.coeff p.2) ψ
+@PowerSeries.trunc : {R : Type u_1} → [inst : Semiring R] → ℕ → PowerSeries R →ₗ[R] Polynomial R
+@PowerSeries.coeff_trunc : ∀ {R : Type u_1} [inst : Semiring R] (m n : ℕ) (φ : PowerSeries R),
+  ((PowerSeries.trunc n) φ).coeff m = if m < n then (PowerSeries.coeff m) φ else 0
+@PowerSeries.HasSubst : {τ : Type u_1} → {S : Type u_2} → [CommRing S] → MvPowerSeries τ S → Prop
+@PowerSeries.subst : {R : Type u_1} →
+  [inst : CommRing R] →
+    {τ : Type u_2} →
+      {S : Type u_3} → [inst_1 : CommRing S] → [Algebra R S] → MvPowerSeries τ S → PowerSeries R → MvPowerSeries τ S
+PowerSeries.derivative : (R : Type u_1) → [inst : CommSemiring R] → Derivation R (PowerSeries R) (PowerSeries R)
+@PowerSeries.coeff_derivative : ∀ {R : Type u_1} [inst : CommSemiring R] (f : PowerSeries R) (n : ℕ),
+  (PowerSeries.coeff n) ((PowerSeries.derivative R) f) = (PowerSeries.coeff (n + 1)) f * (↑n + 1)
+@PowerSeries.ext : ∀ {R : Type u_1} [inst : Semiring R] {φ ψ : PowerSeries R},
+  (∀ (n : ℕ), (PowerSeries.coeff n) φ = (PowerSeries.coeff n) ψ) → φ = ψ
+PowerSeries.exp : (A : Type u_1) → [inst : Ring A] → [Algebra ℚ A] → PowerSeries A
+@PowerSeries.coeff_exp : ∀ {A : Type u_1} [inst : Ring A] [inst_1 : Algebra ℚ A] (n : ℕ),
+  (PowerSeries.coeff n) (PowerSeries.exp A) = (algebraMap ℚ A) (1 / ↑n.factorial)
+@PowerSeries.X_pow_dvd_iff : ∀ {R : Type u_1} [inst : Semiring R] {n : ℕ} {φ : PowerSeries R},
+  PowerSeries.X ^ n ∣ φ ↔ ∀ m < n, (PowerSeries.coeff m) φ = 0
+@PowerSeries.order : {R : Type u_1} → [Semiring R] → PowerSeries R → ℕ∞
+@Polynomial.eval : {R : Type u_1} → [inst : Semiring R] → R → Polynomial R → R
+@Polynomial.derivative : {R : Type u_1} → [inst : Semiring R] → Polynomial R →ₗ[R] Polynomial R
+@Polynomial.roots : {R : Type u_1} → [inst : CommRing R] → [IsDomain R] → Polynomial R → Multiset R
+@Polynomial.card_roots' : ∀ {R : Type u_1} [inst : CommRing R] [inst_1 : IsDomain R] (p : Polynomial R),
+  p.roots.card ≤ p.natDegree
+@Polynomial.rootMultiplicity : {R : Type u_1} → [inst : Ring R] → R → Polynomial R → ℕ
+@Real.sqrt_eq_iff_mul_self_eq : ∀ {x y : ℝ}, 0 ≤ x → 0 ≤ y → (√x = y ↔ x = y * y)
+experiments/lean/Supply.lean:28:8: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_eq_iff'`
+Real.sqrt_sq_eq_abs : ∀ (x : ℝ), √(x ^ 2) = |x|
+Real.sqrt_nonneg : ∀ (x : ℝ), 0 ≤ √x
+@Nat.cast_sub : ∀ {R : Type u_1} [inst : AddGroupWithOne R] {m n : ℕ}, m ≤ n → ↑(n - m) = ↑n - ↑m
+@Nat.cast_div : ∀ {K : Type u_1} [inst : DivisionSemiring K] {m n : ℕ}, n ∣ m → ↑n ≠ 0 → ↑(m / n) = ↑m / ↑n
+@Nat.cast_injective : ∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R], Function.Injective Nat.cast
+@Nat.cast_inj : ∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] {m n : ℕ}, ↑m = ↑n ↔ m = n
+@IsUnit.mul_left_cancel : ∀ {M : Type u_1} [inst : Monoid M] {a b c : M}, IsUnit a → a * b = a * c → b = c
+@IsUnit.mul_right_inj : ∀ {M : Type u_1} [inst : Monoid M] {a b c : M}, IsUnit a → (a * b = a * c ↔ b = c)
+@mul_right_cancel₀ : ∀ {M₀ : Type u_1} [inst : Mul M₀] [inst_1 : Zero M₀] [IsRightCancelMulZero M₀] {a b c : M₀},
+  b ≠ 0 → a * b = c * b → a = c
+@Finset.sum_bij : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] {s : Finset ι} {t : Finset κ}
+  {f : ι → M} {g : κ → M} (i : (a : ι) → a ∈ s → κ),
+  (∀ (a : ι) (ha : a ∈ s), i a ha ∈ t) →
+    (∀ (a₁ : ι) (ha₁ : a₁ ∈ s) (a₂ : ι) (ha₂ : a₂ ∈ s), i a₁ ha₁ = i a₂ ha₂ → a₁ = a₂) →
+      (∀ b ∈ t, ∃ a, ∃ (ha : a ∈ s), i a ha = b) →
+        (∀ (a : ι) (ha : a ∈ s), f a = g (i a ha)) → ∑ x ∈ s, f x = ∑ x ∈ t, g x
+@Finset.sum_nbij' : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] {s : Finset ι}
+  {t : Finset κ} {f : ι → M} {g : κ → M} (i : ι → κ) (j : κ → ι),
+  (∀ a ∈ s, i a ∈ t) →
+    (∀ a ∈ t, j a ∈ s) →
+      (∀ a ∈ s, j (i a) = a) → (∀ a ∈ t, i (j a) = a) → (∀ a ∈ s, f a = g (i a)) → ∑ x ∈ s, f x = ∑ x ∈ t, g x
+@Finset.sum_range_sub : ∀ {G : Type u_1} [inst : AddCommGroup G] (f : ℕ → G) (n : ℕ),
+  ∑ i ∈ Finset.range n, (f (i + 1) - f i) = f n - f 0
+@Finset.sum_range_succ : ∀ {M : Type u_1} [inst : AddCommMonoid M] (f : ℕ → M) (n : ℕ),
+  ∑ x ∈ Finset.range (n + 1), f x = ∑ x ∈ Finset.range n, f x + f n
+Finset.range_eq_Ico : ∀ (a : ℕ), Finset.range a = Finset.Ico 0 a
+@intermediate_value_Icc : ∀ {α : Type u_1} [inst : TopologicalSpace α] [inst_1 : ConditionallyCompleteLinearOrder α]
+  [OrderTopology α] [DenselyOrdered α] {δ : Type u_2} [inst_4 : LinearOrder δ] [inst_5 : TopologicalSpace δ]
+  [OrderClosedTopology δ] {a b : α},
+  a ≤ b → ∀ {f : α → δ}, ContinuousOn f (Set.Icc a b) → Set.Icc (f a) (f b) ⊆ f '' Set.Icc a b
+@StrictMonoOn.injOn : ∀ {α : Type u_1} {β : Type u_2} [inst : LinearOrder α] [inst_1 : Preorder β] {f : α → β}
+  {s : Set α}, StrictMonoOn f s → Set.InjOn f s
+exists_deriv_eq_slope : ∀ (f : ℝ → ℝ) {a b : ℝ},
+  a < b →
+    ContinuousOn f (Set.Icc a b) →
+      DifferentiableOn ℝ f (Set.Ioo a b) → ∃ c ∈ Set.Ioo a b, deriv f c = (f b - f a) / (b - a)
+algebraMap : (R : Type u_1) →
+  (A : Type u_2) → {inst : CommSemiring R} → {inst_1 : Semiring A} → [self : Algebra R A] → R →+* A
+@map_natCast : ∀ {R : Type u_1} {S : Type u_2} {F : Type u_3} [inst : NonAssocSemiring R] [inst_1 : NonAssocSemiring S]
+  [inst_2 : FunLike F R S] [RingHomClass F R S] (f : F) (n : ℕ), f ↑n = ↑n
+@Rat.cast_injective : ∀ {α : Type u_1} [inst : DivisionRing α] [CharZero α], Function.Injective Rat.cast
+experiments/lean/Supply.lean:55:8: warning: `Lean.ofReduceBool` has been deprecated: in-kernel native reduction is deprecated; assert native evaluations with axioms instead
+Lean.ofReduceBool : ∀ (a b : Bool), Lean.reduceBool a = b → a = b
+experiments/lean/Supply.lean:57:0: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Polynomial.X', which is 'noncomputable'
+experiments/lean/Supply.lean:61:56: error: `polyrith` is no longer available, as the external service it relied on has been shut down.
+
+real	6m24.828s
+user	0m0.015s
+sys	0m0.000s
