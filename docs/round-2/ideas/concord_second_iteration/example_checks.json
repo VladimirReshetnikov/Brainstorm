@@ -1,0 +1,169 @@
+{
+  "status": "exact-arithmetic sanity checks; not formal verification",
+  "tests": [
+    {
+      "name": "cancellation polynomial identity",
+      "passed": true
+    },
+    {
+      "name": "partial equation root -1",
+      "passed": true
+    },
+    {
+      "name": "partial values at 2",
+      "passed": true
+    },
+    {
+      "name": "simplified expression retains excluded point",
+      "passed": true
+    },
+    {
+      "name": "totalized value and extension differ at 1",
+      "passed": true
+    },
+    {
+      "name": "negative-neighbor cancellation mutation rejected",
+      "passed": true
+    },
+    {
+      "name": "Lambert P_0",
+      "passed": true
+    },
+    {
+      "name": "Lambert P_1",
+      "passed": true
+    },
+    {
+      "name": "Lambert P_2",
+      "passed": true
+    },
+    {
+      "name": "Lambert P_3",
+      "passed": true
+    },
+    {
+      "name": "parametric Lambert constant coefficient identity",
+      "passed": true
+    },
+    {
+      "name": "Lambert quotient numerator n=0",
+      "passed": true
+    },
+    {
+      "name": "Lambert quotient numerator n=1",
+      "passed": true
+    },
+    {
+      "name": "Lambert quotient numerator n=2",
+      "passed": true
+    },
+    {
+      "name": "Lambert quotient numerator n=3",
+      "passed": true
+    },
+    {
+      "name": "Lambert quotient numerator n=4",
+      "passed": true
+    },
+    {
+      "name": "Lambert 3n+1 mutation rejected",
+      "passed": true
+    },
+    {
+      "name": "Catalan coefficients through degree six",
+      "passed": true
+    },
+    {
+      "name": "Catalan jet residual vanishes below degree six",
+      "passed": true
+    },
+    {
+      "name": "Catalan jet is not a full polynomial solution",
+      "passed": true
+    },
+    {
+      "name": "exact square-root lower bound certificate",
+      "passed": true
+    },
+    {
+      "name": "exact square-root upper bound certificate",
+      "passed": true
+    },
+    {
+      "name": "wrong square-root upper bound rejected",
+      "passed": true
+    },
+    {
+      "name": "integer ideal certificate requires noninteger scalar",
+      "passed": true
+    },
+    {
+      "name": "zero-divisor cancellation counterexample mod 6",
+      "passed": true
+    },
+    {
+      "name": "natural subtraction transport counterexample",
+      "passed": true
+    },
+    {
+      "name": "natural exact division counterexample",
+      "passed": true
+    }
+  ],
+  "passed": 27,
+  "total": 27,
+  "lambert_polynomials_lowest_coefficient_first": [
+    [
+      "1"
+    ],
+    [
+      "-2",
+      "-1"
+    ],
+    [
+      "9",
+      "8",
+      "2"
+    ],
+    [
+      "-64",
+      "-79",
+      "-36",
+      "-6"
+    ],
+    [
+      "625",
+      "974",
+      "622",
+      "192",
+      "24"
+    ],
+    [
+      "-7776",
+      "-14543",
+      "-11758",
+      "-5126",
+      "-1200",
+      "-120"
+    ]
+  ],
+  "catalan_jet_residual_lowest_coefficient_first": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "-132",
+    "-165",
+    "-308",
+    "-616",
+    "-1176",
+    "-1764"
+  ],
+  "sqrt_two_squared_bound_numerators": [
+    1999998409369,
+    2000000000000,
+    2000001237796
+  ]
+}

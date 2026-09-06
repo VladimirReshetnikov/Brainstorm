@@ -1,0 +1,110 @@
+{
+  "review_date": "2026-09-05 Pacific time (2026-09-06 UTC)",
+  "review_method": "Read-only GitHub connector retrieval; static inspection. No repository builds or runtime tests.",
+  "repository_revisions": {
+    "Brainstorm": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+    "ProveIt": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+    "Leant": "3a40904be8a410d832d9ab6900b3d3e7b425eccb"
+  },
+  "repository_sources": [
+    {
+      "repository": "Brainstorm",
+      "revision": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "path": "docs/synthesis/unified-report.tex",
+      "scope": "Complete synthesis, including appendices and references",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/synthesis/unified-report.tex"
+    },
+    {
+      "repository": "Brainstorm",
+      "revision": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "path": "docs/unified_report/unified_report.tex",
+      "scope": "Complete synthesis, including next-round questions, appendices and references",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/unified_report/unified_report.tex"
+    },
+    {
+      "repository": "ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+      "scope": "Complete source module",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean"
+    },
+    {
+      "repository": "ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "scope": "Complete source module",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean"
+    },
+    {
+      "repository": "ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean",
+      "scope": "Complete source module",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean"
+    },
+    {
+      "repository": "Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Verification.hs",
+      "scope": "Lines 1-200",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs"
+    },
+    {
+      "repository": "Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Fragment.hs",
+      "scope": "Lines 1-180",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Fragment.hs"
+    },
+    {
+      "repository": "Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Main.hs",
+      "scope": "Lines 4660-4900",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Main.hs"
+    }
+  ],
+  "public_references": [
+    {
+      "title": "Validating a Lean Proof",
+      "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+      "scope": "Moving official documentation; not a repository toolchain pin"
+    },
+    {
+      "title": "Mathlib.Tactic.Polyrith",
+      "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/Polyrith.html",
+      "scope": "Current official documentation and deprecation notice"
+    },
+    {
+      "title": "Deciding Univariate Polynomial Problems Using Untrusted Certificates in Isabelle/HOL",
+      "url": "https://arxiv.org/abs/1506.08238v2",
+      "scope": "Paper abstract and publication metadata"
+    },
+    {
+      "title": "A Verified Implementation of Algebraic Numbers in Isabelle/HOL",
+      "url": "https://doi.org/10.1007/s10817-018-09504-w",
+      "scope": "Primary publication description and related AFP entry"
+    },
+    {
+      "title": "Algebraic Numbers in Isabelle/HOL",
+      "url": "https://isa-afp.org/entries/Algebraic_Numbers.html",
+      "scope": "Formal development description"
+    },
+    {
+      "title": "A Verified Certificate Checker for Finite-Precision Error Bounds in Coq and HOL4",
+      "url": "https://arxiv.org/abs/1707.02115",
+      "scope": "Paper abstract and publication metadata"
+    },
+    {
+      "title": "Teaching Mathematics Using Lean and Controlled Natural Language",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITP.2024.27",
+      "scope": "Primary publication metadata and topic"
+    }
+  ],
+  "limitations": [
+    "The nine individual first-round proposals were not independently reread; their comparison is grounded in both synthesis reports.",
+    "Uncommitted Leant working-tree features discussed in the syntheses were not independently inspected or executed.",
+    "No Lean implementation of Concord is claimed.",
+    "Finite Python checks are sanity checks, not formal verification."
+  ]
+}

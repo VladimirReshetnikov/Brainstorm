@@ -1,0 +1,89 @@
+{
+  "review_date": "2026-09-05 Pacific time",
+  "review_method": "Static repository source reads and primary-source web documentation; no Lean or Leant execution",
+  "provenance_caution": "The syntheses reference other local source snapshots, including ProveIt 7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5 and modified/uncommitted Leant sources. Those are not equated with the public commits inspected here.",
+  "files": [
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "path": "docs/synthesis/unified-report.tex",
+      "ref": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "git_blob_sha1": "4bfcf344c91562fd7926a46a89bd78307b1ea750",
+      "inspection": "Requested report, read closely in successive source ranges",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/synthesis/unified-report.tex"
+    },
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "path": "docs/unified_report/unified_report.tex",
+      "ref": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "git_blob_sha1": "e99c39f64a67eaad8e3dc487104951a522494f6a",
+      "inspection": "Requested report, read closely including the revised question set",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/unified_report/unified_report.tex"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+      "ref": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "git_blob_sha1": "c6b0fe63a4faf8708b71e9b93aa2ce7406464d84",
+      "inspection": "Static source inspection",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "ref": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "git_blob_sha1": "1422b87f31073fed898ff0c8a080ea0a798aef5e",
+      "inspection": "Static source inspection",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean",
+      "ref": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "git_blob_sha1": "b04e593117987b4d8e7ff1f76880728eefb0f989",
+      "inspection": "Static source inspection, lines 1–210",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "path": "NumberTheory/IntegerSums/Lean/IntegerSums/FloorSqrtSum.lean",
+      "ref": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "git_blob_sha1": "d486bfdc6ede0e723fe5300a4f2b0ad64bc0d19f",
+      "inspection": "Static source inspection, lines 1–180",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/NumberTheory/IntegerSums/Lean/IntegerSums/FloorSqrtSum.lean"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "path": "src/Leant/Synth/Verification.hs",
+      "ref": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "git_blob_sha1": "caee3c51cfd226e6c2bb9887f80293343abd486c",
+      "inspection": "Static source inspection, lines 1–210",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "path": "src/Leant/Synth/Fragment.hs",
+      "ref": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "git_blob_sha1": "ab523ffd5e93a0ddc8c5d893a79e032562319aa1",
+      "inspection": "Static source inspection, lines 1–140",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Fragment.hs"
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "path": "Mathlib/Tactic/Polyrith.lean",
+      "ref": "master",
+      "git_blob_sha1": "267384428fb20711dad86d0ff8be9f27b2c614a3",
+      "inspection": "Current availability check; moving branch, not a prototype dependency pin",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/master/Mathlib/Tactic/Polyrith.lean"
+    }
+  ],
+  "executed_evidence": "Only the supplied Python exact-arithmetic experiment; 25 tests, including 182 finite binomial instances within one test",
+  "original_nine_proposals": "Considered through the two syntheses, not each independently reread in full",
+  "external_references": [
+    "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+    "https://lean-lang.org/doc/api/Lean/Meta/Native.html",
+    "https://www.cl.cam.ac.uk/~jrh13/papers/cas.html",
+    "https://arxiv.org/abs/2101.07758",
+    "https://coqinterval.gitlabpages.inria.fr/",
+    "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITP.2024.27"
+  ]
+}

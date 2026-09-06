@@ -1,0 +1,101 @@
+{
+  "article": "Concord: A Mathematical Language with Certified Computation",
+  "date": "2026-09-05",
+  "timezone": "America/Los_Angeles",
+  "status": "design proposal; static repository review; exact-arithmetic supplement executed",
+  "repositories": [
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "files": [
+        {
+          "path": "docs/synthesis/unified-report.tex",
+          "blob_sha": "4bfcf344c91562fd7926a46a89bd78307b1ea750",
+          "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/synthesis/unified-report.tex"
+        },
+        {
+          "path": "docs/unified_report/unified_report.tex",
+          "blob_sha": "e99c39f64a67eaad8e3dc487104951a522494f6a",
+          "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/unified_report/unified_report.tex"
+        }
+      ],
+      "scope": "Both requested synthesis reports read; individual proposals discussed through their comparative crosswalks."
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "files": [
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+          "blob_sha": "1422b87f31073fed898ff0c8a080ea0a798aef5e",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean"
+        },
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+          "blob_sha": "c6b0fe63a4faf8708b71e9b93aa2ce7406464d84",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean"
+        },
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/LambertWHigherDerivatives.lean",
+          "blob_sha": "cd42c43ed6c0bc407e23fe3afe351bdd659fe9b7",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/LambertWHigherDerivatives.lean"
+        }
+      ],
+      "scope": "Static source review. The syntheses also report a different local revision 7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5; no new audit or compilation was performed."
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "files": [
+        {
+          "path": "src/Leant/Synth/Verification.hs",
+          "blob_sha": "caee3c51cfd226e6c2bb9887f80293343abd486c",
+          "reviewed_ranges": [
+            [
+              1,
+              190
+            ]
+          ],
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs"
+        },
+        {
+          "path": "src/Leant/Synth/Engine.hs",
+          "blob_sha": "1064c8215506e172401cd7c5c06d7e8222e0befa",
+          "reviewed_ranges": [
+            [
+              1,
+              160
+            ]
+          ],
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Engine.hs"
+        },
+        {
+          "path": "src/Main.hs",
+          "blob_sha": "77d9bd5fc34c2e888d76c3bd1d43cfaeaefb2fc2",
+          "reviewed_ranges": [
+            [
+              4600,
+              4760
+            ],
+            [
+              4820,
+              5110
+            ]
+          ],
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Main.hs"
+        }
+      ],
+      "scope": "Static inspection only. Working-tree features discussed by the syntheses are attributed to those reports, not claimed to have been exercised here."
+    }
+  ],
+  "validation": {
+    "python_checks": 27,
+    "python_passed": 27,
+    "formally_verified_python": false,
+    "new_lean_code_compiled": false,
+    "proveit_built": false,
+    "leant_built": false,
+    "language_implemented": false,
+    "human_evaluation_performed": false
+  }
+}

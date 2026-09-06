@@ -1,0 +1,101 @@
+{
+  "status": "all_checks_passed",
+  "evidence_kind": "finite_exact_arithmetic_regression_and_illustrative_certificate_checks",
+  "not_a_formal_verification": true,
+  "not_a_language_implementation": true,
+  "total_checks": 3013,
+  "groups": [
+    {
+      "name": "denesting_polynomial_certificate",
+      "passed_checks": 2,
+      "scope": "Exact coefficient comparison in Q[u,v], plus one wrong-sign mutant"
+    },
+    {
+      "name": "sturm_example",
+      "passed_checks": 9,
+      "scope": "Displayed chain, endpoint signs, four intervals and infinity signs"
+    },
+    {
+      "name": "spivey",
+      "passed_checks": 144,
+      "scope": "0 <= m,n < 12; exact integers, finite regression only"
+    },
+    {
+      "name": "touchard",
+      "passed_checks": 24,
+      "scope": "0 <= m < 24; exact polynomial comparison"
+    },
+    {
+      "name": "binomial_orthogonality",
+      "passed_checks": 1440,
+      "scope": "0 <= n < 36, 0 <= j < 40, including empty intervals"
+    },
+    {
+      "name": "rational_egf",
+      "passed_checks": 570,
+      "scope": "10 deterministic rational sequence pairs; indices 0..18"
+    },
+    {
+      "name": "dual_number_egf",
+      "passed_checks": 154,
+      "scope": "7 sequence pairs in Q[epsilon]/(epsilon^2); indices 0..10"
+    },
+    {
+      "name": "guarded_transport",
+      "passed_checks": 416,
+      "scope": "0 <= b <= a < 16, 1 <= d <= 8, divisible cases and two mutants"
+    },
+    {
+      "name": "cancellation",
+      "passed_checks": 218,
+      "scope": "Rational samples, total-division zero case, dual-number zero divisor"
+    },
+    {
+      "name": "jet_negative_controls",
+      "passed_checks": 36,
+      "scope": "Orders 1..12; missing coefficient, derivative precision, substitution constant"
+    }
+  ],
+  "sturm_chain": [
+    [
+      "1",
+      "0",
+      "-6",
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "-12",
+      "0",
+      "4"
+    ],
+    [
+      "-1",
+      "0",
+      "3"
+    ],
+    [
+      "0",
+      "32/3"
+    ],
+    [
+      "1"
+    ]
+  ],
+  "signs_at_2": [
+    -1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "signs_at_3": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "scope_limit": "No Lean kernel, ProveIt build, Leant run, or universal finite-test inference."
+}

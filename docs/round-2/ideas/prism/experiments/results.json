@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "runtime": "Python standard-library exact rational arithmetic",
+  "formal_verification": false,
+  "lean_or_leant_executed": false,
+  "seed": 20260905,
+  "counts": {
+    "lambert_cross_multiplied_steps": 8,
+    "lambert_mutations_rejected": 9,
+    "binomial_orthogonality_pairs": 625,
+    "binomial_zero_divisor_ring_pairs": 768,
+    "egf_dual_number_coefficient_checks": 520,
+    "egf_dual_number_roundtrip_checks": 520,
+    "jet_precision_counterexamples": 20,
+    "root_endpoint_signs": 2,
+    "guard_counterexamples": 3
+  },
+  "total_reported_checks": 2475,
+  "limitations": [
+    "Finite tests are not proofs of the universal mathematical theorems.",
+    "Python arithmetic and this checker have not been formally verified.",
+    "Analytic bridges and guards are paper proofs, not checked by this program.",
+    "No claim is made about language usability or Lean integration performance."
+  ]
+}

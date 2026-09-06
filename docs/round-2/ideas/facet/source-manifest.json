@@ -1,0 +1,135 @@
+{
+  "title": "Facet: Mathematical Objects with Certified Computational Presentations",
+  "article_date": "2026-09-05 (Pacific time)",
+  "scope_notes": [
+    "Both synthesis reports were read closely, including their next-round questions and substantive appendices.",
+    "The nine individual proposals are considered through the two syntheses; this is not a claim of an independent full rereading of all nine.",
+    "ProveIt is inspected at the comparison revision used by the syntheses, not represented as the latest entire repository.",
+    "Selected Leant public committed sources were read. Working-tree-only behavior described by the earlier reports remains attributed to those reports.",
+    "No Lean or Leant build or regression suite was executed. Facet syntax, interfaces, and acceptance tests are proposed specifications.",
+    "Online primary documentation was consulted in September 2026 and is not a toolchain pin."
+  ],
+  "repository_sources": [
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "path": "docs/synthesis/unified-report.tex",
+      "git_blob_sha1": "4bfcf344c91562fd7926a46a89bd78307b1ea750",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/synthesis/unified-report.tex",
+      "inspection_scope": "Full report, read in successive source ranges.",
+      "access_method": "GitHub connector; static source inspection"
+    },
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "path": "docs/unified_report/unified_report.tex",
+      "git_blob_sha1": "e99c39f64a67eaad8e3dc487104951a522494f6a",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/unified_report/unified_report.tex",
+      "inspection_scope": "Full report, read in successive source ranges.",
+      "access_method": "GitHub connector; static source inspection"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+      "git_blob_sha1": "c6b0fe63a4faf8708b71e9b93aa2ce7406464d84",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5/Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+      "inspection_scope": "Complete file; requested lines 1–220.",
+      "access_method": "GitHub connector; static source inspection"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "git_blob_sha1": "1422b87f31073fed898ff0c8a080ea0a798aef5e",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "inspection_scope": "Complete file.",
+      "access_method": "GitHub connector; static source inspection"
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean",
+      "git_blob_sha1": "b04e593117987b4d8e7ff1f76880728eefb0f989",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5/Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean",
+      "inspection_scope": "Complete file; requested lines 1–210.",
+      "access_method": "GitHub connector; static source inspection"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Verification.hs",
+      "git_blob_sha1": "caee3c51cfd226e6c2bb9887f80293343abd486c",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs",
+      "inspection_scope": "Lines 1–225: callback receipts and verification scheduling.",
+      "access_method": "GitHub connector; static source inspection"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Engine.hs",
+      "git_blob_sha1": "1064c8215506e172401cd7c5c06d7e8222e0befa",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Engine.hs",
+      "inspection_scope": "Lines 1–165: engine-boundary contract, negative-result qualifications, and interface.",
+      "access_method": "GitHub connector; static source inspection"
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Main.hs",
+      "git_blob_sha1": "77d9bd5fc34c2e888d76c3bd1d43cfaeaefb2fc2",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Main.hs",
+      "inspection_scope": "Lines 4700–4995: suggestion generation, probing, displayed text, caching, and emergency exit.",
+      "access_method": "GitHub connector; static source inspection"
+    }
+  ],
+  "primary_external_references": [
+    {
+      "title": "Validating a Lean Proof",
+      "author_or_project": "Lean development team",
+      "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/"
+    },
+    {
+      "title": "Mathlib.Tactic.Ring.Basic",
+      "author_or_project": "Mathlib contributors",
+      "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/Ring/Basic.html"
+    },
+    {
+      "title": "A Sceptic’s Approach to Combining HOL and Maple",
+      "authors": [
+        "John Harrison",
+        "Laurent Théry"
+      ],
+      "year": 1998,
+      "url": "https://www.cl.cam.ac.uk/~jrh13/papers/cas.html"
+    },
+    {
+      "title": "Certified Computer Algebra on top of an Interactive Theorem Prover",
+      "authors": [
+        "Cezary Kaliszyk",
+        "Freek Wiedijk"
+      ],
+      "url": "https://www.cs.ru.nl/~freek/pubs/holcas.pdf"
+    },
+    {
+      "title": "A Refinement-Based Approach to Computational Algebra in Coq",
+      "authors": [
+        "Maxime Dénès",
+        "Anders Mörtberg",
+        "Vincent Siles"
+      ],
+      "year": 2012,
+      "url": "https://staff.math.su.se/anders.mortberg/papers/coqeal.pdf"
+    },
+    {
+      "title": "Algebraic Numbers in Isabelle/HOL",
+      "author_or_project": "René Thiemann, Akihisa Yamada, Sebastiaan J. C. Joosten; contributions from Manuel Eberl",
+      "url": "https://isa-afp.org/entries/Algebraic_Numbers.html"
+    },
+    {
+      "title": "Interval Package for Rocq",
+      "author_or_project": "Guillaume Melquiond and contributors",
+      "url": "https://coqinterval.gitlabpages.inria.fr/"
+    }
+  ]
+}

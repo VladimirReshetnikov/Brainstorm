@@ -1,0 +1,86 @@
+{
+  "article": "Prism: A Proof Language with Certified Mathematical Computation",
+  "study_date": "2026-09-05",
+  "timezone": "America/Los_Angeles",
+  "method": "Static reading through GitHub connector; no repository builds executed.",
+  "repositories": [
+    {
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "revision": "494be9d5ab41a5ae219fc6f800e6aee3c93bce39",
+      "files": [
+        {
+          "path": "docs/synthesis/unified-report.tex",
+          "scope": "Substantive full synthesis text, including next-round questions.",
+          "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/synthesis/unified-report.tex"
+        },
+        {
+          "path": "docs/unified_report/unified_report.tex",
+          "scope": "Substantive synthesis text, comparison, and second-round questions.",
+          "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/494be9d5ab41a5ae219fc6f800e6aee3c93bce39/docs/unified_report/unified_report.tex"
+        }
+      ],
+      "qualification": "Individual first-round proposals were used through these syntheses, not independently re-audited."
+    },
+    {
+      "repository": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "files": [
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+          "scope": "Full file; exact kernel identity and module/ring generality.",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean"
+        },
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+          "scope": "Full file; local derivative theorem and Lambert recurrence motivation.",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean"
+        },
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean",
+          "scope": "Full file; arbitrary formal solution, rational algebra, EGF identities.",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AbelPolynomialSeries.lean"
+        }
+      ]
+    },
+    {
+      "repository": "VladimirReshetnikov/Leant",
+      "revision": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "files": [
+        {
+          "path": "src/Leant/Synth/Verification.hs",
+          "scope": "Full module; callback-only receipts, exact candidate identity, lazy verification and deduplication.",
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs"
+        },
+        {
+          "path": "src/Leant/Synth/Engine.hs",
+          "scope": "Engine boundary, outcome and candidate provenance definitions, not a full engine correctness audit.",
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Engine.hs"
+        },
+        {
+          "path": "src/Main.hs",
+          "scope": "Selected suggestion/probe code and related request fields; not a full Main audit.",
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Main.hs"
+        }
+      ],
+      "qualification": "Uncommitted work discussed in the synthesis reports is not treated as reproduced public-revision behavior."
+    }
+  ],
+  "external_primary_sources": [
+    "https://www.cl.cam.ac.uk/~jrh13/papers/cas.html",
+    "https://isabelle.in.tum.de/dist/library/Doc/Isar_Ref/HOL_Specific.html",
+    "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+    "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/Ring/Basic.html",
+    "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/Polyrith.html",
+    "https://coqinterval.gitlabpages.inria.fr/",
+    "https://isa-afp.org/entries/Factor_Algebraic_Polynomial.html",
+    "https://github.com/marcusrossel/lean-egg"
+  ],
+  "documentation_note": "Moving documentation was consulted on the study date; it is not asserted to match an uninspected repository toolchain.",
+  "not_done": [
+    "No new Prism compiler implementation",
+    "No Lean/Leant build",
+    "No usability study",
+    "No formal verification of the Python experiments",
+    "No independent full audit of all nine original proposals"
+  ]
+}

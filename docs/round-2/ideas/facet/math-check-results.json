@@ -1,0 +1,24 @@
+{
+  "status": "all finite exact-arithmetic consistency checks passed",
+  "total_checks": 1100,
+  "checks_by_family": {
+    "binomial_kernel_instances": 725,
+    "binomial_inversion_Z_mod_6": 20,
+    "ODE_polynomial_coefficients": 5,
+    "Abel_initial_coefficients": 5,
+    "Abel_exponential_coefficients": 325,
+    "domain_counterexamples": 3,
+    "polynomial_function_counterexample_F2": 1,
+    "jet_precision_counterexamples": 8,
+    "denesting_algebra_only": 3,
+    "cubic_residual_arithmetic": 5
+  },
+  "arithmetic": "Python integers and fractions.Fraction only",
+  "limits": [
+    "Not formal proofs or a verified implementation.",
+    "No Lean code, Facet language, provider adapter, or protocol test was run.",
+    "Finite samples do not establish universally quantified identities.",
+    "Denesting checks are algebraic; principal-branch signs are proved in prose.",
+    "Cubic checks verify rational calculations, not a machine-checked analytic theorem."
+  ]
+}
