@@ -3,15 +3,19 @@
 [Read the report](unified-report.pdf) · [TeX source](unified-report.tex) ·
 [Convergence crosswalk](convergence.json) · [Validation receipt](validation.json)
 
-This 31-page, self-contained report critically synthesizes all nine round-3 proposals:
+This 34-page, self-contained report critically synthesizes all nine round-3 proposals:
 Basalt, Fiber, Gneiss, Karst, Moraine, Obsidian, Schist, Tephra, and Trellis.
 Neither earlier synthesis is required. The report explains the inherited
 computational contracts directly, develops a common refinement and behavioral
 model, compares the proposed inference and implementation choices, and gives
-ten questions for the next iteration.
+ten questions for the next iteration. The revised version incorporates the
+parallel [Nine Refinements](../unified_report/unified_report.pdf) synthesis,
+with a [critical incorporation memo](review-notes/parallel-synthesis-review.md).
 
 The current branch was fast-forwarded from `a18e3eb` to fetched `main` at
-`58bb54219f494b29310ff77384732129411da887` before this synthesis. Original
+`58bb54219f494b29310ff77384732129411da887` before the initial synthesis. This
+revision then fast-forwarded from `856b619` to fetched `main` at
+`8ddc6abb07df3906949f8f1a55b88288987fabe5`. Original
 proposal packages and earlier reports remain unchanged. External repositories
 were treated as read-only. This package and the repository navigation are the
 only intended changes.
@@ -38,6 +42,15 @@ only intended changes.
   with existing mathematical lemmas, a narrowly completed behavioral bridge,
   and controlled authoring/repair evaluation. A successful library or editor
   extension is an explicitly acceptable result.
+- The parallel synthesis contributes a checked Frey arithmetic package and
+  concrete questions about rewriting, dependent indices, and index lifetimes.
+  The revised report adds per-declaration telemetry, a renderer-only control,
+  and 22 prioritized positive/negative pairs, with the peer's 48-family
+  catalogue retained as an extended implementation backlog.
+- Finite evidence has four separate contracts: positive soundness, decision
+  completeness, counterexample realization, and observation coverage. A new
+  Lean counterexample corrects the peer's claim that raw affine coefficient
+  equality is complete for source behavior over `List Empty`.
 
 ## What the evidence establishes
 
@@ -45,6 +58,8 @@ only intended changes.
   83 tracked artifacts in the nine input packages (334 PDF pages), with exact
   Git blobs and separate checkout hashes. The two prior syntheses are classified
   separately. Input PDF page counts are metadata, not fresh source/PDF rebuilds.
+  The peer review's 28 artifacts have a [separate source register](evidence/parallel-review/source-register.json)
+  and are not counted as a tenth proposal.
 - **Critical comparison:** three full reading memos and a final semantic review
   are in [review-notes](review-notes). The crosswalk has 90 editorial cells and
   248 source-anchor occurrences: 89 explicit, one partial, zero absent.
@@ -74,6 +89,16 @@ only intended changes.
   commit `823259f7e3c6d24e990d3f48f78c4f1c4f88059e`, preserving concurrent
   checkout modifications. This is static evidence; Leant, its backends, and
   its solvers were not executed during this review.
+- **Fresh checks for this revision:** [parallel-review evidence](evidence/parallel-review/README.md)
+  retains the unchanged Frey proof (six named theorems, seven examples, four
+  axiom queries), an explicitly adapted positive Mathlib probe (four examples),
+  and three new `List Empty` adequacy theorems with empty axiom inventories.
+  All three files were accepted serially by Lean 4.32.0. The first two read
+  existing pinned Mathlib artifacts from ProveIt's dependencies; no external
+  repository write, Lake command, or dependency build was performed. The
+  peer's original `Supply3` deliberately failing `mvcgen` probe is not relabeled
+  as a successful whole-file compilation. Earlier Python and Lean executions
+  remain retained evidence and were not repeated merely for this revision.
 - **This document:** three serial strict pdfLaTeX passes, source/PDF hash
   binding, reference/glyph/overflow checks, and rendered-page visual inspection.
   The exact reviewed page count and PDF identity are in the validation and
@@ -115,7 +140,7 @@ python -B docs/round-3/synthesis/scripts/verify_report.py
 ```
 
 The verifier writes `validation.json` only after checking the current source,
-PDF, provenance, crosswalk, execution receipts, and visual receipt. It does not
+PDF, original and peer provenance, crosswalk, execution receipts, and visual receipt. It does not
 rerun Lean or Python companions, prove mathematical prose, or substitute for
 visual inspection. The local `.gitattributes` preserves the exact artifact
 bytes bound by the receipts, including original tool-output whitespace.
@@ -131,6 +156,8 @@ They require the recorded installed toolchain path, use `LEAN_NUM_THREADS=0`,
 unset `LEAN_PATH`, and request no output `.olean`, Lake command, external
 dependency build, or download. Read the Lean evidence guide before rerunning.
 Companion rerun commands are in the individual lane READMEs and receipts.
+The new peer-reproduction command and its separate read-only validator are
+documented in [parallel-review evidence](evidence/parallel-review/README.md).
 
 `verify_convergence.py --write` deliberately regenerates the consolidated map
 and its TeX table from the reading records. `verify_sources.py --create` is a

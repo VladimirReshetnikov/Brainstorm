@@ -17,6 +17,10 @@ The [TeX source](docs/round-3/synthesis/unified-report.tex),
 [source register](docs/round-3/synthesis/source-register.json), and
 [build and evidence notes](docs/round-3/synthesis/README.md) accompany the PDF.
 
+The revision incorporates the parallel [Nine Refinements](docs/round-3/unified_report/unified_report.pdf)
+review, reproduces its Frey arithmetic proofs, and adds checked abstraction
+counterexamples, editing/replay requirements, and a broader evaluation plan.
+
 The previous [unified report: Mathematical Objects, Certified Computation](docs/round-2/synthesis/unified-report.pdf)
 synthesizes the nine [round-2 proposals](docs/round-2/ideas):
 Accord, Cadence, Concord, Facet, Locus, Meridian, Noema, Prism, and Vantage.

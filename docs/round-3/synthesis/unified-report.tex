@@ -61,7 +61,8 @@ same mathematical libraries and services in the Lean comparison.
 The nine reports substantially agree on this direction. Their most valuable
 differences concern how inference is bounded, how observations justify both
 acceptance and rejection, and which mathematical interface should be implemented
-first. This report evaluates those differences and adds fresh kernel checks.
+first. This report evaluates those differences, incorporates the parallel
+\emph{Nine Refinements} review, and adds fresh kernel checks.
 \vfill
 Prepared for Vladimir Reshetnikov\par
 Codex \quad | \quad 6 September 2026\par
@@ -94,11 +95,15 @@ separates theorem truth from statement and method fidelity, and updates the
 evidence by compiling all seven supplied Lean reference files unchanged. In
 particular, a small affine checker and a list-length interpreter now have fresh
 kernel-acceptance evidence. Two additional generic interface theorems are also
-checked. The proposed next iteration should implement and compare a narrow
+checked. This revision incorporates the parallel review's Frey proofs,
+separates four guarantees often conflated as abstraction completeness, and
+adds concrete tests for rewriting and incremental elaboration. The proposed
+next iteration should implement and compare a narrow
 property-aware interface on top of these artifacts, with explicit exit tests,
 instead of expanding the language design without an authoring experiment.
 \end{abstract}
-\begingroup\small\setlength{\parskip}{0pt}\tableofcontents\endgroup
+\begingroup\small\setlength{\parskip}{0pt}\setlength{\baselineskip}{11pt}
+\tableofcontents\endgroup
 \clearpage
 
 \section{Executive assessment}\label{sec:executive}
@@ -174,8 +179,11 @@ objective.
 
 \section{Corpus, provenance, and standards of evidence}\label{sec:corpus}
 
-The branch was fast-forwarded from \code{a18e3eb} to fetched \code{main} at
-\code{58bb542}. The nine round-3 packages contain 83 tracked artifacts and
+The initial synthesis followed a fast-forward from \code{a18e3eb} to fetched
+\code{main} at \code{58bb542}. This revision then fast-forwarded from
+\code{856b619} to \code{8ddc6ab}, importing the parallel review
+\emph{Nine Refinements} and its artifacts \cite{round3-peer}.
+The nine original round-3 packages contain 83 tracked artifacts and
 334 PDF pages. All nine TeX sources were read in full across three parallel
 review lanes; their examples, companions, source registers, and claims were
 examined critically. The original packages remain unchanged.
@@ -203,6 +211,14 @@ the current source register binds the versions actually imported, rather than
 reusing the previous review's identities. References to ProveIt and the Fermat
 repository are primarily source studies made by the proposals. This review
 does not claim to have rebuilt or audited either development.
+
+The parallel round-3 synthesis is a secondary reading of the same material,
+not a tenth independent proposal. Its 28 artifacts have a separate immutable
+register. Its Frey proof, operational questions, and extended negative-test
+catalogue inform this revision. Its 76-commitment matrix uses finer editorial
+criteria than our ten dimensions; those counts cannot be pooled as votes.
+Analogous semantic combinators also do not make different Lean structures,
+subtypes, interpreters, and checkers literally alpha-equivalent programs.
 
 We distinguish four kinds of evidence throughout:
 \begin{description}[style=nextline]
@@ -556,6 +572,53 @@ to establish order $N$ of its derivative. An arbitrary finite prefix of a
 series is not the series itself, and finitely many checked prefixes do not
 replace a theorem quantified over every prefix.
 
+\subsection{Four guarantees behind finite evidence}\label{sec:finite-evidence}
+The parallel review usefully asks when finite evidence can settle a universal
+claim, but its proposed completeness table combines distinct questions
+\cite[Section 9.2]{round3-peer}. An implementation should expose four separate
+contracts:
+\begin{enumerate}
+\item \textbf{Positive soundness.} Acceptance of a finite certificate implies
+the requested source proposition. A theorem
+$\mathsf{check}(c)=\mathsf{true}\Rightarrow\forall x,\,P(x)$ can justify a
+universal conclusion even if the checker fails to recognize many true claims.
+Completeness is unnecessary for that successful proof.
+\item \textbf{Decision completeness.} Every true claim in a stated candidate
+grammar and admissible input domain is accepted by the chosen terminating
+decision procedure. This needs the converse direction as well as soundness;
+it is stronger than the existence of a useful proof-producing checker.
+\item \textbf{Negative realization.} A failing abstract witness corresponds
+to a particular admissible concrete input, and the semantic bridge transfers
+its failure. Realizing every abstract input is sufficient but stronger than
+the witness-specific condition needed for one refutation.
+\item \textbf{Observation coverage.} The checked observations determine the
+property in question. Exhaustive finite enumeration needs a coverage theorem;
+an infinite separating family needs a theorem quantified over every member.
+Checking finitely many of its members is a different guarantee.
+\end{enumerate}
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}P{0.25\textwidth}Y Y@{}}
+\toprule Representation & What positive evidence licenses & What is needed for a decision or refutation\\\midrule
+Affine lengths of \code{List Nat} & Equal coefficients imply the universal length law through the interpreter theorem. & For the fixed grammar, zero and basis vectors determine coefficients and are realizable by lists. The supplied Lean model does not yet prove the coefficient criterion.\\
+Affine lengths of \code{List Empty} & Equal coefficients are still sufficient. & Raw coefficient equality is incomplete for source equality: $0$ and $n$ agree at the sole realizable length $0$. Positive length cannot refute a source law.\\
+An enumerated finite domain & All enumerated cases plus coverage imply the universal claim. & Decidable cases and exhaustive coverage give a decision; rejecting a case requires a typed domain element.\\
+Finite prefixes & A theorem for every prefix can imply sequence equality through joint separation. & One finite cutoff does not cover the infinite family; the quantifier over all prefixes is indispensable to this route.\\
+A sample bank & Establishes the sampled instances. & A separate theorem relating those samples to the whole claim is needed for a universal conclusion.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Completeness therefore belongs to a tuple of source domain, admissibility,
+candidate grammar, specification, abstraction, and decision procedure. It is
+not a permanent badge on ``length'' or ``finite evidence.'' In particular,
+the parallel review's \code{List Empty} row cannot be complete under its
+stated source-level interpretation. This revision checks a three-theorem Lean
+counterexample: the affine forms $0$ and $n$ agree on all \code{List Empty}
+inputs, their coefficient pairs differ, and the proposed converse implication
+is false. A procedure restricted to the realizable zero input can be complete;
+the unrestricted coefficient test is the part that fails.
+
 \subsection{Normalization is a construction}
 Obsidian's distinction deserves explicit adoption. Dividing an integer triple
 by a common factor, permuting its entries, or selecting a prime exponent
@@ -582,7 +645,7 @@ The integral expression uses integer division; the rational expression uses
 field division. Identical typography does not establish that casting one gives
 the other. The helper theorem needs exact divisibility.
 
-Use the following satisfiable parameter context:
+Write $F_0$ for the following satisfiable parameter context:
 \begin{equation}\label{eq:frey-context}
  a,b\in\Z,\quad p\in\N,\quad p\ge4,\quad p\text{ odd},
  \quad a\equiv3\pmod4,\quad 2\mid b.
@@ -618,6 +681,30 @@ under a homomorphism, and inversion in the target. Even a nonzero integer can
 map to zero in positive characteristic. A regular element can be cancelled
 from an equality without being a unit: $2$ in $\Z$ is the elementary example.
 The requirement solver must select the theorem matching the requested use.
+
+\subsection{A reusable checked arithmetic package}\label{sec:frey-checked}
+The parallel review contributes \code{FreyExact.lean}; this revision compiles
+an unchanged copy against Lean 4.32.0 and the installed Mathlib dependency
+snapshot \cite[Section 7.3]{round3-peer}. Its six named theorems prove two
+arithmetic helpers, the two divisibility claims, and the two casts to $\Q$.
+Seven examples check the coefficient values $-53$ and $-486$, four removed-
+premise neighbors, and the inexact cast of $1/4$. A separate positive probe
+also checks the conjunction of the assumptions for $(3,2,5)$.
+
+The theorem interfaces improve the proposed property package. For $a_4$, only
+$2\mid b$ and $4\le p$ are needed; oddness of $p$ and $a\equiv3\pmod4$
+are used for $a_2$. An operation requesting only $a_4$ should not inherit the
+whole shared $F_0$ context merely because both coefficients belong to one
+larger construction. Conversely, these sufficient premise sets are not a
+claim of globally weakest preconditions.
+
+The quotient proofs call \code{Int.cast_div}. Its destination condition is
+nonzeroness of the \emph{cast denominator}, a distinction that matters outside
+$\Q$. The result establishes these coefficient equations. It does not yet
+prove equality of two complete curve models or implement the property-aware
+use site. The four printed interface-theorem inventories use only the standard
+axioms \code{propext}, \code{Quot.sound}, and, in three cases,
+\code{Classical.choice}; no native-evaluation axiom is involved.
 
 \subsection{A proposed authoring trace}
 Write $F_0$ for the assumptions in \eqref{eq:frey-context}. The following is
@@ -1055,6 +1142,14 @@ and retain the resulting proof. A cached search result is useful only when
 its target, contexts, provider laws, and acceptance policy still match or are
 connected by checked adapters.
 
+A \emph{sketch} is a partial candidate with designated holes and a specified
+set of permitted completions. A counterexample to one completed program
+excludes that program. Rejecting the entire sketch requires a proof that
+every permitted completion violates the contract, or an explicitly heuristic
+status that carries no such logical conclusion. Backward requirements can
+prune sketches soundly only when their necessary-condition theorem covers
+all of those completions.
+
 \section{Certified computation: what is now actually checked}\label{sec:checker}
 
 \subsection{The general proof chain}
@@ -1118,7 +1213,26 @@ properties compositionally and can use local assumptions and side-condition
 dischargers. Lean's \code{mvcgen} already generates verification conditions from
 Hoare-style specifications using registered specification lemmas. These are
 relevant baseline capabilities, although their targets and interfaces are not
-identical to every proposed mathematical refinement \cite{funprop,mvcgen}.
+identical to every proposed mathematical refinement. At the inspected Lean
+4.32.0 pin, \code{mvcgen} explicitly warns that it is experimental
+\cite{funprop,mvcgen,round3-peer}.
+
+The peer's \code{Supply3.lean} is a mixed probe: its final, deliberately
+misapplied \code{mvcgen} example errors, as its appendix discloses. It is not
+a successful whole-file compilation. This revision's separate positive probe
+removes that misuse and checks \code{fun_prop}, the composite from equality
+on an open neighborhood to derivative equality, and finite-matrix inverse
+reversal. Derivative equality here concerns Lean's totalized derivative;
+it does not establish differentiability. The probe does not test an effectful
+verification workflow or the concrete analytical interchange examples.
+
+The matrix probe uses \code{mul_eq_one_comm}, replacing the deprecated
+\code{Matrix.mul_eq_one_comm}. Its general interface is the reversal law in
+an \code{IsDedekindFiniteMonoid}. To generalize
+Section~\ref{sec:prefix} beyond commutative coefficient rings, the required
+instances are for \emph{each finite matrix monoid}. A reversal property of
+the scalar ring alone should not be silently promoted to this stable-finiteness
+condition.
 
 Likewise, \code{grobner}, \code{linear_combination}, arithmetic tactics, and
 ordinary theorem search belong in the comparison for the supported fragment.
@@ -1157,6 +1271,46 @@ Computation & Existing tactics and checked definitions & Certificate interfaces 
 \end{tabularx}
 \end{center}
 
+\subsection{Evidence after rewriting and incremental elaboration}\label{sec:anchor-lifetime}
+The parallel review identifies two concrete gaps: an expression may be
+rewritten before its property row is consulted, and Lean may reconstruct its
+local context after an edit \cite[Sections 8.3 and 11]{round3-peer}. These
+deserve acceptance tests before an editor-wide evidence index is attempted.
+
+Suppose $p:P(t)$ and simplification replaces $t$ by $u$.
+If $t$ and $u$ are definitionally equal in the retained context, ordinary Lean
+type checking can reuse the proof. Otherwise, a checked equality $e:t=u$
+permits the explicitly typed transport $e\mathbin{\triangleright}p:P(u)$.
+A relation weaker than equality needs its own consumer theorem. A normal-form
+string or matching pretty-printed name licenses none of these operations.
+Rewriting only the consumer's goal also need not delete the original fact:
+the index may retain the old anchor and apply an explicit bridge at use time.
+Proposition rewriting is another common case: from $p:P(t)$ and a checked
+$h:P(t)\leftrightarrow Q(u)$, the forward implication gives $Q(u)$ without
+asserting $t=u$. The retained adapter must match the propositions actually
+proved and requested.
+
+For dependent indices the target predicate itself may need transport. The
+system must preserve universe instantiations, dependent arguments, and chosen
+structure dictionaries, then ask Lean to check the transported proposition.
+A first prototype should restrict supported transport shapes and expose the
+remaining obligation rather than silently approximate this correspondence.
+
+Give index entries the lifetime of an elaboration snapshot. After a declaration
+is rebuilt, reconstruct the index from the new context, or replay entries only
+through a checked context embedding that maps the actual local declarations
+and their dependencies. Old local identifiers and receipt hashes are routing
+information; they are not a context embedding. Initially rebuilding may be
+cheaper and easier to justify than migrating the cache. Measure both before
+making persistence a semantic feature.
+
+The first stress cases should simplify an anchor, change a dependent index,
+rename a binder without changing meaning, replace a hidden structure argument,
+and rebuild a declaration after an upstream edit. Record transported facts,
+invalidated facts, reconstruction cost, and whether the displayed explanation
+still describes the accepted proof. This tests an implementation invariant
+that the small conservative-translation theorem alone does not establish.
+
 \subsection{Freeze meaning while allowing proof work to continue}
 Before accepting proof search, fix the proposition and its meaning-bearing
 arguments: objects, structures, domains, measures, quantifier order, branch,
@@ -1181,7 +1335,8 @@ formulas resemble the Lean definitions.
 objects with explicit proof obligations; a registered operation requests those
 proofs; a bounded engine discharges them or shows the frontier. The arithmetic
 task is exact quotient transport under \eqref{eq:frey-context}, using ordinary
-divisibility, cast, and coefficient-extensionality lemmas. Schist's natural-number
+divisibility, cast, and coefficient-extensionality lemmas, starting from the
+checked Frey helpers in Section~\ref{sec:frey-checked}. Schist's natural-number
 checker is a boundary control, not an integer-division solver.
 \item \textbf{Close one behavioral loop.} For the fixed list grammar, connect
 the exact candidate syntax to evaluation, prove the model normalization,
@@ -1199,6 +1354,14 @@ behavioral interpreter answer different questions; completing one does not
 clear the other's gate. A general multivariate checker, rich definition-package
 language, or editor-wide persistent workspace can wait until a real workload
 requires it.
+
+The peer proposes extending Schist's checker to Trellis's rational affine
+nonnegativity certificates and a reifier for real expressions
+\cite[Section 9.4]{round3-peer}. This is a useful alternative second checker,
+but it adds ordered semantics, a nonnegativity theorem, and a new expression
+bridge. The existing natural-number equality proof supplies an acceptance
+pattern, not those results. Compare that route with directly using established
+Lean arithmetic tactics before claiming it is the smallest implementation.
 
 \subsection{Three acceptance checks, with separate failure states}
 \textbf{Theorem truth} asks whether the retained Lean term proves its stated
@@ -1265,6 +1428,13 @@ available to L2--L4. Existing automation such as \code{fun_prop} and applicable
 Record both first-use infrastructure cost and its amortization across
 subsequent tasks. An adapter paid for by the research team still counts.
 
+Before implementing new input syntax, add the peer's renderer-only control:
+present the same accepted L2 proofs through a read-only mathematical view,
+with their statements and proof services unchanged \cite{obsidian,round3-peer}.
+This separates a comprehension gain from display from a gain due to property
+inference or source notation. Such a control can run alongside the L2--L3
+comparison; a successful renderer does not by itself justify a new parser.
+
 \subsection{A workload portfolio with different failure modes}
 Use the following as development tasks, then recruit genuinely unseen transfer
 tasks. Any file already inspected or used to design the interface has ceased
@@ -1287,6 +1457,14 @@ checking cost, and retained evidence size. Report distributions and paired
 differences, not only the most attractive example or an aggregate source-line
 reduction. The current tests establish none of those productivity metrics.
 
+Add the peer review's per-declaration telemetry: index entries and bytes,
+registered-rule firings and retries, transport-proof size, rebuild time, and
+the fraction of obligations solved by one existing lemma versus composition
+\cite[Section 11]{round3-peer}. Compare these with ordinary \code{exact?} and
+applicable property automation under the same registrations. A rule that never
+fires or only duplicates cheap lookup is a candidate for removal. Report the
+registration and maintenance effort as well as the cost of a successful run.
+
 \subsection{A compact adversarial acceptance suite}\label{sec:negatives}
 The next implementation should execute paired positive and negative cases at
 the real boundary. The table is a prioritized specification, not a claim that
@@ -1297,6 +1475,8 @@ the language already passes it.
 \toprule Case & Valid neighbor & Failure that must be identified\\\midrule\endhead
 \bottomrule\endfoot
 Identity & Reuse proof at the same elaborated object. & Same printed name but different object or structure.\\
+Rewrite & Reuse by conversion or a checked transport to the rewritten proposition. & Match a normalized string while losing dependent or structure arguments.\\
+Rebuild & Reconstruct the index or check a context embedding after an edit. & Reuse stale local identifiers as if the context had not changed.\\
 Scope & Typed weakening into a child context. & Reuse a sibling branch's nonzero hypothesis.\\
 Meaning & Leave a proof hole for a fixed target. & Solve a data hole by changing the requested proposition.\\
 Composition & Prove the next operation's precondition from the actual intermediate. & Compose arrow types while omitting the behavioral bridge.\\
@@ -1312,6 +1492,10 @@ Strength & Bound plus attainment establishes a least constant. & Publish sharpne
 Interchange & Supply domination or an appropriate $L^1$ theorem. & Exchange limit and integral from pointwise convergence alone.\\
 Replay & Recheck the exact selected source and all proof goals. & Present success after checking a different candidate or an incomplete state.\\
 Migration & Create a new receipt after rechecking under the new policy. & Relabel historical evidence after a structure or axiom-policy change.\\
+Publication & Check each displayed assertion, including unused ones. & Accept the final theorem while publishing an unrelated false intermediate claim.\\
+Domain & Keep a function on a refined domain, or construct a justified extension. & Extend a function on $\{x:A\mid P(x)\}$ to all of $A$ without a construction.\\
+Provider & Use a theorem about the exact provider term. & Promote a passive abstract provider law to source evidence.\\
+Sketch & Refute one completion, or prove that all completions violate the contract. & Reject a whole sketch because a single completion failed.\\
 \end{longtable}
 \end{center}
 
@@ -1321,6 +1505,22 @@ Schist, and Moraine files provide a few genuine Lean components. Each test
 should state whether it checks a theorem, a rejected proof attempt, an adapter
 refusal, or the display of an unresolved obligation. Failure of an unsupported
 certificate is not refutation of its target proposition.
+
+The peer's \href{../unified_report/negative_suite.csv}{48-family catalogue}
+is a valuable extended backlog with per-report locators. It is not 48 executed
+language tests, and its 142 report--family incidences are not 142 distinct
+source rows. The 22 prioritized pairs above identify immediate implementation
+boundaries. When expanding a family, record its source locator, exact target,
+valid neighbor, a witness of the benchmark's intended admissible premises,
+expected outcome, acceptance boundary, and current execution status.
+Vacuous propositions can be legitimate mathematics; the witness requirement
+protects a benchmark intended to exercise successful reasoning.
+
+Expected failures must remain route-specific. An $L^1$ premise can be required
+by one interchange theorem without being necessary for every interchange.
+A sharpness claim needs a lower-bound argument; attainment is one sufficient
+route, while a sequence approaching the bound can also suffice. Do not turn
+the catalogue's convenient diagnostics into universal mathematical necessities.
 
 \subsection{Semantic reading and stopping rules}
 Before showing the expanded proof, ask readers to reconstruct the compact
@@ -1359,10 +1559,10 @@ a regression where an import changes available instances.
 reason differs from a hint, which dependencies are allowed, and whether a
 support-restricted helper theorem is the first implementation mechanism.
 Use the Frey arithmetic context to test contradiction shortcuts.
-\item \textbf{Which behavioral bridge becomes complete first?} Finish Moraine's
-coefficient normalization and candidate reconstruction, or select another
-restricted grammar with an equally explicit semantics. Name the missing
-theorems rather than treating the existing model law as the whole bridge.
+\item \textbf{Which behavioral bridge and completeness claim come first?}
+Choose the candidate grammar and admissible input domain. Finish the relevant
+normalization and reconstruction proofs; distinguish positive soundness,
+decision completeness, and realizable refutation, including \code{List Empty}.
 \item \textbf{What authorizes negative Leant selection?} Require a concrete
 counterexample, a proved realization theorem, or a separate proof of the
 negation of the original specification. Specify behavior on unrealizable
@@ -1372,12 +1572,13 @@ local analysis, summability/interchange, and coherent relational maps. Keep
 the task unseen until the interface and evaluation rules are fixed.
 \item \textbf{What evidence is retained and rechecked?} Choose the proof,
 target reconstruction, provider-law dependencies, source correspondence, and
-policy information needed for replay. Exercise one meaning change, one
-scope-changing merge, and one toolchain migration.
+policy information needed for replay. Exercise simplification, a dependent
+index change, a rebuilt local context, and a toolchain migration. When is
+reconstructing the index preferable to transporting its cached entries?
 \item \textbf{What performance result would justify a larger checker or native
-execution?} Measure the real fragment and certificate sizes first. State both
-the checking-cost target and the permitted axiom policy; speed alone cannot
-decide the trust contract.
+execution?} Measure index size, rule firing, proof growth, rebuild cost, and
+single-lemma lookup separately from composition. State the checking-cost target
+and permitted axiom policy before adding a reifier or an accelerated route.
 \item \textbf{What outcome would end the separate-language experiment?} Set
 criteria for keeping only the library, services, or editor interface. A useful
 next iteration could allocate three focused efforts---semantic bridge,
@@ -1424,25 +1625,25 @@ Is another set of nine designs useful? & The architectural convergence is now st
 \end{center}
 
 \section{Validation and reproducibility}\label{app:validation}
-\begingroup\small
+\begingroup\small\setlength{\parskip}{0.35em}
 
-\subsection{Fresh executions and their limits}
+\subsection{Retained and fresh executions, with their limits}
 All nine Python companions were inspected and run with bytecode disabled from
 isolated copies or redirected output directories. Commands, versions, copied
 source hashes, results, and unchanged-input checks are retained. Their counts
 have different units and should not be added into a fictitious theorem count.
 \begin{center}\small
-\begin{tabularx}{\textwidth}{@{}l Y@{}}
-\toprule Proposal & Fresh Python result\\\midrule
-Basalt & 24 test methods.\\
-Fiber & 1,298 finite checks in 31 groups.\\
-Gneiss & 32 test methods.\\
-Karst & Eight groups, matching the original result JSON.\\
-Moraine & 32 named tests; includes 25,600 interpreter comparisons and 729 affine-form pairs.\\
-Obsidian & 608 finite probes, matching the original result JSON.\\
-Schist & 10 test methods.\\
-Tephra & 23 test methods.\\
-Trellis & 31 cases: nine acceptance and 22 rejection.\\
+\begin{tabularx}{\textwidth}{@{}l Y r@{}}
+\toprule Proposal & Retained Python result & Lean theorems\\\midrule
+Basalt & 24 test methods. & 2\\
+Fiber & 1,298 finite checks in 31 groups. & 3\\
+Gneiss & 32 test methods. & 2\\
+Karst & Eight groups, matching the original result JSON. & 12\\
+Moraine & 32 tests; 25,600 interpreter comparisons and 729 affine-form pairs. & 16\\
+Obsidian & 608 probes, matching the original result JSON. & ---\\
+Schist & 10 test methods. & 8\\
+Tephra & 23 test methods. & 6\\
+Trellis & 31 cases: nine acceptance and 22 rejection. & ---\\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -1454,19 +1655,6 @@ build, dependency download, or output \code{.olean} was requested. The files
 contain 49 named theorem declarations, plus definitions and examples; this is
 a source inventory, not 49 independent completed design goals.
 
-\begin{center}\small
-\begin{tabular}{@{}l r l@{}}
-\toprule Proposal & Named theorems & Unchanged original source\\\midrule
-Basalt & 2 & Accepted\\
-Fiber & 3 & Accepted\\
-Gneiss & 2 & Accepted\\
-Karst & 12 & Accepted\\
-Moraine & 16 & Accepted\\
-Schist & 8 & Accepted\\
-Tephra & 6 & Accepted\\\bottomrule
-\end{tabular}
-\end{center}
-
 The retained axiom queries cover 32 unique declarations in those files:
 27 report no axioms and five report only \code{propext}. The other 17 named
 theorems compiled but were not individually queried in this audit. The two
@@ -1475,23 +1663,36 @@ These inventories do not establish a full axiom audit of all proof-bearing
 definitions, a mechanically verified frontend, or a proof of the general
 multivariate checkers described in the prose.
 
+\subsection{The parallel review and this revision's additional checks}
+The peer's core logs contain 48 distinct axiom inventories, while the original
+files contain 49 named theorems. Its smaller headline omits Karst's
+\code{viewIntro} from the declaration count because that declaration has no
+printed query. Our 49-declaration inventory and 32 individually audited
+original declarations remain distinct. The imported additional queries are
+historical evidence, not newly repeated runs of those cores.
+
+This revision freshly accepts three further files. The unchanged peer
+\code{FreyExact.lean} contains six named theorems and seven examples, with
+four interface-theorem axiom queries. A modified \code{SupplyChecked.lean}
+accepts four examples: continuity, local derivative equality, matrix reversal,
+and inhabited Frey premises. It removes the intentional failing \code{mvcgen}
+probe and uses the replacement matrix lemma. Both use existing Mathlib
+artifacts at dependency revision \code{81a5d25}; no Lake or external build
+is run. The three new \code{AdequacyChecks.lean} theorems use bundled Lean
+and report no axioms. Source copies, exact commands, dependency revisions,
+outputs, and limits are retained separately under
+\path{evidence/parallel-review/}.
+
 \subsection{What the package verifier checks}
-The source register pins all 83 input artifacts to Git blobs and records
-checkout bytes separately. The convergence verifier checks its 90 editorial
-cells and source anchors. Execution receipts bind retained source and log
-files. The document verifier checks references, local links, PDF content,
-three strict pdfLaTeX passes, source/PDF hashes, and the receipt for the visual
-inspection of every rendered page.
+The verifier checks Git and byte identity for the 83 original and 28 peer
+artifacts, the 90-cell crosswalk and source anchors, retained execution
+receipts, references and local links, three strict pdfLaTeX passes, source/PDF
+hashes, and the visual-review receipt for every page.
 
-These consistency checks do not prove the mathematical prose. The written
-prefix, quotient, analytic, and tensor arguments have been critically reviewed;
-only the explicitly identified Lean declarations receive kernel-acceptance
-claims. No Leant executable, complete certificate service, input repository,
-or implemented new language is claimed to have passed integration testing.
-
-Environment requirements, build commands, and isolated rerun instructions are
-in the package README. Reproduction preserves the input packages. Historical
-round-2 evidence is not relabeled as current execution.
+These consistency checks do not prove mathematical prose or a complete
+frontend. Only explicitly identified Lean declarations receive kernel-acceptance
+claims. The README gives dependencies and rerun commands; historical receipts
+retain their original scope, and the input packages remain unchanged.
 \endgroup
 
 \clearpage
@@ -1518,6 +1719,12 @@ Round-3 proposal, 2026. \href{../ideas/trellis/trellis.pdf}{Local article}.
 Revised round-2 synthesis. \href{../../round-2/synthesis/unified-report.pdf}{Local article}.
 \bibitem{round2b} \emph{Nine Workbenches}. Revised round-2 synthesis.
 \href{../../round-2/unified_report/unified_report.pdf}{Local article}.
+\bibitem{round3-peer} Claude (Anthropic). \emph{Nine Refinements:
+Property-Aware Typing in a Mathematician's Proof Language over Lean}.
+Parallel round-3 synthesis, 6 September 2026, imported at \code{8ddc6ab}.
+\href{../unified_report/unified_report.pdf}{Local article};
+\href{../unified_report/unified_report.tex}{source};
+\href{review-notes/parallel-synthesis-review.md}{critical incorporation memo}.
 \bibitem{tensor-source} Fermat repository. Finite/free tensor-family representability,
 \path{P2M/Sol/S_Algebra_exists_algHom_equiv_pi.lean}, commit
 \code{aa2d8b3}; hypotheses on line 37.

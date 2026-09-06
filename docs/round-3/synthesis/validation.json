@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "validated_utc": "2026-09-06T21:03:30.483595+00:00",
+  "validated_utc": "2026-09-06T21:30:37.934642+00:00",
   "scope": "Read-only provenance, editorial-crosswalk structure, document/build/visual receipt binding, and retained execution-evidence consistency. This validation reruns no experiment or build and does not certify general mathematics, the proposed frontend, service correctness, or authoring productivity.",
   "source_validation": {
     "status": "passed",
@@ -88,18 +88,18 @@
   },
   "document_validation": {
     "status": "passed",
-    "pdf_pages": 31,
-    "pdf_sha256": "ea3bbcc0e3028565d68647e998dee1e01c2a5135b92f430d40786c1306ea2366",
+    "pdf_pages": 34,
+    "pdf_sha256": "7154c7dce7cec0607741a47101d01505854e48a7eb03d45220f334dfc81ac21a",
     "tex_inputs": {
-      "unified-report.tex": "3dd261c24b0219956fed689c124c57d5474b2ac84b24291b14bd66e93f55c74d",
-      "crosswalk-table.tex": "86f407892228d0143c91b52e76a0a4bd9bc70fffa881ebed57bb44d3a99f2796"
+      "crosswalk-table.tex": "86f407892228d0143c91b52e76a0a4bd9bc70fffa881ebed57bb44d3a99f2796",
+      "unified-report.tex": "d0eb5ee71735dd889f2f88689030a1f527600e1ec9d61880a4d7687e9bbb6f35"
     },
     "recorded_latex_passes": 3,
-    "final_build_log_sha256": "83299943da8302da30e764b3c3484b42b244fac1e98f8cd27bb396936a435265",
-    "labels": 24,
-    "bibliography_entries": 16,
-    "local_links_checked": 13,
-    "required_section_phrases": 18,
+    "final_build_log_sha256": "7c5a67a5a32d64333a0cce1961aa1c48038554f08dd1370d430558e5c5c2ad4b",
+    "labels": 27,
+    "bibliography_entries": 17,
+    "local_links_checked": 17,
+    "required_section_phrases": 21,
     "all_pages_nonblank": true,
     "scope": "Current bytes match the retained build receipt; final log and PDF text checked. No rebuild or independent reconstruction of the recorded three passes."
   },
@@ -305,9 +305,116 @@
     ],
     "scope": "Retained Leant full-file byte/Git-blob consistency and Djex excerpt hash/line coverage. No live repository comparison, external execution, or claim that the unretained full Djex blob has been revalidated."
   },
+  "parallel_review_validation": {
+    "status": "passed",
+    "source_commit": "8ddc6abb07df3906949f8f1a55b88288987fabe5",
+    "peer_artifacts_bound": 28,
+    "secondary_syntheses_counted_as_proposals": 0,
+    "source_register_sha256": "ce4bc93c23432095823d14ecfcdbd77f98d9ca4a35dd0d726a494054b1e4cd94",
+    "fresh_execution_evidence": {
+      "version": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+      "cases": {
+        "FreyExact.lean": {
+          "named_theorems": 6,
+          "examples": 7,
+          "axiom_queries": 4,
+          "axioms": {
+            "FreyExact.four_dvd_a2": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "FreyExact.sixteen_dvd_a4": [
+              "propext",
+              "Quot.sound"
+            ],
+            "FreyExact.cast_a2": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "FreyExact.cast_a4": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "source_sha256": "3108733024af847aaa41dd0011f968d617e452501392f27780d4ffe3931fb317",
+          "log_sha256": "0efce17deb8950c819e3bcabad34788e41484d1214e12477ae9533968ef1948d",
+          "recorded_exit_code": 0,
+          "scope": "Unchanged peer source: six named theorems, seven examples, four axiom queries."
+        },
+        "SupplyChecked.lean": {
+          "named_theorems": 0,
+          "examples": 4,
+          "axiom_queries": 0,
+          "axioms": {},
+          "source_sha256": "e9e9cb16041a3cce1e0f4ecac72d6fdd5304b8c4678ff25724d7cbc494ac7b5d",
+          "log_sha256": "2a7605ec5ef96613a0affd460393e669e8c46f4873cbd429cb7ccf38a1feb49b",
+          "recorded_exit_code": 0,
+          "scope": "Adapted positive supply probe: removes the deliberate mvcgen misuse, uses the replacement matrix lemma, and checks an admissible Frey premise tuple."
+        },
+        "AdequacyChecks.lean": {
+          "named_theorems": 3,
+          "examples": 0,
+          "axiom_queries": 3,
+          "axioms": {
+            "ObservationAdequacy.empty_models_agree": [],
+            "ObservationAdequacy.empty_coefficients_differ": [],
+            "ObservationAdequacy.coefficient_test_not_complete": []
+          },
+          "source_sha256": "f9ecb9f414e33a3cc445ba856abb21065202a8fc356dcb2bf0320182ef342848",
+          "log_sha256": "51b61d38754f8aab87e144485f10773d2eef2f8560373a879d6dd1098f7e60b3",
+          "recorded_exit_code": 0,
+          "scope": "New bundled-core counterexample to coefficient-test completeness on List Empty."
+        }
+      },
+      "successful_retained_checks": 3,
+      "named_theorems": 9,
+      "examples": 11,
+      "queried_declarations": 7,
+      "recorded_dependency_count": 9,
+      "execution_receipt_sha256": "d6d0b793adf91acdabb991a44733f2b589473666178b4e48ccffccac9f7adad9"
+    },
+    "editorial_metadata": {
+      "classification": "Editorial classifications of the same nine proposals; their semantic scoring is not validated.",
+      "commitment_rows": 76,
+      "unanimous_marked_rows": 46,
+      "inherited_commitment_rows": 33,
+      "fresh_unanimous_marked_rows": 23,
+      "negative_families": 48,
+      "report_family_incidences": 142,
+      "families_marked_inherited": 25,
+      "families_with_one_report": 19,
+      "families_with_at_least_five_reports": 11,
+      "question_rows": 20,
+      "questions_marked_explicit_in_all_reports": 13,
+      "peer_core_csv_reported_theorem_total": 48,
+      "core_source_named_theorems": {
+        "Basalt": 2,
+        "Fiber": 3,
+        "Gneiss": 2,
+        "Karst": 12,
+        "Moraine": 16,
+        "Schist": 8,
+        "Tephra": 6
+      },
+      "core_source_named_theorem_total": 49,
+      "core_count_qualification": "The peer CSV reports 48, counting Karst's 11 axiom queries instead of its 12 named theorem declarations. The seven original cores have 49 named theorem declarations; this CSV does not supersede the separate source inventory.",
+      "negative_suite_qualification": "142 counts populated report-family cells, not 142 unique source rows or 142 executable tests. Multiple source labels can occupy one cell."
+    },
+    "limitations": [
+      "This validator performs only read-only Git and artifact-consistency checks. It reruns no Lean, Lake, solver, Python companion, or PDF build.",
+      "Successful exit codes and axiom inventories describe retained fresh executions; validation does not independently recheck their proof terms.",
+      "The runs used existing ProveIt dependency library artifacts. Recorded manifest revisions and clean tracked-source statuses are consistent, but this validator neither rebuilds nor hashes or audits every imported .olean or compares live external repositories.",
+      "FreyExact.lean is unchanged peer source. SupplyChecked.lean is an explicitly adapted positive probe, replacing the deprecated matrix name and deliberate mvcgen misuse with an admissible Frey tuple. It does not validate an effectful mvcgen workflow or claim the original Supply3 file succeeded.",
+      "AdequacyChecks.lean is a new small counterexample to unrestricted coefficient-test completeness over List Empty, not a verified Leant adapter or arbitrary abstraction theorem.",
+      "Byte-bound peer PDFs and CSVs receive no source/PDF parity or semantic editorial-scoring validation here. The parallel synthesis remains a secondary review of the same nine proposals."
+    ]
+  },
   "visual_review_validation": {
     "status": "passed",
-    "pdf_sha256": "ea3bbcc0e3028565d68647e998dee1e01c2a5135b92f430d40786c1306ea2366",
+    "pdf_sha256": "7154c7dce7cec0607741a47101d01505854e48a7eb03d45220f334dfc81ac21a",
     "pages_reviewed": [
       1,
       2,
@@ -339,21 +446,29 @@
       28,
       29,
       30,
-      31
+      31,
+      32,
+      33,
+      34
     ],
     "scope": "Independent visual-review receipt bound to every page of this PDF; this script does not perform visual inspection."
   },
   "package_sha256": {
     "source-register.json": "fd586322c62f670a5f98bf73e0443ff2dedadf02d27b1e633cbf9389d34ea5c3",
     "convergence.json": "83f200ec8d2d7e23e397b00c9d9c2c1586a1b9bb9711cfda12b5a15697119c9d",
-    "unified-report.tex": "3dd261c24b0219956fed689c124c57d5474b2ac84b24291b14bd66e93f55c74d",
+    "unified-report.tex": "d0eb5ee71735dd889f2f88689030a1f527600e1ec9d61880a4d7687e9bbb6f35",
     "crosswalk-table.tex": "86f407892228d0143c91b52e76a0a4bd9bc70fffa881ebed57bb44d3a99f2796",
-    "unified-report.pdf": "ea3bbcc0e3028565d68647e998dee1e01c2a5135b92f430d40786c1306ea2366",
+    "unified-report.pdf": "7154c7dce7cec0607741a47101d01505854e48a7eb03d45220f334dfc81ac21a",
+    "README.md": "8b0e1050e92014d37bd4c2c6a0cfa81142b06b2856294345d1f0aeb61d6946e8",
+    "build.ps1": "10710f08a42351d7dc5cb87e2d135d944c8766e7e9da9ff6f93ec17e39dedf7e",
+    "review-notes/parallel-synthesis-review.md": "9f03c789796d19c70452e997bc1232c25076f02f3bc058efe4b47e9bb22cc495",
     "scripts/check_lean.py": "6a7b17d1c6e5e2c2814e03b0952cfa9ada3704cba792647e41d201235f282b3e",
+    "scripts/check_parallel_review.py": "a05c4d1e7ee451cf7734a4b0bce4be297b50591fcb4603643915d82255c92b2b",
     "scripts/check_synthesis_lean.py": "b2a70fcf388c9bfbf47003b8449d78f2c6dcdc0610fafa118c9643414977c435",
     "scripts/render_review.py": "1ceedee392373f85b180986fdbed2468fbd3ec9addaf475444dfc6508507bf04",
     "scripts/verify_convergence.py": "4866513f3ccd4c58841965ae67b435b06fd25924a436b5f386a9b28f3cdf662e",
-    "scripts/verify_report.py": "3c823e5e3c942e5aa084783d5223e89668e0d425c2ccf135a698f16fbed9c4a1",
+    "scripts/verify_parallel_review.py": "20f8d722619171f4c322a0691b315d564a484c503d56b208095e5bf590f8c8f6",
+    "scripts/verify_report.py": "13b26a0b0e86e95eea153e5be59882422248e7052b3dbfd89f3e941212c01e21",
     "scripts/verify_sources.py": "cbb3cbd97103823d95d31e28c0d5acce24a7391e5436f85b70031cd6b28f688f"
   },
   "evidence_sha256": {
@@ -442,8 +557,17 @@
     "evidence/leant-review/source/Verification.hs": "4045c4cb2560704694d87bc7f20f378f0503ebda77daa492b068bd46e596bc88",
     "evidence/leant-review/source-register.json": "f174ac44a326400e5b51dce280d76c607a8ac47a988e9bda66d4f0a0ee0f424b",
     "evidence/leant-review/validation.json": "90a5fe0d4f4cd77cac6f2891832f85d9e4df7a966c1cbe63241b18b81de97295",
-    "evidence/pdf-build-log.txt": "83299943da8302da30e764b3c3484b42b244fac1e98f8cd27bb396936a435265",
-    "evidence/pdf-build-receipt.json": "db969e0f016d46a5812b78db2483bb13fda043c3b5b5f3c9836f0e8a8a40e95a",
+    "evidence/parallel-review/AdequacyChecks.lean": "f9ecb9f414e33a3cc445ba856abb21065202a8fc356dcb2bf0320182ef342848",
+    "evidence/parallel-review/AdequacyChecks.log": "51b61d38754f8aab87e144485f10773d2eef2f8560373a879d6dd1098f7e60b3",
+    "evidence/parallel-review/execution-receipt.json": "d6d0b793adf91acdabb991a44733f2b589473666178b4e48ccffccac9f7adad9",
+    "evidence/parallel-review/FreyExact.lean": "3108733024af847aaa41dd0011f968d617e452501392f27780d4ffe3931fb317",
+    "evidence/parallel-review/FreyExact.log": "0efce17deb8950c819e3bcabad34788e41484d1214e12477ae9533968ef1948d",
+    "evidence/parallel-review/README.md": "f7c52826025f9d0ab01d4332a94bbced17cfc320b7fdee7277320acf63de104b",
+    "evidence/parallel-review/source-register.json": "ce4bc93c23432095823d14ecfcdbd77f98d9ca4a35dd0d726a494054b1e4cd94",
+    "evidence/parallel-review/SupplyChecked.lean": "e9e9cb16041a3cce1e0f4ecac72d6fdd5304b8c4678ff25724d7cbc494ac7b5d",
+    "evidence/parallel-review/SupplyChecked.log": "2a7605ec5ef96613a0affd460393e669e8c46f4873cbd429cb7ccf38a1feb49b",
+    "evidence/pdf-build-log.txt": "7c5a67a5a32d64333a0cce1961aa1c48038554f08dd1370d430558e5c5c2ad4b",
+    "evidence/pdf-build-receipt.json": "3a3cca6216ab058d4fd987abe1d6efcc4db4f01ebffb2fea3d2ff2e6c642ad2b",
     "evidence/schist-tephra-trellis/convergence.json": "e558bcacf878f12f7a64a807e14062ff05f831a143cdc173165d84d9cd4e0ae0",
     "evidence/schist-tephra-trellis/README.md": "90098931c8b209c1d064428ad169beca7e611e18811c0250cf5f262f6cd7d014",
     "evidence/schist-tephra-trellis/receipt.json": "8e50e5932c9c24d246c916e4f8f708b7a8a5de4c06aed87e7735381ceb0b79b3",
@@ -459,6 +583,6 @@
     "evidence/schist-tephra-trellis/trellis/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "evidence/schist-tephra-trellis/trellis/stdout.txt": "1b804b7801e95f95c76f2b9b0e54c7429cbec4543973a587d11a4e72926d2a60",
     "evidence/schist-tephra-trellis/trellis/trellis_reference.py": "5d33ec15d4336e043284c152108853c0242c6773ee1dcb8bcf7eee426fc62085",
-    "evidence/visual-review.json": "f691ab5c5e09138233c39e0a57e0b67d24d41f76f3e324f6f1778a906e3cf05c"
+    "evidence/visual-review.json": "466cecd71a43ff7114d28bbe00d1d36bf8f9ff4122cbf62d912ab57fd5c7ab69"
   }
 }

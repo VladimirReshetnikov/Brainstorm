@@ -21,6 +21,7 @@ from urllib.parse import unquote, urlsplit
 from pypdf import PdfReader
 from verify_sources import validate as validate_sources
 from verify_convergence import validate as validate_convergence
+from verify_parallel_review import validate as validate_parallel_review
 
 HERE = Path(__file__).resolve().parents[1]
 ROOT = HERE.parents[2]
@@ -139,7 +140,9 @@ def validate_document():
                "An implementation that tests the authoring hypothesis",
                "Evaluation that can change the design decision",
                "Questions for the next iteration", "Convergence crosswalk",
-               "Earlier questions, restated with current answers", "Validation and reproducibility"]
+               "Earlier questions, restated with current answers", "Validation and reproducibility",
+               "Four guarantees behind finite evidence", "A reusable checked arithmetic package",
+               "Evidence after rewriting and incremental elaboration"]
     for phrase in phrases:
         require(phrase in extracted, f"Expected PDF section missing: {phrase}")
     return {"status": "passed", "pdf_pages": len(texts), "pdf_sha256": sha(pdf),
@@ -400,17 +403,20 @@ def validate():
     lean = validate_lean()
     python = validate_python()
     leant = validate_leant()
+    parallel_review = validate_parallel_review()
     visual = validate_visual(document)
     evidence = {p.relative_to(HERE).as_posix(): sha(p)
                 for p in sorted((HERE / "evidence").rglob("*")) if p.is_file()}
     package = {name: sha(HERE / name) for name in
-               ["source-register.json", "convergence.json", "unified-report.tex", "crosswalk-table.tex", "unified-report.pdf"]}
+               ["source-register.json", "convergence.json", "unified-report.tex", "crosswalk-table.tex", "unified-report.pdf",
+                "README.md", "build.ps1", "review-notes/parallel-synthesis-review.md"]}
     package.update({p.relative_to(HERE).as_posix(): sha(p) for p in sorted((HERE / "scripts").glob("*.py"))})
     return {"status": "passed", "validated_utc": datetime.now(timezone.utc).isoformat(),
             "scope": "Read-only provenance, editorial-crosswalk structure, document/build/visual receipt binding, and retained execution-evidence consistency. This validation reruns no experiment or build and does not certify general mathematics, the proposed frontend, service correctness, or authoring productivity.",
             "source_validation": provenance, "convergence_validation": convergence,
             "document_validation": document, "lean_validation": lean,
             "python_validation": python, "leant_snapshot_validation": leant,
+            "parallel_review_validation": parallel_review,
             "visual_review_validation": visual, "package_sha256": package, "evidence_sha256": evidence}
 
 
@@ -421,6 +427,8 @@ def main():
     print(json.dumps({"status": result["status"], "pdf_pages": result["document_validation"]["pdf_pages"],
                       "source_commit": PIN, "convergence_cells": 90, "original_lean_files": 7,
                       "unique_original_axiom_audits": 32, "additional_lean_theorems": 2,
+                      "peer_artifacts_bound": 28, "reproduced_frey_theorems": 6,
+                      "new_adequacy_theorems": 3, "positive_supply_examples": 4,
                       "retained_python_runs": 9, "retained_leant_full_files": 9,
                       "all_pages_visually_reviewed": True, "evidence_files_hashed": len(result["evidence_sha256"]),
                       "receipt": "validation.json"}, indent=2))
