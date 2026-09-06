@@ -4,6 +4,7 @@ $buildDir = Join-Path $PSScriptRoot '.build'
 New-Item -ItemType Directory -Path $buildDir -Force | Out-Null
 Push-Location $PSScriptRoot
 try {
+    $sourceHash = (Get-FileHash -LiteralPath 'unified-report.tex' -Algorithm SHA256).Hash.ToLowerInvariant()
     for ($pass = 1; $pass -le 3; $pass++) {
         & $PdfLaTeX -interaction=nonstopmode -halt-on-error -no-shell-escape "-output-directory=$buildDir" unified-report.tex *> (Join-Path $buildDir "pass-$pass.txt")
         if ($LASTEXITCODE -ne 0) {
@@ -18,7 +19,12 @@ try {
         $problems | ForEach-Object { Write-Output $_.Value }
         throw 'The final LaTeX log contains unresolved references, glyphs, or overflow.'
     }
+    $finalSourceHash = (Get-FileHash -LiteralPath 'unified-report.tex' -Algorithm SHA256).Hash.ToLowerInvariant()
+    if ($sourceHash -ne $finalSourceHash) { throw 'The TeX source changed during the build.' }
     Copy-Item -LiteralPath (Join-Path $buildDir 'unified-report.pdf') -Destination (Join-Path $PSScriptRoot 'unified-report.pdf') -Force
+    $pdfHash = (Get-FileHash -LiteralPath 'unified-report.pdf' -Algorithm SHA256).Hash.ToLowerInvariant()
+    @{ tex_sha256 = $sourceHash; pdf_sha256 = $pdfHash; passes = 3 } |
+        ConvertTo-Json | Set-Content -LiteralPath (Join-Path $buildDir 'build-receipt.json') -Encoding utf8
     Write-Output 'Final PDF copied after three successful passes and log checks.'
 } finally {
     Pop-Location

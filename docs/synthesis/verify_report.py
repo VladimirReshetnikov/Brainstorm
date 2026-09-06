@@ -52,15 +52,36 @@ def main():
                 assert hashlib.sha256(data).hexdigest() == item['sha256'], item['path']
                 evidence_count += 1
 
+    secondary = json.loads((HERE / 'secondary-source-register.json').read_text(encoding='utf-8'))
+    secondary_count = 0
+    for group in secondary['sources']:
+        archive = HERE / group['archive']
+        assert hashlib.sha256(archive.read_bytes()).hexdigest() == group['archive_sha256']
+        with zipfile.ZipFile(archive) as z:
+            assert z.testzip() is None
+            assert set(z.namelist()) == {x['path'] for x in group['files']}
+            for item in group['files']:
+                data = z.read(item['path'])
+                assert len(data) == item['bytes'], item['path']
+                assert hashlib.sha256(data).hexdigest() == item['sha256'], item['path']
+                blob = f'blob {len(data)}\0'.encode() + data
+                assert hashlib.sha1(blob).hexdigest() == item['git_blob'], item['path']
+                secondary_count += 1
+
     pdf = HERE / 'unified-report.pdf'
+    receipt = json.loads((HERE / '.build/build-receipt.json').read_text(encoding='utf-8-sig'))
+    assert receipt['tex_sha256'] == hashlib.sha256((HERE / 'unified-report.tex').read_bytes()).hexdigest(), 'TeX changed since the last successful build'
+    assert receipt['pdf_sha256'] == hashlib.sha256(pdf.read_bytes()).hexdigest(), 'PDF changed since the last successful build'
+    assert receipt['passes'] == 3
     reader = PdfReader(pdf)
     pages = [p.extract_text() or '' for p in reader.pages]
     assert len(pages) >= 20
-    assert all(len(text.strip()) > 80 for text in pages), 'Empty or nearly empty page'
+    assert all(len(text.strip()) > 350 for text in pages), 'Empty or nearly empty page'
     text = '\n'.join(pages)
     assert '\ufffd' not in text, 'Replacement glyph in PDF extraction'
-    for word in ['Contour', 'Loom', 'MathStep', 'Mosaic', 'Motive', 'Outline', 'Reason', 'Spine', 'Leant', 'proofStatus']:
-        assert word in text, f'Missing expected topic: {word}'
+    searchable_text = re.sub(r'\s+', ' ', text)
+    for word in ['Contour', 'Loom', 'MathStep', 'Mosaic', 'Motive', 'Outline', 'Reason', 'Spine', 'Leant', 'proofStatus', 'X says Y', 'autoImplicit false', 'semantic notice', '90,637']:
+        assert word in searchable_text, f'Missing expected topic: {word}'
     log = (HERE / '.build/unified-report.log').read_text(encoding='utf-8', errors='replace')
     assert not re.search(r'Overfull|Missing character|undefined|Rerun to get|Label\(s\) may have changed', log)
     result = {
@@ -68,9 +89,12 @@ def main():
         'pages': len(pages), 'bibliography_entries': len(keys),
         'input_reports': 9, 'convergence_evidence_cells': 54,
         'archived_reference_files': evidence_count,
+        'supplementary_archived_files': secondary_count,
+        'secondary_review_revision': secondary['sources'][0]['revision'],
         'pdf_sha256': hashlib.sha256(pdf.read_bytes()).hexdigest(),
         'tex_sha256': hashlib.sha256(src.encode('utf-8')).hexdigest(),
         'result': 'passed',
+        'source_pdf_build_receipt': 'matched',
         'limitations': 'Does not validate mathematical proofs, language implementation, Leant runtime behavior, or visual layout. Visual QA is recorded separately.'
     }
     print(json.dumps(result, indent=2))

@@ -10,6 +10,10 @@ the next iteration. Its [TeX source](docs/synthesis/unified-report.tex),
 [source crosswalk](docs/synthesis/convergence.json), and
 [build and evidence notes](docs/synthesis/README.md) are included.
 
+The report incorporates selected ideas from Claude's secondary synthesis,
+including theorem-based method interfaces, explicit statement conventions, and
+definition design, with a qualified assessment of its reproducible corpus tally.
+
 The nine inputs are Contour, Loom, MathStep, Mathematical Intent / MPL, Mosaic,
 Motive, Outline, Reason, and Spine. Their original report packages remain under
 `docs/ideas`.

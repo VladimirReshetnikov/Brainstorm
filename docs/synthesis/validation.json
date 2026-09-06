@@ -1,12 +1,12 @@
 {
   "kind": "document_and_source_integrity_checks",
-  "pages": 30,
-  "bibliography_entries": 28,
+  "pages": 33,
+  "bibliography_entries": 30,
   "input_reports": 9,
   "convergence_evidence_cells": 54,
   "archived_reference_files": 28,
-  "pdf_sha256": "9a2558522d55a39de708cd0e037b1adffed1dcabb4b182dc9b7b1bb8b63f9513",
-  "tex_sha256": "ba3f5b9e1f326120822490f60736d4410b3c3c1825b562205fba8da93bafe817",
+  "pdf_sha256": "a8c149f8bae7b7d74491125d75a33562d5474be5c7013a807ee28ed1c5295e68",
+  "tex_sha256": "72a964248d6c0df3898628ea70ab42f21cbf8ae74768e94f4b3c89d64af447eb",
   "result": "passed",
   "limitations": "Does not validate mathematical proofs, language implementation, Leant runtime behavior, or visual layout. Visual QA is recorded separately.",
   "latex_build": {
@@ -52,19 +52,19 @@
       27,
       28,
       29,
-      30
+      30,
+      31,
+      32,
+      33
     ],
     "contact_sheet_render_dpi": 85,
     "detail_render_dpi": 125,
     "detail_pdf_pages": [
-      12,
-      15,
-      16,
-      19,
-      27,
-      29
+      23,
+      24,
+      25
     ],
-    "observations": "Inspected every page in final contact sheets and selected detailed PNGs; no clipped text, overlaps, missing glyphs, or broken tables. Architecture heading kept with diagram; references start on a separate page."
+    "observations": "All final pages reviewed in rendered contact sheets; revised automation, semantics, audit, and evaluation pages inspected in detail. Fixed a nearly empty page before the architecture section and preserved spaces in inline tactic snippets. No clipped text, overlapping elements, missing glyphs, or overflowing tables."
   },
   "independent_content_review": {
     "report_reading_lanes": 3,
@@ -79,6 +79,42 @@
     "tests": 32,
     "result": "passed",
     "exit_code": 0,
-    "scope": "Supplied simply typed Python model; not a Lean or Leant test suite."
+    "scope": "Supplied simply typed Python model; not a Lean or Leant test suite.",
+    "validation_origin": "Carried forward from original synthesis commit ef67548c92f8f6ddccdd8b3677bf4cb67e79e90d; not rerun for the secondary-review amendment."
+  },
+  "supplementary_archived_files": 11,
+  "secondary_review_revision": "70020efd267f43131b8ef386ea40577a9e67b7cd",
+  "source_pdf_build_receipt": "matched",
+  "secondary_comparison": {
+    "review_revision": "70020efd267f43131b8ef386ea40577a9e67b7cd",
+    "independent_review_lanes": 3,
+    "incorporated_sections": [
+      "9.6",
+      "9.7",
+      "9.8",
+      "9.9",
+      "10.1"
+    ],
+    "questions_refined": [
+      "Q1",
+      "Q5",
+      "Q6",
+      "Q7",
+      "Q9"
+    ],
+    "full_corpus_audit_reproduction": {
+      "result": "all 17 serialized summary fields reproduced",
+      "proveit_revision": "7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5",
+      "files": 1004,
+      "recognized_source_entries": 90637,
+      "execution": "Read-only Python summarize function; output-writing main bypassed; bytecode writes disabled.",
+      "limitations": "Lexical classification only; sample not rerun because exact input paths were not recorded. No Lean compilation or proof completeness check."
+    },
+    "mathlib_review": {
+      "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "scope": "Static inspection of says implementation and supplied tests; no test execution."
+    },
+    "reference_repositories_modified": false,
+    "original_convergence_and_leant_snapshot": "unchanged"
   }
 }

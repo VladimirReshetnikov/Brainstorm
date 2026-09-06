@@ -112,8 +112,10 @@ erase them. Section~\ref{sec:leant} evaluates both systems separately.
 
 The next round should deliver one end-to-end finite-reindexing example, one local
 differentiation example, explicit negative neighbors, and a replayable artifact.
-It should answer a few discriminating questions with code and reader observations.
-More elaborate surface syntax should follow evidence from that shared experiment.
+A second synthesis sharpens this plan: try theorem-based method annotations,
+measure existing automation, expose statement conventions, and compare definition
+interfaces. Its corpus audit motivates investigation rather than a savings claim.
+Code and reader observations should guide more elaborate surface syntax.
 
 \clearpage
 \tableofcontents
@@ -148,6 +150,14 @@ Spine & Contextual holes, structural choices, stable references, and advanced an
 These emphases are not exclusive feature claims. For example, many reports discuss
 views, witnesses, synthesis, and replay. Their titles and provisional language names
 do not establish incompatible technical designs.
+
+A subsequent comparison incorporates selected ideas from Claude's
+\emph{Nine Blueprints for a Mathematician's Proof Language over Lean}, at Brainstorm
+revision \code{70020efd267f43131b8ef386ea40577a9e67b7cd}~\cite{secondary}.
+This is a secondary synthesis of the same inputs, not a tenth independent design
+proposal or an extra vote in the convergence crosswalk. Its source, feature matrix,
+and heuristic corpus-audit artifacts are archived separately. We distinguish its
+reported measurements from this report's source checks and new recommendations.
 
 \subsection{Independent authorship is not independent validation}
 The reports were commissioned in parallel, but share the task, two repositories,
@@ -506,16 +516,13 @@ for lexical retargeting. Test insertion, deletion, and copy/paste rather than
 settling this question with a parser convention alone.
 
 \subsection{Bounded automation is an interaction contract}
-A budget belongs to the operation the user experiences, not only to each leaf
-tactic. Twenty short probes can still create a long pause. A useful service needs
-a total deadline, candidate and checking limits, cancellation, and separate
-outcomes for unsupported input, exhausted budget, rejected candidate, and success.
-Expensive discovery can continue asynchronously only with a stable origin and a
-rule that prevents stale results from modifying a newer proof state.
+Budget the whole user operation, including candidate generation and checking.
+Multiple short probes can still cause a long pause. Require a total deadline,
+candidate limits, cancellation, distinct unsupported/exhausted/rejected outcomes,
+and stable origins that prevent stale results from changing a newer proof state.
 
-\decision{Adopt a small shared semantic boundary now. Treat inference aggressiveness,
-method conformance, and evidence display as testable policies above it. Do not
-select a new language name or a universal default by counting report titles.}
+\decision{Prototype inference, method conformance, and evidence display as policies
+of one shared protocol. Choose defaults after testing them.}
 
 \clearpage
 \section{A common architecture and its actual guarantees}\label{sec:architecture}
@@ -553,6 +560,9 @@ depend on \(x\). In \(\exists y\,\forall x\,R(x,y)\), it may not. Closing a goal
 over its telescope before sending it to an external provider makes the dependency
 explicit. Restricting premises also requires retaining dependencies needed to
 type the remaining context; a list of permitted printed names is insufficient.
+Keep allowed local premises, allowed library declarations, and the transitive
+axiom policy as three distinct controls, as the secondary review usefully
+emphasizes~\cite[\S5.1]{secondary}.
 Two visually separate goals may still share a witness, type metavariable, or
 instance constraint. They can be solved independently only through closed typed
 interfaces or a transactional assignment discipline that commits compatible
@@ -699,7 +709,7 @@ congruence and the chain rule give
 Loom, MathStep, and MPL study this autonomous-derivative pattern; Reason's affine-orbit
 example requires the same neighborhood-equality distinction. The inspected
 \code{AutonomousODE.iteratedDeriv_eq_comp} creates an eventual equality using
-\code{hs.mem_nhds hx}, then applies derivative congruence and composition.
+\texttt{hs.mem\_nhds hx}, then applies derivative congruence and composition.
 Its hypotheses require differentiability only at the relevant range values,
 not everywhere~\cite{p-ode}.
 
@@ -856,8 +866,8 @@ The current uncommitted work adds a separate query using an actual Lean proposit
 \end{lstlisting}
 This ASCII rendering illustrates the query structure. The implementation parses
 the full host terms, checks the predicate under the candidate binder with
-\code{autoImplicit false}, then binds each exact candidate and attempts the
-supplied proposition using \code{by decide}. A successful positive proof gives
+\texttt{autoImplicit false}, then binds each exact candidate and attempts the
+supplied proposition using \texttt{by decide}. A successful positive proof gives
 ``satisfied''; a successful proof of its negation gives ``falsified''; failure
 of both remains inconclusive. Only candidates passing type and predicate checks
 consume the success quota~\cite{l-behavior}.
@@ -969,7 +979,7 @@ identity, source-assertion coverage, method certificates, transitive axiom polic
 and library-version compatibility.
 
 Ordinary candidate checking also uses a textual goal in the current environment
-with \code{autoImplicit true}. This is convenient for a permissive REPL, but it
+with \texttt{autoImplicit true}. This is convenient for a permissive REPL, but it
 is not the approved-expression and dependent-telescope interface proposed here.
 The inspected check rejects immediate errors and admissions; a separate publication
 layer must enforce the transitive axiom inventory and retain exact evidence~\cite{l-fragment,l-main}.
@@ -1069,7 +1079,174 @@ escape blocks verbatim with their checked boundary. Source anchors should identi
 assertion nodes rather than depend on the phrase ``the previous inequality''.
 A formatter may use natural references only when it can recover that stable target.
 
+\subsection{Make the logical core of a method an ordinary theorem}\label{sec:annotated}
+The secondary synthesis makes a useful implementation proposal: represent many
+methods by ordinary Lean theorems with role annotations on their binders, instead
+of duplicating the theorem in a separate contract language~\cite[\S7.1]{secondary}.
+The theorem's dependent telescope supplies the logical premises; applying it
+assembles the proof. An annotation distinguishes author-selected inputs from
+premises that a specified routine profile may attempt. Composite moves can first
+be packaged as ordinary reusable lemmas, available to both frontends.
+
+For a reindexing theorem, the index map is typically an author-selected input,
+while membership, injectivity, surjectivity, and summand correspondence become
+explicit obligations. Which of these is routine depends on the example; the
+annotation must not globally classify bijectivity as mathematical trivia. For
+local differentiation, a composite theorem can collect the neighborhood equality
+and derivative-existence premises already displayed in Section~\ref{sec:examples}.
+Its statement remains the authoritative logical contract.
+
+This reduces duplication, but does not make every method merely an attribute.
+Binder roles, permitted dependencies, normalization policy, resource limits, source
+locations, and explanation templates are operational or presentation contracts.
+They require their own versioning when the underlying theorem is unchanged.
+An ordinary theorem can specify a transformation without prescribing its search
+algorithm. Normalizers and structural plans also need interfaces for generated
+subgoals, binders, and transactional state. Register roles against resolved binder
+identities and validate dependencies; a positional list of flags is too fragile
+under theorem refactoring. Test the annotated-theorem design first, and add a
+richer method representation only for demonstrated requirements.
+
+\subsection{Reuse existing automation, while specifying what its record means}
+The secondary review usefully asks what existing Lean and Mathlib facilities can
+already supply before commissioning new machinery~\cite[\S7.2]{secondary}. This
+sharpens the common-library baseline: inventory the relevant theorem families,
+tactics, and information already available during elaboration, then implement
+the missing persistence, policy, and user interaction around them. Existing proof
+terms already record formal evidence; the missing item is often a durable,
+reader-oriented account of the intermediate choices and obligations.
+
+Mathlib's \code{says} combinator is a particularly relevant precedent. At the
+inspected revision, \texttt{X says Y} normally executes \code{Y}; discovery can be
+requested by writing \texttt{X says}. With verification enabled, including by
+default when the \code{CI} environment variable is present, the implementation
+instead executes \code{X} and compares its suggested syntax with \code{Y} after
+pretty-printing. That branch does not independently execute \code{Y}. These are
+different checks, and a suggestion consumer needs both in the appropriate modes.
+Moreover, \code{Y} remains an executable tactic sequence and may itself search.
+Thus \code{says} is a valuable discovery/replacement interface, not by itself a
+search-free proof-term archive, statement seal, or axiom-policy gate~\cite{mathlib-says}.
+This distinction directly reinforces the Leant displayed-edit review in
+Section~\ref{sec:leant}.
+
+\begin{tabularx}{\textwidth}{@{}P{.29\textwidth}Y@{}}
+\toprule
+Reusable mechanism & Additional contract to test \\
+\midrule
+Theorem application & Stable binder roles, exact target, scoped obligations,
+  and an explanation tied to the instantiated theorem.\\
+Proof-producing automation & Recorded premises and policy, predictable budgets,
+  cancellation, and retained evidence with a defined replay mode.\\
+Suggested replacement text & Independent replay of the exact displayed edit
+  from the same state, with completion status kept separate.\\
+Elaboration information & Persistent source-to-claim mapping, accounting for
+  generated subgoals, and reviewable changes to meaning.\\
+\bottomrule
+\end{tabularx}
+
+Calling the project an \emph{accounting layer} is a productive first milestone,
+but an unmeasured upper bound on its eventual scope. The existence of a tactic
+does not show that a mathematician can select its inputs, interpret its failure,
+or recover its explanation cheaply. Conversely, when an ordinary library lemma
+already provides the desired interface, it should remain an ordinary library
+asset. The comparative experiment must determine the remaining language benefit.
+
+\subsection{Review statements through explicit semantic conventions}\label{sec:lint}
+The secondary review develops the reports' statement views into two concrete
+features: diagnostics over the frozen expression and deterministic rendering
+back into mathematical language~\cite[\S7.4]{secondary}. Adopt these as aids to
+meaning review. The renderer should reveal resolved domains, quantifier
+dependencies, interval endpoints, selected structures, and totality conventions.
+For example, it can display natural subtraction as a truncated difference and
+show whether a chosen radius may depend on a previously bound parameter.
+
+Separate two kinds of diagnostic. A \emph{semantic notice} reports a resolved
+construction, such as the use of total division, without calling it an error.
+A \emph{contract obligation} records an actual premise of a requested operation,
+such as the nonzero factor needed for cancellation. A theorem about division
+need not assume its denominator nonzero; that condition may be irrelevant,
+derived from context, or the subject of a case split. Likewise, a statement
+about \code{deriv} need not contain an explicit differentiability hypothesis.
+Token patterns cannot infer the author's intended quantifier dependence or
+decide whether a stronger algebraic structure was accidental.
+
+Consequently, start with deterministic disclosure and a small configurable lint,
+with explanations and recorded dismissals. Measure false alarms as well as
+missed semantic changes. Rendering must remain linked to the resolved expression;
+controlled English is another representation that needs validation, not an
+independent specification oracle. Test round trips for a defined subset and
+ask readers to distinguish nearby statements before using the view as an
+approval interface.
+
+\subsection{Treat definitions and representation interfaces as a parallel experiment}
+The secondary report's emphasis on definitions is valuable~\cite[\S7.6]{secondary}.
+Representing a bounded function by a subtype, choosing closed rather than half-open
+intervals, or exposing a total operator can impose recurring costs on later proofs.
+Our existing definition-authoring question should therefore become a concrete
+experiment alongside proof-block syntax. The original proposals recognize many
+such representation choices; the additional priority is to investigate their
+creation and library interface, not claim that none noticed the issue.
+
+For one small mathematical object, compare two Lean representations using the
+same mathematical specification. Construct a definition package containing the
+resolved definition, explicit coercion and totality conventions, proved interface
+lemmas, and a documented simplification policy. Generated bridge lemmas must be
+proved, and their own development and maintenance must be charged to the package.
+Expose the same package through ordinary Lean and the proposed surface. Measure
+the downstream proof obligations, author effort, elaboration cost, and behavior
+after changing an instance or representation.
+
+Include a composition test: transport through three views with dependent guards,
+then add a competing route. Record the route and its side conditions; require an
+explicit choice or a certified coherence policy when routes affect accepted
+objects or mathematical meaning. Directed transport theorems justify individual
+steps, but do not by themselves select a predictable route through a growing
+library. Definitions may offer large savings; the secondary report's claim that
+they are the larger lever remains a hypothesis this experiment can test.
+
 \section{How to evaluate the proposal without rewarding hidden work}\label{sec:evaluation}
+\subsection{Use corpus measurements to select methods, with calibrated claims}\label{sec:audit}
+The secondary review contributes a useful change of scale: a lexical audit of
+1,004 FabiusFunction files rather than only the reports' worked examples. Its
+archived output contains 90,637 classified tactic-like source entries. Of these,
+28,727 (31.7\%) are classified as assertions, and 29,303 (32.3\%) fall into seven
+families the reviewer groups as candidates for reconstruction: explicit small
+obligations, casts, indices, representation changes, normalization, side conditions,
+and analysis. The analysis class accounts for 7.2\% of the full tally and 2.9\%
+of the recorded comparison sample~\cite[\S3]{secondary}.
+Our read-only rerun reproduced all 17 serialized full-subtree summary fields.
+The sample was not independently reproduced: its exact input-path manifest is
+missing from the shipped artifacts.
+
+These are \emph{reported lexical classifications}, not measured removable proof
+work. A tactic head can contain nested tactics, and a source-line classifier can
+miss continuations or conflate a deep theorem application with routine conversion.
+Assertion counts do not measure how much of the proof is covered by named claims.
+Classifying a line as analysis or representation work does not show that it can
+be reconstructed from the author's intended inputs. The audit's rounded
+proportions therefore supply neither a rigorous lower bound on removable work
+nor an estimated percentage saving. Absence of a textual \code{sorry} marker
+would not establish corpus completeness or successful Lean compilation.
+
+The useful implication is a sampling priority: retain local analysis as a first
+class test, and look beyond short combinatorial examples when selecting routine
+profiles. Before implementing many methods, instrument a small, stratified set
+of compiled examples to record actual goals, scoped contexts, tactic outcomes,
+generated obligations, and elaboration cost. Lean elaboration information can
+support that collection; mapping it to mathematical roles still requires explicit
+definitions and manual calibration. Do not call the result free of heuristics.
+
+For a proposed theorem adapter, freeze the pre-step goal and context, match its
+conclusion, and try its premises under a fixed routine profile and budget. Count
+successes, required author choices, unsupported cases, latency, and replay cost on
+held-out files. Use the same adapter in the Lean baseline. Export selected ledger
+entries through the closed typed interfaces of Section~\ref{sec:architecture},
+after shared elaboration constraints have been settled or explicitly represented.
+Exclude the target theorem and downstream dependencies. Split tasks by theorem or
+module before harvesting
+subgoals, so neighboring obligations from one proof do not leak across training
+and evaluation. This turns a promising inventory into a test of actual demand.
+
 \subsection{A shared baseline and two distinct studies}
 Use at least three treatments: existing idiomatic Lean; refactored Lean with the
 same methods, adapters, retrieval, and synthesis providers; and the proposed
@@ -1168,9 +1345,10 @@ contract, not request another set of unconstrained language manifestos.
 
 \begin{enumerate}[label=\textbf{Q\arabic*.},itemsep=.65em]
 \item \textbf{What is the smallest useful mathematical step?}
-  Implement finite reindexing once as a theorem wrapper, once as a structured
-  method with an obligation ledger. Show the author input, errors, and evidence
-  produced by each. Which additional layer reduces actual work?
+  Implement finite reindexing once as a theorem with binder-role annotations,
+  once as a structured method with an obligation ledger. Show author input,
+  errors, evidence, and the policies that cannot be expressed by the theorem
+  type alone. Which additional layer reduces actual work?
 \item \textbf{When should a reason constrain the proof?}
   Compare checkpoint and method-constrained modes on a valid alternative proof
   and a failed advertised method. Can readers tell which argument was checked?
@@ -1184,25 +1362,29 @@ contract, not request another set of unconstrained language manifestos.
   whole-proof completion, incomplete response handling, timeout, and undo.
   Should the public receipt encode these distinctions?
 \item \textbf{How much domain infrastructure does concision require?}
-  Port the same reindexing and local-calculus contracts to at least one held-out
-  theorem family. Record new lemmas and engineering time, including work needed
-  to make ordinary Lean equally concise.
+  Measure existing tactic and lemma coverage on a stratified sample before
+  choosing the routine profile. Port the same reindexing and local-calculus
+  contracts to a held-out family. Record new lemmas, matched-but-unsolved goals,
+  and engineering time, including work needed to make Lean equally concise.
 \item \textbf{Can views remain predictable as libraries grow?}
-  Add a second plausible cast, coefficient convention, or structural instance.
-  Measure whether interpretation changes, ambiguity is reported, or explicit
-  scope preserves the prior meaning. Define local coherence requirements.
+  Compose three views with dependent guards, then add a competing cast,
+  coefficient convention, or structural instance. Measure whether interpretation
+  changes, ambiguity is reported, or explicit scope preserves the prior meaning.
+  Define local coherence requirements and show the recorded route.
 \item \textbf{What must an author actually inspect in a statement seal?}
   Show concise renderings for changed quantifier order, a stronger domain,
   natural versus integer subtraction, and a different branch. Ask readers to
-  identify the difference without reading a raw elaborated term.
+  identify the difference without reading a raw elaborated term. Compare semantic
+  notices with policy diagnostics; count false alarms and missed changes.
 \item \textbf{Which retained artifact best supports maintenance?}
   Replay a fixed proof, then rename a lemma, change a definition, and upgrade a
   dependency in an isolated experiment. Compare scripts, retained terms, and
   method-level evidence. Record repair effort and compatibility boundaries.
 \item \textbf{Does the language help introduce mathematics as well as prove it?}
-  Add one definition involving a quotient, equivalence, or local structure.
-  Assess whether the same semantic model supports the new object naturally,
-  or whether the proposed surface only benefits existing theorem applications.
+  Package one definition involving a quotient, equivalence, or local structure,
+  with proved bridge lemmas and explicit conventions. Compare two representations
+  and their downstream costs through both frontends. Does the new surface help
+  author the object, or is the benefit entirely in the shared library interface?
 \item \textbf{What should remain visible in a published argument?}
   Compare a collapsed ledger with a view that exposes choices and substantial
   analytic premises. Measure explanation and error-localization performance,
@@ -1233,11 +1415,17 @@ Analysis/UI & Local differentiation contract and linked source/obligation views.
   & Preserve local hypotheses; diagnose pointwise-only equality; reader can
   locate the neighborhood premise.\\
 Evaluation & Counterbalanced pilot, held-out tasks, and cost register.
-  & Report authoring, comprehension, failures, and maintenance separately.\\
+  & Calibrate corpus labels against actual goals; report authoring, comprehension,
+  failures, and maintenance separately.\\
 \bottomrule
 \end{tabularx}
 
 \subsection{Milestones and stopping rules}
+\textbf{Preparation: measure a bounded sample.} Inventory existing mechanisms
+and instrument representative finite, analytic, and definition-heavy examples.
+Select a small routine profile from measured outcomes. A whole-corpus rebuild is
+not a prerequisite for the first end-to-end prototype.
+
 \textbf{Milestone A: one complete path.} Author a short finite proof, inspect its
 obligations, check all assertions, export its evidence, and replay it without
 rerunning discovery. Do not expand the grammar until this path works.
@@ -1333,6 +1521,15 @@ observations in this synthesis and do not retroactively change the source
 provenance of the original reports. All cited implementation behavior is static
 source evidence unless expressly labeled otherwise.
 
+The later comparison has its own \code{secondary-source-register.json} and
+\code{review-notes/secondary-synthesis.md}. The archive
+\code{evidence/secondary-review-source.zip} preserves selected files from the
+named Claude branch at \code{70020efd}; its audit numbers remain attributed to
+that review. \code{evidence/mathlib-says-source.zip} contains the inspected
+\code{says} source and license from Mathlib revision \code{81a5d257}.
+These additions leave the nine-report support count and the captured Leant
+snapshot unchanged.
+
 \begin{longtable}{@{}P{.31\textwidth}P{.61\textwidth}@{}}
 \toprule
 Source & Inspected mechanism or declaration \\
@@ -1361,6 +1558,16 @@ Leant / Backend, tests & Session process/request handling and the
 \begin{thebibliography}{99}
 \raggedright
 \addcontentsline{toc}{section}{References}
+\bibitem{secondary} Claude (Anthropic). \emph{Nine Blueprints for a Mathematician's
+Proof Language over Lean}. 5 September 2026. Brainstorm branch
+\code{claude/lean-language-improvements-report-2b93cb}, revision
+\code{70020efd267f43131b8ef386ea40577a9e67b7cd},
+\path{docs/unified_report/unified_report.tex} and companion audit artifacts.
+\source{evidence/secondary-review-source.zip}{Archived reviewed sources}.
+\bibitem{mathlib-says} Mathlib contributors. \emph{Mathlib.Tactic.Says},
+revision \code{81a5d257c8e410db227a6665ed08f64fea08e997}, especially lines 90--108.
+\source{https://github.com/leanprover-community/mathlib4/blob/81a5d257c8e410db227a6665ed08f64fea08e997/Mathlib/Tactic/Says.lean}{Pinned implementation};
+\source{evidence/mathlib-says-source.zip}{Archived source and license}.
 \bibitem{contour} \emph{Contour: A Human-Scale Proof Language over Lean}.
 5 September 2026. \source{../ideas/contour-proof-language/contour.pdf}{Input report PDF}.
 \bibitem{loom} \emph{Loom: A Contract-Based Language for Human-Scale Formal Proofs}.

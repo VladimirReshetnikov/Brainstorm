@@ -2,12 +2,19 @@
 
 [Read the unified report](unified-report.pdf) · [Edit the TeX source](unified-report.tex)
 
-This 30-page report compares and evaluates all nine proposals under `docs/ideas`, identifies
+This 33-page report compares and evaluates all nine proposals under `docs/ideas`, identifies
 six shared commitments with a report-by-report evidence crosswalk, distinguishes
 policy choices from superficial differences, and proposes a shared implementation
 experiment and ten questions for the next iteration. It includes four mathematical
 test cases with nearby invalid variants and a substantive review of Leant's
 automatic term synthesis and proof tactic suggestions.
+
+The amended report also evaluates Claude's secondary synthesis from branch
+`claude/lean-language-improvements-report-2b93cb` at commit `70020efd267f43131b8ef386ea40577a9e67b7cd`.
+Sections 9.6–9.9 develop theorem-role annotations, reuse of existing automation,
+statement-semantic diagnostics, and a definitions/representation experiment.
+Section 10.1 assesses the corpus audit and proposes calibrated measurements.
+This secondary review is not a tenth independent proposal in the convergence count.
 
 The report is a design synthesis and static source review. The proposed language
 has not been implemented or benchmarked here. Neither reference repository was
@@ -31,12 +38,26 @@ successfully; that result is distinct from Lean verification.
   documenting the separate `proofStatus` field. Availability of that cache does
   not establish which backend binary a particular Leant invocation uses.
 - `validation.json`: final artifact checks and visual-review record.
+- `secondary-source-register.json`: immutable revisions, SHA-256 hashes, and Git
+  blob identities for the later comparison, separate from the original evidence.
+- `evidence/secondary-review-source.zip`: the secondary report's TeX, feature
+  matrix, audit script and reported outputs, README, and build script.
+- `evidence/mathlib-says-source.zip`: pinned `says` source, supplied tests, and
+  license; source and test inspection does not establish runtime validation.
+- `review-notes/secondary-synthesis.md`: accepted ideas, qualifications, exact
+  source locators, and the full-subtree audit reproduction boundary.
 
 Leant's HEAD was `3a40904be8a410d832d9ab6900b3d3e7b425eccb`, but its working tree
 contained newer behavioral-synthesis work and a different Djex checkout. Statements
 about those files refer to the captured source, not simply to HEAD. The three
 ProveIt source spot checks matched committed content at
 `7c4e3f109405b9805b35d27ae96bf09c7ee5f3d5` after newline normalization.
+
+For the amendment, a read-only Python rerun reproduced all 17 serialized fields
+of the secondary audit's full FabiusFunction summary: 1,004 files and 90,637
+recognized tactic-like source entries. The 23-file comparison sample was not
+rerun because its exact input-path manifest is missing. These are lexical
+classifications, not measurements of removable work or proof completeness.
 
 ## Rebuild and verify
 
@@ -53,7 +74,8 @@ missing glyphs, or overfull boxes. Standard TeX packages and Latin Modern fonts
 are used; no network access or custom font files are required for the document
 once the TeX packages are installed. `verify_report.py` requires `pypdf` and checks
 source identities, local links, citations, archive integrity, and extracted PDF
-content. It does not replace visual inspection.
+content. A build receipt also binds the current TeX and PDF hashes to the same
+successful three-pass build. These checks do not replace visual inspection.
 
 For layout review, render all pages with Poppler, for example:
 

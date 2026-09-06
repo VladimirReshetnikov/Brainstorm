@@ -1,0 +1,96 @@
+{
+  "kind": "supplementary_source_provenance",
+  "primary_report_revision_before_amendment": "ef67548c92f8f6ddccdd8b3677bf4cb67e79e90d",
+  "relationship": "These sources are not additional independent reports in the nine-report convergence crosswalk.",
+  "sources": [
+    {
+      "id": "secondary_review",
+      "repo": "C:/Brainstorm/.claude/worktrees/lean-language-improvements-report-2b93cb",
+      "revision": "70020efd267f43131b8ef386ea40577a9e67b7cd",
+      "branch": "claude/lean-language-improvements-report-2b93cb",
+      "archive": "evidence/secondary-review-source.zip",
+      "scope": "Secondary analysis of the same nine inputs. Audit outputs are preserved as reported measurements, not fresh Lean validation.",
+      "capture_method": "git show immutable-revision:path; working bytes checked against blobs after newline normalization",
+      "files": [
+        {
+          "path": "docs/unified_report/unified_report.tex",
+          "sha256": "11fa748740a67803244f50fd081ec72dc0f5695d6d0ca65c62f26dd57ebc2b76",
+          "bytes": 103633,
+          "git_blob": "96a29217456775bacc7de9dd5912bff0ccb6056d"
+        },
+        {
+          "path": "docs/unified_report/README.md",
+          "sha256": "27d191d6e9ef5cf1b499ee7da22e0555bdafe7ac4eeb09ba60a51165c73206e2",
+          "bytes": 1901,
+          "git_blob": "7157f69eef558c5fb3847229c84754ff125cdf55"
+        },
+        {
+          "path": "docs/unified_report/build.sh",
+          "sha256": "057d8a7ff243fa87c770ee9309d1edeb45c9fdf5430c8096ba85979d091bb121",
+          "bytes": 346,
+          "git_blob": "0aa9ba444caed92ed6674338ea4df88d979888fb"
+        },
+        {
+          "path": "docs/unified_report/feature_matrix.csv",
+          "sha256": "908908c78b44b78796bfeb2ba303ce429bf9c7b9b6112257999cd91450901ff0",
+          "bytes": 2965,
+          "git_blob": "a894aab24ee31b4a55286ea43d9d70654b433f7d"
+        },
+        {
+          "path": "docs/unified_report/tools/audit_proveit.py",
+          "sha256": "93681959ba7ddda708c638c3fa593c8b1f1a69e1169540ec75e4b48e1f1dc76b",
+          "bytes": 13818,
+          "git_blob": "74272d6a3f718a4b613aa09d506eb27b2b126200"
+        },
+        {
+          "path": "docs/unified_report/tools/audit_results.json",
+          "sha256": "77722e6ec2bd6ee65846e2d204ceb23d771c88a85a4483468d3922d331776422",
+          "bytes": 17526,
+          "git_blob": "f7e4758e3f99576a2447de9a023fdac0c4edd18a"
+        },
+        {
+          "path": "docs/unified_report/tools/audit_summary.txt",
+          "sha256": "26b9c8fd9e74b16736760a9d856d9bab36c106803737107ef109bccfe56a686c",
+          "bytes": 3069,
+          "git_blob": "67a7fa01a9675b84213375ae47889c5f21596de4"
+        }
+      ],
+      "archive_sha256": "40326f0e9355b2e55a3c1dafe7d95006ecc7979ae0eb59d2da5a82ad94fc72c8"
+    },
+    {
+      "id": "mathlib_says",
+      "repo": "C:/ProveIt/.lake/packages/mathlib",
+      "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "archive": "evidence/mathlib-says-source.zip",
+      "scope": "Static source and supplied-test inspection; tests were not run.",
+      "capture_method": "git show immutable-revision:path; working bytes checked against blobs after newline normalization",
+      "files": [
+        {
+          "path": "Mathlib/Tactic/Says.lean",
+          "sha256": "655ab2d7e77ab42fc9374cc2ae229455ebac2c0181035c2ced2d24f644206b1a",
+          "bytes": 4126,
+          "git_blob": "1f40f050d65aca747765bb0fb2df581d5e978ba1"
+        },
+        {
+          "path": "MathlibTest/Tactic/Says/Basic.lean",
+          "sha256": "d53f5440a2a6a2189e5c32be9d53e1fae2251228454969d8727a7852fef0c297",
+          "bytes": 3319,
+          "git_blob": "1ab8f8f01ae9b7b9d86deaec372835def62f7dff"
+        },
+        {
+          "path": "MathlibTest/Tactic/Says/Whitespace.lean",
+          "sha256": "cd821d1c5cf255c4971e507ee2ddfc17fbfd9c2467f6825dc0075f55ca0d1b11",
+          "bytes": 298,
+          "git_blob": "8ea439f6c7773b86fc29a6efd5958b2208712253"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+          "bytes": 11357,
+          "git_blob": "8dada3edaf50dbc082c9a125058f25def75e625a"
+        }
+      ],
+      "archive_sha256": "9dc9a5e8ea0d9dafff5c49efd23fea71a7569a70950f8527e21cb38c7a3b8d2e"
+    }
+  ]
+}
