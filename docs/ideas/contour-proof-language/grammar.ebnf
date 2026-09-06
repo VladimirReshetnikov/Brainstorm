@@ -1,0 +1,32 @@
+(* Illustrative structural core of Contour.
+   Not a complete executable parser specification.
+   See Appendix A for typing, scope, and surface-syntax qualifications. *)
+
+document    ::= declaration*
+declaration ::= "theorem" name binder* ":" formula proof
+proof       ::= "proof" statement* "end"
+statement   ::= take | assume | let | have | choose
+              | suffice | conclude | cases | induction | calculation
+
+take        ::= "take" name ":" expression
+assume      ::= "assume" name ":" formula
+let         ::= "let" name [":" expression] ":=" expression
+have        ::= "have" name ":" formula justification
+choose      ::= "choose" name ":" expression
+                "with" name ":" formula justification
+suffice     ::= "suffices" formula justification
+conclude    ::= "conclude" (formula | "target") justification
+justification ::= "by" method ["using" "[" fact-list "]"]
+                | proof
+method      ::= method-call (";" method-call)*
+method-call ::= name ["(" argument-list ")"]
+
+cases       ::= "cases" formula branch+ "endcases"
+branch      ::= "case" pattern ":" statement*
+induction   ::= "induct" name
+                ["keeping" name-list]
+                ["generalizing" name-list]
+                branch+ "endinduct"
+calculation ::= "calc" expression calculation-edge+ "endcalc"
+calculation-edge ::= relation expression justification
+relation    ::= "=" | "<=" | "<" | registered-relation

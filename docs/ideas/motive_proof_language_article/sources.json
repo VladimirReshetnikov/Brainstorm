@@ -1,0 +1,111 @@
+{
+  "document_title": "Motive: Concise Mathematical Reasoning with Kernel-Checked Elaboration",
+  "document_date": "2026-09-05",
+  "status": "Conceptual language-design study; illustrative syntax; not an implemented compiler.",
+  "validation_scope": {
+    "latex_pdf_compiled": true,
+    "pdf_pages": 30,
+    "pdf_rendered_for_visual_review": true,
+    "repository_builds_performed": false,
+    "lean_proofs_replayed": false,
+    "motive_implementation_or_benchmark_performed": false
+  },
+  "repositories": [
+    {
+      "name": "VladimirReshetnikov/ProveIt",
+      "revision": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "files": [
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean",
+          "inspection": "entire file",
+          "git_blob_sha": "c6b0fe63a4faf8708b71e9b93aa2ce7406464d84",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/BinomialInversion.lean"
+        },
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/LambertWElementaryBounds.lean",
+          "inspection": "entire file",
+          "git_blob_sha": "fdc8fc743ed83f6f4ba3371e09fca1f6c960dab9",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/LambertWElementaryBounds.lean"
+        },
+        {
+          "path": "Analysis/FabiusFunction/Lean/FabiusFunction/GeometricRichardson.lean",
+          "inspection": "lines 1-260",
+          "git_blob_sha": "be92a94b9d652cab96455c3003132f433a7a5b4f",
+          "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/GeometricRichardson.lean"
+        }
+      ]
+    },
+    {
+      "name": "VladimirReshetnikov/Leant",
+      "revision": "c36adf114035fb2fba6c276b63944cc613b31668",
+      "files": [
+        {
+          "path": "README.md",
+          "inspection": "introductory and selected synthesis material, including lines 330-610",
+          "git_blob_sha": "2f26dd747e76ccfcf0850d177c6516b65a572363",
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/c36adf114035fb2fba6c276b63944cc613b31668/README.md"
+        },
+        {
+          "path": "docs/synth-internals.md",
+          "inspection": "lines 1-230",
+          "git_blob_sha": "021c9385368a7087e6141f03a18f27e4adafa188",
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/c36adf114035fb2fba6c276b63944cc613b31668/docs/synth-internals.md"
+        },
+        {
+          "path": "src/Leant/Synth/Fragment.hs",
+          "inspection": "lines 1-220",
+          "git_blob_sha": "ab523ffd5e93a0ddc8c5d893a79e032562319aa1",
+          "url": "https://github.com/VladimirReshetnikov/Leant/blob/c36adf114035fb2fba6c276b63944cc613b31668/src/Leant/Synth/Fragment.hs"
+        }
+      ]
+    }
+  ],
+  "external_primary_sources": [
+    {
+      "key": "lean4",
+      "url": "https://lean-lang.org/papers/lean4.pdf"
+    },
+    {
+      "key": "lean-elab",
+      "url": "https://lean-lang.org/doc/reference/latest/Elaboration-and-Compilation/"
+    },
+    {
+      "key": "lean-trust",
+      "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/"
+    },
+    {
+      "key": "isar",
+      "url": "https://isabelle.in.tum.de/Isar/"
+    },
+    {
+      "key": "naproche",
+      "url": "https://naproche-net.github.io/"
+    },
+    {
+      "key": "verbose",
+      "url": "https://github.com/PatrickMassot/verbose-lean4"
+    },
+    {
+      "key": "gflean",
+      "url": "https://arxiv.org/abs/2404.01234"
+    },
+    {
+      "key": "aesop",
+      "url": "https://doi.org/10.1145/3573105.3575671"
+    },
+    {
+      "key": "grind",
+      "url": "https://lean-lang.org/doc/reference/latest/The--grind--tactic/"
+    },
+    {
+      "key": "formalign",
+      "url": "https://arxiv.org/abs/2410.10135"
+    }
+  ],
+  "notes": [
+    "The pinned source snapshots were inspected through the GitHub connector.",
+    "The source manifest identifies reviewed material; it is not a lockfile for building the original repositories.",
+    "External online documentation was consulted on 2026-09-05 and may change.",
+    "The article makes no claim to cover all proof-language or autoformalization research."
+  ]
+}

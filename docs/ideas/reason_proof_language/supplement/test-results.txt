@@ -1,0 +1,37 @@
+test_01_identity (test_toy_checker.EvidenceTests.test_01_identity) ... ok
+test_02_structural_application (test_toy_checker.EvidenceTests.test_02_structural_application) ... ok
+test_03_product_swap (test_toy_checker.EvidenceTests.test_03_product_swap) ... ok
+test_04_wrong_target (test_toy_checker.EvidenceTests.test_04_wrong_target) ... ok
+test_05_free_variable (test_toy_checker.EvidenceTests.test_05_free_variable) ... ok
+test_06_apply_nonfunction (test_toy_checker.EvidenceTests.test_06_apply_nonfunction) ... ok
+test_07_wrong_argument_type (test_toy_checker.EvidenceTests.test_07_wrong_argument_type) ... ok
+test_08_variable_does_not_escape_lambda (test_toy_checker.EvidenceTests.test_08_variable_does_not_escape_lambda) ... ok
+test_09_two_valid_proofs_same_target (test_toy_checker.EvidenceTests.test_09_two_valid_proofs_same_target) ... ok
+test_10_invalid_type_annotation (test_toy_checker.EvidenceTests.test_10_invalid_type_annotation) ... ok
+test_11_lexical_shadowing (test_toy_checker.EvidenceTests.test_11_lexical_shadowing) ... ok
+test_12_duplicate_external_binding (test_toy_checker.EvidenceTests.test_12_duplicate_external_binding) ... ok
+test_13_replay_wrong_target (test_toy_checker.EvidenceTests.test_13_replay_wrong_target) ... ok
+test_14_replay_stale_worker (test_toy_checker.EvidenceTests.test_14_replay_stale_worker) ... ok
+test_15_replay_changed_context (test_toy_checker.EvidenceTests.test_15_replay_changed_context) ... ok
+test_16_forged_certificate_rechecked (test_toy_checker.EvidenceTests.test_16_forged_certificate_rechecked) ... ok
+test_17_zero_budget_does_not_request_iterator (test_toy_checker.EvidenceTests.test_17_zero_budget_does_not_request_iterator) ... ok
+test_18_budget_does_not_inspect_next_candidate (test_toy_checker.EvidenceTests.test_18_budget_does_not_inspect_next_candidate) ... ok
+test_19_rejection_then_success (test_toy_checker.EvidenceTests.test_19_rejection_then_success) ... ok
+test_20_pool_end_is_not_negation (test_toy_checker.EvidenceTests.test_20_pool_end_is_not_negation) ... ok
+test_21_negative_budget_rejected (test_toy_checker.EvidenceTests.test_21_negative_budget_rejected) ... ok
+test_22_checker_budget_exhaustion (test_toy_checker.EvidenceTests.test_22_checker_budget_exhaustion) ... ok
+test_23_valid_sequential_claims (test_toy_checker.EvidenceTests.test_23_valid_sequential_claims) ... ok
+test_24_self_reference_rejected (test_toy_checker.EvidenceTests.test_24_self_reference_rejected) ... ok
+test_25_forward_reference_rejected (test_toy_checker.EvidenceTests.test_25_forward_reference_rejected) ... ok
+test_26_duplicate_claim_name_rejected (test_toy_checker.EvidenceTests.test_26_duplicate_claim_name_rejected) ... ok
+test_27_claim_cannot_shadow_external_hypothesis (test_toy_checker.EvidenceTests.test_27_claim_cannot_shadow_external_hypothesis) ... ok
+test_28_projection_requires_product (test_toy_checker.EvidenceTests.test_28_projection_requires_product) ... ok
+test_29_unknown_term_constructor_rejected (test_toy_checker.EvidenceTests.test_29_unknown_term_constructor_rejected) ... ok
+test_30_empty_type_name_rejected (test_toy_checker.EvidenceTests.test_30_empty_type_name_rejected) ... ok
+test_31_exact_origin_accepts_valid_replay (test_toy_checker.EvidenceTests.test_31_exact_origin_accepts_valid_replay) ... ok
+test_32_empty_plan_checks_conclusion (test_toy_checker.EvidenceTests.test_32_empty_plan_checks_conclusion) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.001s
+
+OK
