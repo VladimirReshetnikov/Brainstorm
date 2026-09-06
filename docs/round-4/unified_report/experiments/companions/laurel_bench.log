@@ -1,0 +1,41 @@
+{
+  "scope": "Python symbolic implementation; one run per case; no kernel timing",
+  "family": "one of ai or bi required for each i",
+  "rows": [
+    {
+      "k": 2,
+      "offers": 4,
+      "frontier_width": 4,
+      "seconds_one_run": 0.000353,
+      "premise_combinations": 16
+    },
+    {
+      "k": 4,
+      "offers": 8,
+      "frontier_width": 16,
+      "seconds_one_run": 0.000603,
+      "premise_combinations": 48
+    },
+    {
+      "k": 6,
+      "offers": 12,
+      "frontier_width": 64,
+      "seconds_one_run": 0.00235,
+      "premise_combinations": 152
+    },
+    {
+      "k": 8,
+      "offers": 16,
+      "frontier_width": 256,
+      "seconds_one_run": 0.028616,
+      "premise_combinations": 544
+    },
+    {
+      "k": 10,
+      "offers": 20,
+      "frontier_width": 1024,
+      "seconds_one_run": 0.28067,
+      "premise_combinations": 2088
+    }
+  ]
+}

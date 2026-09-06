@@ -1,0 +1,84 @@
+test_attempt_quota_keeps_sound_routes (__main__.BoundaryTests.test_attempt_quota_keeps_sound_routes) ... ok
+test_changed_method_policy (__main__.BoundaryTests.test_changed_method_policy) ... ok
+test_changed_request (__main__.BoundaryTests.test_changed_request) ... ok
+test_changed_rule (__main__.BoundaryTests.test_changed_rule) ... ok
+test_cycle_without_seed (__main__.BoundaryTests.test_cycle_without_seed) ... ok
+test_duplicate_name_refused (__main__.BoundaryTests.test_duplicate_name_refused) ... ok
+test_duplicate_premise_is_not_consumed (__main__.BoundaryTests.test_duplicate_premise_is_not_consumed) ... ok
+test_empty_premise_rule (__main__.BoundaryTests.test_empty_premise_rule) ... ok
+test_expected_frontiers (__main__.BoundaryTests.test_expected_frontiers) ... ok
+test_export_is_conditional_and_explicit (__main__.BoundaryTests.test_export_is_conditional_and_explicit) ... ok
+test_forward_reference (__main__.BoundaryTests.test_forward_reference) ... ok
+test_malformed_certificate (__main__.BoundaryTests.test_malformed_certificate) ... ok
+test_missing_module_refused (__main__.BoundaryTests.test_missing_module_refused) ... ok
+test_node_quota_marks_incomplete (__main__.BoundaryTests.test_node_quota_marks_incomplete) ... ok
+test_proof_target_tamper (__main__.BoundaryTests.test_proof_target_tamper) ... ok
+test_removed_assumption (__main__.BoundaryTests.test_removed_assumption) ... ok
+test_seeded_cycle (__main__.BoundaryTests.test_seeded_cycle) ... ok
+test_source_injection_refused (__main__.BoundaryTests.test_source_injection_refused) ... ok
+test_support_tamper (__main__.BoundaryTests.test_support_tamper) ... ok
+test_target_metadata_tamper (__main__.BoundaryTests.test_target_metadata_tamper) ... ok
+test_undeclared_atom_refused (__main__.BoundaryTests.test_undeclared_atom_refused) ... ok
+test_unknown_method_refused (__main__.BoundaryTests.test_unknown_method_refused) ... ok
+test_unknown_root (__main__.BoundaryTests.test_unknown_root) ... ok
+test_unknown_rule (__main__.BoundaryTests.test_unknown_rule) ... ok
+test_unused_bad_node (__main__.BoundaryTests.test_unused_bad_node) ... ok
+test_wrong_arity (__main__.BoundaryTests.test_wrong_arity) ... ok
+test_wrong_premise_order (__main__.BoundaryTests.test_wrong_premise_order) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.089s
+
+OK
+{
+  "python": "3.14.4",
+  "boundary_tests": 27,
+  "boundary_success": true,
+  "finite_comparison": {
+    "seed": 20260906,
+    "graphs": 2000,
+    "subset_closure_comparisons": 12872,
+    "selected_target_certificate_checks": 1820,
+    "max_stored_nodes_in_random_suite": 20
+  },
+  "arithmetic_fixtures": [
+    {
+      "a": 3,
+      "b": 2,
+      "p": 5,
+      "div4": true,
+      "div16": true
+    },
+    {
+      "a": 3,
+      "b": 2,
+      "p": 4,
+      "div4": false,
+      "div16": true
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "p": 5,
+      "div4": false,
+      "div16": false
+    },
+    {
+      "a": 3,
+      "b": 2,
+      "p": 3,
+      "div4": true,
+      "div16": false
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "p": 5,
+      "div4": false,
+      "div16": true
+    }
+  ],
+  "lean_compilation": "not run; no Lean executable available",
+  "scope": "finite Horn prototype; no dependent Lean elaboration, no user study",
+  "elapsed_seconds_single_run": 1.786684
+}

@@ -1,0 +1,102 @@
+id,commitment,Alder,Bryony,Clover,Fennel,Heather,Juniper,Laurel,Rowan,Sorrel,stated_in_round3_syntheses
+A1,Extend the elaborator's typing discipline first; the kernel is unchanged in the first implementation,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+A2,"Lean already expresses the properties; the extension is the checking discipline, not the logic",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+A3,"A primitive refinement former (pack, value, evidence, proof-directed weakening) is a later, measured experiment",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+A4,No semantic subtyping or equality reflection in conversion; no CAS inside definitional equality,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+A5,"The objection to semantic conversion is predictability and trusted surface, not `a timeout means false'",Y,Y,Y,Y,P,Y,Y,Y,P,no
+A6,Failure to infer a property is not evidence that it is false,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+A7,Definitional functoriality of coercions is named as a separate metatheoretic experiment,Y,Y,Y,N,P,N,N,P,N,no
+B1,A proved property enriches the same term; the object is never rebound to a subtype locally,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+B2,Weakening applies a proved implication; equality transports by elimination; other relations need a consumer theorem,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+B3,"An anchor is the elaborated term with its structures and context, never a printed name or a hash",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+B4,Branch-local facts do not leak to siblings; leaving a branch exports an implication,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+B5,A written preservation theorem: the core rules translate to ordinary Lean terms without new axioms,Y,P,Y,Y,Y,Y,P,Y,Y,yes
+B6,"Three hole classes: meaning-bearing, proof, and authorized witness under a fixed specification",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+B7,"Hole classification is by dependency closure of the sealed target, not by the printed type of a metavariable",Y,Y,Y,P,P,Y,P,P,Y,no
+B8,First implementation: the sealed target contains no metavariables at all (proof goals live in the term),N,N,N,Y,N,N,N,Y,N,no
+B9,Providers run on a copy of the state; commit re-checks the returned term at the sealed target in the original context,Y,Y,Y,Y,Y,P,P,Y,Y,no
+C1,"Selecting a structure (ring, topology, measure, action) is data, separate from inferring propositions",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+C2,No global instance per derived fact; a local instance bridge only where an API demands one,Y,Y,P,Y,Y,Y,Y,Y,Y,yes
+C3,A lexical structure context is proposed; its effect on generated preambles is explicitly unmeasured,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+C4,"Nonzero, regular, and unit are three predicates; a source denominator may vanish in positive characteristic",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D1,"A behavioural contract on a total function is: for all x, P x implies Q x (f x)",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D2,"Contract variance: preconditions contravariant, postconditions covariant; no single strength rank",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D3,Composition retains the actual intermediate value and needs a bridge to the next precondition,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D4,"Relational and whole-function laws (monotone, Lipschitz, naturality, inverse pair) are contracts on the function",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D5,A function on a refined domain and a total function with a contract are different interfaces,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D6,Sorting needs permutation and order; length preservation admits reversal and constant lists,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D7,"Effects get a separate axis (Hoare logic, mvcgen); a timeout or cost is not a mathematical premise",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+D8,"A requirement transformer is a registered sufficient route, not a weakest precondition",Y,P,P,P,Y,N,N,Y,P,no
+D9,A polymorphic Lean type yields no free theorem under classical choice,N,Y,Y,Y,Y,N,N,N,Y,yes
+E1,Equality on an open set at an interior point yields eventual equality; equality at the point does not,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+E2,"Almost-everywhere equality is indexed by its measure; its consumer is integral congruence, never point evaluation",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+E3,Countably many a.e. statements combine; an uncountable family does not (the singleton-indicator trap),N,Y,Y,Y,N,Y,Y,Y,Y,yes
+E4,A derivative jet loses one order: input N+1 for output N,Y,Y,P,Y,Y,Y,Y,Y,Y,yes
+E5,A residual certificate identifies a jet of the selected root only with the branch condition and a unit derivative,Y,N,Y,P,N,N,Y,Y,Y,yes
+E6,Preservation is not reflection: X lies in (2X) over Q[X] but not over Z[X]; X^2-X vanishes on F_2,N,Y,Y,N,Y,Y,N,Y,N,yes
+E7,Complete solving needs soundness and coverage of the same predicate; a result kind is not a confidence ladder,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+E8,An enclosure with equal endpoints may prove equality; a generic enclosure may not,Y,N,N,Y,N,N,N,Y,N,yes
+F1,An unfinished step denotes a conditional term over its residual telescope; it enters no fact index until discharged,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F2,"The residual is an ordered dependent telescope; sequential composition is substitution, not set union",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F3,"Result states are distinct: proved, conditional, no route in the fragment, exhausted, unsupported, refuted",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F4,Exporting a conditional theorem is an explicit statement change; no hypothesis is added silently,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F5,"A residual is an elaboration effect, not a runtime effect; a timeout never appears in the telescope",Y,P,Y,Y,Y,P,Y,Y,Y,no
+F6,"A term may itself be pending (needs proof arguments to be well typed), not merely a term with a pending property",Y,P,Y,P,P,P,Y,P,Y,no
+G1,"Alternative sufficient supports are retained as an inclusion-minimal antichain, each with its own derivation",Y,Y,N,Y,N,Y,Y,N,Y,no
+G2,"Termination is proved by the upward-closure measure, at most |Q| 2^|H| successful insertions",Y,Y,N,Y,N,Y,Y,N,Y,no
+G3,Relative completeness and schedule independence are proved for the fixed finite rule set,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+G4,Derivation nodes are immutable and refer only to older nodes; a cyclic rule graph never yields a cyclic proof,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+G5,"Minimal supports are not weakest preconditions; diagnostics say `required by this route', not `necessary'",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+G6,The exponential worst case (2^k incomparable routes) is stated; a truncated run is labelled incomplete,Y,Y,N,Y,N,Y,Y,N,Y,no
+G7,"Offering the goal as its own repair is a tautological route, excluded from the default vocabulary",Y,Y,N,N,N,Y,Y,N,N,no
+G8,"Method or support policy is applied before minimization, or labels are indexed by policy",Y,Y,P,Y,N,Y,Y,P,Y,no
+G9,"Two completeness flags: grounding coverage of the profile, and frontier closure of the emitted manifest",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+G10,An unseeded cycle proves nothing; a seeded cycle yields only a conditional route,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+G11,A finite certificate characterises frontier completeness and is checked independently of the solver,N,N,N,N,N,Y,N,N,N,no
+G12,Reopening a removed premise abstracts only the leaves that used it; unused premises add nothing,N,P,N,P,N,N,Y,N,P,no
+H1,"A finite typed term pool (target subterms, locals, named intermediates) bounds rule instantiation",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+H2,An explicit combinatorial bound on candidate instantiations is stated,Y,P,Y,P,Y,Y,Y,Y,Y,no
+H3,No fresh term generation inside closure; constructors only to an explicit depth or in a new epoch,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+H4,"Demand-driven backward slice from the goal, then forward closure on the slice",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+H5,A registered rule is an ordinary theorem plus role metadata validated against its actual type,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+H6,"Existing automation (fun_prop, grind, arithmetic tactics, exact?) is a provider and a control, not reinvented",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+H7,A provider's proof becomes a leaf in a new epoch; its failure creates no negative fact,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+I1,"Positive soundness, decision completeness, negative realization, and coverage are four separate contracts",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+I2,"A theorem: a finite realizable frame (basis, span, or generator set) decides affine equalities on the admissible image",Y,N,Y,P,Y,P,Y,Y,N,no
+I3,On List Empty the models 0 and n agree; a positive length is not a witness,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+I4,"Correlated observations (a list and its reverse) need joint realization; (1,0) refutes nothing",Y,Y,Y,Y,Y,P,Y,Y,Y,no
+I5,An empty admissible domain is vacuous and distinct from an empty element type,Y,N,Y,N,Y,N,Y,Y,N,no
+I6,A failing frame point is itself a concrete admissible counterexample,Y,P,Y,P,Y,P,Y,Y,P,no
+I7,The model law is not the source law: a denotation theorem for the exact candidate is required; provider text is not a theorem,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+I8,Refuting one completion does not refute the sketch,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+I9,Affine determination decides equalities only; inequalities need cone or sign certificates,Y,N,N,N,Y,N,Y,Y,N,no
+J1,"After simp: definitional reuse, or equality transport, or a consumer theorem or iff; never string matching",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+J2,Rebuild the index per declaration first; typed context embeddings later; a hash or identifier is routing only,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+J3,Dependent indices transport with their index equality (Fin n is not Fin m because a printer hides the index),Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J4,Every displayed assertion is checked; an unused false one blocks publication,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J5,Method fidelity is not token occurrence: a recipe tree or a support-restricted helper,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J6,"Three acceptances: theorem validity, statement fidelity, method fidelity",P,Y,P,Y,P,Y,Y,Y,Y,no
+J7,A receipt is not a proof; replay the exact edit; a migration issues a new receipt,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+K1,"Three lanes: verified algorithm, certificate with verified checker, proof-producing tactic; the target is fixed",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+K2,The execution gap: a checker theorem is not evidence about native bytes; no native threshold is claimed,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+K3,"One typed reification interface (syntax, environment, bridge proof) shared by checkers; no untyped universal reifier",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+K4,Arity is checked before pairing certificate components; a truncating zip changes the theorem,Y,Y,Y,Y,N,N,Y,Y,N,yes
+L1,Frey helper: the second numerator needs only 2 | b and 4 <= p; interfaces are per coefficient,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+L2,"The satisfiable fixture (3,2,5) gives -53 and -486; no Fermat equation, primality, or coprimality",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+L3,"The four single-premise neighbours (3,2,4), (3,3,5), (3,2,3), (1,2,5) are exhibited",N,Y,Y,Y,Y,Y,Y,Y,Y,no
+L4,The first numerator needs only p >= 2,N,N,Y,P,N,Y,P,Y,N,no
+L5,Autonomous derivative: hypotheses only on W(U); induction keeps the point quantified,Y,N,Y,Y,Y,Y,P,Y,N,yes
+L6,Tensor family: finite free factors are premises; naturality is a law of the family; Q[X] is the obstruction,Y,Y,Y,Y,Y,P,N,Y,Y,yes
+L7,Leant 3a40904b is the inspected revision; 823259f7 is attributed to the syntheses and was not retrievable,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+L8,Verified is a callback receipt; epochs seal association; the Length adapter refuses source refutation,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+L9,Whole-file line counts are a misleading baseline; the final wrapper is already short,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+L10,A new nonalgebraic worked example beyond the round-3 set,Y,Y,P,Y,N,Y,Y,N,Y,no
+M1,Arms L0..L4 plus a renderer control; L3 versus L2 is the decisive comparison,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+M2,All inspected examples are development material; held-out tasks are chosen after the interface is frozen,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+M3,A blind reading test is proposed and not run; no productivity number is claimed,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+M4,"Stopping rule: keep the library, services, or renderer if they explain the gains",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+M5,No Lean toolchain was available to the author; shipped Lean is labelled uncompiled,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+M6,The companion has an independently written oracle or replay checker,Y,Y,P,Y,P,Y,Y,Y,Y,no
+M7,Executed counts are reported with their units and are not summed,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+M8,The first Lean slice is the exact-quotient use site,Y,Y,P,Y,N,P,Y,Y,Y,no
+M9,Mechanizing the frontier checker itself in Lean is a named next deliverable,N,N,P,N,N,Y,N,N,P,no

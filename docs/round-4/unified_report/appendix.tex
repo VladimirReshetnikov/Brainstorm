@@ -1,0 +1,80 @@
+\section{Report cards}\label{app:cards}
+One paragraph per report: what it proposes, what it proves, what it ran, and what this review found when it compiled and reran it. Page and line counts are in Table~\ref{tab:material}.
+
+\subsection*{Alder}
+\emph{Residual Types and Proof-Producing Mathematical Elaboration.} The judgment $s\rightsquigarrow(p:T)\;!\;\Delta$ with the exclamation mark read as an elaboration effect; the antichain algorithm with $\oplus$ and $\otimes$ and Theorem \ref{thm:antichain} in its ``termination and exact residual alternatives'' form; a $t^k$ grounding bound; the frame theorem over an abelian group with integer combinations and the torsion warning; a residual-to-root theorem needing only a unit constant coefficient; the germ example with its Catalan closed form, radius $9/64$ and error bound; a typed \emph{without loss of generality}; the a.e.-to-pointwise upgrade under full support. Companion Alder-0: parser with lexical blocks, antichain engine, separate checker, exporter; 64 unary graphs exhaustively, 200 conjunctive graphs, 46,875 frame comparisons, 33 germ coefficients; two example modules rejected by design (a scope leak and an unused unproved claim). Answers both question sets in one appendix. This review: two Lean exports compile (one with ten unused-variable lints); all counts reproduce.
+
+\subsection*{Bryony}
+\emph{Contract-Indexed Mathematical Reasoning with Proof-Carrying Requirements.} The judgment $e:A\triangleright P\;!\;\{(S_i,t_i)\}$; the same antichain theorem stated as conditional soundness plus termination and relative completeness; two-layer completeness (ground engine, generation profile) and epochs; the weighted subgraph Fubini example under s-finite measures with the strict/non-strict sibling and a point-mass separator; the observation-consumer registration $R(x,y)\to S(C(x),C(y))$; the ATMS and provenance attribution. Companion: parser, solver, replay checker on full source snapshots, exporter; 23 methods, 400 systems, 3,873 subsets, 1,835 replayed certificates, 288 positive Frey triples. Two crosswalk tables. This review: one Lean export compiles (two lints); all counts reproduce.
+
+\subsection*{Clover}
+\emph{Scoped Mathematical Reasoning with Obligation-Directed Types.} Obligation telescopes with pending and closed transitions; goal-triggered grounding with a source-derived arena and the bound $rM^v$; the closure theorem (single route, not antichain); the affine test-basis theorem over a field with the three-observation correlated example $(|xs+\!\!+ys|,|xs|,|ys|)$; the a.e. quantifier trap; the sharpened $p\ge2$; a five-gate implementation plan. Companion: the endomorphism slice (four properties, seven rules, scopes, plan checker, exporter) and an exact affine program; 35 methods, 1,576 assertion checks, the 211-versus-16 profile comparison. This review: \code{CloverCore.lean} compiles with all seven rules axiom-free; \code{GeneratedExamples.lean} needs the core compiled to an \code{olean} first and then compiles with three lints; all counts reproduce.
+
+\subsection*{Fennel}
+\emph{A Proof Language of Stable Objects and Explicit Requirements.} Frontier labels $L(q)$ with the residual formula $R_q$; the finite frontier theorem; the strict sealing rule (a metavariable-free target); \code{using only} as the first method mechanism; the q-Pochhammer example where the logarithmic form has guards the product form lacks; the two-point basis on \code{List Nat} and its failure on \code{List Empty}. Companion: planner with quotas, independent certificate checker that verifies even unused nodes, exporter; 27 boundary tests, 2,000 graphs, 12,872 comparisons, 1,820 certificates, the exponential family to 1,024 routes. No crosswalk table; the questions are answered in the text. This review: four Lean exports compile (lints only); all counts reproduce.
+
+\subsection*{Heather}
+\emph{Proof-Carrying Mathematical Interfaces.} Facets and rows; the closure proposition (single route); the realizable affine frame over $\Q$ with the rank proposition; the distinction between an empty admissible type and an empty element type; the affine-inequality warning ($1-n$); a Lipschitz enclosure propagation; the behavioural slice as the first deliverable. Companion: a list-length frontend with four fixed frames, certificate rechecker, concrete negative witnesses, a toy use-site resolver; 18 methods, 7,500 comparisons, 466 witnesses, 14 corrupted certificates refused. T1--T10 table. This review: four of the five Mathlib exports compile; \code{even_reverse_length.lean} fails because the template's \code{omega} runs after \code{simp only} has closed the goal, and compiles without that line. All 18 tests reproduce; the use-site demo needs \code{PYTHONUTF8=1} on Windows.
+
+\subsection*{Juniper}
+\emph{Property-Directed Mathematics with Explicit Obligation Frontiers.} Residual telescopes $(P,\Delta,k)$ with the discharge proposition; the antichain theorem with the frontier certificate theorem and its validator; two completeness flags; the inverse-derivative differential polynomials with proved invariants; quotient descent; the formal-versus-analytic distinction. Companion: parser, solver, validator (closure conditions checked when a result is marked complete), exporter, inverse polynomials to $P_6$; 32 tests, 400 profiles, 6,400 assignments, 2,800 frontiers, 189 Frey triples. Answers in prose. This review: one Lean export compiles cleanly; all counts reproduce.
+
+\subsection*{Laurel}
+\emph{Mathematical Interfaces and Proof-Producing Residual Types.} Residual contracts $(\Delta,\pi)$; the antichain theorem with conditional soundness stated independently of the fixed point; the reopen proposition; the realized-basis theorem with lifted observations; the sharp Fabius regularity example and the attainment route; an affine nonnegativity certificate. Companion: Laurel-Core solver, independent checker rejecting cyclic objects, reopen operation, exporter; 19 boundary methods, the exhaustive three-atom family (32,768 profiles, 98,304 frontiers), 500 random profiles, 308 Frey triples, width bench to 1,024. T1--T10 table plus paragraphs on the Q list. This review: four Lean exports compile cleanly (one has no theorem: the unseeded cycle); all counts reproduce; the combined run took 20 s rather than the report's 2.4 s.
+
+\subsection*{Rowan}
+\emph{Contract-Directed Mathematical Proofs.} Sealed requests $(E,\Gamma,T,\mathcal M,\mathcal A)$ with proof islands and a noninterference proposition; sorted first-order grounding with the bound $\sum_r\prod_i m_{r,i}$; backward cone plus counter closure (single route, missing leaves as the frontier); the semilinear base-and-generator criterion with constructed witness coordinates; the $X^2-X$ warning; three acceptances. Companion: parser for \code{object}, \code{assume}, \code{derive}; grounding, cone, closure, replay; list interpreter and semilinear checker; 32 tests, 12,675 comparisons, 4,374 decisions, 100 shuffled-rule trials, 139 Frey fixtures. T1--T10 table. No Lean file shipped. This review: all counts reproduce; the demo prints $-53$, $-486$, and $(1,0)$ for the independent-inputs case.
+
+\subsection*{Sorrel}
+\emph{Contract-Typed Proof Plans for Human-Scale Mathematics.} Plans $[\Theta;e:T]$ with the conditional elaboration invariant; the support calculus with the residual-frontier theorem $\mathrm{Front}_K(Q)$; policy filtering before minimisation; intensional plan certificates for method fidelity; the Cauchy--CDF formula with the point mass as a positive fixture and the Dirac mass two as a neighbour; the Lean 4.33.0 \code{vcgen} note. Companion: solver, independent plan checker, exporter; 31 tests, 80 systems, 1,280 subsets, 7,680 comparisons, 5,120 valuations. A cluster crosswalk covering both lists. This review: one Lean export compiles cleanly; all counts reproduce.
+
+\section{The consolidated negative suite}\label{app:suite}
+Table~\ref{tab:suite} lists the 52 families. The inherits column names the round-3 family. Per-report tokens: E = executed by the shipped companion; T = listed in the report's own mutation table; P = argued in prose or by a worked counterexample; blank = absent.
+
+{\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}L{6mm}L{50mm}L{40mm}L{7mm}CCCCCCCCC@{}}
+\caption{Consolidated negative suite. Columns: \Al, \Br, \Cl, \Fe, \He, \Ju, \La, \Ro, \So.}\label{tab:suite}\\
+\toprule
+Id & Mutation & Required response & R3 & Al & Br & Cl & Fe & He & Ju & La & Ro & So\\\midrule
+\endfirsthead
+\toprule
+Id & Mutation & Required response & R3 & Al & Br & Cl & Fe & He & Ju & La & Ro & So\\\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{suite_rows.tex}
+\end{longtable}}
+
+\section{Experiments and reproducibility}\label{app:repro}
+All Lean runs used a ProveIt checkout at commit \code{24ce8bd7} with toolchain \code{leanprover/lean4:v4.32.0} and Mathlib as pinned there, invoked as \code{lake env lean <file>} from the ProveIt root. The \code{experiments/lean/} directory of this report contains:
+\begin{itemize}
+\item the twenty shipped Lean files, copied verbatim from the nine archives and renamed \code{<Report>__<path>.lean}, with the compiler log of each run beside it (\code{.log});
+\item \code{clover/}: \Cl's core compiled to an \code{olean} with \code{lean -o} from inside the ProveIt root (the compiler refuses output paths outside its root) and \code{GeneratedExamples.lean} compiled against it with the directory prepended to \code{LEAN_PATH};
+\item \code{ListImage.lean} and \code{FreyRoutes.lean} with their logs (Sections~\ref{sec:frames-lean} and~\ref{sec:routes});
+\item \code{summary.txt}, the per-file exit codes, elapsed milliseconds, and diagnostic counts.
+\end{itemize}
+The companion reruns are in \code{experiments/companions/}: one log per command (Table~\ref{tab:runs}) and \code{summary.txt} with exit codes and elapsed times. The companions were run from a scratch copy of each archive because several rewrite their own result files; the copies are not included, the archives are unchanged under \code{docs/round-4/ideas/}.
+
+Timings are single wall-clock runs on one Windows machine and are not comparable across files: the first \code{lake env lean} of a session pays a toolchain start (\Al's 18-line \code{Locality.lean} took 77 s for that reason and its sibling 7 s), and the first Mathlib import of a session is cold (\He's 8-line \code{UseSite.lean} took 689 s; the next Mathlib file 92 s; \code{FreyRoutes.lean} 220 s while another Mathlib job ran).
+
+\section{Source map}\label{app:sources}
+What each report says it inspected, beyond the two round-3 syntheses that all nine read at Brainstorm \code{bf333390}. ProveIt files are under \code{Analysis/FabiusFunction/Lean/FabiusFunction/}; Fermat files under \code{P2M/Sol/} or \code{Definitions/}; Leant files under \code{src/Leant/Synth/}.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}l Y Y Y@{}}
+\toprule
+Report & ProveIt \code{24ce8bd7} & Fermat \code{aa2d8b34} & Leant \code{3a40904b}\\\midrule
+\Al & AutonomousIteratedDeriv, AlgebraicInverseGerm & FreyCurveInt\_map, exists\_algHom\_equiv\_pi & Verification, PostVerification, Length/Contract\\
+\Br & SubgraphFubini & FreyCurveInt\_map, exists\_algHom\_equiv\_pi & Verification, PostVerification, README\\
+\Cl & AutonomousIteratedDeriv & FreyCurveInt\_map, exists\_algHom\_equiv\_pi & Verification, Length/Contract, Length/Adapter\\
+\Fe & QPochhammerDerivative, AutonomousIteratedDeriv & FreyCurveInt\_map, exists\_algHom\_equiv\_pi & Verification, Length/Handoff (line ranges)\\
+\He & AutonomousIteratedDeriv & exists\_algHom\_equiv\_pi & Verification, PostVerification, Length/Adapter\\
+\Ju & AutonomousIteratedDeriv, InverseDerivativeRecursion & FreyPackage definition, FreyCurveInt\_map & Verification, PostVerification, Length/Contract\\
+\La & Regularity & FreyCurveInt\_map, README & README, synth-internals, Length/Contract\\
+\Ro & AutonomousIteratedDeriv & FreyPackage definition, FreyCurveInt\_map, exists\_algHom\_equiv\_pi & Verification, Length/Adapter, PostVerification\\
+\So & CauchyCDF, Regularity & FreyPackage definition, exists\_algHom\_equiv\_pi & Verification, README\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Every report also cites the Lean language reference, Mathlib's \code{fun_prop} documentation, and the \code{mvcgen} overview, and all but two cite Lean4Lean; \Cl, \He{} and \So{} additionally note that the online reference they consulted identified a newer version (4.34.0-rc2 or the 4.33.0 release notes) than the 4.32.0 pin, and none uses the newer version for any execution claim. The author attributions on the title pages are GPT-6 Astra Pro (\Al, \Cl), ChatGPT (\Br, \He), and OpenAI (\Fe, \Ju, \La, \Ro, \So).

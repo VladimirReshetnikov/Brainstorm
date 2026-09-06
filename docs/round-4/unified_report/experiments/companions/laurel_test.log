@@ -1,0 +1,53 @@
+test_alternatives_not_conjunction (__main__.BoundaryTests.test_alternatives_not_conjunction) ... ok
+test_bad_syntax (__main__.BoundaryTests.test_bad_syntax) ... ok
+test_budget_is_not_refutation (__main__.BoundaryTests.test_budget_is_not_refutation) ... ok
+test_changed_rule_profile (__main__.BoundaryTests.test_changed_rule_profile) ... ok
+test_closes_without_offered_premise (__main__.BoundaryTests.test_closes_without_offered_premise) ... ok
+test_corrupted_cyclic_certificate (__main__.BoundaryTests.test_corrupted_cyclic_certificate) ... ok
+test_duplicate_premise (__main__.BoundaryTests.test_duplicate_premise) ... ok
+test_empty_rule (__main__.BoundaryTests.test_empty_rule) ... ok
+test_export_retains_assumptions (__main__.BoundaryTests.test_export_retains_assumptions) ... ok
+test_forged_known_leaf (__main__.BoundaryTests.test_forged_known_leaf) ... ok
+test_forged_premise_order (__main__.BoundaryTests.test_forged_premise_order) ... ok
+test_forged_rule (__main__.BoundaryTests.test_forged_rule) ... ok
+test_loss_of_unused_fact_does_not_add_premise (__main__.BoundaryTests.test_loss_of_unused_fact_does_not_add_premise) ... ok
+test_loss_of_used_fact_reopens_obligation (__main__.BoundaryTests.test_loss_of_used_fact_reopens_obligation) ... ok
+test_nonempty_support_is_conditional (__main__.BoundaryTests.test_nonempty_support_is_conditional) ... ok
+test_sibling_context (__main__.BoundaryTests.test_sibling_context) ... ok
+test_target_as_residual_is_only_conditional (__main__.BoundaryTests.test_target_as_residual_is_only_conditional) ... ok
+test_unseeded_cycle_does_not_close (__main__.BoundaryTests.test_unseeded_cycle_does_not_close) ... ok
+test_wrong_target (__main__.BoundaryTests.test_wrong_target) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.008s
+
+OK
+{
+  "python": "3.14.4",
+  "platform": "Windows-11-10.0.26340-SP0",
+  "claim": "executed symbolic tests; no Lean compilation or human study",
+  "boundary_test_methods": 19,
+  "exhaustive": {
+    "rule_schemas": 9,
+    "rule_subsets": 512,
+    "profiles": 32768,
+    "target_frontiers_compared": 98304,
+    "conditional_certificates_checked": 98400,
+    "maximum_frontier_width": 3
+  },
+  "randomized": {
+    "seed": 20260906,
+    "profiles": 500,
+    "target_frontiers_compared": 3000,
+    "conditional_certificates_checked": 2527,
+    "budgeted_profiles_also_checked": 500
+  },
+  "mathematical_fixtures": {
+    "admissible_frey_triples": 308,
+    "single_premise_negative_neighbors": 4,
+    "coefficient_value_assertions": 2,
+    "realization_fixtures": 2,
+    "scope": "finite arithmetic tests and explicitly modeled observation images"
+  },
+  "elapsed_seconds": 19.452666
+}

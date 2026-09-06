@@ -1,0 +1,10 @@
+report,command,reported,reproduced,elapsed_ms
+Alder,test_alder.py,"all families pass; 64 unary graphs, 4,096 configurations, 13,824 probes, 46,875 frame comparisons, 33 coefficients",identical counts,3541
+Bryony,test_bryony.py,"23 methods; 400 systems; 3,873 subsets; 2,800 comparisons; 1,835 certificates; 288 triples",identical counts,1419
+Clover,unittest test_clover_slice; affine_basis.py; compare_profiles.py,"35 methods; 1,576 assertion checks; 211 versus 16 instances",identical counts,2313
+Fennel,test_fennel.py; stress_frontiers.py,"27 tests; 2,000 graphs; 12,872 comparisons; 1,820 certificates; routes 4, 16, 64, 256, 1,024",identical counts,2885
+Heather,test_heather.py; use_site_demo.py,"18 methods; 7,500 comparisons; 466 witnesses; 14 refusals",18 pass; the demo fails under a cp1252 default locale and passes with PYTHONUTF8=1,1659
+Juniper,test_frontier.py; inverse_polynomials.py,"32 tests; 400 profiles; 6,400 assignments; 2,800 frontiers; polynomials through order six",identical counts,3278
+Laurel,test_core.py; bench_frontier.py,"19 methods; 32,768 profiles; 98,304 frontiers; 98,400 derivations; 308 triples; about 2.4 s",identical counts in 20.3 s,20336
+Rowan,test_rowan.py; rowan_model.py,"32 tests; 12,675 comparisons; 4,374 decisions; 139 fixtures",identical counts; demo gives -53 and -486,1379
+Sorrel,sorrel_model.py --test,"31 tests; 80 systems; 1,280 subsets; 7,680 comparisons; 517 certificates",identical counts,638

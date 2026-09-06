@@ -1,0 +1,78 @@
+{
+  "symbolic": {
+    "kind": "symbolic Horn model; no Lean checking",
+    "answers": [
+      {
+        "name": "fourth_coefficient",
+        "target": "ExactA4(a,b,p)",
+        "status": "derived",
+        "support": [
+          "bound_p",
+          "even_b"
+        ],
+        "frontier": [],
+        "metrics": {
+          "ground_rules": 10,
+          "relevant_rules": 2,
+          "relevant_atoms": 4,
+          "known_atoms": 4,
+          "rule_firings": 2,
+          "ground_assignments": 10
+        }
+      },
+      {
+        "name": "second_coefficient",
+        "target": "ExactA2(a,b,p)",
+        "status": "open",
+        "support": [],
+        "frontier": [
+          "Odd(p)",
+          "ResidueThree(a)"
+        ],
+        "metrics": {
+          "ground_rules": 10,
+          "relevant_rules": 1,
+          "relevant_atoms": 5,
+          "known_atoms": 2,
+          "rule_firings": 0,
+          "ground_assignments": 10
+        }
+      },
+      {
+        "name": "second_coefficient_completed",
+        "target": "ExactA2(a,b,p)",
+        "status": "derived",
+        "support": [
+          "bound_p",
+          "even_b",
+          "odd_p",
+          "residue_a"
+        ],
+        "frontier": [],
+        "metrics": {
+          "ground_rules": 10,
+          "relevant_rules": 1,
+          "relevant_atoms": 5,
+          "known_atoms": 5,
+          "rule_firings": 1,
+          "ground_assignments": 10
+        }
+      }
+    ]
+  },
+  "correlated_lengths": {
+    "diagonal_equal": true,
+    "independent_equal": false,
+    "independent_witness": [
+      1,
+      0
+    ]
+  },
+  "frey_fixture": {
+    "a": 3,
+    "b": 2,
+    "p": 5,
+    "a2": -53,
+    "a4": -486
+  }
+}

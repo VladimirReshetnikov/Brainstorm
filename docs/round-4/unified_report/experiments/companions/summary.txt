@@ -1,0 +1,26 @@
+alder_test rc=0 ms=3541 cmd=test_alder.py
+alder_quotient rc=0 ms=1633 cmd=alder_core.py examples/quotient.alder --lean generated/Quotient2.lean --events generated/quotient2.json
+bryony_test rc=0 ms=1419 cmd=test_bryony.py
+bryony_frey rc=0 ms=742 cmd=bryony.py frey4.bry --output ../evidence/frey4b
+clover_test rc=0 ms=2313 cmd=-m unittest -v test_clover_slice
+clover_demo rc=0 ms=1182 cmd=clover_slice.py demo.clover --json demo-result2.json --lean GeneratedExamples2.lean
+clover_affine rc=0 ms=871 cmd=affine_basis.py
+clover_profiles rc=0 ms=811 cmd=compare_profiles.py
+fennel_run rc=0 ms=1057 cmd=fennel.py quotients.fnl --out generated2
+fennel_test rc=0 ms=2885 cmd=test_fennel.py
+fennel_stress rc=0 ms=1150 cmd=stress_frontiers.py
+heather_test rc=0 ms=1659 cmd=test_heather.py
+heather_usesite rc=1 ms=925 cmd=use_site_demo.py
+heather_diag rc=0 ms=824 cmd=heather.py examples/diagonal.hthr --output generated2
+heather_refuted rc=0 ms=756 cmd=heather.py examples/refuted.hthr --output generated2
+juniper_test rc=0 ms=3278 cmd=test_frontier.py
+juniper_inverse rc=0 ms=595 cmd=inverse_polynomials.py
+juniper_run rc=0 ms=836 cmd=juniper_frontier.py example.jnp --json example-result2.json --lean Generated2.lean
+laurel_test rc=0 ms=20336 cmd=test_core.py
+laurel_bench rc=0 ms=992 cmd=bench_frontier.py
+laurel_frey rc=0 ms=662 cmd=laurel_core.py examples/frey_a4.laurel --json generated/frey_a4b.json --lean generated/frey_a4b.lean
+rowan_model rc=0 ms=632 cmd=rowan_model.py
+rowan_test rc=0 ms=1379 cmd=test_rowan.py
+sorrel_test rc=0 ms=638 cmd=sorrel_model.py --test --json test_results2.json
+sorrel_quot rc=0 ms=607 cmd=sorrel_model.py examples/quotient.sorrel --json examples/quotient_result2.json --export-lean SelectedPlan2.lean
+sorrel_cauchy rc=0 ms=592 cmd=sorrel_model.py examples/cauchy.sorrel --json examples/cauchy_result2.json
