@@ -20,7 +20,11 @@ MPL, Mosaic, Motive, Outline, Reason, Spine).
   and a runner that reproduces both audit groups from a ProveIt root.
 - `build.sh` — builds the PDF with `latexmk`.
 
-Revision note: Section 8 compares this document with the parallel synthesis
+Revision note: Section 9 reports a closer static study of Leant (README,
+synth-internals, candidate-quality, behavioral-synthesis, Fragment.hs,
+Engine.hs, Verification.hs, Main.hs, golden transcripts) and maps the
+consensus synthesis-boundary commitments to implemented Leant mechanisms.
+Section 8 compares this document with the parallel synthesis
 under `docs/synthesis` (Codex), verifies its Leant findings against the local
 working tree, and accepts several of its criticisms (the `says` combinator
 freezes tactic text rather than proof terms; the audit is a lexical
