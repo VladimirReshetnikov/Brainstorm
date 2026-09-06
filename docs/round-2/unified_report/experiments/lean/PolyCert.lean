@@ -13,9 +13,10 @@ def pneg (p : List Int) : List Int := p.map (fun x => -x)
 def psub (p q : List Int) : List Int := padd p (pneg q)
 def isZero (p : List Int) : Bool := p.all (fun x => x == 0)
 /-- Ideal-membership certificate: p = sum_i q_i * f_i, checked by exact arithmetic. -/
+/- Note: `List.zipWith` truncates unequal lists; a real protocol must reject an arity mismatch. -/
 def check (p : List Int) (fs qs : List (List Int)) : Bool :=
   isZero (psub p (List.foldl padd [] (List.zipWith pmul qs fs)))
-/-- p_n = X^n - 1 -/
+/-- p_n = X^n - 1, for n >= 1 (at n = 0 the list still denotes X - 1; the family below starts at 10). -/
 def xn1 (n : Nat) : List Int := (-1) :: (List.replicate (n - 1) 0 ++ [1])
 /-- q_n = 1 + X + ... + X^(n-1), so that p_n = q_n * (X - 1). -/
 def geom (n : Nat) : List Int := List.replicate n 1
@@ -48,6 +49,10 @@ theorem catalan_not_exact : catalanResidual[6]? = some (-132) := by decide
 /-- Precision loss under differentiation: X^N and 0 agree below N, their derivatives do not. -/
 def pderiv (p : List Int) : List Int := List.zipWith (fun (c : Int) (k : Nat) => c * ((k : Int) + 1)) (p.drop 1) (List.range (p.length - 1))
 theorem deriv_loses_order : (pderiv [0,0,0,0,0,1]).take 5 ≠ (pderiv [0,0,0,0,0,0]).take 5 := by decide
+-- Corrupted certificate (one coefficient altered): both routes must reject it.
+theorem corrupted_rejected_kernel : check (xn1 40) [[-1, 1]] [geomBad 40] = false := by decide
+theorem corrupted_rejected_native : check (xn1 40) [[-1, 1]] [geomBad 40] = false := by native_decide
+#print axioms corrupted_rejected_kernel
 #print axioms catalan_jet_ok
 #print axioms kernel_1280
 #print axioms native_1280

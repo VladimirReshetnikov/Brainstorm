@@ -30,8 +30,8 @@ M = [
  ("Result contracts", "B1", "A computed answer is a value together with a proof of a fixed specification", "YYYYYYYYY"),
  ("Result contracts", "B2", "An explicit taxonomy of result kinds with forbidden promotions", "YYYYYYYYY"),
  ("Result contracts", "B3", "A witness is not a complete solution set; coverage is separate evidence", "YYYYYYYYY"),
- ("Result contracts", "B4", "A conditional result is an implication; guards are never promoted to hypotheses", "YYYYYYYYY"),
- ("Result contracts", "B5", "An enclosure is not an equality; an interval containing zero decides nothing", "YYYYYYYYY"),
+ ("Result contracts", "B4", "A conditional result is an implication; a guard is never silently added to the theorem statement", "YYYYYYYYY"),
+ ("Result contracts", "B5", "An enclosure is not an equality; an interval containing zero decides no strict sign", "YYYYYYYYY"),
  ("Result contracts", "B6", "A product identity is not an irreducible factorization", "YYYYPYYYY"),
  ("Result contracts", "B7", "Finite jet, full series identity, and analytic function are three different claims", "YYYYYYYYY"),
  ("Result contracts", "B8", "The mathematical kind of a result is separated from its validation state", "PYYYPYPYY"),
@@ -41,7 +41,7 @@ M = [
  ("Verified CAS", "C4", "Native-computation axioms are audited by inventory, not by a blacklisted name", "YYYYYYYYY"),
  ("Verified CAS", "C5", "Reification is part of the proof boundary; opaque atoms carry exact identities", "YYYYYYYYY"),
  ("Verified CAS", "C6", "Ideal-membership certificates with their limits stated (no negative result; powers need regularity)", "YYYYYYYYY"),
- ("Verified CAS", "C7", "Accepted evidence must not depend on a remote service surviving (the polyrith lesson)", "NNYYNYYYY"),
+ ("Verified CAS", "C7", "The polyrith shutdown is discussed explicitly as a design rule (service-independent evidence)", "NNYYNYYYY"),
  ("Verified CAS", "C8", "A small verified core (exact scalars, polynomials, finite sums, jets), not a universal simplifier", "YYYYYYYYY"),
  ("Verified CAS", "C9", "Search-free replay is not computation-free; checking cost is measured", "YYYYYYYYY"),
  ("Verified CAS", "C10", "Certificate size, degree, and checker cost are bounded in the protocol", "YYPPPYYPY"),
@@ -77,22 +77,33 @@ M = [
  ("Worked material", "F8", "A ProveIt file beyond the three that the round-1 syntheses discussed", "YNNNNYYNY"),
 ]
 assert all(len(m[3]) == 9 for m in M)
+# Rows outside the "Inherited foundation" group that the two first-round syntheses nevertheless already
+# stated explicitly (identified by the parallel round-2 synthesis's audit and checked against those texts).
+INHERITED_ELSEWHERE = {"D3", "E1", "E3", "E4", "E5", "E6", "E7"}
+EXAMPLE_GROUP = "Worked material"
 
 
 def write_matrix():
     with open(os.path.join(OUT, "feature_matrix.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["group", "id", "commitment"] + R + ["explicit", "explicit_or_partial"])
+        w.writerow(["group", "id", "commitment"] + R + ["explicit", "explicit_or_partial", "stated_in_round1_syntheses"])
         for g, i, d, s in M:
-            w.writerow([g, i, d] + list(s) + [s.count("Y"), s.count("Y") + s.count("P")])
+            w.writerow([g, i, d] + list(s) + [s.count("Y"), s.count("Y") + s.count("P"), "yes" if (g == "Inherited foundation" or i in INHERITED_ELSEWHERE) else "no"])
     tot = len(M)
     unan = sum(1 for m in M if m[3].count("Y") == 9)
     seven = sum(1 for m in M if m[3].count("Y") >= 7)
     inh = [m for m in M if m[0] == "Inherited foundation"]
     new = [m for m in M if m[0] != "Inherited foundation"]
-    print("matrix rows=%d unanimous=%d >=7:%d | inherited rows=%d unanimous=%d | new rows=%d unanimous=%d >=7:%d" % (
+    print("matrix rows=%d unanimous=%d >=7:%d | inherited group rows=%d unanimous=%d | other rows=%d unanimous=%d >=7:%d" % (
         tot, unan, seven, len(inh), sum(1 for m in inh if m[3].count("Y") == 9),
         len(new), sum(1 for m in new if m[3].count("Y") == 9), sum(1 for m in new if m[3].count("Y") >= 7)))
+    ex = [m for m in new if m[0] == EXAMPLE_GROUP]
+    inh2 = [m for m in new if m[1] in INHERITED_ELSEWHERE]
+    fresh = [m for m in new if m[0] != EXAMPLE_GROUP and m[1] not in INHERITED_ELSEWHERE]
+    print("of the other unanimous rows: %d are worked-example rows, %d were already stated by the round-1 syntheses, %d are CAS-specific contracts the syntheses did not specify (%s)" % (
+        sum(1 for m in ex if m[3].count("Y") == 9), sum(1 for m in inh2 if m[3].count("Y") == 9),
+        sum(1 for m in fresh if m[3].count("Y") == 9), ",".join(m[1] for m in fresh if m[3].count("Y") == 9)))
+    print("fresh rows=%d, fresh >=7: %d" % (len(fresh), sum(1 for m in fresh if m[3].count("Y") >= 7)))
     sym = {"Y": r"\Yy", "P": r"\Pp", "N": r"\Nn"}
     print("% ---- feature matrix body")
     lastg = None
@@ -190,8 +201,10 @@ def write_suite():
         for i, m, b, prov in N:
             w.writerow([i, m, b, len(prov)] + [prov.get(r, "") for r in R])
     counts = sorted(((len(p), i) for i, _, _, p in N), reverse=True)
-    print("suite rows=%d provenance entries=%d core(>=7)=%s five-or-six=%s" % (
-        len(N), sum(len(p) for *_, p in N), [i for c, i in counts if c >= 7], [i for c, i in counts if 5 <= c <= 6]))
+    distinct = {(r, x.strip()) for *_, p in N for r, v in p.items() for x in v.split(",")}
+    print("suite rows=%d incidences=%d distinct source rows=%d singletons=%s core(>=7)=%s five-or-six=%s" % (
+        len(N), sum(len(p) for *_, p in N), len(distinct), [i for c, i in counts if c == 1],
+        [i for c, i in counts if c >= 7], [i for c, i in counts if 5 <= c <= 6]))
     print("% ---- suite body (rows in at least five suites)")
     for i, m, b, prov in sorted(N, key=lambda x: -len(x[3])):
         if len(prov) >= 5:
