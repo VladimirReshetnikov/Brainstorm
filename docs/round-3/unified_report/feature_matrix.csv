@@ -1,0 +1,77 @@
+id,commitment,Basalt,Fiber,Gneiss,Karst,Moraine,Obsidian,Schist,Tephra,Trellis,stated_in_round2_syntheses
+A1,Extend the elaborator's typing discipline first; the kernel is unchanged in the first implementation,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+A2,"Lean already expresses the properties (subtypes, structures, dependent functions); no new logic is claimed",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+A3,"A primitive kernel refinement is a later, measured experiment, never a prerequisite",P,Y,Y,Y,Y,Y,Y,Y,Y,no
+A4,No semantic subtyping or equality reflection in conversion; no CAS inside definitional equality,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+A5,No principal or strongest refinement is promised; automatic inference is a bounded fragment,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+A6,Failure to infer a property is not evidence that it is false,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+B1,A proved property enriches the same term; the object is never rebound to a subtype locally,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+B2,Packaging into a subtype or record happens only at an interface boundary,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+B3,Weakening a refinement applies a proved implication and preserves the value,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+B4,"Several properties of one carrier are a conjunction, not an intersection of unrelated types",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+B5,Equality transports properties by elimination; any other relation needs its registered transport theorem,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+B6,"An anchor is the elaborated term with its structures and context, never a printed name",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+B7,"Branch-local facts do not leak to siblings; leaving a branch exports an implication, not the fact",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+B8,A written relative-soundness theorem: the core rules translate to ordinary Lean terms without new axioms,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+B9,Meaning-bearing holes are frozen before search; a delegated data hole is allowed only under a fixed specification,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+C1,"Selecting a structure (ring, topology, action) is data and is separate from inferring propositions about it",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+C2,No global instance per derived fact; a local instance bridge is inserted only where an API demands one,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+C3,A lexical structure context or manifest fixes the dictionaries a block uses,P,P,P,Y,P,P,Y,Y,Y,no
+C4,"Nonzero, regular, and unit are three predicates; no silent field assumption",Y,Y,Y,Y,P,Y,Y,Y,Y,yes
+D1,"A behavioral contract on a total function is: for all x, P x implies Q x (f x)",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+D2,"Contract variance: preconditions contravariant, postconditions covariant; no single strength rank",Y,Y,Y,Y,Y,P,Y,Y,Y,no
+D3,Composition retains the actual intermediate value and needs a bridge to the next precondition,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+D4,"Relational and higher-order laws (monotone, respects, naturality, inverse pair) are contracts on the whole function",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+D5,A function on a refined domain and a total function with a contract are different interfaces,Y,Y,Y,Y,Y,P,Y,Y,Y,no
+D6,Sorting needs permutation and order; length preservation admits reversal and constant lists,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+D7,"Effectful programs get a separate axis (Hoare logic, mvcgen); a timeout or cost is not a mathematical premise",P,P,Y,P,P,Y,Y,P,Y,no
+D8,Existence in Prop does not yield executable data without a construction or a declared choice,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+E1,Equality on an open set at an interior point yields eventual equality; equality at the point does not,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+E2,Almost-everywhere equality is a further distinct relation with its own consumers,Y,Y,Y,N,N,Y,N,N,N,no
+E3,A derivative jet loses one order: input N+1 for output N,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+E4,Residual certificates identify a jet of the selected root only with matching constant term and unit derivative,Y,Y,Y,Y,P,Y,Y,Y,Y,yes
+E5,"A universal claim needs the quantifier; finitely many prefixes, coefficients, or tests do not deliver it",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+E6,Preservation is not reflection: X lies in (2X) over Q[X] but not over Z[X],Y,Y,Y,N,N,Y,N,Y,Y,yes
+E7,Complete solving needs soundness and coverage of the same predicate,Y,Y,Y,Y,N,Y,Y,Y,Y,yes
+E8,An enclosure with equal endpoints may prove equality; a generic enclosure may not,Y,Y,Y,N,N,Y,N,Y,Y,yes
+E9,"Quantitative contracts (closeness, Lipschitz transfer, vanishing error) propagate demanded precision backward",N,Y,N,N,Y,N,N,N,Y,no
+F1,Inference is demand-driven from the premises of the chosen method,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F2,A small forward closure of cheap consequences; no saturation over all consequences,Y,Y,P,P,Y,Y,Y,Y,Y,no
+F3,A registered rule is an ordinary theorem plus role metadata validated against its actual type,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F4,The obligation graph is acyclic; a result never justifies its own guard; induction is a separate checked rule,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+F5,"Diagnostics name the missing mathematical premise and say `required by this method', not `necessary'",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F6,"Existing automation (fun_prop, grind, aesop, mvcgen) is a named component or baseline",P,P,P,P,Y,Y,P,P,P,no
+F7,A named reason binds the method used; `search' or `hint' delegates it visibly,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+G1,A polynomial certificate checker is specified with a denotation into an arbitrary commutative ring,Y,Y,Y,Y,N,Y,P,Y,P,yes
+G2,Arity is checked before any zip; a truncating zip is not an interface,Y,Y,Y,Y,Y,Y,N,Y,Y,no
+G3,Reification binds atoms to exact elaborated terms and proves the bridge to the original goal,Y,Y,Y,Y,Y,Y,P,Y,Y,yes
+G4,"Execution of the checker is a separate obligation; native evaluation needs an axiom audit, not a name blacklist",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+G5,grobner is a bounded proof-producing provider and control; no certificate export is assumed,P,Y,Y,Y,P,Y,Y,Y,Y,yes
+G6,A certificate for p^k does not give p = 0; a rational witness is not an integer witness,Y,Y,P,Y,N,P,Y,Y,P,yes
+G7,"Imported Lean keeps total operations; partial expressions are an explicit, domain-carrying package",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+G8,No native-versus-kernel threshold is claimed from the round-2 timings,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+H1,"Leant's Verified wrapper is a callback receipt, not behavioral evidence or a kernel proof",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+H2,"Leant's Length handoff and behavioral selection are real infrastructure, read from source",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+H3,A provider law becomes evidence only when paired with a Lean theorem about the exact provider term,Y,P,P,P,Y,P,P,Y,Y,no
+H4,An abstract counterexample must be realizable at the source type (the List Empty case),Y,N,P,Y,P,P,P,Y,N,no
+H5,"A checked counterexample refutes one candidate, never the existence of a correct one",Y,Y,Y,P,Y,P,P,Y,Y,no
+H6,Non-derivability in a calculus is not negation of the original proposition,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+H7,A tactic suggestion is verified only by replaying the exact displayed edit at its origin,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+H8,"Measure Leant on generated obligations, separating single-lemma lookup from composition",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+H9,Polymorphism is not parametricity in classical Lean; no free theorem is inferred,Y,N,N,N,N,N,N,Y,N,no
+I1,The FLT Frey package is cited as evidence that Lean already bundles mathematical properties,N,Y,Y,Y,N,Y,Y,Y,Y,no
+I2,Frey coefficients: integer division and rational division agree only under proved divisibility,N,Y,Y,Y,N,Y,Y,Y,Y,no
+I3,"The generated instance preamble is environment cost, not mathematical verbosity",N,Y,Y,Y,N,N,Y,Y,Y,no
+I4,The terminal FLT contradiction is already short and must stay short,P,Y,N,Y,N,N,Y,Y,Y,no
+I5,The autonomous-derivative theorem is kept as a locality control,Y,Y,Y,P,Y,Y,Y,Y,P,yes
+I6,PROOF-PATH names are not statement strengths; interfaces bind to exact declarations,Y,Y,Y,Y,N,P,Y,Y,Y,no
+J1,"Evaluation arms separate library, services, property typing, and surface syntax",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J2,Development examples are not held-out tests,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J3,A blind reading test precedes the expanded view,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J4,"Every displayed assertion is checked, including ones the final proof does not use",Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J5,The default display shows every condition that changes the claim,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J6,Merging: new properties of one object coexist; different witnesses or structures are semantic conflicts,Y,Y,Y,Y,Y,Y,Y,N,N,no
+J7,Upgrades recheck at the destination toolchain with a new receipt,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J8,A library-only or renderer-only outcome is a success; syntax must earn its place,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J9,No productivity or compression number is claimed,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
+J10,The report states that its Lean file was not compiled and that its companion is finite evidence,Y,Y,Y,Y,Y,Y,Y,Y,Y,no

@@ -1,0 +1,47 @@
+@Set.EqOn.eventuallyEq_of_mem : ∀ {α : Type u_1} {β : Type u_2} {s : Set α} {l : Filter α} {f g : α → β},
+  Set.EqOn f g s → s ∈ l → f =ᶠ[l] g
+@IsOpen.mem_nhds : ∀ {X : Type u_1} [inst : TopologicalSpace X] {x : X} {s : Set X}, IsOpen s → x ∈ s → s ∈ nhds x
+@HasDerivAt.congr_of_eventuallyEq : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {f f₁ : 𝕜 → F} {f' : F} {x : 𝕜},
+  HasDerivAt f f' x → f₁ =ᶠ[nhds x] f → HasDerivAt f₁ f' x
+@Filter.EventuallyEq.deriv_eq : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {f f₁ : 𝕜 → F} {x : 𝕜},
+  f₁ =ᶠ[nhds x] f → deriv f₁ x = deriv f x
+Supply3.lean:8:8: warning: `Matrix.mul_eq_one_comm` has been deprecated: Use `mul_eq_one_comm` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_eq_one_comm` to `mul_eq_one_comm x`).
+@Matrix.mul_eq_one_comm : ∀ {M : Type u_1} [inst : MulOne M] [IsDedekindFiniteMonoid M] {a b : M}, a * b = 1 ↔ b * a = 1
+@Finite.injective_iff_surjective : ∀ {α : Type u_1} [Finite α] {f : α → α}, Function.Injective f ↔ Function.Surjective f
+@Int.cast_div : ∀ {α : Type u_1} [inst : DivisionRing α] {m n : ℤ}, n ∣ m → ↑n ≠ 0 → ↑(m / n) = ↑m / ↑n
+@Int.ModEq.pow : ∀ {n a b : ℤ} (m : ℕ), a ≡ b [ZMOD n] → a ^ m ≡ b ^ m [ZMOD n]
+@MeasureTheory.tendsto_integral_of_dominated_convergence : ∀ {α : Type u_1} {G : Type u_2} [inst : NormedAddCommGroup G]
+  [inst_1 : NormedSpace ℝ G] {m : MeasurableSpace α} {μ : MeasureTheory.Measure α} {F : ℕ → α → G} {f : α → G}
+  (bound : α → ℝ),
+  (∀ (n : ℕ), MeasureTheory.AEStronglyMeasurable (F n) μ) →
+    MeasureTheory.Integrable bound μ →
+      (∀ (n : ℕ), ∀ᵐ (a : α) ∂μ, ‖F n a‖ ≤ bound a) →
+        (∀ᵐ (a : α) ∂μ, Filter.Tendsto (fun n => F n a) Filter.atTop (nhds (f a))) →
+          Filter.Tendsto (fun n => ∫ (a : α), F n a ∂μ) Filter.atTop (nhds (∫ (a : α), f a ∂μ))
+@MeasureTheory.integral_tsum_of_summable_integral_norm : ∀ {α : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup E]
+  [inst_1 : NormedSpace ℝ E] {m : MeasurableSpace α} {μ : MeasureTheory.Measure α} {ι : Type u_3} [Countable ι]
+  {F : ι → α → E},
+  (∀ (i : ι), MeasureTheory.Integrable (F i) μ) →
+    (Summable fun i => ∫ (a : α), ‖F i a‖ ∂μ) → ∑' (i : ι), ∫ (a : α), F i a ∂μ = ∫ (a : α), ∑' (i : ι), F i a ∂μ
+@lipschitzWith_of_nnnorm_deriv_le : ∀ {𝕜 : Type u_1} {G : Type u_2} [inst : RCLike 𝕜] [inst_1 : NormedAddCommGroup G]
+  [inst_2 : NormedSpace 𝕜 G] {f : 𝕜 → G} {C : NNReal},
+  Differentiable 𝕜 f → (∀ (x : 𝕜), ‖deriv f x‖₊ ≤ C) → LipschitzWith C f
+@Squarefree : {R : Type u_1} → [Monoid R] → R → Prop
+@Function.Injective.comp : ∀ {α : Sort u_1} {β : Sort u_2} {γ : Sort u_3} {g : β → γ} {f : α → β},
+  Function.Injective g → Function.Injective f → Function.Injective (g ∘ f)
+@Subtype.ext : ∀ {α : Sort u_1} {p : α → Prop} {a1 a2 : { x // p x }}, ↑a1 = ↑a2 → a1 = a2
+MulAction : (α : Type u_1) → Type u_2 → [Monoid α] → Type (max u_2 u_1)
+@Std.Do.Triple : {m : Type u_1 → Type u_2} →
+  {ps : Std.Do.PostShape} → [Std.Do.WP m ps] → {α : Type u_1} → m α → Std.Do.Assertion ps → Std.Do.PostCond α ps → Prop
+Supply3.lean:26:2: warning: `Matrix.mul_eq_one_comm` has been deprecated: Use `mul_eq_one_comm` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_eq_one_comm` to `mul_eq_one_comm x`).
+Supply3.lean:27:21: warning: The `mvcgen` tactic is experimental and still under development. Avoid using it in production projects.
+Supply3.lean:27:21: error: failed to synthesize
+  Std.Do.SPred.Tactic.PropAsSPredTautology True ?m.4
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

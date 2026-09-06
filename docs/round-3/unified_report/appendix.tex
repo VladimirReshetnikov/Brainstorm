@@ -1,0 +1,158 @@
+\section{Report cards}\label{app:cards}
+Each card records the report's thesis, the source files it opened beyond the round-2 set, what its Lean file contains and how it compiled, what its companion executed, and the weakness this review judges most consequential.
+
+\subsection*{Basalt}
+\textbf{Thesis.} ``This exact object has this type and these proved properties, in this scope''; unary refinements, behavioural contracts, and relational contracts on whole diagrams are three surface forms of one proved predicate. \textbf{New sources.} ProveIt \code{ContinuousCDF.lean} (\code{cdf_reflection_sub}, \code{measure_eq_withDensity_of_cdf_hasDerivAt}); FLT \code{Def_AdicCompletionRingFunctoriality.lean} and \code{S_Rep_indBotSC_shortExact.lean}; Leant \code{Length/Contract.hs} and \code{Length/Handoff.hs}. \textbf{Distinctive.} Exactness and diagram isomorphism as relational types with the $k\to k^3\to k$ and $\Z\xrightarrow{2}\Z\otimes\Z/2$ neighbours; ideal-preserving maps composed to quotient towers and completions; the Dirac atom correction to CDF reflection; a precision-demand transformer applied to jets and $I$-adic towers; realisability of abstract counterexamples stated with the $V_A=\{0\}$ argument; the parametricity caveat. \textbf{Lean.} \code{ContractCore.lean}, 74 lines, compiles; two theorems axiom-free; three \code{defProp} warnings. \textbf{Companion.} 24 test methods: sparse certificates, corrupted and mismatched inputs, a jet residual, the restricted length interpreter. \textbf{Weakness.} The three algebraic cases are the round's richest but their obligation structures are described, not encoded; the Lean file contains none of them.
+
+\subsection*{Fiber}
+\textbf{Thesis.} A refinement elaborator with an explicit carrier-preservation invariant, indices (locality, measure, precision, coefficient domain) as parameters of propositions, and behaviour flowing backward into synthesis holes. \textbf{New sources.} ProveIt \code{UniformSplineWeakConvergence.lean}; FLT \code{S_FreyPackage_freyCurveInt_map.lean}; Leant \code{docs/length-ranking.md}. \textbf{Distinctive.} The non-vacuous Frey benchmark $(\mathrm{F}_0)$ with inhabitant $(3,2,5)$ and three missing-premise neighbours; the centred coupling bound $\min\{2,|t|\delta_n\}$; same-carrier coherence as a proposition; backward constraints on holes with the completion/sketch/program distinction; a 24-row mutation register with a ``Finite'' column. \textbf{Lean.} \code{CoreEncoding.lean}, 67 lines, compiles; three theorems axiom-free; \code{certificate_bridge} takes soundness and execution as hypotheses, as the report says. \textbf{Companion.} 1,298 checks in 31 groups, including 288 Frey triples and 381 coupling instances, with dual-number evaluations to block field-only shortcuts. \textbf{Weakness.} The synthesis section describes Synquid-style decomposition for Lean propositions without saying which fragment the decomposition is complete for.
+
+\subsection*{Gneiss}
+\textbf{Thesis.} One operational discipline: a property view is an input to bidirectional checking, and a behavioural signature transfers views across a step; theorem application and verified computation implement the same signature. \textbf{New sources.} ProveIt \code{TriangularKernelInverse.lean} and \code{BinomialInversion.lean}; FLT \code{S_WeierstrassCurve_modularity_of_semistableModel.lean}. \textbf{Distinctive.} Prefix causality and the shift counterexample; the level-flow rules from squarefreeness; the binomial row counterexample; a dense univariate checker with denotation; \code{mvcgen} and Dijkstra monads as the effect axis; a 20-row suite with a status column. \textbf{Lean.} \code{GneissCore.lean}, 81 lines, compiles; two theorems axiom-free; four \code{defProp} warnings. \textbf{Companion.} 32 test methods modelling backward-only dependencies, relation kinds, precision loss, and the univariate checker. \textbf{Weakness.} The one-sided inverse theorem is stated for prefix-causal linear operators but the Mathlib lemma it needs is the deprecated matrix form; the general \code{IsDedekindFiniteMonoid} version is not mentioned.
+
+\subsection*{Karst}
+\textbf{Thesis.} Refine knowledge, not object identity: an anchored property view with scope-closed support, bidirectional checking with visible obligations, and behaviour typed at the right observational strength. \textbf{New sources.} ProveIt \code{NoFiniteModel/FiniteTypes.lean} and \code{Theorem.lean}; FLT \code{Def_FLTPrelim_FreyPackage.lean}, \code{S_FreyPackage_no_frey_package.lean}, \code{PROOF-PATH.md}; Leant \code{PostVerification.hs}. \textbf{Distinctive.} The finite injective-endomap induction as a transport workload; proposition-valued finiteness versus executable enumeration; the \code{List Empty} test; the exact-quotient interface; the five-arm evaluation $L_0$--$L_4$; an eighteen-row paired register. \textbf{Lean.} \code{KarstCore.lean}, 114 lines, compiles; eleven theorems axiom-free including \code{involutionInj}, \code{fixesPointPreservesComplement}, \code{surjectiveCannotOmit}, and \code{dropAllLengthOnEmpty}. \textbf{Companion.} 4,834 cases in eight groups: all endomaps of sizes zero to five, 720 denotation samples over $\Z$, $\Z/4$, $\Z/5$, 364 sorting samples, 312 exact-quotient samples. \textbf{Weakness.} Its Frey terminal sketch names \code{Mazur} and \code{Ribet} as aliases the report itself warns against; the aliasing rule is right but the sketch does not follow it.
+
+\subsection*{Moraine}
+\textbf{Thesis.} Evidence-indexed classification $A\triangleright\rho$ with anchors and telescopes; relational and scope-aware contracts; evidence-directed synthesis that separates carrier inhabitance, behavioural witness, and proof obligation. \textbf{New sources.} ProveIt \code{GKBProcessAux.lean}; FLT \codeb{S_Rep_nonempty_invariants_coind_equiv.lean} and \codeb{S_Algebra_exists_algHom_equiv_pi.lean}; Leant \code{BehavioralSelection/Internal.hs} and the host-native constraints report. \textbf{Distinctive.} Coinduced invariants as a bundle-adapter workload; naturality as a refinement of a family; the deletion budget $\mathrm{Close}_{kR}$; the complete affine coefficient criterion with its realisation clause; the candidate primitive refinement rules and a gate for trying them; the \code{fix}/\code{know}/\code{use} grammar. \textbf{Lean.} \code{Contracts.lean}, 194 lines, compiles; sixteen theorems, fourteen axiom-free, \code{model_sound} and \code{promote_model_spec} with \code{propext}. \textbf{Companion.} 32 tests including 25,600 interpreter-versus-model comparisons and 729 counterexample constructions. \textbf{Weakness.} It answers the twenty questions only implicitly and omits the round-2 CAS promotions, so its count of absent marks (12) overstates disagreement; its polynomial checker is absent by choice.
+
+\subsection*{Obsidian}
+\textbf{Thesis.} Property overlays at use sites, lawful-use signatures for operations, and witness-changing constructions as a third category beside refining and observing an unchanged object. \textbf{New sources.} ProveIt \code{MellinBose.lean}; FLT \code{S_FreyPackage_of_counterexample.lean} and \code{S_FreyPackage_freyCurveInt_map.lean}; Leant \code{Length/Handoff.hs} and \code{docs/synth-internals.md}. \textbf{Distinctive.} The vacuity warning for contracts tested under \code{FreyPackage}$\to$\code{False}; the $L^1$-summable family with the telescoping pulse counterexample; normalisation as a chain of new witnesses; the unexported exponent preservation; a read-only renderer arm $L_R$; a sparse checker with denotation and 32 symbolic difference-of-powers identities. \textbf{Lean.} No file; the appendix listing of \code{Observation.weaken} and \code{Observation.compose} is the same combinator the other files define. \textbf{Companion.} 608 probes: 396 admissible Frey triples including composite exponents, 32 symbolic identities, 41 negative neighbours, 9 protocol probes. \textbf{Weakness.} Without a Lean file it is the one report whose calculus was not checked here; its overlay rules are otherwise identical to the compiled ones.
+
+\subsection*{Schist}
+\textbf{Thesis.} Four layers (carrier and structure; proof-backed refinements; relations and observations; behavioural and operational contracts) sharing evidence handling but not a universal coercion; backward requirement transformers turn a chosen step into a typed residual. \textbf{New sources.} ProveIt \code{AffineIndependentCopy.lean}; FLT \code{Def_FLTPrelim_FreyPackage.lean} and the terminal contradiction; Leant \code{docs/length-ranking.md} and the Z3 behavioural proposal. \textbf{Distinctive.} The orbital-comparison theorem with its bounded-product refinement; \code{assume}/\code{derive}/\code{construct}; a lexical structure environment; Mizar soft typing and Isabelle locales as precedents; the only compiled checker of the round. \textbf{Lean.} \code{SchistCore.lean}, 140 lines, compiles; eight theorems, five axiom-free, \code{eval_nf}, \code{check_sound}, and \code{original_target} with \code{propext}; \code{corrupted_rejected} decided. \textbf{Companion.} 10 test methods with 650 affine point checks. \textbf{Weakness.} The affine checker's reification is definitional because the expression is built by hand; the report says so, but a reifier is the step that would make the slice real.
+
+\subsection*{Tephra}
+\textbf{Thesis.} A second, proof-relevant elaboration judgment above Lean's, with four strata (carrier, chosen structure, refinement, behavioural contract), object-bound structure selection, and a proof-linked registration layer over Leant's contracts. \textbf{New sources.} ProveIt \code{TriangularKernelInverse.lean}, \code{BinomialInversion.lean}; FLT \code{Def_FLTPrelim_GaloisRep.lean}; Leant \code{Fragment.hs}, \code{BehavioralSelection.hs}, \code{Length/Adapter.hs}, \code{Replay.hs}. \textbf{Distinctive.} The prefix-local inverse theorem via stable finiteness, with the halving-map neighbour; restriction of an action to an invariant subtype and the torsion instance; the image-of-length proposition and realisation contract; the parametricity caveat and uniformity contract; property-implicit binders; a five-cut ladder with exit conditions. \textbf{Lean.} \code{TephraCore.lean}, 119 lines, compiles; six theorems axiom-free including \code{restrict_comp} and \code{refute_universal}. \textbf{Companion.} 23 test methods with 100 valuations in $\Z$ and $\Z/4$ and prefix-sum inverse matrices for sizes one to eight. \textbf{Weakness.} Its answer to R10 is the most useful in the round but its own artifact is another full grammar, which its answer argues against.
+
+\subsection*{Trellis}
+\textbf{Thesis.} A property layer over ordinary dependent typing in which structure selection precedes property inference, behavioural contracts are first-class demands, and automation is finite and proof-explicit where it claims predictability. \textbf{New sources.} ProveIt \code{Regularity.lean}, \code{SP1Taylor.lean}, \code{SP2Parts.lean}; FLT \code{Def_FLTPrelim_FreyPackage.lean}; Leant \code{BehavioralSelection.hs}, \code{Length/Contract.hs}. \textbf{Distinctive.} The finite qualifier closure theorem; sharp Lipschitz constants with attainment; the guarded quotient derivative with its numerator identity separated from its guards; the vanishing-error theorem; gcd transport through power reflection; the rational affine-nonnegativity certificate; definitional functoriality and Lean4Lean as the kernel-research metatheory. \textbf{Lean.} No file. \textbf{Companion.} 31 tests (9 accept, 22 reject) over an exact-rational affine checker with origin digests and a prefix scope-weakening rule. \textbf{Weakness.} The closure theorem's rule generation, which decides whether the finite fragment is useful, is left to ``an earlier bounded step''.
+
+\section{The consolidated negative suite}\label{app:suite}
+Forty-eight families merged from the nine tables. ``Inherits'' names the round-2 family. ``$n$'' is the number of reports whose table contains the row; per-report source rows are in \code{negative_suite.csv}.
+
+{\small
+\begin{longtable}{@{}L{8mm}L{56mm}L{60mm}L{9mm}r@{}}
+\caption{Consolidated negative suite.}\label{tab:suite}\\
+\toprule
+Id & Mutation & Required response & Inh. & $n$\\
+\midrule\endfirsthead
+\toprule
+Id & Mutation & Required response & Inh. & $n$\\
+\midrule\endhead
+\bottomrule\endfoot
+N1 & Differentiate from equality at one point & The step stays open naming the missing eventual equality & M4 & 8\\
+N2 & Specialise the induction hypothesis to a point & No on-set or neighbourhood equality in the successor step & & 1\\
+N3 & Invert a nonzero or regular element & Cancellation may use regularity; inversion needs a unit & M6 & 4\\
+N4 & Keep jet precision after differentiation & Lower the order or request one more coefficient & M12 & 6\\
+N5 & Wrong root branch or nonunit derivative with a correct residual & Reject at the branch or unit premise & M10 & 5\\
+N6 & Present a finite jet as an exact identity & Keep the finite guarantee & M13 & 3\\
+N7 & Witness plus coverage as complete solving & Demand soundness for every listed solution & M15 & 4\\
+N8 & Infer equality from unequal endpoints, or reject equal ones & Accept only the equal-endpoint bridge & M38 & 3\\
+N9 & Reuse a sibling-branch fact by name or cache & Reject the context embedding & M16 & 9\\
+N10 & Use a result to justify its own guard & Reject cyclic assembly & M43 & 7\\
+N11 & Change the structure, action, or instance under unchanged notation & Old evidence needs a transport theorem; report a statement change & M18 & 7\\
+N12 & Let search fill a meaning-bearing hole & Keep the statement unresolved & M20 & 1\\
+N13 & Combine data chosen in incompatible witness scopes & Reject the flattened existentials & M47 & 1\\
+N14 & Corrupt a certificate coefficient or mismatch arity & Reject before any zip & M34 & 9\\
+N15 & Rational multiplier for an integer ideal & Reject the coefficient-domain change & M41 & 3\\
+N16 & Noncommutative input to the commutative checker & Reject the missing ring contract & M37 & 2\\
+N17 & Native result without execution evidence or outside the profile & Algorithm correctness authorises nothing & M24 & 3\\
+N18 & Reify an atom under the wrong valuation, or merge atoms by name & Rebuild and prove the bridge & M44 & 3\\
+N19 & Accept a length-preserving candidate as a sorter & Permutation and order stay open & M28 & 6\\
+N20 & Finite sample bank as a universal proof & Retain bounded evidence only & M28 & 3\\
+N21 & Passive provider law used as a theorem & No authority without a Lean theorem about the provider & & 2\\
+N22 & Refute a \code{List Empty} contract with a positive length & Not a refutation; a typed input is required & & 3\\
+N23 & Free theorem for a polymorphic function & No automatic uniformity & & 1\\
+N24 & Refute one completion, reject every completion & Require a universal exclusion or label the heuristic & & 1\\
+N25 & Cast an inexact quotient, or drop a Frey divisibility premise & Require divisibility and a nonzero denominator & M33 & 6\\
+N26 & Test an arithmetic contract only under a contradiction & Mark the run vacuous; use satisfiable premises & & 2\\
+N27 & Executable enumeration from \code{Prop} finiteness & Execution needs data & & 1\\
+N28 & Extend a refined-domain function to the carrier & Extension needs a construction & & 1\\
+N29 & Restrict or induce structure without the preservation proof & No structure without closure & & 2\\
+N30 & Reverse a one-sided inverse without prefix locality & No finite-restriction adapter & & 2\\
+N31 & Naturality or exactness from vertex data & The square or middle obligation stays open & & 2\\
+N32 & Endpoint deletion as equality; \code{toNat} collision & Accept the norm-error contract; the bijection fails & & 1\\
+N33 & Exchange sum and integral from pointwise convergence & The $L^1$-summable contract is required & M5 & 1\\
+N34 & Change the measure under an integrability fact & Require a transport theorem & & 2\\
+N35 & Merge uncountably many a.e.\ facts; a.e.\ derivative for everywhere & Require a uniform theorem & & 2\\
+N36 & CDF reflection with an atom & Return the atom-corrected identity & & 1\\
+N37 & Orbital comparison at $q=1$ or without the base value & The contraction route fails & & 1\\
+N38 & Independence from equal marginals & Reject; a joint law is required & & 1\\
+N39 & Upper Lipschitz bound as least & Leastness needs an attainment witness & & 1\\
+N40 & Oddness for a prime without excluding $2$; zeroth-power reflection & Reject; $p>0$ or $p\ne2$ is required & & 1\\
+N41 & Normalised tuple as equal; unproved exponent preservation & Require the construction relation & & 1\\
+N42 & Publish an unused false assertion & Reject that node & M25 & 6\\
+N43 & Replay a stale result or a changed edit & Exact-origin replay; stale results cannot commit & M21 & 7\\
+N44 & Reuse a success badge across a toolchain or structure change & Recheck and issue a new receipt & M23 & 2\\
+N45 & Different proof for a required named method & Report a method mismatch & & 1\\
+N46 & Correct fact that is not the sealed target & Reject at the target check & & 1\\
+N47 & Totalised derivative without existence; quotient without guards & Request \code{HasDerivAt} evidence & M45 & 1\\
+N48 & Nonnegative where nonzero is required & Request strictness & & 1\\
+\end{longtable}}
+
+\section{Experiments and reproducibility}\label{app:repro}
+All Lean runs used the ProveIt checkout at commit \code{24ce8bd7} and its toolchain \codeb{leanprover/lean4:v4.32.0}, with the command \code{lake env lean <file>} from the ProveIt root on 6 September 2026. Files and logs are in \code{experiments/lean/}.
+
+\begin{itemize}
+\item \code{Basalt.lean}, \code{Gneiss.lean}, \code{Karst.lean}, \code{Schist.lean}: verbatim copies of the shipped files. \code{FiberAx.lean}, \code{MoraineAx.lean}, \code{TephraAx.lean}: verbatim copies with one \texttt{\#print axioms} line appended per theorem. Each \code{.log} is the complete compiler output.
+\item \code{Supply3.lean}: sixteen \texttt{\#check} commands and four examples; \code{fun_prop} and the locality composite succeed, the deprecated matrix lemma warns, and the deliberate \code{mvcgen} misuse errors with the tactic's experimental warning, which is the evidence sought. Cold run 575 s.
+\item \code{FreyExact.lean}: four theorems and six examples; compiles with the standard axioms. Warm run 220 s.
+\item \code{tools/make_tables.py} regenerates \code{feature_matrix.csv}, \code{negative_suite.csv}, \code{question_tally.csv}, and \code{lean_cores.csv} and prints the counts used in Sections~\ref{sec:convergence}, \ref{sec:questions}, and \ref{sec:suite}.
+\end{itemize}
+
+The PDF is built by \code{build.sh}, which runs \code{latexmk -pdf -interaction=nonstopmode -halt-on-error unified_report.tex}. The bibliography is embedded.
+
+\section{Source map}\label{app:sources}
+The nine reports at \code{docs/round-3/ideas/<name>/} in the Brainstorm repository; the round-2 syntheses at \code{docs/round-2/unified_report/} and \code{docs/round-2/synthesis/} at commit \code{b052ec01}. External pins as read by all nine reports: ProveIt \code{24ce8bd743eaab64a91ce90725ea00f498d319d2}; \code{anthropics/fermats-last-theorem} \code{aa2d8b34692b16c70f699536de0d8e75b9a3e9ef}; Leant \code{3a40904be8a410d832d9ab6900b3d3e7b425eccb}.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Source files opened per report, beyond the two round-2 syntheses. ProveIt paths are under \code{Analysis/FabiusFunction/Lean/FabiusFunction/} unless noted; FLT definitions under \code{Definitions/} and solutions under \code{P2M/Sol/}; Leant under \code{src/Leant/Synth/}.}
+\label{tab:sourcemap}
+\begin{tabularx}{\textwidth}{@{}L{15mm}YYY@{}}
+\toprule
+Report & ProveIt & FLT & Leant\\
+\midrule
+\Bs & \codeb{ContinuousCDF}, \codeb{AutonomousIteratedDeriv} & \codeb{Def_AdicCompletionRingFunctoriality}, \codeb{S_Rep_indBotSC_shortExact}, README & \codeb{Verification}, \codeb{Engine}, \codeb{Length/Contract}, \codeb{Length/Handoff}\\
+\Fb & \codeb{BinomialInversion}, \codeb{AutonomousIteratedDeriv}, \codeb{UniformSplineWeakConvergence} & \codeb{Def_FLTPrelim_FreyPackage}, \codeb{S_FreyPackage_freyCurveInt_map}, \codeb{S_FreyPackage_no_frey_package}, \codeb{PROOF-PATH} & \codeb{Engine}, \codeb{Verification}, \codeb{docs/length-ranking}\\
+\Gn & \codeb{BinomialInversion}, \codeb{AutonomousIteratedDeriv}, \codeb{TriangularKernelInverse} & \codeb{Def_FLTPrelim_FreyPackage}, \codeb{S_WeierstrassCurve_modularity_of_semistableModel}, README, \codeb{PROOF-PATH} & \codeb{Verification}, \codeb{Engine}, \codeb{docs/synth-internals}\\
+\Ks & \codeb{Logic/PeanoArithmetic/NoFiniteModel/FiniteTypes}, \codeb{Theorem} & \codeb{Def_FLTPrelim_FreyPackage}, \codeb{S_FreyPackage_no_frey_package}, \codeb{PROOF-PATH} & \codeb{Verification}, \codeb{PostVerification}, \codeb{docs/length-ranking}\\
+\Mr & \codeb{AutonomousIteratedDeriv}, \codeb{NumberTheory/IntegerPoints/GKBProcessAux} & \codeb{S_Rep_nonempty_invariants_coind_equiv}, \codeb{S_Algebra_exists_algHom_equiv_pi} & \codeb{Verification}, \codeb{BehavioralSelection/Internal}, host-native constraints report\\
+\Ob & \codeb{MellinBose}, \codeb{AutonomousIteratedDeriv} & \codeb{Def_FLTPrelim_FreyPackage}, \codeb{S_FreyPackage_of_counterexample}, \codeb{S_FreyPackage_freyCurveInt_map}, \codeb{PROOF-PATH} & \codeb{Verification}, \codeb{Engine}, \codeb{Length/Handoff}, \codeb{docs/synth-internals}\\
+\Sc & \codeb{AutonomousIteratedDeriv}, \codeb{AffineIndependentCopy} & \codeb{Def_FLTPrelim_FreyPackage}, \codeb{S_FreyPackage_no_frey_package}, \codeb{PROOF-PATH} & \codeb{Verification}, README, \codeb{docs/synth-internals}, \codeb{docs/length-ranking}, Z3 proposal\\
+\Tp & \codeb{AutonomousIteratedDeriv}, \codeb{BinomialInversion}, \codeb{TriangularKernelInverse} & \codeb{Def_FLTPrelim_FreyPackage}, \codeb{Def_FLTPrelim_GaloisRep}, \codeb{S_FreyPackage_no_frey_package}, \codeb{PROOF-PATH} & \codeb{Verification}, \codeb{Fragment}, \codeb{BehavioralSelection}, \codeb{Length/Contract}, \codeb{Length/Adapter}, \codeb{Replay}\\
+\Tr & \codeb{Regularity}, \codeb{NumberTheory/IntegerPoints/SP1Taylor}, \codeb{SP2Parts} & \codeb{Def_FLTPrelim_FreyPackage}, \codeb{S_FreyPackage_no_frey_package}, README, \codeb{PROOF-PATH} & \codeb{Verification}, \codeb{BehavioralSelection}, \codeb{Length/Contract}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{thebibliography}{99}
+\small\raggedright
+\bibitem{r3-basalt} \Bs. \emph{A Property- and Behavior-Aware Mathematical Language over Lean}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/basalt/}.
+\bibitem{r3-fiber} \Fb. \emph{Refinement-Directed Mathematical Reasoning over Lean}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/fiber/}.
+\bibitem{r3-gneiss} \Gn. \emph{Property- and Behavior-Aware Mathematical Elaboration over Lean}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/gneiss/}.
+\bibitem{r3-karst} \Ks. \emph{Scoped Refinements and Behavioral Contracts for Mathematical Proof}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/karst/}.
+\bibitem{r3-moraine} \Mr. \emph{Evidence-Indexed Refinement and Behavioral Typing for Human-Scale Mathematics}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/moraine/}.
+\bibitem{r3-obsidian} \Ob. \emph{Property-Aware Types and Lawful Mathematical Reasoning over Lean}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/obsidian/}.
+\bibitem{r3-schist} \Sc. \emph{A Property-Aware Mathematical Language over Lean}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/schist/}.
+\bibitem{r3-tephra} \Tp. \emph{Refinement-Aware Mathematical Reasoning over Lean}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/tephra/}.
+\bibitem{r3-trellis} \Tr. \emph{Property-Rich Mathematics with Proof-Explicit Elaboration}. Round-3 report, 6 September 2026. \code{docs/round-3/ideas/trellis/}.
+\bibitem{syn-2b} Claude (Anthropic). \emph{Nine Workbenches: Certified Computation in a Mathematician's Proof Language over Lean}. Round-2 unified review, revised 6 September 2026. \code{docs/round-2/unified_report/unified_report.tex}.
+\bibitem{syn-2a} Codex. \emph{Mathematical Objects, Certified Computation: A Unified Evaluation of Nine Proof-Language Proposals}. Round-2 synthesis, 6 September 2026. \code{docs/round-2/synthesis/unified-report.tex}.
+\bibitem{syn-1} Claude (Anthropic) and Codex. Round-1 unified report and synthesis. \code{docs/round-1/unified_report/}, \code{docs/round-1/synthesis/}.
+\bibitem{proveit} V. Reshetnikov and contributors. ProveIt, commit \code{24ce8bd7}, toolchain Lean v4.32.0. \url{https://github.com/VladimirReshetnikov/ProveIt}.
+\bibitem{flt} Anthropic and credited contributors (Frey package credits K. Buzzard, R. Van de Velde, P. Monticone; Imperial College London FLT project). \emph{Fermat's Last Theorem in Lean 4}, commit \code{aa2d8b34}. \url{https://github.com/anthropics/fermats-last-theorem}.
+\bibitem{leant} V. Reshetnikov and contributors. Leant, commit \code{3a40904b}. \url{https://github.com/VladimirReshetnikov/Leant}.
+\bibitem{lean-ref} Lean team. \emph{The Lean Language Reference}: Subtypes; Axioms (including the non-parametric polymorphic function); Validating a Lean Proof; the \code{grind} tactic; the \code{mvcgen} tactic. Accessed 6 September 2026. \url{https://lean-lang.org/doc/reference/latest/}.
+\bibitem{mathlib} The mathlib community. Mathlib documentation, including \code{Mathlib.Tactic.FunProp}. \url{https://leanprover-community.github.io/mathlib4_docs/}.
+\bibitem{lovas} W. Lovas and F. Pfenning. Refinement Types for Logical Frameworks and Their Interpretation as Proof Irrelevance. \emph{LMCS} 6(4:5), 2010. \url{https://arxiv.org/abs/1009.1861}.
+\bibitem{ghalayini} J. E. Ghalayini and N. Krishnaswami. Explicit Refinement Types. 2023. \url{https://arxiv.org/abs/2311.13995}.
+\bibitem{liquid} P. M. Rondon, M. Kawaguchi, and R. Jhala. Liquid Types. PLDI 2008.
+\bibitem{synquid} N. Polikarpova, I. Kuraj, and A. Solar-Lezama. Program Synthesis from Polymorphic Refinement Types. PLDI 2016. \url{https://arxiv.org/abs/1510.08419}.
+\bibitem{fstar} F* team. \emph{Proof-Oriented Programming in F*}. \url{https://fstar-lang.org/tutorial/}.
+\bibitem{dm4free} D. Ahman et al. Dijkstra Monads for Free. POPL 2017.
+\bibitem{functoriality} T. Laurent, M. Lennon-Bertrand, and K. Maillard. Definitional Functoriality for Dependent (Sub)Types. ESOP 2024. \url{https://arxiv.org/abs/2310.14929}.
+\bibitem{lean4lean} M. Carneiro. Lean4Lean: Towards a Verified Typechecker for Lean, in Lean. 2024. \url{https://arxiv.org/abs/2403.14064}.
+\bibitem{mizar} C. Kaliszyk and K. P\k{a}k. Semantics of Mizar as an Isabelle Object Logic. \emph{J. Automated Reasoning} 63 (2019).
+\end{thebibliography}

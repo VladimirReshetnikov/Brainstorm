@@ -1,0 +1,597 @@
+% Build: latexmk -pdf -interaction=nonstopmode -halt-on-error unified_report.tex
+% Self-contained: embedded bibliography, no external figures, standard packages only.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,stmaryrd}
+\usepackage{booktabs,tabularx,longtable,array,multirow}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{needspace}
+\PassOptionsToPackage{obeyspaces}{url}
+\usepackage{xurl}
+\usepackage[most]{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black]{hyperref}
+\usepackage{bookmark}
+
+\definecolor{ink}{HTML}{1F3345}
+\definecolor{muted}{HTML}{55636E}
+\definecolor{panel}{HTML}{F3F5F7}
+\definecolor{rulegray}{HTML}{CCD5DC}
+\hypersetup{pdftitle={Nine Refinements: Property-Aware Typing in a Mathematician's Proof Language over Lean},pdfauthor={Claude (Anthropic), for Vladimir Reshetnikov},pdfsubject={Unified review and assessment of nine third-round design reports},bookmarksnumbered=true}
+
+\titleformat{\section}{\Large\bfseries\sffamily\color{ink}}{\thesection}{0.65em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily\color{ink}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.6ex plus 1ex}{1.1ex}
+\titlespacing*{\subsection}{0pt}{2.0ex plus .6ex}{.7ex}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\setcounter{tocdepth}{1}
+\setlist{nosep,leftmargin=1.6em}
+\renewcommand{\arraystretch}{1.12}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily Nine refinements: property-aware typing in a proof language over Lean}
+\fancyhead[R]{\small\sffamily Unified review, round three}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\lstdefinestyle{code}{basicstyle=\small\ttfamily,columns=fullflexible,keepspaces=true,breaklines=true,showstringspaces=false,backgroundcolor=\color{panel},frame=single,rulecolor=\color{rulegray},framerule=0.35pt,framesep=6pt,xleftmargin=6pt,xrightmargin=6pt,aboveskip=0.8em,belowskip=0.6em,tabsize=2}
+\lstset{style=code}
+\BeforeBeginEnvironment{lstlisting}{\par\noindent\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{lstlisting}{\end{minipage}\par}
+
+\newcommand{\code}[1]{\nolinkurl{#1}}
+\newcommand{\codeb}[1]{\nolinkurl{#1}}
+\newcommand{\Yy}{$\bullet$}
+\newcommand{\Pp}{$\circ$}
+\newcommand{\Nn}{--}
+\newcommand{\Bs}{\textsc{Basalt}}
+\newcommand{\Fb}{\textsc{Fiber}}
+\newcommand{\Gn}{\textsc{Gneiss}}
+\newcommand{\Ks}{\textsc{Karst}}
+\newcommand{\Mr}{\textsc{Moraine}}
+\newcommand{\Ob}{\textsc{Obsidian}}
+\newcommand{\Sc}{\textsc{Schist}}
+\newcommand{\Tp}{\textsc{Tephra}}
+\newcommand{\Tr}{\textsc{Trellis}}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}p{4.0mm}}
+\newtcolorbox{keybox}[1][]{colback=panel,colframe=rulegray,boxrule=0.5pt,arc=1mm,left=8pt,right=8pt,top=6pt,bottom=6pt,breakable,#1}
+\theoremstyle{definition}
+\newtheorem{observation}{Observation}[section]
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+
+\begin{document}
+
+\begin{titlepage}
+\vspace*{8mm}
+{\sffamily\small\color{muted}PROOF-LANGUAGE DESIGN \quad/\quad THIRD ITERATION \quad/\quad UNIFIED REVIEW\par}
+\vspace{14mm}
+{\sffamily\bfseries\color{ink}\fontsize{30}{36}\selectfont Nine Refinements\par}
+\vspace{5mm}
+{\sffamily\bfseries\color{ink}\fontsize{20}{25}\selectfont Property-Aware Typing in a Mathematician's\\Proof Language over Lean\par}
+\vspace{8mm}
+{\sffamily\large A synthesis of the nine third-round reports, checked against the pinned toolchain\par}
+\vspace{12mm}
+\begin{keybox}
+\textbf{In one paragraph.} The third round asked what a property- and behaviour-aware type system over Lean should be. Nine reports answered with the same design: keep the object fixed, let its proved properties grow as an evidence row, treat a function's behaviour as an ordinary quantified proposition with explicit variance and composition, select structures as data and infer properties as proofs, and extend the elaborator rather than the kernel. Forty-six of seventy-six commitments are unanimous; twenty-three of those are new this round. None of the nine authors had a Lean toolchain. This review compiled all seven shipped Lean cores at the ProveIt pin (Lean v4.32.0): every file elaborates, forty-eight theorems check, forty-three of them without any axiom. It also kernel-checked the Frey exact-division proposition that five reports prove only on paper. What the round did not produce is any elaborator, any measurement, or any held-out task. The recommendation is one implementation, not a fourth round of design.
+\end{keybox}
+\vfill
+{\sffamily Prepared for Vladimir Reshetnikov\par}
+{\sffamily Claude (Anthropic)\quad|\quad 6 September 2026\par}
+\vspace{4mm}
+{\small\color{muted}Evidence status. All nine round-3 reports were read in full from their \LaTeX{} sources, together with their READMEs, companions, and Lean files. The Lean experiments in Section~\ref{sec:toolchain} and Appendix~\ref{app:repro} were run by this review on the ProveIt toolchain; their sources and logs ship with this report. No repository build, usability measurement, or elaborator implementation is claimed.\par}
+\end{titlepage}
+
+\begingroup\small\setlength{\parskip}{0pt}\tableofcontents\endgroup
+\clearpage
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The task and the material}\label{sec:material}
+The third round of this brainstorm asked nine AI-authored reports to design the next increment of a proof language over Lean 4 for working mathematicians. The brief, as every report restates it, had five parts: extend the type system so that mathematical properties and program behaviour become part of an object's type; keep the hybrid architecture in which a certified computer-algebra service and the Leant synthesis engine supply evidence; ground the design in the ProveIt corpus and in the Fermat's Last Theorem repository; respond to the twenty questions the two round-2 syntheses left open; and ship a companion that executes something. Table~\ref{tab:material} lists the nine reports. They were delivered under identical archive names and were renamed here with geological and botanical labels; nothing in this review depends on the original archive names.
+
+\begin{table}[htbp]
+\centering\small
+\caption{The nine third-round reports. Pages are those of the shipped PDF; lines are those of the \LaTeX{} source. ``Lean'' is the shipped ordinary-Lean file, compiled by this review (Section~\ref{sec:toolchain}). ``Companion'' is the author's own count of executed finite checks.}
+\label{tab:material}
+\begin{tabularx}{\textwidth}{@{}L{15mm}L{47mm}rrL{32mm}L{26mm}@{}}
+\toprule
+Report & Title & Pages & Lines & Lean file & Companion\\
+\midrule
+\Bs & A Property- and Behavior-Aware Mathematical Language over Lean & 40 & 2326 & \codeb{ContractCore.lean} (74) & 24 test methods\\
+\Fb & Refinement-Directed Mathematical Reasoning over Lean & 38 & 1211 & \codeb{CoreEncoding.lean} (67) & 1,298 checks in 31 groups\\
+\Gn & Property- and Behavior-Aware Mathematical Elaboration over Lean & 37 & 2085 & \codeb{GneissCore.lean} (81) & 32 test methods\\
+\Ks & Scoped Refinements and Behavioral Contracts for Mathematical Proof & 40 & 2327 & \codeb{KarstCore.lean} (114) & 4,834 cases in 8 groups\\
+\Mr & Evidence-Indexed Refinement and Behavioral Typing for Human-Scale Mathematics & 36 & 2043 & \codeb{Contracts.lean} (194) & 32 tests, 25,600 comparisons\\
+\Ob & Property-Aware Types and Lawful Mathematical Reasoning over Lean & 34 & 1083 & none & 608 probes\\
+\Sc & A Property-Aware Mathematical Language over Lean & 33 & 1934 & \codeb{SchistCore.lean} (140) & 10 test methods\\
+\Tp & Refinement-Aware Mathematical Reasoning over Lean & 39 & 1313 & \codeb{TephraCore.lean} (119) & 23 test methods\\
+\Tr & Property-Rich Mathematics with Proof-Explicit Elaboration & 37 & 1193 & none & 31 tests (9 accept, 22 reject)\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+All nine read the same sources at the same pins: the two round-2 syntheses at Brainstorm commit \code{b052ec01}, ProveIt at \code{24ce8bd7} (which pins Lean v4.32.0), the Anthropic Fermat's Last Theorem repository at \code{aa2d8b34}, and Leant at \code{3a40904b}. Every report opened at least one source file that no round-2 report had used, and every report states plainly that its Lean file was written without a Lean toolchain and never compiled. Those two facts shape this review: the examples are new, and the one claim nobody could test is the one this review tested.
+
+\subsection{Method of this review}
+The nine \LaTeX{} sources were read completely, with their READMEs, companion outputs, and Lean files. From the reading, a commitment matrix of seventy-six statements was scored per report (Section~\ref{sec:convergence}), the twenty round-2 questions were tallied (Section~\ref{sec:questions}), and the nine negative-test tables were merged into one suite of forty-eight families with provenance (Appendix~\ref{app:suite}). The scoring rules are those of the round-2 review: \Yy{} means the report states the commitment as a design rule, \Pp{} means it is implicit or partial, \Nn{} means it is absent. A dagger marks a row that was already consensus in the round-2 syntheses, so that the reader can separate what this round added from what it repeated.
+
+Three Lean experiments were run on the ProveIt toolchain. The seven shipped Lean files were compiled unchanged, with axiom inventories appended where the author had not asked for them. A supply probe checked that the Mathlib names and tactics the reports lean on exist at the pin. And the Frey exact-division proposition, proved on paper by five reports, was formalised and checked, with its negative neighbours decided by the kernel. Sources and logs are in \code{experiments/lean/}, and the data behind every table is generated by \code{tools/make_tables.py}.
+
+The review is self-contained. Section~\ref{sec:background} summarises rounds one and two, including the two round-2 syntheses whose questions the reports answer, so that nothing here requires the earlier reviews.
+
+\subsection{Summary of findings}
+\begin{itemize}
+\item \textbf{One design, nine times.} The reports converge on a single refinement discipline: an evidence row over an unchanged carrier, weakening by proved implication, conjunction of properties on one carrier, transport only by equality or a registered theorem, and a relative-soundness theorem written out in each report. Their seven Lean files define alpha-equivalent combinators (Section~\ref{sec:unit}).
+\item \textbf{The behavioural half is settled too.} A contract on a total function, its contravariant-precondition and covariant-postcondition variance, dependent composition that retains the intermediate value, relational laws on whole functions, the difference between a refined domain and a guarded total function, and the sorting example (length is not permutation) appear in all nine.
+\item \textbf{Kernel: no, elaborator: yes, unanimously.} All nine reject semantic subtyping and equality reflection in conversion and put the extension in the elaborator; eight treat a primitive kernel refinement as a later, measured experiment. Two reports cite the Lean reference's counterexample to parametricity and refuse free theorems.
+\item \textbf{The cores compile.} All seven shipped Lean files elaborate on Lean v4.32.0 without edits; forty-eight theorems check, forty-three axiom-free, five with \code{propext} only. \Sc's file contains the campaign's first kernel-checked checker with an original-target bridge (an affine normaliser over $\N$); \Mr's contains a checked length-model soundness theorem; \Ks's contains the checked \code{List Empty} case.
+\item \textbf{The new examples are the round's substance.} Ideal-preserving completion maps, exactness ladders, CDF reflection with an atom correction, finite-type injectivity, prefix-local inverses, coinduced invariants, representing algebras with naturality, orbital comparison, Mellin families, sharp Lipschitz constants, torsion restriction, exact Frey quotients. Each is a paper theorem with a diagnosed obligation structure; none is a measurement.
+\item \textbf{What is missing is unchanged from round two.} No elaborator, no evaluation, no held-out task, and no checker beyond an affine fragment. Every report says so about itself. The unanimous answer to the round-2 question ``is nine the right number?'' is no.
+\end{itemize}
+
+\section{Background: what the first two rounds established}\label{sec:background}
+
+\subsection{Round one: nine blueprints and twenty-two questions}
+The first round asked for a mathematician's proof language over Lean and produced nine designs that agreed on an architecture: a controlled mathematical surface elaborating to ordinary Lean; a typed document model with a source-to-evidence map; theorem-backed methods behind project-owned wrappers whose binder roles are checked against the theorem's actual type; untrusted providers (tactics, a synthesis engine, a language model) whose output is accepted only as a Lean term at the exact requested target; and a publication rule that every displayed assertion is checked, including ones the final theorem does not use. Two syntheses reviewed that round and closed it with twenty-two questions, of which the most consequential were: what is the smallest useful step contract; does a stated reason constrain the proof; which choices may automation make silently; what does a verified suggestion guarantee; how is infrastructure cost counted against a Lean baseline; how do representation changes compose; what protects statement fidelity; what survives replay and upgrades; and what is the stopping rule.
+
+\subsection{Round two: nine workbenches and the certified-computation unit}
+The second round asked how a verified computer-algebra service should sit inside that language. Its nine reports and two syntheses agreed on one unit: a computation returns a value together with a proof of a \emph{fixed} specification relating it to the original object, $(y,p)$ with $y:O(x)$ and $p:\mathrm{Spec}(x,y)$. The specification's \emph{kind} is part of the request and is never promoted silently: an identity, a conditional identity, an equality on a domain, an eventual equality in a filter, a finite jet, a witness, a complete solution predicate, and an enclosure are different answers. The round fixed the promotions that are forbidden without a theorem (a point equality is not a neighbourhood equality; a jet is not a series identity; a witness plus coverage is not a complete set; a nonzero element is not a unit; a homomorphism preserves identities but does not reflect ideal membership, since $X\in(2X)$ over $\Q[X]$ but not over $\Z[X]$) and the one that is allowed (an enclosure with equal endpoints proves equality). It separated two lanes for computation, a verified algorithm and a verified checker of an untrusted certificate, plus proof-producing tactics as a third, and it insisted on the \emph{execution gap}: a soundness theorem about a checker says nothing about bytes returned by a native run, so the strict route is kernel reduction or proof reconstruction, and native evaluation is an audited policy that adds a per-invocation axiom on the pinned toolchain. Guards live in ordered dependent telescopes at the retained intermediate value; the residual-to-jet theorem identifies a candidate jet with a selected formal root only under a matching constant term and a unit reduced derivative, and differentiation loses one order of precision. Leant's \code{Verified} wrapper is a callback receipt, not behavioural evidence; a tactic suggestion is verified only by replaying the exact displayed edit; search failure is not negation, because a complete search in an intuitionistic calculus fails to derive excluded middle without refuting it.
+
+\subsection{The twenty questions this round answers}\label{sec:20}
+The two round-2 syntheses ended with ten questions each. The nine reports answer both lists, and Section~\ref{sec:questions} tallies the answers.
+
+\begin{keybox}
+\textbf{R1--R10 (this review's round-2 questions).} R1: how is a reflective checker proved sound in practice, down to the denotation of a coefficient list and the treatment of opaque atoms? R2: where does the bounded \code{grobner} tactic sit, and does it emit a certificate? R3: which parts of the proposed workspace are new state and which duplicate \code{section}, \code{variable}, local instances, and \code{have}? R4: partial or total operations by default? R5: which definition package first, measured on a held-out task? R6: at what certificate size does native evaluation beat kernel reduction? R7: how do certificates survive the change in native-evaluation axioms since Lean 4.29? R8: which obligations in the worked examples does Leant compose, as opposed to look up? R9: can the fifty-one mutations be executed as Lean tests? R10: is nine the right number of reports?
+
+\textbf{Q1--Q10 (the parallel synthesis's questions).} Q1: what is the first task? Q2: what is the vocabulary of result kinds? Q3: what is the trusted execution route? Q4: what may an author delegate by specification without a notice? Q5: how much of a conditional result is visible by default? Q6: may representations change automatically? Q7: how does Leant report negative outcomes? Q8: what is the first definition interface? Q9: what evidence survives migration? Q10: what result would keep only the library and drop the language?
+\end{keybox}
+
+\subsection{Three qualifications every report inherits}
+The round-2 review recorded three warnings that every round-3 report repeats about itself. Agreement among reports written from one brief and one source set is not independent evidence. Feature counts and line counts are not usability measurements. And a file inspected while designing the system is development material, never a held-out test, whatever its filename.
+
+\section{The third-round unit: an object with a growing interface}\label{sec:unit}
+
+\subsection{Nine names for one judgment}
+Every report introduces a judgment that assigns an existing Lean term a carrier together with proved properties, and every report insists that the term does not change when a property is added. The spellings differ: \Bs{} writes a fact index of subject tuples; \Ks{} an \emph{anchored property view} $e:A\mid\Phi$; \Gn{} a \emph{view} $A\mid P$ with bidirectional rules; \Mr{} a \emph{classification} $A\triangleright\rho$ with an evidence row; \Sc{} an \emph{open refinement row} $a:A\ \mathsf{where}\ \{P_1(a),\dots\}$; \Tp{} $A\mid P$ over a proof index $\Phi$; \Fb{} $A\{P\}$ with an anchor; \Tr{} $e:A\triangleright P$ over a structure signature and an evidence index; \Ob{} an \emph{overlay} $t:A\mid\Phi$. Under every spelling the rules are the same four:
+\[
+\frac{t:A\quad p:P(t)}{t:A\mid P}\quad
+\frac{t:A\mid P\quad h:\forall x,\,P(x)\to Q(x)}{t:A\mid Q}\quad
+\frac{t:A\mid P\quad t:A\mid Q}{t:A\mid P\wedge Q}\quad
+\frac{t:A\mid P\quad e:t=u}{u:A\mid P}
+\]
+with the last rule the only one that changes the anchor, and only by equality; any weaker relation (an equivalence, a jet agreement, an almost-everywhere equality) needs a registered transport theorem naming the relation and the consumer. Packaging into a subtype $\{x:A\mid P(x)\}$ happens at an interface boundary, and unpacking is explicit. Every report proves, on paper, that a completed derivation in this fragment translates to a Lean term of the announced type without new axioms; the theorem is called relative soundness, preservation, or conservative translation, and it is stated with the same caveat each time: it is about the rules, not about a parser, renderer, or scheduler.
+
+The seven Lean files make the agreement literal. Table~\ref{tab:corenames} lists the definitions that the files share under different names. They are alpha-equivalent up to the choice between a structure and a subtype, and they all compile (Section~\ref{sec:cores}).
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{The same combinators in the seven shipped Lean files. A blank means the file omits it. All seven compile at the pin.}
+\label{tab:corenames}
+\begin{tabularx}{\textwidth}{@{}L{22mm}L{14mm}L{15mm}L{14mm}L{15mm}L{15mm}L{15mm}L{14mm}@{}}
+\toprule
+Combinator & \Bs & \Fb & \Gn & \Ks & \Mr & \Sc & \Tp\\
+\midrule
+Refined value & subtype & \codeb{Refined} & \codeb{Has} & \codeb{View} & \codeb{Certified} & subtype & \codeb{Refined}\\
+Weakening, value kept & \codeb{weaken} & \codeb{weaken} & \codeb{Has.weaken} & \codeb{viewConsequence} & \codeb{Certified.weaken} & \codeb{weaken} & \codeb{Refined.weaken}\\
+Conjunction on one carrier & \codeb{meet} & \codeb{conjoin} & \codeb{Has.inter} & \codeb{viewIntersection} & \codeb{RowHolds} & merge rule & \codeb{refinement_intersection}\\
+Contract on a total function & \codeb{LawfulFn} & \codeb{Behavior} & \codeb{Contract} & \codeb{Beh} & \codeb{MapSpec} & \codeb{Contract} & \codeb{Contract}\\
+Variance & \codeb{consequence} & (prose) & \codeb{consequence} & \codeb{behConsequence} & \codeb{mapSpec_weaken} & \codeb{contract_consequence} & \codeb{Contract.weaken}\\
+Dependent composition & \codeb{composeLaw} & \codeb{compose_behavior} & \codeb{Contract.comp} & \codeb{behCompose} & \codeb{mapSpec_compose} & \codeb{contract_compose} & \codeb{Contract.comp}\\
+Relational law & \codeb{composeInvariant} & & \codeb{Respects} & \codeb{Inj}, \codeb{Surj} & \codeb{RelSpec} & & \codeb{restrict}\\
+Anchored observation & \codeb{observationCongruence} & \codeb{Observation} & \codeb{Conditional} & \codeb{transportView} & \codeb{evidence_transport} & \codeb{Observation} & \codeb{Result}\\
+Requirement transformer & \codeb{precisionCompose} & & & & & \codeb{req_compose} & \codeb{ObsMap.comp}\\
+Complete solutions & & & \codeb{Complete} & & & & \codeb{CompleteSolutions}\\
+Checker bridge & & \codeb{certificate_bridge} & & & & \codeb{check_sound} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{What the unit adds to round two}
+The round-2 unit was a boundary: a producer hands back a value and a proof of a fixed relation. The round-3 unit is what happens \emph{before} that boundary and \emph{between} such boundaries. The reports are explicit that this is the increment: \Gn{} calls it ``using the specification compositionally before the answer is constructed''; \Ks{} ``from `a computation returns an answer with a proof' to `an object has exactly these usable properties here, and this operation demands exactly this behaviour'\,''; \Sc{} ``what happens before such a request''; \Tp{} an extension ``on the consumer side''. Three consequences follow in every report.
+
+First, a method's premises drive inference. A registered theorem with role metadata says what the next step needs; the elaborator searches backward for exactly those propositions, with a small forward closure of cheap consequences (positivity gives nonzeroness) and no saturation. \Bs{} and \Sc{} formalise this as a \emph{requirement transformer} $\mathrm{Req}_f$ with a soundness theorem and a composition law $\mathrm{Req}_{g\circ f}=\mathrm{Req}_f\circ\mathrm{Req}_g$; \Tr{} proves that closure over a finite grounded qualifier set terminates and yields the least rule-closed set with an acyclic proof DAG.
+
+Second, structure selection is separated from property inference. A ring structure, topology, scalar action, or measurable structure is data, chosen before search and recorded in a lexical context (\Ks's \code{context}, \Sc's structure environment, \Tr's \code{structure_context}, \Tp's structure footprint); a proof that a fixed element is nonzero is a proposition inferred afterward. Proof irrelevance identifies proofs of one proposition, never two multiplications on one carrier. Every report says that turning every derived fact into a global instance would reproduce, not solve, the instance-management burden visible in the generated FLT preambles.
+
+Third, behaviour is a proposition about the whole function. $\mathrm{Contract}(P,Q,f):=\forall x,\,P(x)\to Q(x,f(x))$ on a total $f$ is distinct from a function on the refined domain $\{x\mid P(x)\}$; relational laws (monotone, Lipschitz, natural, inverse pair, prefix-local) quantify over several evaluations and are not reducible to an output predicate; a synthesis request for $\{f\mid \mathrm{Spec}(f)\}$ delegates the data hole and fixes the specification. The sorting example recurs in all nine: length preservation admits reversal, the identity, and the constant-zero list; sortedness alone admits the empty list; the contract is permutation and order together, and stability is a further clause.
+
+\subsection{What the unit forbids}
+The forbidden moves are stated with the same negative neighbours across the reports. Equality at a point may not be differentiated ($f(t)=t$ and $g(t)=0$ at $0$); a jet may not keep its order after differentiation ($X^N$ and $0$ agree below $N$, their derivatives need not); a nonzero element may not be inverted ($2$ in $\Z$ is regular, $2$ in $\Z/4\Z$ is not even that); a residual certificate may not skip the unit or the constant term ($F(Y)=2Y$ over $\Z/4\Z$ with $J=2t$; the two roots of $Y^2-1$); a witness plus coverage may not be called complete ($\{0,1\}$ covers the solutions of $x=0$); integer division may not be cast as field division ($1/4=0$ in $\Z$); an abstract counterexample may not refute a contract at a type where it is unrealisable (a positive length over \code{List Empty}); a passive provider law may not be used as a theorem; and a polymorphic function may not be granted a free theorem, since the Lean reference exhibits a classical polymorphic list function that inspects its element type.
+
+\section{Convergence: seventy-six commitments}\label{sec:convergence}
+
+\subsection{The matrix}
+Table~\ref{tab:matrix} scores seventy-six commitments across the nine reports. Forty-six rows are unanimous. Thirty-three rows (daggered) were already consensus in the round-2 syntheses; of these, twenty-three are unanimous again. Forty-three rows are fresh to this round; of these, twenty-three are unanimous. The fresh unanimous rows are the round's result: A1, A2, A4, A5 (the kernel stance), B1--B6 and B8 (the refinement calculus), C1--C2 (structures versus properties), D1, D3, D4, D6, D8 (behavioural contracts), F1, F3, F5 (the inference engine), H2 (Leant's Length handoff read from source), and J10 (every report declares its own Lean file uncompiled).
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}L{7mm}L{65mm}CCCCCCCCCL{4mm}@{}}
+\caption{Commitment matrix. \Yy{} stated, \Pp{} partial or implicit, \Nn{} absent. Columns: \Bs, \Fb, \Gn, \Ks, \Mr, \Ob, \Sc, \Tp, \Tr. A dagger marks a row already consensus in the round-2 syntheses.}\label{tab:matrix}\\
+\toprule
+Id & Commitment & Bs & Fb & Gn & Ks & Mr & Ob & Sc & Tp & Tr & \\
+\midrule\endfirsthead
+\toprule
+Id & Commitment & Bs & Fb & Gn & Ks & Mr & Ob & Sc & Tp & Tr & \\
+\midrule\endhead
+\bottomrule\endfoot
+\multicolumn{12}{@{}l}{\textit{A. Stance on the type system}}\\
+A1 & Extend the elaborator's typing discipline first; the kernel is unchanged & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+A2 & Lean already expresses the properties; no new logic is claimed & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+A3 & A primitive kernel refinement is a later, measured experiment & \Pp&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+A4 & No semantic subtyping or equality reflection in conversion; no CAS in definitional equality & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+A5 & No principal refinement; automatic inference is a bounded fragment & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+A6 & Failure to infer a property is not evidence that it is false & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+\multicolumn{12}{@{}l}{\textit{B. The refinement calculus}}\\
+B1 & A proved property enriches the same term; no local rebinding to a subtype & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+B2 & Packaging into a subtype or record only at an interface boundary & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+B3 & Weakening applies a proved implication and preserves the value & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+B4 & Several properties of one carrier are a conjunction, not an intersection of types & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+B5 & Equality transports by elimination; other relations need a registered theorem & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+B6 & An anchor is the elaborated term with its structures, never a printed name & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+B7 & Branch-local facts do not leak; leaving a branch exports an implication & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+B8 & A written relative-soundness theorem for the core rules & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+B9 & Meaning holes frozen before search; data holes delegated only under a fixed specification & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+\multicolumn{12}{@{}l}{\textit{C. Structures versus properties}}\\
+C1 & Selecting a structure is data, separate from inferring propositions about it & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+C2 & No global instance per fact; a local instance bridge only where an API demands one & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+C3 & A lexical structure context or manifest fixes a block's dictionaries & \Pp&\Pp&\Pp&\Yy&\Pp&\Pp&\Yy&\Yy&\Yy&\\
+C4 & Nonzero, regular, and unit are three predicates & \Yy&\Yy&\Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+\multicolumn{12}{@{}l}{\textit{D. Behavioural contracts}}\\
+D1 & A contract on a total function: $\forall x,\,P\,x\to Q\,x\,(f\,x)$ & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+D2 & Variance: preconditions contravariant, postconditions covariant; no strength rank & \Yy&\Yy&\Yy&\Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\\
+D3 & Composition retains the intermediate value and needs a bridge to the next precondition & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+D4 & Relational and higher-order laws are contracts on the whole function & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+D5 & A refined-domain function and a guarded total function are different interfaces & \Yy&\Yy&\Yy&\Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\\
+D6 & Sorting needs permutation and order; length admits reversal and constants & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+D7 & Effects are a separate axis (Hoare logic, \code{mvcgen}); a timeout is not a premise & \Pp&\Pp&\Yy&\Pp&\Pp&\Yy&\Yy&\Pp&\Yy&\\
+D8 & Existence in \code{Prop} yields no executable data without a construction or declared choice & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+\multicolumn{12}{@{}l}{\textit{E. Locality, precision, and observation}}\\
+E1 & Equality on an open set at an interior point gives eventual equality; a point does not & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+E2 & Almost-everywhere equality is a further distinct relation & \Yy&\Yy&\Yy&\Nn&\Nn&\Yy&\Nn&\Nn&\Nn&\\
+E3 & A derivative jet loses one order & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+E4 & Residual certificates need the constant term and a unit derivative & \Yy&\Yy&\Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+E5 & A universal claim needs the quantifier; finite prefixes or tests do not deliver it & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+E6 & Preservation is not reflection ($X\in(2X)$ over $\Q[X]$, not $\Z[X]$) & \Yy&\Yy&\Yy&\Nn&\Nn&\Yy&\Nn&\Yy&\Yy&$\dagger$\\
+E7 & Complete solving needs soundness and coverage & \Yy&\Yy&\Yy&\Yy&\Nn&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+E8 & Equal endpoints may prove equality; a generic enclosure may not & \Yy&\Yy&\Yy&\Nn&\Nn&\Yy&\Nn&\Yy&\Yy&$\dagger$\\
+E9 & Quantitative contracts (closeness, Lipschitz, vanishing error) propagate precision backward & \Nn&\Yy&\Nn&\Nn&\Yy&\Nn&\Nn&\Nn&\Yy&\\
+\multicolumn{12}{@{}l}{\textit{F. The inference engine}}\\
+F1 & Inference is demand-driven from the chosen method's premises & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+F2 & A small forward closure of cheap consequences; no saturation & \Yy&\Yy&\Pp&\Pp&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+F3 & A rule is an ordinary theorem plus role metadata validated against its type & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+F4 & The obligation graph is acyclic; no result justifies its own guard & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+F5 & Diagnostics name the missing premise as required by this method, not as necessary & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+F6 & Existing automation (\code{fun_prop}, \code{grind}, \code{mvcgen}) is a named component or baseline & \Pp&\Pp&\Pp&\Pp&\Yy&\Yy&\Pp&\Pp&\Pp&\\
+F7 & A named reason binds the method; search or hint delegates it visibly & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+\multicolumn{12}{@{}l}{\textit{G. Certified computation}}\\
+G1 & A polynomial checker is specified with a denotation into any commutative ring & \Yy&\Yy&\Yy&\Yy&\Nn&\Yy&\Pp&\Yy&\Pp&$\dagger$\\
+G2 & Arity is checked before any zip & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Nn&\Yy&\Yy&\\
+G3 & Reification binds atoms to exact terms and proves the bridge to the original goal & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Pp&\Yy&\Yy&$\dagger$\\
+G4 & Execution is a separate obligation; native evaluation needs an axiom audit & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+G5 & \code{grobner} is a bounded provider and control; no certificate export assumed & \Pp&\Yy&\Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+G6 & $p^k=0$ does not give $p=0$; a rational witness is not an integer witness & \Yy&\Yy&\Pp&\Yy&\Nn&\Pp&\Yy&\Yy&\Pp&$\dagger$\\
+G7 & Imported Lean keeps total operations; partial expressions are an explicit package & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+G8 & No native-versus-kernel threshold is claimed & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+\multicolumn{12}{@{}l}{\textit{H. Leant and behavioural synthesis}}\\
+H1 & \code{Verified} is a callback receipt, not behavioural evidence & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+H2 & The Length handoff and behavioural selection are real infrastructure, read from source & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+H3 & A provider law is evidence only with a Lean theorem about the exact provider term & \Yy&\Pp&\Pp&\Pp&\Yy&\Pp&\Pp&\Yy&\Yy&\\
+H4 & An abstract counterexample must be realisable at the source type (\code{List Empty}) & \Yy&\Nn&\Pp&\Yy&\Pp&\Pp&\Pp&\Yy&\Nn&\\
+H5 & A checked counterexample refutes one candidate, never existence & \Yy&\Yy&\Yy&\Pp&\Yy&\Pp&\Pp&\Yy&\Yy&\\
+H6 & Non-derivability in a calculus is not negation & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+H7 & A suggestion is verified only by replaying the exact displayed edit & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+H8 & Measure Leant on generated obligations; lookup separate from composition & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+H9 & Polymorphism is not parametricity in classical Lean & \Yy&\Nn&\Nn&\Nn&\Nn&\Nn&\Nn&\Yy&\Nn&\\
+\multicolumn{12}{@{}l}{\textit{I. Sources}}\\
+I1 & The Frey package is cited as evidence that Lean already bundles properties & \Nn&\Yy&\Yy&\Yy&\Nn&\Yy&\Yy&\Yy&\Yy&\\
+I2 & Frey coefficients: integer and rational division agree only under proved divisibility & \Nn&\Yy&\Yy&\Yy&\Nn&\Yy&\Yy&\Yy&\Yy&\\
+I3 & The generated instance preamble is environment cost, not mathematics & \Nn&\Yy&\Yy&\Yy&\Nn&\Nn&\Yy&\Yy&\Yy&\\
+I4 & The terminal FLT contradiction is already short and must stay short & \Pp&\Yy&\Nn&\Yy&\Nn&\Nn&\Yy&\Yy&\Yy&\\
+I5 & The autonomous-derivative theorem is kept as a locality control & \Yy&\Yy&\Yy&\Pp&\Yy&\Yy&\Yy&\Yy&\Pp&$\dagger$\\
+I6 & \code{PROOF-PATH} names are not statement strengths & \Yy&\Yy&\Yy&\Yy&\Nn&\Pp&\Yy&\Yy&\Yy&\\
+\multicolumn{12}{@{}l}{\textit{J. Evaluation and publication}}\\
+J1 & Arms separate library, services, property typing, and syntax & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J2 & Development examples are not held-out tests & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J3 & A blind reading test precedes the expanded view & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J4 & Every displayed assertion is checked, including unused ones & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J5 & The default display shows every condition that changes the claim & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J6 & Merging: new properties coexist; different witnesses or structures conflict & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Nn&\Nn&\\
+J7 & Upgrades recheck at the destination with a new receipt & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J8 & A library-only or renderer-only outcome is a success & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J9 & No productivity or compression number is claimed & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&$\dagger$\\
+J10 & The report says its Lean file was not compiled and its companion is finite & \Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\Yy&\\
+\end{longtable}}
+
+\subsection{Reading the matrix}
+Per report, the counts of \Yy{} run from 58 (\Mr) to 71 (\Tp); the \Nn{} counts from 2 (\Fb) to 12 (\Mr). \Mr's absences are concentrated in blocks E and G because it replaced the polynomial checker by an affine length model and did not restate the round-2 CAS promotions; they are omissions of scope, not disagreements. The two rows on which the reports split by content rather than by scope are E2 (almost-everywhere equality as a separate relation, stated by the four reports with a measure-theoretic example) and H4 (realisability of abstract counterexamples, stated by the three reports that opened Leant's \code{Length} code). C3 splits by depth: four reports design a lexical structure context, five leave structure recording implicit.
+
+The daggered rows show the round repeating round two almost verbatim on computation (G1--G8), Leant (H1, H6--H8), and evaluation (J1--J5, J7--J9). That repetition is the intended inheritance, and every report labels it so. The fresh rows show where the round did new work: the calculus (B1--B8), the stance (A1--A5), structures (C1--C2), contracts (D1--D8), and the engine (F1--F5).
+
+\subsection{Ten unanimous rules beyond the round-2 architecture}
+\begin{enumerate}
+\item Extend what the elaborator treats as a type; leave conversion alone (A1, A4).
+\item An object is never rebound when a property about it is proved; a subtype appears only at a boundary (B1, B2).
+\item Weakening is a proved implication applied to the retained value; two properties on one carrier are a conjunction (B3, B4).
+\item Only equality transports a property by elimination; every other relation is a registered theorem naming its consumer (B5).
+\item Anchors are elaborated terms with their structure arguments; branch facts export as implications (B6, B7).
+\item Structures are chosen as data before search; properties are inferred as proofs afterward; no derived fact becomes a global instance (C1, C2).
+\item A contract is a universal proposition on a total function, with contravariant preconditions, covariant postconditions, and composition at the retained intermediate value (D1--D3).
+\item Relational laws and existence-versus-executability are handled by the same discipline, not by tags (D4, D8).
+\item Inference is backward from a method's premises through validated theorem registrations, and diagnostics name the missing premise (F1, F3, F5).
+\item Leant's behavioural machinery is read from source and integrated as infrastructure, with a Lean theorem required before any provider law becomes evidence (H2, H3).
+\end{enumerate}
+
+\section{The twenty questions, answered}\label{sec:questions}
+Table~\ref{tab:questions} tallies the answers to the round-2 questions of Section~\ref{sec:20}. Thirteen questions receive an explicit answer from all nine; the remainder are implicit in one report (\Mr{} gives no question crosswalk and answers through its design sections). Twelve answers are unanimous. The two questions with a genuine spread are R5/Q1/Q8, the choice of first package, and R8, Leant's contribution, where three reports add the realisability bridge and one adds a completeness theorem for finite observations.
+
+{\small
+\begin{longtable}{@{}L{8mm}L{36mm}L{58mm}L{45mm}@{}}
+\caption{The twenty questions. ``Explicit'' counts reports answering the question by name.}\label{tab:questions}\\
+\toprule
+Id & Question & Consensus answer & Variants; explicit\\
+\midrule\endfirsthead
+\toprule
+Id & Question & Consensus answer & Variants; explicit\\
+\midrule\endhead
+\bottomrule\endfoot
+R1 & Checker soundness in practice & Executable coefficient data, denotation into any commutative ring, normalisation and operation lemmas, checker soundness, then a separate reification bridge & \Sc{} compiles an affine instance with its bridge; \Mr{} compiles a length model; the sparse checker is on paper in five reports; 8\\
+R2 & Where does \code{grobner} sit & A bounded proof-producing provider and control; retain its term; no export assumed; failure is not negation & Unanimous among eight; 8\\
+R3 & Workspace accounting & An index into Lean's context: roles, source-to-evidence links, observation origins, receipts & Unanimous; 9\\
+R4 & Partial or total & Total on import; an explicit partial package whose domain is in the type & Unanimous; 9\\
+R5 & Which package first & One compiled slice with a proved checker and one property package & Frey quotients (\Fb, \Ob); sparse checker (\Bs, \Ks, \Gn, \Tp); affine checker (\Sc, \Tr); bundle adapter (\Mr); 9\\
+R6 & When native earns its axiom & No threshold; measure on the real checker; policy before speed & Unanimous; 8\\
+R7 & Surviving an upgrade & Recheck at the destination, inspect the axiom inventory, new receipt & Unanimous; 9\\
+R8 & Leant's contribution & Composition of generated obligations, measured apart from lookup; behaviour only through Lean-checked contracts & Realisability (\Bs, \Ks, \Tp); complete affine criterion (\Mr); backward constraints on holes (\Fb); 9\\
+R9 & Executable mutations & Finite Python subsets run; the Lean suite is a backlog; every rejection needs a positive neighbour & Unanimous; 8\\
+R10 & Is nine right & No: fewer reports implementing one small interface, plus adversarial review & \Tp: independent implementations of one interface; \Gn: few implementations, distinct goals; 8\\
+Q1 & First task & As R5 & Same spread; 8\\
+Q2 & Result vocabulary & Ordinary predicates with typed indices; extensible, not a ladder & Unanimous; 9\\
+Q3 & Trusted execution & Kernel reduction or proof reconstruction; native is an audited option & Unanimous; 9\\
+Q4 & Delegation by specification & Any witness of a frozen specification, no per-candidate notice; never a changed domain, branch, structure, or quantifier & Unanimous; 9\\
+Q5 & Visibility of conditional results & The condition is shown by default; a reading test decides sufficiency & Unanimous; 9\\
+Q6 & Automatic representation changes & Only registered relation-specific theorems retaining the route; no global planning & \Ob{} permits silent swap of one exact normaliser for another under equal guarantee and policy; 8\\
+Q7 & Leant negative outcomes & Unsupported, exhausted, non-derivable, model-relative counterexample, checked refutation & Unanimous; 9\\
+Q8 & First definition interface & One package with proved interface lemmas & Spread as R5; 9\\
+Q9 & Evidence across migration & Retained terms or certificates at a pin; a new receipt after rechecking & Unanimous; 9\\
+Q10 & Library-only outcome & If the shared-library arm explains the gains, ship the packages and stop & Unanimous; 9\\
+\end{longtable}}
+
+Two answers deserve comment. On R1, the round moved from stating the type of a soundness theorem to writing the theorem's proof: five reports (\Bs, \Ks, \Tp, \Fb, \Ob) give the same denotation $\llbracket p\rrbracket_v=\sum_\alpha\iota(c_\alpha)\prod_j v_j^{\alpha_j}$ over a sparse map $\N^d\to\Z$, prove that normalisation, addition, and convolution preserve it, and conclude ideal-certificate soundness for every commutative ring, with arity checked before any zip; \Gn{} does the same for dense univariate lists. All five say the Lean mechanisation is the next deliverable. On R10, the answer is uniform and blunt: \Tp{} recommends ``independent implementations of the same small interface and an adversarial review''; \Ks{} calls its own deliverable ``the specified type discipline, a small uncompiled Lean semantic model, and an executed Python reference'' and names the gate ``a compiled, end-to-end evidence slice, not a larger grammar''.
+
+\section{Where the reports differ}\label{sec:divergence}
+
+\subsection{Genuine divergences}
+\textbf{How far a kernel experiment is entertained.} All nine put the first implementation in the elaborator. \Bs{} and \Ks{} stop there: a kernel primitive ``would add a new trusted implementation and migration surface for a feature already representable''. \Mr{} writes the candidate primitive's introduction, projection, and reduction rules and a gate for trying it (profile first, translate, compare against optimised ordinary Lean). \Tr{} goes furthest, citing definitional functoriality for dependent subtypes and Lean4Lean as the metatheory such an experiment would need, while still recommending against it now. \Ob{} argues that a primitive could be conservative and lists what its metatheory must cover. The disagreement is about what to keep on the research agenda, not about the first implementation.
+
+\textbf{Whether finite observations can ever prove a universal claim.} Eight reports state that finite tests never deliver a universal contract. \Mr{} proves the exception: within a grammar of list expressions whose length is an affine form with natural coefficients, equality of coefficient vectors is \emph{equivalent} to the universal length law, so the affine normaliser is a complete decision procedure and every abstract counterexample (a zero vector or a unit vector) is realisable by lists of zeros. \Tr{} notes the same exception for exhaustive enumeration of a finite domain with a coverage theorem. The correct statement, which both make, is that finite observations suffice exactly when a completeness theorem for the abstraction is proved; the round-2 slogan needs that qualification.
+
+\textbf{Whether the first checker is polynomial or affine.} \Bs, \Ks, \Gn, \Tp, \Fb, and \Ob{} specify a polynomial ideal-membership checker. \Sc{} and \Tr{} argue that the examples at hand (Fabius bounds, guarded cancellation, $3(x+2)=3x+6$) need only affine reasoning and that a smaller checker exercises the same boundary at lower cost; \Sc{} then writes and, as this review confirms, kernel-checks it. \Mr{} replaces the arithmetic checker entirely by the length model. This is the one design choice on which the round's own evidence favours the minority: the only compiled checker with an original-target bridge is the affine one.
+
+\textbf{What to do with the generated FLT preambles.} Six reports treat the instance-disabling preambles as an environment-management cost to be measured separately, and three (\Ks, \Sc, \Tr) propose a lexical structure context as the experiment. \Fb{} adds a warning the others lack: a property layer that registers every implication as an instance would reproduce the preamble problem rather than solve it.
+
+\textbf{Almost-everywhere reasoning.} Only \Bs, \Fb, \Gn, and \Ob{} treat a.e.\ equality as its own relation with its own consumers (integrals but not point evaluation; countable but not uncountable families). The other five never leave pointwise and neighbourhood locality. This is a gap in scope for a language meant for analysis, and it comes directly from which source files each report opened.
+
+\subsection{Distinctive contributions}
+Each report has at least one idea or example that no other report has. They are the round's real yield.
+\begin{itemize}
+\item \Bs: exactness as a \emph{relational} type on a whole diagram (a short exact sequence, a commuting ladder, a diagram isomorphism), with the counterexample $k\to k^3\to k$ showing that injective plus surjective plus zero composition is not exact; ideal-preserving algebra maps $\{f\mid f(I)\subseteq J\}$ whose composition returns a proof, lifted to quotient towers and completions with functoriality proved by ``all quotient observations''; the CDF reflection identity $F(a-x)=1-F(x)$ with the Dirac negative neighbour and the atom-corrected alternative $F(a-x)=1-F(x)+\mu\{x\}$; a precision-demand transformer $d_{g\circ f}=d_f\circ d_g$ applied uniformly to jets, $I$-adic towers, and truncated products.
+\item \Fb: the \emph{non-vacuous} Frey benchmark $(\mathrm{F}_0)$: prove the integral-to-rational transport under odd $p\ge4$, $a\equiv3\pmod 4$, $2\mid b$, which has inhabitants such as $(3,2,5)$, so that a full Frey package's contradiction cannot serve as a proof shortcut; a centred coupling bound $|\int e^{itY_n}-\int e^{itX}|\le\min\{2,|t|2^{-n-1}\}$ composing a Lipschitz law with an input-error observation; backward propagation of contracts into synthesis holes before a candidate is complete, with the three-way distinction between refuting a completion, a sketch, and a program.
+\item \Gn: prefix causality as the behavioural premise behind one-sided inverses of triangular kernels, with the shift pair $DS=\mathrm{id}\ne SD$ as the negative neighbour; the level-flow of the semistable-modularity proof (positivity gives nonzeroness, squarefreeness gives $q^2\nmid N$ and $q^3\nmid N$) as a property-rule library; the binomial-inversion counterexample $a=(0,0)$, $b=(1,0)$ showing that row $n$ of the forward identity does not give row $n$ of the inverse.
+\item \Ks: the constructive finite-type argument as a transport workload (normalise by a transposition, restrict to nonzero elements, transport along $\mathrm{Fin}\,n\simeq Z$, undo), with the rule that proposition-valued finiteness must not become an executable enumeration; the \code{List Empty} realisability test stated first and sharpest; a five-arm evaluation $L_0$--$L_4$ in which $L_3$ versus $L_2$ isolates the property layer; a nested-namespace Lean model that compiles with eleven axiom-free theorems, including the \code{List Empty} case.
+\item \Mr: coinduced invariants and the representing finite tensor algebra as bundle-adapter workloads where naturality is a refinement of a family; endpoint deletion as a quantitative relation $\mathrm{Close}_{kR}$ with the $\{-1,0\}$ \code{toNat} collision; the complete affine coefficient criterion (Theorem, with soundness of the length model, both kernel-checked by this review); a grammar of \code{fix}/\code{know}/\code{use}; the explicit statement that a bare $t:\mathrm{Ref}(A,P)$ rule without evidence either moves the proof or changes the logic.
+\item \Ob: the \emph{vacuity} warning: an arithmetic contract tested only inside a context where \code{FreyPackage} implies \code{False} proves nothing, so contracts need satisfiable premises and a positive inhabitant; the Mellin family $F_n(x)=-x^{a-1}e^{-(n+1)x}/(n+1)$ as an $L^1$-summable refinement, with the telescoping pulse series $g_n=f_{n+1}-f_n$ whose integral norms $2/(n+1)$ diverge as the negative neighbour; Frey normalisation as a chain of \emph{new witnesses} $T\to T_1\to T_2\to T_3$ that must not be recorded as equal, and the observation that the exported \code{Nonempty FreyPackage} does not expose that $p$ is preserved.
+\item \Sc: the orbital-comparison theorem (if $T^n x\to p$, $f,g$ continuous at $p$ with $f(p)=g(p)$, and $f(x)=a(x)f(Tx)$, $g(x)=a(x)g(Tx)$ with $|a|\le1$, then $f=g$), extracted from the affine independent-copy uniqueness proof with the $q=1$ and missing-normalisation negative neighbours; the requirement transformer with its composition law; the only kernel-checked checker of the round, an affine normaliser over $\N$ with \code{check_sound} and the original-target theorem $3(x+2)=3x+6$; \code{assume}/\code{derive}/\code{construct} as three verbs.
+\item \Tp: the prefix-local inverse theorem proved from stable finiteness of $M_N(R)$ over a commutative ring, with the halving map as a second negative neighbour separating locality from linearity; restriction of a monoid action to an invariant subtype with the torsion instance $A[n]$; the parametricity caveat and a proposed \emph{uniformity contract}; proof-linked provider laws; a five-cut implementation ladder with exit conditions.
+\item \Tr: the finite grounded qualifier calculus with a closure theorem (termination, proof DAGs, least fixed point, schedule independence); the sharp Lipschitz constant $2$ for the Fabius and Rvachev functions with affine certificates $(0,2,2,0)$ and $(2,0,0,2)$ and an attainment witness at $1/2$; the vanishing-error theorem ($X\le K+e(\varepsilon)$ for $\varepsilon\in(0,\varepsilon_0]$ with $e\to0$ gives $X\le K$, for every real $c$ in $e=c\varepsilon^2$); gcd transport through the reflection law $d^p\mid e^p\iff d\mid e$ for $p>0$, with $4\mid2^2$ showing why $d\mid e^p\Rightarrow d\mid e$ fails; a rational affine-nonnegativity certificate format.
+\end{itemize}
+
+\section{Checking the consensus against the toolchain}\label{sec:toolchain}
+Every report states that its Lean file was written without a toolchain. This review compiled all seven, probed the Mathlib names the round depends on, and formalised the one proposition the reports most often prove on paper. All runs used \code{lake env lean} inside ProveIt at Lean v4.32.0 with its pinned Mathlib. Sources and logs are in \code{experiments/lean/}.
+
+\subsection{The seven cores compile}\label{sec:cores}
+Table~\ref{tab:cores} summarises the runs. No file needed an edit. None imports Mathlib. The only warnings are the \code{defProp} linter in \Bs{} and \Gn{} (a \code{def} whose type is a proposition should be a \code{theorem}). Forty-eight theorems check; forty-three depend on no axiom at all, and five depend on \code{propext} only, introduced by \code{simp} and \code{decide} in \Sc's affine checker and \Mr's length model. Three files contained no \texttt{\#print axioms}; the shipped copies \code{FiberAx}, \code{MoraineAx}, and \code{TephraAx} append one line per theorem and are otherwise identical to the originals.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Compilation of the shipped Lean files at the ProveIt pin. Elapsed times are single warm runs including process start and are indicative only.}
+\label{tab:cores}
+\begin{tabularx}{\textwidth}{@{}L{13mm}L{30mm}rrL{20mm}L{47mm}r@{}}
+\toprule
+Report & File & Lines & Thms & Warnings & Axioms & ms\\
+\midrule
+\Bs & \code{ContractCore.lean} & 74 & 2 & 3 (\code{defProp}) & 2 axiom-free & 3805\\
+\Fb & \code{CoreEncoding.lean} & 67 & 3 & 0 & 3 axiom-free & 3731\\
+\Gn & \code{GneissCore.lean} & 81 & 2 & 4 (\code{defProp}) & 2 axiom-free & 5385\\
+\Ks & \code{KarstCore.lean} & 114 & 11 & 0 & 11 axiom-free & 3237\\
+\Mr & \code{Contracts.lean} & 194 & 16 & 0 & 14 axiom-free; \code{model_sound}, \code{promote_model_spec} use \code{propext} & 8815\\
+\Sc & \code{SchistCore.lean} & 140 & 8 & 0 & 5 axiom-free; \code{eval_nf}, \code{check_sound}, \code{original_target} use \code{propext} & 7465\\
+\Tp & \code{TephraCore.lean} & 119 & 6 & 0 & 6 axiom-free & 3566\\
+\midrule
+Total & & 789 & 48 & 7 & 43 axiom-free, 5 \code{propext} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The result should be read with the files' content in mind. Roughly seven hundred of the seven hundred and eighty-nine lines are the combinators of Table~\ref{tab:corenames}: weakening, conjunction, contract application, composition, inverse-pair consequences. They compile because they are trivial, and the reports say as much. Three declarations are more than that. \Sc's \code{AffineCertificate} defines an expression language $e::=n\mid x\mid e_1+e_2\mid n\cdot e$, a normaliser to $(a,b)$, the theorem \code{eval_nf} that $\mathrm{eval}(e,x)=ax+b$, the checker \code{check} deciding equality of normal forms, its soundness \code{check_sound}, and the original-target theorem $\forall x,\,3(x+2)=3x+6$ proved by the checker, with \code{corrupted_rejected} deciding that the certificate for $3x+7$ fails. It is the first kernel-checked chain from certificate to original goal in this campaign, in a fragment where reification is definitional. \Mr's \code{LengthExpr} defines the list grammar, its concrete evaluator, its affine length model, and \code{model_sound}, the theorem that the model computes the length of the evaluated list for every environment; that is the soundness half of its complete criterion, checked. \Ks's \code{dropAllLengthOnEmpty} checks that the constant-empty function preserves length on \code{List Empty}, which is the positive half of the realisability test.
+
+\subsection{The names the round relies on exist at the pin}\label{sec:supply}
+A probe file (\code{Supply3.lean}, 575 s with a cold Mathlib import) checked the Mathlib declarations the reports invoke by description. All resolve. The locality bridge the reports write in prose is three Mathlib lemmas, and the composite compiles as written (ASCII transcription; the shipped file uses Lean's Unicode notation):
+\begin{lstlisting}
+example (f g : Real -> Real) (U : Set Real) (hU : IsOpen U)
+    (x : Real) (hx : x \in U) (h : Set.EqOn f g U) :
+    deriv f x = deriv g x :=
+  (h.eventuallyEq_of_mem (hU.mem_nhds hx)).deriv_eq
+\end{lstlisting}
+\code{fun_prop} closes the continuity goal the reports use as their example; \code{Finite.injective_iff_surjective} is \Ks's finite-type theorem in one line; \code{Int.cast_div} is the exact-quotient transport with the divisibility and nonzero premises the reports demand; \codeb{MeasureTheory.tendsto_integral_of_dominated_convergence} and \codeb{integral_tsum_of_summable_integral_norm} are \Fb's and \Ob's interchange theorems with exactly the $L^1$-summability premise \Ob{} names; \code{lipschitzWith_of_nnnorm_deriv_le} is \Tr's derivative-bound theorem, requiring a global \code{Differentiable} and a bound in \code{NNReal}, which is the interface \Tr{} says must be adapted. Two findings qualify the reports. The finite-matrix one-sided inverse lemma \Gn{} and \Tp{} cite is deprecated at the pin in favour of \code{mul_eq_one_comm} over any \code{IsDedekindFiniteMonoid}, which is the generalisation \Tp{} conjectures (``a library can later generalize the contract to other coefficient rings with a proved stable-finiteness interface''). And \code{mvcgen}, which \Gn, \Ob, \Sc, and \Tr{} name as the host for effectful contracts, exists at the pin with \code{Std.Do.Triple} but warns that it is experimental; the reports that call it ``already supported'' should say ``present and experimental''.
+
+\subsection{The Frey exact-division proposition, kernel-checked}\label{sec:frey}
+Five reports (\Ks, \Gn, \Fb, \Ob, \Tr) prove on paper that under odd $p$, $4\le p$, $a\equiv3\pmod4$, and $2\mid b$, the two Frey numerators are divisible by $4$ and $16$ and the integer quotients cast to the rational quotients. Four list the negative neighbours. This review wrote the proof in Lean (\code{FreyExact.lean}, 62 lines, 220 s including a warm Mathlib import). The theorems \code{four_dvd_a2}, \code{sixteen_dvd_a4}, \code{cast_a2}, and \code{cast_a4} check with the standard axioms \code{propext}, \code{Classical.choice}, \code{Quot.sound}, and six \code{example}s decide the inhabitant $(3,2,5)$ with $a_2=-53$, $a_4=-486$, the four negative neighbours $(3,2,4)$, $(3,3,5)$, $(3,2,3)$, $(1,2,5)$, and the inexact cast $1/4$. The proof uses no primality, no nonzeroness, no coprimality, and no Fermat equation, which is \Fb's and \Ob's point: the contract is satisfiable and its test is non-vacuous. The whole file is one method call away from the interface the reports design: \code{Int.cast_div} takes exactly the divisibility fact and the nonzero denominator, and everything else is the obligation structure the reports draw in their elaboration traces.
+
+\subsection{What remains untested}
+No report's sparse polynomial checker has a Lean denotation theorem; the paper proofs are uniform and correct as far as this review can judge, and their mechanisation is the deliverable every report names first. No prefix-local inverse theorem, orbital-comparison theorem, coinduced-invariant adapter, or exactness ladder was formalised here. No report's property-inference engine exists in any form; the Python companions model request bookkeeping and exact arithmetic, not elaboration. And nothing was measured: no author time, no intervention count, no reading test.
+
+\section{Assessment}\label{sec:assessment}
+
+\subsection{What is strongest}
+The refinement calculus is finished as a specification. Nine independent spellings reduce to four rules and one boundary, seven Lean encodings are alpha-equivalent, every report proves the same relative-soundness theorem, and every report draws the same negative neighbours. There is nothing left to design at this level; there is something to build.
+
+The behavioural half is equally settled and better than round two's. Variance with the right directions, composition at the retained intermediate value with an explicit bridge, relational laws on whole functions, and the refined-domain versus guarded-total distinction close the gap that the round-2 unit left open between ``a computation returns a value'' and ``a function has a type''.
+
+The examples are new, mathematical, and diagnostic. Where round two reused three files, round three opened fourteen new ones across ProveIt and FLT, and each report turned its file into an obligation structure with a positive case and a negative neighbour: the Dirac atom, the shift operator, the halving map, the pulse series, the $q=1$ recurrence, the $\{-1,0\}$ collision, the $k^3$ middle gap, the $(3,2,4)$ numerator. These are the tests the implementation will run.
+
+The honesty is uniform. Every report labels its Lean file uncompiled, its companion finite, its examples development material, and its productivity claim absent. This review's compilation confirms the first label was cautious rather than false.
+
+\subsection{What is weak, over-engineered, or under-specified}
+The nine surfaces are again nine spellings of one grammar: \code{let}, \code{know}, \code{claim} in one report; \code{given}, \code{establish}, \code{infer} in another; \code{fix}, \code{know}, \code{use}; \code{assume}, \code{derive}, \code{construct}; \code{variable}, \code{refine}, \code{claim}. None was parsed. The reports know this and rank the surface last in every implementation ladder.
+
+The inference engine is specified by policy, not by algorithm, in eight reports. Only \Tr's finite qualifier closure has a stated procedure with a theorem about it, and that theorem covers a fragment whose rule generation is left open. The reports' own risk sections say the engine may become ``an expensive second elaborator with unpredictable search''; nothing here reduces that risk except the decision to keep it demand-driven and bounded.
+
+The relative-soundness theorems are correct and nearly vacuous. They say that applying theorems to proofs produces proofs. The interesting metatheory, that an elaborator never assigns a meaning-bearing hole during proof search, is stated as a policy (freeze before search) and not as a theorem about any implementation.
+
+The Lean files, though they compile, are three hundred lines short of the checker the round asks for. Only \Sc{} carried a checker to the original target, and only in an affine fragment over $\N$ with definitional reification.
+
+\subsection{Blind spots common to all nine}
+None addresses universe polymorphism or dependent indices in the anchor beyond a sentence. None discusses how an evidence row behaves under \code{simp}-normalised goals, where the anchored term is rewritten before the row is consulted. None estimates the size of the proof terms that transports and weakenings insert, though four reports name it as a hazard. None proposes how the property index survives Lean's incremental elaboration, in which a local context is rebuilt per declaration. And none opens a source file outside real analysis, number theory, and representation theory: no combinatorics, no topology beyond openness, no probability beyond characteristic functions.
+
+\subsection{What the convergence does and does not show}
+The convergence shows that the design space for an elaborator-level refinement layer over Lean is small and well understood: nine authors given the same sources produced one calculus. It does not show that the calculus helps a mathematician, because no one used it; it does not show that the engine is predictable, because no one ran it; and it does not show that the syntax is worth having, because every report says the library and index may be the whole result. The round's own answer to R10 stands: a fourth round of design would produce the same calculus a tenth time.
+
+\section{Additions}\label{sec:additions}
+
+\subsection{The consolidated negative suite}\label{sec:suite}
+The nine negative tables (Basalt 20 rows, Karst 18, Gneiss 20, Moraine 12, Schist 12, Tephra 20, Fiber 24, Trellis 12, Obsidian 13) merge into forty-eight families (Appendix~\ref{app:suite}, \code{negative_suite.csv}). One hundred and forty-two source rows map onto them; nineteen families come from one report only; twenty-five inherit a round-2 family by id, twenty-three are new. Eleven families appear in five or more reports and form the core an implementation must fail correctly: point equality differentiated (N1), jet precision kept (N4), wrong branch or nonunit derivative (N5), sibling-branch reuse (N9), self-justifying guard (N10), structure changed under unchanged notation (N11), certificate corruption or arity (N14), length as sorting (N19), inexact quotient cast (N25), unused false assertion (N42), and stale origin or changed edit (N43). Of these, N11, N19, and N25 are new to this round. Table~\ref{tab:newfam} lists the twenty-three new families; they are the tests that only a property-aware layer can fail.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Negative-test families that do not inherit a round-2 family. Sources name the reports whose tables contain the row.}
+\label{tab:newfam}
+\begin{tabularx}{\textwidth}{@{}L{8mm}L{86mm}L{54mm}@{}}
+\toprule
+Id & Mutation & Sources\\
+\midrule
+N2 & Induction hypothesis specialised to a point before the successor step & \Mr\\
+N21 & Passive provider law used as a theorem & \Bs, \Tp\\
+N22 & \code{List Empty} contract refuted by an unrealisable length & \Bs, \Ks, \Tp\\
+N23 & Free theorem granted to a polymorphic function & \Tp\\
+N24 & One refuted completion used to reject a whole sketch & \Fb\\
+N26 & Arithmetic contract tested only inside a contradictory package & \Fb, \Ob\\
+N27 & Executable enumeration extracted from \code{Prop} finiteness & \Ks\\
+N28 & Refined-domain function extended to the carrier without data & \Ks\\
+N29 & Restriction or induced structure without the preservation proof & \Ks, \Tp\\
+N30 & One-sided inverse reversed without prefix locality & \Gn, \Tp\\
+N31 & Naturality or exactness inferred from vertex data & \Bs, \Mr\\
+N32 & Endpoint deletion labelled equality; \code{toNat} reindexing collision & \Mr\\
+N34 & Measure or topology changed under an integrability fact & \Fb, \Ob\\
+N35 & Uncountable a.e.\ family merged; a.e.\ derivative for an everywhere one & \Bs, \Fb\\
+N36 & CDF reflection applied to a measure with an atom & \Bs\\
+N37 & Orbital comparison with $q=1$ or without the base value & \Sc\\
+N38 & Independence inferred from equal marginals & \Sc\\
+N39 & Upper Lipschitz bound presented as least & \Tr\\
+N40 & Prime exponent given oddness without excluding $2$; zeroth-power reflection & \Tr\\
+N41 & Normalised tuple treated as equal; unproved exponent preservation exported & \Ob\\
+N45 & Different proof offered for a step that named a required method & \Tp\\
+N46 & Correct fact returned that is not the sealed target & \Gn\\
+N48 & Nonnegative real used where nonzero is required & \Tp\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{When finite evidence is enough: a completeness table}\label{sec:completeness}
+Round two said that finite observations never prove a universal claim. \Mr{} and \Tr{} show the exception, and the reports' other examples show the rule. The precise statement is: a finite observation proves a universal claim exactly when a \emph{completeness theorem} for the abstraction is available, and an abstract counterexample refutes a source claim exactly when a \emph{realisation theorem} is available. Table~\ref{tab:completeness} sorts the round's examples by these two theorems.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Finite evidence and universal claims. ``Complete'' means the abstraction decides the universal claim; ``Realisable'' means every abstract witness is a source witness.}
+\label{tab:completeness}
+\begin{tabularx}{\textwidth}{@{}L{46mm}L{18mm}L{18mm}Y@{}}
+\toprule
+Abstraction & Complete & Realisable & Why (source)\\
+\midrule
+Affine length coefficients over \code{List Nat} & yes & yes & Coefficient equality iff universal length law; unit vectors realised by zero lists (\Mr, kernel-checked half)\\
+Length coefficients over \code{List Empty} & yes & no & Only the zero vector is realised; a positive length is not a source input (\Ks, \Bs, \Tp)\\
+Exhaustive check of a finite domain & yes & yes & With a coverage theorem for the enumeration (\Tr)\\
+Prefix agreement for all $N$ & yes & n/a & Jointly faithful family; one prefix is not (\Tp, \Gn)\\
+Sample bank below a length cutoff & no & yes & The cutoff function passes every test and fails the law (\Tr)\\
+Polynomial identity at sampled valuations & no & yes & Agreement at points is not coefficient equality; $X^2-X$ over $\mathbf F_2$ (\Ob, round two)\\
+Residual of a jet below order $N$ & partial & n/a & Identifies the jet only with a unit derivative and matching constant term (all)\\
+Model-relative Length counterexample & no & no & Provider laws are passive; a bridge to the source is required (\Tp, \Bs)\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{The options ladder for the kernel question, consolidated}\label{sec:ladder}
+The reports present four to six options each for ``extend the type system''. Merged, they are one ladder with one decision per rung.
+\begin{enumerate}
+\item \textbf{Library only.} Predicates, subtypes, wrappers, \code{fun_prop} rules. Necessary baseline; every report's arm $L_1$.
+\item \textbf{Property-aware elaboration.} An evidence index over Lean's context, validated rule registrations, backward demand, proof-directed insertion of weakenings and transports, typed obligations. The unanimous first implementation; changes what authors write, not what the kernel accepts.
+\item \textbf{Property-implicit binders and proof-directed coercions.} \Tp's smallest syntactic extension: a \code{requires} parameter resolved by the property engine at call sites, and a coercion that inserts a registered implication or cast. Implementable by metaprogramming over existing types.
+\item \textbf{A primitive refinement former with explicit evidence.} Introduction, erasing projection, subsumption with a proof, translation to subtypes. \Mr{} and \Ob{} write its rules; all agree it needs a measured bottleneck first.
+\item \textbf{Restricted definitional coercion or functor laws.} \Tr's research option, with definitional functoriality and Lean4Lean as the metatheory to build on.
+\item \textbf{Semantic subtyping or equality reflection in conversion.} Rejected by all nine as the default: it couples type checking to proof search and makes timeout mean false.
+\end{enumerate}
+The ladder's value is that the exit condition between rungs is the same everywhere: profile the previous rung on a benchmark, name the cost it cannot remove, and only then climb.
+
+\subsection{A first slice ordered by what compiled}\label{sec:slice}
+The round-2 review ordered its first slice by contract coverage. This round's evidence suggests ordering by what has already been checked. The order below uses only artifacts that exist.
+\begin{enumerate}
+\item \textbf{Extend \Sc's affine checker to the rational affine-nonnegativity format of \Tr,} keeping the compiled \code{check_sound} and original-target pattern, and add a reifier over \code{Real} expressions with opaque atoms. This is the smallest checker with a non-definitional reification bridge, and it discharges the Fabius certificates $(0,2,2,0)$ and $(2,0,0,2)$.
+\item \textbf{Package the Frey exact quotient} as the first property package: \code{Int.cast_div} behind a wrapper with roles for the divisibility and nonzero premises, the compiled \code{FreyExact} theorems as its interface lemmas, and the four negative neighbours as its tests. \Fb's $(\mathrm{F}_0)$ premise set is the contract.
+\item \textbf{Build the evidence index and one property-implicit binder} over Lean's local context, with the registry validated against theorem types, and use it to elaborate the locality bridge of Section~\ref{sec:supply} from \code{EqOn}, openness, and membership without the author naming the three lemmas.
+\item \textbf{Port \Mr's affine length model to a Leant adapter,} since its soundness half is checked and its completeness half is a paper theorem with a realisation clause; include the \code{List Empty} case from \Ks's compiled file as the specification stress test.
+\item \textbf{Mechanise the sparse polynomial checker} with the denotation lemmas five reports wrote, and only then attach \code{grobner} as a provider.
+\end{enumerate}
+Each step has a compiled artifact to start from and a paired negative test from Appendix~\ref{app:suite}. The surface syntax is not on the list; every report agrees it comes after the $L_3$-versus-$L_2$ comparison.
+
+\subsection{Two rules for the next round's authors}
+\textbf{Compile or declare.} Every author lacked a toolchain, and every author said so. The next brief should either supply one or require the Lean file to be a copy of a compiled artifact from this review's \code{experiments/lean/}, extended rather than rewritten.
+
+\textbf{No vacuous contexts.} \Ob's and \Fb's warning generalises: a property-package test must exhibit a positive inhabitant of its premises. A contract that is only ever exercised under a contradiction has no test. This should be a column in every negative table.
+
+\section{Recommendation}\label{sec:recommendation}
+Implement, do not redesign. The calculus is fixed, the contracts are fixed, the negative suite is written, the Mathlib names exist, and seven small cores compile. The next artifact should be one Lean package containing: the affine checker with a real reifier; the Frey exact-quotient package with its four neighbours; an evidence index over the local context with a validated registry of a dozen rules (positivity to nonzeroness, squarefree to prime-power exclusion, \code{EqOn} to eventual equality, injective composition, involution to injective, ideal-preservation composition); and a property-implicit binder that resolves \code{requires} parameters through that index. Its acceptance test is the $L_3$-versus-$L_2$ comparison on the twenty obligations the reports' traces list, with the eleven core mutations failing for the stated reason. A read-only mathematical renderer over the same record may be built in parallel; input syntax waits.
+
+If the comparison shows no reduction in interventions beyond the library arm, the correct outcome is a Mathlib-style property library, the checker, and the renderer. Every report calls that a success, and this review agrees.
+
+\section{Questions for the fourth iteration}\label{sec:q4}
+\begin{enumerate}[label=\textbf{T\arabic*.},itemsep=.5em]
+\item \textbf{What does the evidence index cost on a real file?} Nothing has been measured. Instrument the binder on the compiled Frey package and report proof-term growth, elaboration time, and index size per declaration.
+\item \textbf{Which registry rules fire?} The reports name about forty candidate rules. On the twenty traced obligations, which are used, how often, and how many are single-lemma lookups that \code{exact?} would find?
+\item \textbf{Does \code{simp} break the anchor?} An evidence row is keyed to a term; \code{simp} rewrites terms. What is the policy when the anchored term no longer appears in the goal?
+\item \textbf{How is reification proved once for many checkers?} Five checkers share one denotation shape. Can a single reifier over a ring-expression grammar serve the affine, polynomial, and length checkers, and what does its correctness theorem quantify over?
+\item \textbf{What is the completeness theorem for each abstraction Leant uses?} \Mr{} proved one for affine lengths. Which other Length contracts admit one, and which are one-sided?
+\item \textbf{Where does almost-everywhere reasoning enter the row?} Four reports treat a.e.\ equality; none says how its consumers are registered. What is the transport theorem from an a.e.\ row to an integral consumer?
+\item \textbf{Does a lexical structure context shorten the generated FLT preambles?} Three reports propose it; none tested it. Take one solution file, replace its preamble by a context, and count what remains.
+\item \textbf{Can the closure theorem's rule generation be bounded?} \Tr's theorem assumes a finite grounded rule set. What generates it from a registry and a goal, and what bounds the instances?
+\item \textbf{What does a reader recover from the compact view?} The blind reading test has been proposed three rounds running. Run it on twenty compact statements from this round's examples before any syntax is built.
+\item \textbf{Is one implementation enough?} The reports recommend independent implementations of one interface. Two teams implementing the slice of Section~\ref{sec:slice} against the same suite would show whether the calculus underdetermines the engine.
+\end{enumerate}
+
+\section{Conclusion}
+The third round did what a design round can do. It took the round-2 boundary, at which a computation hands back a value and a proof, and specified the typing discipline on either side of it: an object whose proved properties accumulate without changing its identity, contracts on whole functions with the right variance and composition, structures chosen as data and properties inferred as proofs, and an elaborator that asks a method what it needs and searches for exactly that. Nine reports agree on every rule of that discipline and on every counterexample that bounds it. Their Lean encodings are the same file written seven times, and this review checked that the file compiles.
+
+What the round could not do is also clear. No one built the elaborator, no one measured anything, and the checker the round asks for is still three hundred lines of Lean away. The reports know this and say it; their unanimous answer to whether another nine designs would help is no. The evidence this review added, seven compiled cores, a kernel-checked Frey package, and a supply probe showing that every needed Mathlib name exists, removes the last excuse for not building. The recommendation is one package, one comparison, and a renderer, in that order.
+
+\clearpage
+\appendix
+\input{appendix.tex}
+
+\end{document}
