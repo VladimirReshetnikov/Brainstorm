@@ -1,0 +1,97 @@
+{
+  "registry_sha256": "84012af095f2494dc506f9c1f372340482a2a069592403005e846885e13d0ae9",
+  "kernel_checked": false,
+  "document_plan_complete": false,
+  "claims": [
+    {
+      "name": "composite",
+      "line": 5,
+      "source_goal": "injective (g_2 . f_1)",
+      "status": "plan_checked",
+      "kernel_checked": false,
+      "goal": "injective (g_2 . f_1)",
+      "support": [
+        "outer_6",
+        "retraction_5"
+      ],
+      "routes": [],
+      "metrics": {
+        "arena_terms": 5,
+        "instance_attempts": 211,
+        "ground_atoms": 60,
+        "ground_rules": 211,
+        "rule_tests": 633,
+        "closure_additions": 7,
+        "proof_nodes": 4
+      },
+      "detail": ""
+    },
+    {
+      "name": "transported",
+      "line": 7,
+      "source_goal": "injective (k_4 . f_1)",
+      "status": "plan_checked",
+      "kernel_checked": false,
+      "goal": "injective (k_4 . f_1)",
+      "support": [
+        "outer_6",
+        "renamed_7",
+        "retraction_5"
+      ],
+      "routes": [],
+      "metrics": {
+        "arena_terms": 6,
+        "instance_attempts": 338,
+        "ground_atoms": 84,
+        "ground_rules": 338,
+        "rule_tests": 1014,
+        "closure_additions": 10,
+        "proof_nodes": 6
+      },
+      "detail": ""
+    },
+    {
+      "name": "local_composite",
+      "line": 12,
+      "source_goal": "injective (j_8 . f_1)",
+      "status": "plan_checked",
+      "kernel_checked": false,
+      "goal": "injective (j_8 . f_1)",
+      "support": [
+        "local_9",
+        "retraction_5"
+      ],
+      "routes": [],
+      "metrics": {
+        "arena_terms": 8,
+        "instance_attempts": 723,
+        "ground_atoms": 144,
+        "ground_rules": 723,
+        "rule_tests": 2892,
+        "closure_additions": 14,
+        "proof_nodes": 6
+      },
+      "detail": ""
+    },
+    {
+      "name": "unsupported_strengthening",
+      "line": 16,
+      "source_goal": "involutive k_4",
+      "status": "unresolved",
+      "kernel_checked": false,
+      "goal": null,
+      "support": [],
+      "routes": [],
+      "metrics": {
+        "arena_terms": 6,
+        "instance_attempts": 0,
+        "ground_atoms": 1,
+        "ground_rules": 0,
+        "rule_tests": 0,
+        "closure_additions": 0,
+        "proof_nodes": 0
+      },
+      "detail": "not derived in this finite rule/term fragment; not a refutation"
+    }
+  ]
+}

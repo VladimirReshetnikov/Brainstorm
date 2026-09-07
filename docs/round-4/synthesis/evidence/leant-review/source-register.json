@@ -1,0 +1,256 @@
+{
+  "pinned_commit": "823259f7e3c6d24e990d3f48f78c4f1c4f88059e",
+  "snapshot_utc": "2026-09-06T23:08:12.205571+00:00",
+  "live_head_at_snapshot": "2d400ed8178119c922d644b509d504c097e944ba",
+  "live_status_at_snapshot": [
+    " M README.md",
+    " M docs/length-ranking.md",
+    " M docs/synth-internals.md"
+  ],
+  "scope": "Immutable git-show source only; live HEAD/status are metadata. No dirty source reads, builds, service execution, or external writes.",
+  "commands": [
+    "git show <pin>:<registered path>",
+    "git rev-parse <pin>:<registered path>",
+    "git rev-parse HEAD",
+    "git status --short",
+    "git ls-tree <pin> lib/Djex"
+  ],
+  "capture_script_sha256": "050ff11597cb00077495139f5b1baf65dbeea5ecc85d35bf4649bed7d2016a10",
+  "files": [
+    {
+      "source_path": "src/Leant/Synth/Verification.hs",
+      "git_blob": "692f48459cbce06b9d010776af2aaae3a2b2070e",
+      "sha256": "4045c4cb2560704694d87bc7f20f378f0503ebda77daa492b068bd46e596bc88",
+      "bytes": 13084,
+      "lines": 312,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/Verification.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "full static reading",
+        "ranges": [
+          [
+            1,
+            312
+          ]
+        ]
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/Behavioral.hs",
+      "git_blob": "d7aa51b5919b3a4ab11bde0020fb73e7ead0f40b",
+      "sha256": "df5117bf817b765aa7bd8517e8f9f09b23b0d747d31a897f5d90c848f8b34da6",
+      "bytes": 3126,
+      "lines": 90,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/Behavioral.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "full static reading",
+        "ranges": [
+          [
+            1,
+            90
+          ]
+        ]
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/BehavioralSelection.hs",
+      "git_blob": "6887c30133f72d984d3a128e6c8cd37acb37aae3",
+      "sha256": "ba324fe2c5a9d3f397293f17b631b505c941d0dae501a6f1555f9e3877a2e1d3",
+      "bytes": 1781,
+      "lines": 49,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/BehavioralSelection.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "hash reverified only; not reread this pass"
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/Length/Contract.hs",
+      "git_blob": "a1f04001c6ccd6c5e018162fa4db7ff5b059972e",
+      "sha256": "7a3552a75a2fed8d5153d0c662b5bf858128113a356d3054acaf103e5d3fe40f",
+      "bytes": 4842,
+      "lines": 108,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/Length/Contract.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "full static reading",
+        "ranges": [
+          [
+            1,
+            108
+          ]
+        ]
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/Length/Adapter.hs",
+      "git_blob": "efa9c1835ec109f43b7d7cdf916eec7ab166656e",
+      "sha256": "7bb15f4a8a517f4f72c8ee8dc8732eb6396dd7dc51a8c6e832ba521b4b6e1fbe",
+      "bytes": 4664,
+      "lines": 110,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/Length/Adapter.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "full static reading",
+        "ranges": [
+          [
+            1,
+            110
+          ]
+        ]
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/Length/PostVerification.hs",
+      "git_blob": "5dc6d11222b190b9a980c007f906c7eeb610a4dc",
+      "sha256": "32cb15747bd971f53d218206f5e382e48380445bfa12c28d00ef6545147181f6",
+      "bytes": 1122,
+      "lines": 28,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/Length/PostVerification.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "hash reverified only; not reread this pass"
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/BehavioralSelection/Internal.hs",
+      "git_blob": "6c37a87700cb512983fee5c7656babff52f516c3",
+      "sha256": "b78745b197bb07a5cc3bc327f5d2b0c62a3c7ea4e84f8065ddec1020cfbbecd8",
+      "bytes": 12519,
+      "lines": 311,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/BehavioralSelection/Internal.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "hash reverified only; not reread this pass"
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/Length/PostVerification/Internal.hs",
+      "git_blob": "6aa022f5f4bc5fb0a09598426591a71bffa72a15",
+      "sha256": "49d62de181e9b1fc7871e9f358fd14f7bb5a0a4310f0b2bf95b345fc8c6e2b96",
+      "bytes": 6178,
+      "lines": 146,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/Length/PostVerification/Internal.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "hash reverified only; not reread this pass"
+      }
+    },
+    {
+      "source_path": "src/Leant/Synth/Length/Handoff.hs",
+      "git_blob": "883e6fd2147fe9aa100c1691fb7fdb12b0f9380d",
+      "sha256": "e2761943df03876ff4a42a0c1a722738729b49338ea8542bb2a57d0b2a06dced",
+      "bytes": 22894,
+      "lines": 510,
+      "retained_copy": "docs/round-3/synthesis/evidence/leant-review/source/Length/Handoff.hs",
+      "prior_copy_freshly_byte_reverified": true,
+      "read_scope_this_pass": {
+        "kind": "full static reading",
+        "ranges": [
+          [
+            1,
+            510
+          ]
+        ]
+      }
+    },
+    {
+      "source_path": "src/Main.hs",
+      "git_blob": "c8c2c37a54eb3e069bccddca478b96951c00c85a",
+      "sha256": "3d3bbec0e494ade1639b9118a878480b69a62d6cc96100149c2d473367741dce",
+      "bytes": 256986,
+      "lines": 5923,
+      "retained_excerpt": "main-excerpts.txt",
+      "excerpt_sha256": "804d6af2072fb2091c5fa5f59cc3883c8fd7a5a5834b74c144ff0f07520a8aeb",
+      "read_scope_this_pass": {
+        "ranges": [
+          [
+            4050,
+            4300
+          ],
+          [
+            4930,
+            4990
+          ],
+          [
+            5130,
+            5290
+          ]
+        ],
+        "kind": "selected ranges only"
+      },
+      "additional_read_ranges": [
+        [
+          760,
+          782
+        ],
+        [
+          2380,
+          2475
+        ]
+      ],
+      "additional_retained_excerpt": "main-helper-excerpts.txt",
+      "additional_excerpt_sha256": "ee804ca4f6f66dc26579f3b32a9fcba873a9169a28780607a40556211c134b65"
+    },
+    {
+      "source_path": "src/Leant/Synth/Fragment.hs",
+      "git_blob": "ab523ffd5e93a0ddc8c5d893a79e032562319aa1",
+      "sha256": "9c550fc6095dafacee2e025bcbc75940c404d649a42d5fd8f308df651b56ac30",
+      "bytes": 114967,
+      "lines": 2440,
+      "read_scope_this_pass": {
+        "kind": "selected ranges only",
+        "ranges": [
+          [
+            1555,
+            1590
+          ]
+        ]
+      },
+      "retained_excerpt": "fragment-excerpts.txt",
+      "excerpt_sha256": "4b5657753eaefd905c56fddffb23978d0e9e696289b15b9872f582a43127c0c6"
+    }
+  ],
+  "djex": {
+    "parent_pin": "823259f7e3c6d24e990d3f48f78c4f1c4f88059e",
+    "parent_gitlink": "160000 commit 22da13fd69ce54dd1e47db9faba28eb2869629d1\tlib/Djex",
+    "pinned_commit": "22da13fd69ce54dd1e47db9faba28eb2869629d1",
+    "source_path": "synthesis/internal/Language/Haskell/Synthesis/Internal/Semantic/Length.hs",
+    "git_blob": "37cfa599cb784ab23da5d57cfffc50bc211bf2e6",
+    "full_blob_sha256": "5e36939045339bf1921e852171db1a10750bcdba68588caa67e3ae7b3ab9cc66",
+    "full_blob_bytes": 100045,
+    "full_blob_lines": 2417,
+    "read_scope": "Only the two recorded source ranges were reviewed, not the complete implementation.",
+    "ranges": [
+      [
+        321,
+        390
+      ],
+      [
+        1341,
+        1480
+      ]
+    ],
+    "retained_excerpt": "docs/round-3/synthesis/evidence/leant-review/djex-length-excerpts.txt",
+    "excerpt_sha256": "5493585a195c2d34ca36240d7119d6d7b7cb290ef2610a45421f311b8eb0841c",
+    "url": "https://github.com/VladimirReshetnikov/Djex/blob/22da13fd69ce54dd1e47db9faba28eb2869629d1/synthesis/internal/Language/Haskell/Synthesis/Internal/Semantic/Length.hs",
+    "parent_gitlink_freshly_reverified": "160000 commit 22da13fd69ce54dd1e47db9faba28eb2869629d1\tlib/Djex",
+    "full_blob_freshly_reverified": true,
+    "excerpt_freshly_hash_reverified": true,
+    "read_scope_this_pass": "Both retained ranges 321-390 and 1341-1480 reread in full; remainder not read."
+  },
+  "validation": {
+    "all_nine_prior_source_copies_match_pinned_git_show_bytes": true
+  },
+  "audit_commands": [
+    "python -B docs/round-4/synthesis/evidence/leant-review/capture.py",
+    "python -B docs/round-4/synthesis/evidence/leant-review/finalize-register.py"
+  ],
+  "scope_notes": [
+    "Five small Leant modules reread fully; four further previous source copies freshly byte-reverified only.",
+    "Main.hs read only in explicitly registered ranges; Fragment.hs read only in the candidate-verification helper range.",
+    "Djex inspected at the parent pin gitlink, not its live branch. Its full blob hash and preserved excerpt hash match prior evidence.",
+    "No claim is made about current HEAD implementation, dirty contents, backend protocol correctness, or fresh runtime behavior."
+  ]
+}

@@ -1,0 +1,429 @@
+{
+  "pin": "58ced1ce667b3ba1ed162a0c6280959536c8bc5f",
+  "scope": "bounded Python and artifact checks, no Lean execution",
+  "command": [
+    "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\audit.py"
+  ],
+  "python_version": "3.14.4",
+  "harness_sha256": "f1ca353036be95699d06de1770206f0962b5478d7e5ea8df54a77143be72c9b4",
+  "seed": 2026090604,
+  "comparisons": [
+    {
+      "source": "docs/round-4/ideas/Fennel/evidence/stress_results.json",
+      "fresh": "runs/fennel/evidence/stress_results.json",
+      "source_sha256": "0463fb1045da1100dd54ab1b9dd825021b896d536e2ae62dbf3fad395c2d4346",
+      "fresh_sha256": "fbdf7f8dcfd6e33227b4d304cf80612037bbb38f73e96a15fdfbdf749e8638fd",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/evidence/test_results.json",
+      "fresh": "runs/fennel/evidence/test_results.json",
+      "source_sha256": "f1ca733b22ca2461777f3f787e696388b65737ed657757203cfd882f0bc4cf75",
+      "fresh_sha256": "34829fd7717af2061fb27cf201e423b9428e521dd13dd940f601fdd889601d6d",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.json",
+      "fresh": "runs/fennel/prototype/generated/query_0_route_0.json",
+      "source_sha256": "3606607e891cd4535fde9c5e356d01723f1a48218db16a3b3894068f339a7b1f",
+      "fresh_sha256": "e67a41f5d516b66ac71cd069d24088a673ca670225d39317766e845ea0c76121",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_0_route_0.lean",
+      "fresh": "runs/fennel/prototype/generated/query_0_route_0.lean",
+      "source_sha256": "f5ea0247df9b0f483966f6a6b302a930a2045aeec2ef43353d13fb7f29e7460e",
+      "fresh_sha256": "e43462026b8ec51e2bcbfc8ad682a29bf3f807ba1c75c27a30efd302518321e2",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.json",
+      "fresh": "runs/fennel/prototype/generated/query_1_route_0.json",
+      "source_sha256": "8ae84460e37e0bf82d6dddb6d0452f47dbe066b0e7d91a4e33010983cbd5a4b3",
+      "fresh_sha256": "cb36b3bd9ac942df833a31b956fa91c8c20093e69ef8647821953f91c326512a",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_0.lean",
+      "fresh": "runs/fennel/prototype/generated/query_1_route_0.lean",
+      "source_sha256": "0902a4fc63b06d78d381b06e61a71b6b04f31cf5ef877aa4d23014e58891c64c",
+      "fresh_sha256": "00a769d6d1077ba444762d595f65f67ad5f6c4b0096a948fc19fae2d8cc10274",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.json",
+      "fresh": "runs/fennel/prototype/generated/query_1_route_1.json",
+      "source_sha256": "1fe3b85c1ba6d9876e7123245db2f204e4ab92344335ad7c6d41811542ecd488",
+      "fresh_sha256": "dd3a4e0007df03c54e570b8203c6c7a9d17cffca9350bd1e0a6a0825be48d909",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_1_route_1.lean",
+      "fresh": "runs/fennel/prototype/generated/query_1_route_1.lean",
+      "source_sha256": "9f6608bac2c6bf8753b4ebf88201fe6b89601054d93199d202d368f47aa98638",
+      "fresh_sha256": "2e6f61abf859f329b3488e69e0b4e3a9f09383c1b27bc6a0451c41e5c50697a3",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.json",
+      "fresh": "runs/fennel/prototype/generated/query_2_route_0.json",
+      "source_sha256": "2a10a7d08ba90800ba5735c1e8d3c9e70ee4056f3e04d84f67c70b1a35e11597",
+      "fresh_sha256": "120f3aeb53b238f260d55a868bb68043387a8bcbb6a5c616beb7347c26f6e254",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/query_2_route_0.lean",
+      "fresh": "runs/fennel/prototype/generated/query_2_route_0.lean",
+      "source_sha256": "056858036d06336307de05174a2010388c1458b347798569f40b3f0b9bbaa795",
+      "fresh_sha256": "e9b6e1cfa9e0dfe46418a0e3467197c7236e3f033ed021932c48e28adf2895f7",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Fennel/prototype/generated/summary.json",
+      "fresh": "runs/fennel/prototype/generated/summary.json",
+      "source_sha256": "975a5cb267f899a0648b718a3f83474bb7e3237ae65f9a6e5303f5882eaeb5ea",
+      "fresh_sha256": "d5c656c26334ba8285df7ebbd765ef6e387215ad45e771b367e20e427188084c",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.json",
+      "fresh": "runs/heather/companion/generated/diagonal_balance.json",
+      "source_sha256": "12d50f1f43a54211c78b4aeaddd5416071ed3144b20ba3d86265ad2d1feb27b1",
+      "fresh_sha256": "11d30fa96ffb69360031b089e59209438f1335b2bf92315308aa4fd1df5c08c0",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/diagonal_balance.lean",
+      "fresh": "runs/heather/companion/generated/diagonal_balance.lean",
+      "source_sha256": "223e89674a133e62c8d003a0229df10065960c42fc9872b7545915dcc452c007",
+      "fresh_sha256": "38823095f2510e9fc9486f7298b6da815b0d2520d850d2db259d7f26309a6b84",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/drop_all.json",
+      "fresh": "runs/heather/companion/generated/drop_all.json",
+      "source_sha256": "7517d014e35b192b8463419de88eb09a563cbf40801b306e5c1d436452a03156",
+      "fresh_sha256": "127f241301f03d2d2f66a3cfd5f1e03188402d4cd1254bfb65dd50eb93e43d49",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/empty_preserves.json",
+      "fresh": "runs/heather/companion/generated/empty_preserves.json",
+      "source_sha256": "efb1ae5433fbeaefde0062704ccd766af73aacd575f399db32f2b57e9207fe34",
+      "fresh_sha256": "1c0dd832d7dbe0f0b100904443640babe1aa1b115abac93016f88c42b3f832c1",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/empty_preserves.lean",
+      "fresh": "runs/heather/companion/generated/empty_preserves.lean",
+      "source_sha256": "a320b4ca9590139af7e23289f578f9b5501c53705c7b8cdf12e50dd7a64db300",
+      "fresh_sha256": "b09559daa9a48b2691294fdb067f9faf914f5f80a692effbb8fdf7eef6a9674e",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.json",
+      "fresh": "runs/heather/companion/generated/even_reverse_length.json",
+      "source_sha256": "ec6f252000c75defd8083a690f39b580f86ccc7af5afd64826342630ab077e81",
+      "fresh_sha256": "218c3b73b79ebd84d4ab5f8302ce1333b3eaf6b702b112dee314ec9c8910af3c",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/even_reverse_length.lean",
+      "fresh": "runs/heather/companion/generated/even_reverse_length.lean",
+      "source_sha256": "7e8f1d8c0d2e668e82f6d53d2a950d20d9d0710613320382b9ddc2dca24eb48e",
+      "fresh_sha256": "0074d3e2951c0a6f392d4590093d7d2ce7ae36aab73d92aab548488126cbd061",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.json",
+      "fresh": "runs/heather/companion/generated/reverse_append_length.json",
+      "source_sha256": "586a322a83344512cbcb0e2d8e90a9671b63488efdabb6291265e693d1d25da4",
+      "fresh_sha256": "4c1a2a62fb4803330c3842759b1dc841417627c96f6183a9dab942aa2a12cf39",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/reverse_append_length.lean",
+      "fresh": "runs/heather/companion/generated/reverse_append_length.lean",
+      "source_sha256": "95110bc520c594108096aee58792e4ee2eeac0a387cf1920a9652ed9ac7e0eb6",
+      "fresh_sha256": "e484e2330dd4f49209e24412e38772a26d85a0c0ebbd3fd15990213e0539d2b8",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/use_site.json",
+      "fresh": "runs/heather/companion/generated/use_site.json",
+      "source_sha256": "0c0a099cd8a4b3c04e096e450dd197d34d35bf13340ca994ef51f70150f083e5",
+      "fresh_sha256": "709014ef4d9aacd57b8ff58c1549f8cef0fd9ae7c011564e4ed3e48c677b9d5a",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/generated/UseSite.lean",
+      "fresh": "runs/heather/companion/generated/UseSite.lean",
+      "source_sha256": "a90fb67d5a8d57103f83800616b08651398f42baebafb395c9f4d432fb33cffd",
+      "fresh_sha256": "58ed372b63cece9591698bcb7ec7ad39c79537a81b58ff16a79bd029d81e29d4",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Heather/companion/test_results.json",
+      "fresh": "runs/heather/companion/test_results.json",
+      "source_sha256": "269a76d7a7adc5904fef4131cd68d123f9ea0c49a561fbd5503dae266c0f7666",
+      "fresh_sha256": "04ae637b7a36ac6ad91cc0495470f5b5c2a89cdce15f0acfcb966bee0114e59a",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/example-result.json",
+      "fresh": "runs/juniper/companion/example-result.json",
+      "source_sha256": "02b51714da1af57e2dd0b81be21bac0624d1c9946283b6f82fe2306926017b65",
+      "fresh_sha256": "d40bad957f829ef24881054bf6cc5223f87671866a9a314df0ddaabc67de1b0c",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/Generated.lean",
+      "fresh": "runs/juniper/companion/Generated.lean",
+      "source_sha256": "5df816e0d6a70fb2e27ab74b58a2b81354a15cba3e7195890637aa5d5e070f0b",
+      "fresh_sha256": "c2fa1451f02a79216067668318d2dfe3951f0f2f76455e7efe02068e389e4add",
+      "byte_identical": false,
+      "comparison_mode": "UTF-8 text with CRLF normalized to LF only",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/inverse-results.json",
+      "fresh": "runs/juniper/companion/inverse-results.json",
+      "source_sha256": "7da6a5ade9ebb28c8b5a30423ff3cd8a9907047463946376d026389c76ed984c",
+      "fresh_sha256": "af0b8bce978350cd57c8da1422fc2f0a2ed4b91234263eb7327278fe97461083",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    },
+    {
+      "source": "docs/round-4/ideas/Juniper/companion/test-results.json",
+      "fresh": "runs/juniper/companion/test-results.json",
+      "source_sha256": "64520a9fd3ab4036c8078c732cf57857dc21554ffc3982382e3a6da23692ed68",
+      "fresh_sha256": "1c3ae6dd14b07a3dc182fff96ef82a55fa0e5e40635d72ea1646c31276659000",
+      "byte_identical": false,
+      "comparison_mode": "JSON excluding explicitly listed runtime metadata",
+      "equivalent": true
+    }
+  ],
+  "probes": {
+    "cross_implementation": {
+      "profiles": 128,
+      "atom_frontiers_compared": 768,
+      "selected_Fennel_routes_checked": 89,
+      "Juniper_results_checked": 128,
+      "domain": "6 atoms; 0-2 known; 0-3 distinct offered atoms disjoint from known; 0-10 rules; 0-3 ordered premises, repetitions/cycles allowed",
+      "limits": "100000 attempts and 10000 Fennel nodes; all completed; only one named Fennel pending root per offered atom"
+    },
+    "named_root_boundary": {
+      "Fennel_supports": [
+        [
+          "first"
+        ],
+        [
+          "second"
+        ]
+      ],
+      "Juniper_duplicate_offer_refusal": "invalid or repeated offer atom"
+    },
+    "coverage_boundary": {
+      "omitted_complete_route": "complete frontier is not rule-closed",
+      "same_sound_subset_when_declared_incomplete": "accepted",
+      "forged_truncation_complete": "complete frontier is not rule-closed",
+      "Fennel_limit": "Per-route checker has no complete-family input or coverage theorem; no whole-frontier completeness acceptance API to forge."
+    },
+    "admissible_domains": {
+      "diagonal_status": "model_proved",
+      "free_status": "counterexample",
+      "free_counterexample_lengths": [
+        1,
+        0
+      ],
+      "cross_domain_receipt_rejected": true,
+      "even_negative_lengths": [
+        2
+      ],
+      "odd_length_negative_rejected": true,
+      "empty_singleton_refused": "cannot construct an element of Empty"
+    },
+    "same_affine_hull": {
+      "free_even_expression_pairs": 49,
+      "equality_acceptance_matches": true,
+      "limit": "Finite implementation check; same rational affine hull is the paper argument, not a theorem proved by these samples."
+    },
+    "fennel_stale_output": {
+      "stages": [
+        {
+          "stage": 0,
+          "stdout": "[\r\n  {\r\n    \"query\": \"target\",\r\n    \"status\": \"proved-in-fragment\",\r\n    \"closure_complete\": true,\r\n    \"supports\": [\r\n      []\r\n    ],\r\n    \"attempts\": 2,\r\n    \"stored_nodes\": 2,\r\n    \"rounds\": 2\r\n  }\r\n]",
+          "lean_hashes": {
+            "query_0_route_0.lean": "ca3ade4cf3a87917566d9cd8b1584de0462623159e50767d757b27d23b9a500f"
+          }
+        },
+        {
+          "stage": 1,
+          "stdout": "[\r\n  {\r\n    \"query\": \"target\",\r\n    \"status\": \"no-route-found\",\r\n    \"closure_complete\": true,\r\n    \"supports\": [],\r\n    \"attempts\": 0,\r\n    \"stored_nodes\": 1,\r\n    \"rounds\": 1\r\n  }\r\n]",
+          "lean_hashes": {
+            "query_0_route_0.lean": "ca3ade4cf3a87917566d9cd8b1584de0462623159e50767d757b27d23b9a500f"
+          }
+        }
+      ],
+      "interpretation": "Old positive Lean source remains beside fresh negative/no-route metadata; no source proof is accepted by this probe. Publication must use a fresh output directory or a checked request-bound manifest."
+    },
+    "heather_stale_output": {
+      "stages": [
+        {
+          "stage": 0,
+          "stdout": "{\"name\": \"same\", \"status\": \"model_proved\", \"lean_status\": \"not_compiled\"}",
+          "lean_hashes": {
+            "same.lean": "1e0b524937929f8a5a4c8d5bae6ad1eb9c3cc6aca9c61c163fdfa06e069897ae"
+          }
+        },
+        {
+          "stage": 1,
+          "stdout": "{\"name\": \"same\", \"status\": \"counterexample\", \"lean_status\": \"not_compiled\"}",
+          "lean_hashes": {
+            "same.lean": "1e0b524937929f8a5a4c8d5bae6ad1eb9c3cc6aca9c61c163fdfa06e069897ae"
+          }
+        }
+      ],
+      "interpretation": "Old positive Lean source remains beside fresh negative/no-route metadata; no source proof is accepted by this probe. Publication must use a fresh output directory or a checked request-bound manifest."
+    }
+  },
+  "subprocesses": [
+    {
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\fennel\\prototype\\fennel.py",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\stage0.source",
+        "--out",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\output"
+      ],
+      "cwd": "adversarial/fennel-reuse",
+      "exit_code": 0,
+      "timeout_seconds": 30
+    },
+    {
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\fennel\\prototype\\fennel.py",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\stage1.source",
+        "--out",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\fennel-reuse\\output"
+      ],
+      "cwd": "adversarial/fennel-reuse",
+      "exit_code": 0,
+      "timeout_seconds": 30
+    },
+    {
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\heather\\companion\\heather.py",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\stage0.source",
+        "--output",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\output"
+      ],
+      "cwd": "adversarial/heather-reuse",
+      "exit_code": 0,
+      "timeout_seconds": 30
+    },
+    {
+      "command": [
+        "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\runs\\heather\\companion\\heather.py",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\stage1.source",
+        "--output",
+        "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\fennel-heather-juniper\\adversarial\\heather-reuse\\output"
+      ],
+      "cwd": "adversarial/heather-reuse",
+      "exit_code": 0,
+      "timeout_seconds": 30
+    }
+  ],
+  "ignored_JSON_runtime_keys": [
+    "elapsed_seconds",
+    "elapsed_seconds_single_run",
+    "platform",
+    "python",
+    "seconds_single_run"
+  ],
+  "source_file_count": 66,
+  "inputs_unchanged": true,
+  "bytecode_files": [],
+  "probe_artifacts": {
+    "adversarial/cross-profiles.json": "717f108e7c6c5b716e9ebddfb56405ba1e42139beee8281729a25507be56b644",
+    "adversarial/diagonal-certificate.json": "a5700122beed89e6fed06e1fdf67c079823935a59519610c6d2921ae7a2a0095",
+    "adversarial/diagonal.lean": "bb9c1b1fcaa95296900cb14d2fdf1de2a669e192b9a8a5daa45635194a6c390a",
+    "adversarial/even-certificate.json": "ab10f1e315dc015f9cb01f83e0c0ff7ba4b9e945a9e98fd84a3b11520dca5378",
+    "adversarial/fennel-reuse/output/query_0_route_0.json": "5689fea0e35a73002a604f3e7e8afb456a9dc5b9c9ab50e1652c5ad5a9ce6415",
+    "adversarial/fennel-reuse/output/query_0_route_0.lean": "ca3ade4cf3a87917566d9cd8b1584de0462623159e50767d757b27d23b9a500f",
+    "adversarial/fennel-reuse/output/summary.json": "a377b355745051faf3ca1873f30a82b8aaba2c80412309b346e48176d398f60b",
+    "adversarial/fennel-reuse/stage0.source": "b33472b61b304224a18d0fa12dc62de4b35cf082eaf58063cd9dc3e016cc65a9",
+    "adversarial/fennel-reuse/stage0.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adversarial/fennel-reuse/stage0.stdout.txt": "5712a284955f5a9d7dc467d59d58e8934062edd41b7b052ce742c965fb474ab1",
+    "adversarial/fennel-reuse/stage1.source": "d5e5ec33aeb4bafd545b87b0a0e6aa1fa221df4925e1e8d58b98b8d3fd671ebc",
+    "adversarial/fennel-reuse/stage1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adversarial/fennel-reuse/stage1.stdout.txt": "a377b355745051faf3ca1873f30a82b8aaba2c80412309b346e48176d398f60b",
+    "adversarial/free-certificate.json": "6a8fa23266c6bea51900a2c38c51837267e6d0912b3f4e0a869c6e53c7928e80",
+    "adversarial/heather-reuse/output/same.json": "ba661f34fff7cf0dce3d4d69e5602fd774199de11ec8ea473dbe5ae1fa0632d8",
+    "adversarial/heather-reuse/output/same.lean": "1e0b524937929f8a5a4c8d5bae6ad1eb9c3cc6aca9c61c163fdfa06e069897ae",
+    "adversarial/heather-reuse/stage0.source": "d73dc3c2b326811332798283adb1e6823a63beb751681e06d766aaa4741c4016",
+    "adversarial/heather-reuse/stage0.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adversarial/heather-reuse/stage0.stdout.txt": "35254b73750c66f08b9bfbca5bcd028d3d768421749b3a944530f1dd38cdfe3d",
+    "adversarial/heather-reuse/stage1.source": "b57a49bca52b1702f82c47c4f97d667afc45741edcf49434aa17b926fe32d53f",
+    "adversarial/heather-reuse/stage1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adversarial/heather-reuse/stage1.stdout.txt": "2f8f764767f8fc20c6827a7234c7f15e15121c500024b954350baca39368d29a"
+  }
+}

@@ -1,0 +1,475 @@
+4050:       Just n -> do
+4051:         let code = "set_option autoImplicit true in " ++ keyword ++ "def "
+4052:               ++ itName n ++ " : (" ++ goal ++ ") := (" ++ term ++ ")"
+4053:         result <- runCurrentCmd st code
+4054:         case result of
+4055:           Right v | not (hasErrors v), Nothing <- respFatal v -> do
+4056:             modifyIORef' st (\s -> s { rsItCounter = n })
+4057:             advanceEnv st (respEnv v) code
+4058:             pure (Just n)
+4059:           _ -> pure Nothing
+4060: 
+4061: -- | Verify candidate groups against the backend, best first, lazily:
+4062: -- stop once enough verified candidates are collected (design rule: only
+4063: -- backend-verified candidates are ever shown).  Within a group, textual
+4064: -- variants of one engine candidate are tried in order and the first that
+4065: -- elaborates represents the group.  Failure classification is deliberately
+4066: -- ordered: transport, fatal response, error diagnostic, then a `sorry`.
+4067: synthVerify
+4068:   :: Int
+4069:   -> St
+4070:   -> String
+4071:   -> [[DetailedVerificationVariant]]
+4072:   -> IO
+4073:       ( VerificationBatch DetailedVerificationVariant
+4074:       , [DetailedVerificationVariant]
+4075:       )
+4076: synthVerify successQuota st goal groups = do
+4077:   reverseAttempts <- newIORef []
+4078:   -- The caller has already bounded this lane's groups. Overlapping renderer
+4079:   -- cohorts may contain the same spelling, but only its first actual
+4080:   -- acceptance spends a success slot. Keep that representative's own origin;
+4081:   -- a later typed duplicate cannot donate authority to it.
+4082:   verification <- verifyDistinctCandidateGroupsBy detailedVerificationVariantText successQuota
+4083:     (verifyVariant reverseAttempts) groups
+4084:   attempts <- reverse <$> readIORef reverseAttempts
+4085:   pure (verification, attempts)
+4086:  where
+4087:   verifyVariant reverseAttempts variant = do
+4088:     -- Trace at the exact callback boundary: failed variants before an
+4089:     -- acceptance are present, while the accepted group's remaining variants
+4090:     -- and every group beyond the success quota are absent.
+4091:     modifyIORef' reverseAttempts (variant :)
+4092:     let term = detailedVerificationVariantText variant
+4093:     result <- runCurrentCmd st (candidateVerificationProgram goal term)
+4094:     pure $ case result of
+4095:       Left _ -> VariantRejected BackendRequestFailure
+4096:       Right response
+4097:         | isJust (respFatal response) ->
+4098:             VariantRejected BackendFatalResponse
+4099:         | hasErrors response -> VariantRejected LeanErrorDiagnostic
+4100:         | not (null (respSorries response)) ->
+4101:             VariantRejected LeanContainsSorry
+4102:         | otherwise -> VariantAccepted
+4103: 
+4104: -- A rejected assertion does not consume the type-correct group's result slot:
+4105: -- try its remaining renderings before advancing to the next admitted group.
+4106: -- The returned receipt always belongs to the exact twice-checked variant.
+4107: synthVerifyBehavioral
+4108:   :: BehavioralRun
+4109:   -> Int
+4110:   -> St
+4111:   -> String
+4112:   -> [[DetailedVerificationVariant]]
+4113:   -> IO (VerificationBatch DetailedVerificationVariant, [DetailedVerificationVariant])
+4114: synthVerifyBehavioral active successQuota st goal groups = do
+4115:   reverseAttempts <- newIORef []
+4116:   previous <- readIORef $ behavioralRunObservations active
+4117:   let acceptedSpellings = Set.fromList
+4118:         [text | (text, BehavioralSatisfied) <- previous]
+4119:       freshGroups = filter (not . null) $ map
+4120:         (filter ((`Set.notMember` acceptedSpellings) . detailedVerificationVariantText)) groups
+4121:   (verification, assessments) <- verifyBehavioralCandidateGroupsBy
+4122:     detailedVerificationVariantText successQuota
+4123:     (verifyVariant reverseAttempts) assessVariant freshGroups
+4124:   modifyIORef' (behavioralRunObservations active)
+4125:     (++ [(detailedVerificationVariantText candidate, verdict)
+4126:          | (candidate, verdict) <- assessments])
+4127:   attempts <- reverse <$> readIORef reverseAttempts
+4128:   pure (verification, attempts)
+4129:  where
+4130:   verifyVariant reverseAttempts variant = do
+4131:     modifyIORef' reverseAttempts (variant :)
+4132:     result <- runBehavioralCommand st active False
+4133:       (candidateVerificationProgram (goal ++ "\n")
+4134:         (detailedVerificationVariantText variant ++ "\n"))
+4135:     pure $ case result of
+4136:       Left _ -> VariantRejected BackendRequestFailure
+4137:       Right response
+4138:         | isJust (respFatal response) -> VariantRejected BackendFatalResponse
+4139:         | hasErrors response -> VariantRejected LeanErrorDiagnostic
+4140:         | not (null $ respSorries response) -> VariantRejected LeanContainsSorry
+4141:         | isNothing (respEnv response) -> VariantRejected BackendFatalResponse
+4142:         | otherwise -> VariantAccepted
+4143: 
+4144:   assessVariant variant = decideBehavioralBy $ \negatePredicate -> do
+4145:     let query = (behavioralRunQuery active) { behavioralType = goal }
+4146:     result <- runBehavioralCommand st active False
+4147:       (behavioralDecisionProgram negatePredicate query
+4148:         $ detailedVerificationVariantText variant)
+4149:     pure $ case result of
+4150:       Left failure -> Left failure
+4151:       Right response -> Right $ case behavioralCheckedResponse response of
+4152:         Right () -> True
+4153:         Left _ -> False
+4154: 
+4155: completionCandidates :: St -> String -> IO [String]
+4156: completionCandidates st prefix = do
+4157:   state <- readIORef st
+4158:   case lookup prefix (rsComplCache state) of
+4159:     Just cached -> pure cached
+4160:     Nothing -> do
+4161:       let sessionNames =
+4162:             [ n | n <- concatMap sessionDeclNames (rsHistory state)
+4163:             , prefix `isPrefixOf` n ]
+4164:       envOr <- ensureBrowseEnv' True st
+4165:       backendNames <- case envOr of
+4166:         Left _ -> pure []
+4167:         Right env -> do
+4168:           let program = unlines $
+4169:                 [ "open Lean in run_cmd do"
+4170:                 , "  let env \8592 getEnv"
+4171:                 , "  let pre := " ++ leanStringLit prefix
+4172:                 ] ++ generatedFilterLines ++
+4173:                 [ "  let hits := env.constants.fold (init := #[]) fun a n _ =>"
+4174:                 , "    if keep n && pre.isPrefixOf n.toString then a.push n else a"
+4175:                 , "  let sorted := hits.qsort (\183.toString < \183.toString)"
+4176:                 , "  logInfo (String.intercalate \"\\n\""
+4177:                 , "    (sorted.toList.take 200 |>.map toString))"
+4178:                 ]
+4179:           result <- try (runCmd st (Just env) program)
+4180:           case result of
+4181:             Right (Right v) -> pure
+4182:               [ n | (sev, d) <- respMessages v, sev == "info"
+4183:               , n <- lines d, not (null n) ]
+4184:             Right (Left _) -> pure []
+4185:             Left (_ :: SomeException) -> pure []
+4186:       let merged = nub (sessionNames ++ backendNames)
+4187:       modifyIORef' st (\s -> s
+4188:         { rsComplCache = (prefix, merged) : rsComplCache s })
+4189:       pure merged
+4190: 
+4191: cmdBrowse :: St -> Bool -> String -> IO ()
+4192: cmdBrowse st showAll rawArg
+4193:   | null arg = do
+4194:       history <- rsHistory <$> readIORef st
+4195:       let decls = concatMap sessionDeclNames history
+4196:       if null decls
+4197:         then emitLn st =<< cDim st "(no session declarations)"
+4198:         else mapM_ (emitLn st) decls
+4199:   | any isSpace arg || any null nameComponents = do
+4200:       message <- cRed st ("invalid namespace `" ++ arg ++ "`")
+4201:       emitLn st (message
+4202:         ++ " - :browse expects a dotted name such as Nat or List.Perm")
+4203:   | otherwise = do
+4204:       envOr <- ensureBrowseEnv st
+4205:       case envOr of
+4206:         Left err -> emitLn st =<< cRed st err
+4207:         Right env -> do
+4208:           result <- runCmd st (Just env)
+4209:             (browseProgram showAll nameComponents)
+4210:           case result of
+4211:             Left err -> emitLn st =<< cRed st err
+4212:             Right v -> void (printResponse st Nothing v)
+4213:       -- the browse environment predates session declarations; list those
+4214:       -- separately from the recorded history
+4215:       history <- rsHistory <$> readIORef st
+4216:       let matching =
+4217:             [ name
+4218:             | name <- concatMap sessionDeclNames history
+4219:             , (arg ++ ".") `isPrefixOf` name || arg == name
+4220:             ]
+4221:       unless (null matching) $ do
+4222:         emitLn st =<< cDim st "-- declared in this session:"
+4223:         mapM_ (emitLn st) matching
+4224:  where
+4225:   -- a leading '@' (pasted from :t @f output) is meaningless here; drop it
+4226:   arg = dropWhile (== '@') (trim rawArg)
+4227:   nameComponents = splitOn '.' arg
+4228: 
+4229: -- Names bound by a history entry, parsed textually (namespace blocks are not
+4230: -- tracked; names are reported as typed).
+4231: sessionDeclNames :: String -> [String]
+4232: sessionDeclNames entry =
+4233:   [ name
+4234:   | line <- lines entry
+4235:   , Just name <- [declName (words (stripAttrs line))]
+4236:   ]
+4237:  where
+4238:   stripAttrs l = case dropWhile isSpace l of
+4239:     '@' : '[' : rest -> drop 1 (dropWhile (/= ']') rest)
+4240:     other -> other
+4241: 
+4242:   modifiers =
+4243:     [ "private", "protected", "noncomputable", "partial", "unsafe"
+4244:     , "scoped", "local", "mutual" ]
+4245:   binders =
+4246:     [ "def", "theorem", "lemma", "abbrev", "inductive", "structure"
+4247:     , "class", "instance", "axiom", "opaque", "example" ]
+4248: 
+4249:   declName (w : rest)
+4250:     | w `elem` modifiers = declName rest
+4251:     | w `elem` binders, name : _ <- rest
+4252:     , isIdentStart name, w /= "example"
+4253:     , not ("\171it!" `isPrefixOf` name) = Just (takeWhile isIdentChar name)
+4254:   declName _ = Nothing
+4255: 
+4256:   isIdentStart s = case s of
+4257:     c : _ -> c `notElem` "({[:="
+4258:     [] -> False
+4259:   isIdentChar c = not (isSpace c) && c `notElem` "({[:="
+4260: 
+4261: snapshotArgumentPath :: ReplState -> FilePath -> FilePath
+4262: snapshotArgumentPath state =
+4263:   resolveSnapshotPath (bcWorkingDir (rsConfig state)) . withOlean
+4264: 
+4265: removeFileIfExists :: FilePath -> IO ()
+4266: removeFileIfExists path = catchIOError (removeFile path) $ \err ->
+4267:   unless (isDoesNotExistError err) (ioError err)
+4268: 
+4269: ioResult :: IO a -> IO (Either String a)
+4270: ioResult action = do
+4271:   result <- tryIOError action
+4272:   pure (either (Left . show) Right result)
+4273: 
+4274: -- Reserve a collision-resistant sibling name, but leave it absent for the
+4275: -- backend, whose pickle operation creates the artifact itself.
+4276: freshSiblingPath :: FilePath -> IO (Either String FilePath)
+4277: freshSiblingPath target = ioResult $ do
+4278:   (path, handle) <- openBinaryTempFile (takeDirectory target)
+4279:     (takeFileName target ++ ".tmp")
+4280:   hClose handle
+4281:   removeFile path
+4282:   pure path
+4283: 
+4284: copyManagedArtifact :: FilePath -> IO (Either String FilePath)
+4285: copyManagedArtifact source = do
+4286:   temporary <- getTemporaryDirectory
+4287:   reserved <- freshSiblingPath (temporary </> "leant-session.olean")
+4288:   case reserved of
+4289:     Left err -> pure (Left err)
+4290:     Right path -> do
+4291:       copied <- ioResult (copyFile source path)
+4292:       case copied of
+4293:         Left err -> do
+4294:           cleanupManagedArtifact path
+4295:           pure (Left err)
+4296:         Right () -> pure (Right path)
+4297: 
+4298: cleanupSnapshotBase :: SnapshotBase -> IO ()
+4299: cleanupSnapshotBase snapshot = forM_ paths cleanupManagedArtifact
+4300:  where
+
+4930:   "" -> Nothing
+4931:   t@(c : _)
+4932:     | c `elem` "\8704\8707" -> Just c
+4933:     | otherwise -> listToMaybe [op | op <- "\8594\8596\8744\8743", depth0 op t]
+4934:  where
+4935:   depth0 op s = length (splitDepth0 op s) > 1
+4936: 
+4937: suggestionHeartbeatLimit :: Int
+4938: suggestionHeartbeatLimit = 20000
+4939: 
+4940: respGoals :: JValue -> [String]
+4941: respGoals v = fromMaybe [] $ do
+4942:   gs <- jLookup "goals" v >>= jArray
+4943:   pure (mapMaybe jString gs)
+4944: 
+4945: respProofState :: JValue -> Maybe Integer
+4946: respProofState v = jLookup "proofState" v >>= jInt
+4947: 
+4948: formatGoals :: St -> [String] -> IO ()
+4949: formatGoals st goals
+4950:   | null goals = emitLn st =<< color st "32" "All goals accomplished \127881"
+4951:   | otherwise = do
+4952:       let n = length goals
+4953:       forM_ (zip [1 :: Int ..] goals) $ \(i, g) -> do
+4954:         when (n > 1) $
+4955:           emitLn st =<< cDim st ("\8212 goal " ++ show i ++ " of " ++ show n ++ " \8212")
+4956:         forM_ (lines (trimEnd' g)) $ \line ->
+4957:           if "case " `isPrefixOf` line
+4958:             then emitLn st =<< cCyan st line
+4959:             else if "\8866" `isPrefixOf` line
+4960:               then emitLn st =<< cBold st line
+4961:               else emitLn st line
+4962:  where
+4963:   trimEnd' = reverse . dropWhile isSpace . reverse
+4964: 
+4965: parseTryThis :: [(String, String)] -> Maybe String
+4966: parseTryThis messages = listToMaybe'
+4967:   [ intercalate "\n" cleaned
+4968:   | (sev, d) <- messages, sev == "info"
+4969:   , "Try this:" `isPrefixOf` dropWhile isSpace d
+4970:   , let cleaned = [ stripMarker (trim ln)
+4971:                   | ln <- drop 1 (lines d), not (null (trim ln)) ]
+4972:   , not (null cleaned)
+4973:   ]
+4974:  where
+4975:   listToMaybe' (x : _) = Just x
+4976:   listToMaybe' [] = Nothing
+4977:   stripMarker ln = case ln of
+4978:     '[' : rest -> case break (== ']') rest of
+4979:       (_, ']' : ' ' : suggestion) -> suggestion
+4980:       (_, ']' : suggestion) -> suggestion
+4981:       _ -> ln
+4982:     _ -> ln
+4983: 
+4984: proveScript :: ProveState -> [String]
+4985: proveScript pv = reverse [e | (_, _, Just e) <- pvStack pv]
+4986: 
+4987: -- Depth-aware scanning of pretty-printed goal text ---------------------------
+4988: 
+4989: bracketDepthStep :: Int -> Char -> Int
+4990: bracketDepthStep d c
+
+5130:       [tok] -> "\172" `isPrefixOf` tok
+5131:       _ -> False
+5132: 
+5133: annotateSuggestion :: String -> String -> String
+5134: annotateSuggestion note text = case lines text of
+5135:   [] -> text
+5136:   first : rest -> intercalate "\n" ((first ++ "  (" ++ note ++ ")") : rest)
+5137: 
+5138: emitSuggestion :: St -> String -> IO ()
+5139: emitSuggestion st suggestion = case lines suggestion of
+5140:   [] -> pure ()
+5141:   first : rest -> do
+5142:     emitLn st =<< cDim st ("suggestion: " ++ first)
+5143:     forM_ rest $ \line -> emitLn st =<< cDim st ("            " ++ line)
+5144: 
+5145: -- | Find and display a useful next tactic without changing the user's proof
+5146: -- stack. The backend proof-state protocol is persistent, so speculative
+5147: -- children do not affect the state to which the next user tactic is applied.
+5148: -- Candidates that merely make progress are remembered (up to three) while
+5149: -- the search keeps looking for one that closes the goal; if none does, a
+5150: -- second phase chains the quick finishers onto each remembered candidate
+5151: -- (`t <;> finisher`) so the suggestion can still be a complete verified
+5152: -- proof. The annotation on the shown suggestion says which kind it is.
+5153: suggestTactic :: St -> IO ()
+5154: suggestTactic st = do
+5155:   state <- readIORef st
+5156:   case rsProve state of
+5157:     Just pv | (ps, goals@(g : _), _) : _ <- pvStack pv ->
+5158:       case lookup ps (pvSuggestions pv) of
+5159:         Just cached -> forM_ cached (emitSuggestion st)
+5160:         Nothing ->
+5161:           probe ps (length goals) (chainExtras g) (goalCandidates g) []
+5162:     _ -> pure ()
+5163:  where
+5164:   -- Chain finishers beyond the quick certain ones: `simp_all` can use the
+5165:   -- case hypotheses an `induction` or `cases` step introduces, and when
+5166:   -- the target mentions definitions, `simp_all [f]` unfolds them -- the
+5167:   -- move that closes `induction l <;> simp_all [myLen]` proofs. Probed
+5168:   -- after `exact?` so an informative found term still wins over a
+5169:   -- sledgehammer when both close the goal.
+5170:   chainExtras g =
+5171:     "simp_all" : ["simp_all [" ++ d ++ "]" | d <- goalDefNames g]
+5172:   -- Run one heartbeat-bounded candidate against the immutable proof state.
+5173:   -- The bound keeps proactive help responsive even when a project has a very
+5174:   -- large premise database. A heartbeat exhaustion is an ordinary tactic
+5175:   -- error, unlike the REPL's wall-clock timeout, so it does not kill the
+5176:   -- backend or invalidate the user's proof state. Returns Nothing when the
+5177:   -- backend died (the emergency exit has already run), Just Nothing when
+5178:   -- Lean rejected the candidate.
+5179:   probeOnce :: Integer -> String -> IO (Maybe (Maybe JValue))
+5180:   probeOnce ps tactic = do
+5181:     let bounded = "set_option maxHeartbeats "
+5182:           ++ show suggestionHeartbeatLimit ++ " in " ++ tactic
+5183:     result <- runTactic st ps bounded
+5184:     case result of
+5185:       Left err -> Nothing <$ proveEmergencyExit st
+5186:         ("the backend failed while suggesting a tactic: " ++ err)
+5187:       Right v
+5188:         | Nothing <- respFatal v
+5189:         , null [() | (severity, _) <- respMessages v, severity == "error"]
+5190:         , Just _ <- respProofState v -> pure (Just (Just v))
+5191:         | otherwise -> pure (Just Nothing)
+5192: 
+5193:   probe ps nGoals extras [] helds = chainPhase ps nGoals extras helds
+5194:   probe ps nGoals extras ("intro" : rest) helds
+5195:     | any (("intro " `isPrefixOf`) . fst) helds =
+5196:         probe ps nGoals extras rest helds  -- the named intro variant held
+5197:   probe ps nGoals extras (tactic : rest) helds = do
+5198:     outcome <- probeOnce ps tactic
+5199:     case outcome of
+5200:       Nothing -> pure ()
+5201:       Just Nothing -> probe ps nGoals extras rest helds
+5202:       Just (Just v) -> do
+5203:         let text = fromMaybe tactic (parseTryThis (respMessages v))
+5204:             remaining = length (respGoals v)
+5205:             -- library-search tactics can "close" the probe state with
+5206:             -- metavariables and say so in a Remaining-subgoals comment;
+5207:             -- never present those as closing the goal
+5208:             partial = any (("-- Remaining subgoals:" `isPrefixOf`) . trim)
+5209:               (lines text)
+5210:         if remaining < nGoals && not partial
+5211:           then conclude ps (Just (annotateSuggestion "closes the goal" text))
+5212:           else probe ps nGoals extras rest $ if length helds >= 3 then helds
+5213:             else helds ++ [(text, if remaining > nGoals
+5214:                    then Just ("splits into "
+5215:                      ++ show (remaining - nGoals + 1) ++ " goals")
+5216:                    else Nothing)]
+5217: 
+5218:   -- No single candidate closed the goal: try to discharge each remembered
+5219:   -- candidate's residual subgoals in one more step. `<;>` (rather than `;`)
+5220:   -- makes the finisher run on every subgoal the candidate produces, so
+5221:   -- acceptance means the chain is a complete proof of the current goal.
+5222:   -- `exact?` is only chained onto the first candidate to bound the cost of
+5223:   -- the expensive library searches; the `simp_all` extras come after it so
+5224:   -- an informative found term beats a sledgehammer. A candidate whose text
+5225:   -- spans lines is never chained, since composing it would not yield a
+5226:   -- tactic the user could type back. If no chain closes either, the first
+5227:   -- remembered candidate is shown with its own annotation.
+5228:   chainPhase ps _ _ [] = conclude ps Nothing
+5229:   chainPhase ps nGoals extras helds@(first : _) =
+5230:     goHeld (zip (True : repeat False) helds)
+5231:    where
+5232:     fallback = conclude ps (Just (annotateHeld first))
+5233:     goHeld [] = fallback
+5234:     goHeld ((isFirst, (text, _)) : more)
+5235:       | '\n' `elem` text = goHeld more
+5236:       | otherwise = goChain text
+5237:           (suggestionFinishers ++ ["exact?" | isFirst] ++ extras) more
+5238:     goChain _ [] more = goHeld more
+5239:     goChain text (fin : rest) more = do
+5240:       outcome <- probeOnce ps (text ++ " <;> " ++ fin)
+5241:       case outcome of
+5242:         Nothing -> pure ()
+5243:         Just (Just v)
+5244:           | length (respGoals v) < nGoals
+5245:           , Just chained <- renderChain text fin v ->
+5246:               conclude ps (Just (annotateSuggestion "closes the goal" chained))
+5247:           -- a simp_all link that was accepted without closing may have
+5248:           -- rewritten the residual goals into omega's arithmetic reach
+5249:           -- (`induction n <;> simp_all [f] <;> omega`); one extension probe
+5250:           | "simp_all" `isPrefixOf` fin -> do
+5251:               let fin' = fin ++ " <;> omega"
+5252:               outcome' <- probeOnce ps (text ++ " <;> " ++ fin')
+5253:               case outcome' of
+5254:                 Nothing -> pure ()
+5255:                 Just (Just v') | length (respGoals v') < nGoals ->
+5256:                   conclude ps $ Just $ annotateSuggestion "closes the goal"
+5257:                     (text ++ " <;> " ++ fin')
+5258:                 Just _ -> goChain text rest more
+5259:         Just _ -> goChain text rest more
+5260:     -- The chained text must be something the user can type back verbatim.
+5261:     -- A literal finisher composes trivially; `exact?` has to splice in the
+5262:     -- term it found, which is only sound when the chain ran it against
+5263:     -- exactly one subgoal (one Try-this message) and the found tactic fits
+5264:     -- on one line (a Remaining-subgoals comment never does).
+5265:     renderChain text "exact?" v = case
+5266:       [ d | (sev, d) <- respMessages v, sev == "info"
+5267:           , "Try this:" `isPrefixOf` dropWhile isSpace d ] of
+5268:       [only] | Just found <- parseTryThis [("info", only)]
+5269:              , '\n' `notElem` found ->
+5270:         Just (text ++ " <;> " ++ found)
+5271:       _ -> Nothing
+5272:     renderChain text fin _ = Just (text ++ " <;> " ++ fin)
+5273: 
+5274:   annotateHeld (text, note) = maybe text (`annotateSuggestion` text) note
+5275: 
+5276:   conclude ps suggestion = do
+5277:     cache ps suggestion
+5278:     forM_ suggestion (emitSuggestion st)
+5279: 
+5280:   cache ps suggestion = modifyIORef' st $ \s -> s
+5281:     { rsProve = case rsProve s of
+5282:         Just pv
+5283:           | (currentPs, _, _) : _ <- pvStack pv
+5284:           , currentPs == ps -> Just pv
+5285:               { pvSuggestions = (ps, suggestion) : pvSuggestions pv }
+5286:         -- The proof state can only change here through an emergency exit, but
+5287:         -- preserve a newer state defensively rather than restoring old data.
+5288:         newer -> newer
+5289:     }
+5290: 

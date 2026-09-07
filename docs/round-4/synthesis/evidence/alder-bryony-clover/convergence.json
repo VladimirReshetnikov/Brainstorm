@@ -1,0 +1,805 @@
+{
+  "schema": 1,
+  "input_pin": "58ced1ce667b3ba1ed162a0c6280959536c8bc5f",
+  "nature": "Editorial source reading: neither novelty scoring nor independent empirical confirmation. Idea and implementation classifications are deliberately separate.",
+  "idea_values": [
+    "explicit",
+    "partial",
+    "absent"
+  ],
+  "implementation_values": [
+    "implemented_in_slice",
+    "partial_in_slice",
+    "proposed_only",
+    "not_implemented"
+  ],
+  "dimensions": {
+    "scoped_evidence": "Same-object evidence and exact scoped/contextual identity",
+    "obligation_telescope": "Unfinished work is conditional evidence with dependent order",
+    "support_antichain": "Alternative inclusion-minimal sufficient premise families",
+    "grounding": "Finite term arena and theorem-instance generation separate from closure",
+    "behavioral_composition": "Relational contracts preserve actual intermediate values",
+    "observation_adequacy": "Positive transfer, coverage, and realized negative evidence are separate",
+    "semantic_binding": "Source correspondence and actual theorem semantics at the final target",
+    "method_policy": "Required derivation policy is separate from theorem truth and search hints",
+    "conservative_kernel": "Richer authoring discipline first, ordinary Lean kernel conversion",
+    "matched_evaluation": "Matched library/service/renderer controls and stopping rules"
+  },
+  "reports": {
+    "Alder": {
+      "scoped_evidence": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 248,
+            "excerpt": "\\subsection{Proof residuals are not runtime effects}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 905,
+            "excerpt": "\\subsection{Evidence-index entry and identity}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 922,
+            "excerpt": "\\subsection{What happens when simplification rewrites an anchor}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/companion/alder_core.py",
+            "line": 66,
+            "excerpt": "def check_proof(proof: Proof, target: str, rules: Mapping[str, Rule],"
+          }
+        ],
+        "qualification": "Opaque atom and assumption identities with lexical restoration are implemented; actual Lean expressions, structures, and typed context migration are proposed."
+      },
+      "obligation_telescope": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 227,
+            "excerpt": "\\subsection{Three contexts, with one authoritative Lean context}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 274,
+            "excerpt": "\\subsection{Source-level refinement rules}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1003,
+            "excerpt": "Atom and rule declarations precede proof work. \\code{assume} introduces an explicit hypothesis; \\code{repair} sets the allowed missing-premise vocabulary; \\code{explain} computes alternatives without extending the known facts; \\code{show} requires the empty support. Lexical blocks restore the parent's facts and repair vocabulary when they end. They are scope tests, not an implementation of case elimination."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/companion/alder_core.py",
+            "line": 234,
+            "excerpt": "def compile_source(text: str) -> Compilation:"
+          }
+        ],
+        "qualification": "The report gives dependent telescope semantics; the parser implements only finite nondependent residual supports and conditional exports."
+      },
+      "support_antichain": {
+        "idea": "explicit",
+        "implementation": "implemented_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 384,
+            "excerpt": "\\subsection{The finite boundary}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 397,
+            "excerpt": "For a family $X\\subseteq\\mathcal P(M)$ define"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1049,
+            "excerpt": "All these tests passed. The rows have different units and should not be summed into a fictitious count of formal theorems. ``Exhaustive'' applies only to the explicitly enumerated three-atom unary-graph family, not to all Horn theories. The list and affine arithmetic checks are finite executions, not kernel proofs of Propositions~\\ref{prop:lengthmodel} or Theorem~\\ref{thm:frame}."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/companion/alder_core.py",
+            "line": 113,
+            "excerpt": "def infer(atoms: Iterable[str], rules: Iterable[Rule], known: Mapping[str, Proof],"
+          }
+        ],
+        "qualification": "Executed inclusion-minimal supports in a fixed grounded Horn system; no globally weakest conditions or cost-optimal proofs."
+      },
+      "grounding": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 474,
+            "excerpt": "\\subsection{Grounding is part of the specification}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 479,
+            "excerpt": "The initial registry admits first-order theorem templates whose data parameters can be assigned from this arena, whose universe instantiations are fixed by the request or an explicit finite set, and whose remaining premises are propositions. Matching the conclusion against demanded atoms often determines most assignments. All remaining assignments are enumerated from the appropriately typed portion of $\\mathcal T$. Every proposed instance is checked against the actual theorem type before it becomes a rule."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1153,
+            "excerpt": "B8 & Bounded rule generation? & Section~\\ref{sec:grounding} gives a finite arena, explicit theorem-shape restriction, and the $t^k$ grounding bound. The prototype starts from already-ground rules.\\\\"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/companion/alder_core.py",
+            "line": 52,
+            "excerpt": "def validate_registry(atoms: Iterable[str], rules: Iterable[Rule]) -> tuple[tuple[str, ...], tuple[Rule, ...]]:"
+          }
+        ],
+        "qualification": "Typed finite-arena generation is specified; executable inputs already declare ground opaque atoms and rules."
+      },
+      "behavioral_composition": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 314,
+            "excerpt": "\\subsection{A behavioral arrow has an ordinary dependent interpretation}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 341,
+            "excerpt": "For a refined-domain function the variance problem also includes a map between domains. A function on $\\{x\\mid P(x)\\}$ can restrict to $\\{x\\mid P'(x)\\}$ using $P'\\to P$. Extending it to a larger domain requires new data or additional structure. It is not behavioral weakening."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1140,
+            "excerpt": "A5 & First behavioral bridge? & The list-expression affine model with a realizable affine frame. Paper proofs and exact tests here; Lean normalization and source reification remain to be linked. Section~\\ref{sec:frames}.\\\\"
+          }
+        ],
+        "qualification": "Pure total-function laws and dependent composition are specified; the frontend has no behavioral Lean elaboration."
+      },
+      "observation_adequacy": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 724,
+            "excerpt": "\\subsection{The limitation of comparing raw affine coefficients}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 762,
+            "excerpt": "A failing test is already attached to an admissible $x_i$; specialization would contradict the claimed universal law. No surjectivity onto $\\Z^d$ is required."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 812,
+            "excerpt": "Similarly, equality is essential to the affine-span argument. Agreement of inequalities at a collection of points does not extend to arbitrary signed affine combinations. Bounds can instead use a convex-hull coverage theorem with nonnegative weights, or a separately proved monotonicity argument. \\Alder{} records the exact transport contract rather than treating every numeric observation as the same kind of evidence."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/companion/observations.py",
+            "line": 31,
+            "excerpt": "def frame_equal(left: Affine, right: Affine, probes: Sequence[Sequence[int]]) -> bool:"
+          }
+        ],
+        "qualification": "Integer affine frames into abelian groups are justified on paper; finite arithmetic/list-grammar checks are executed, without a Lean source bridge."
+      },
+      "semantic_binding": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 703,
+            "excerpt": "A checker theorem about an encoded polynomial is not enough without the bridge between that encoding and the original source expression. Atom identities, variable order, coefficient ring, and arity are checked before combining coefficient arrays. Matching display names or relying on a digest as a proof of equality is insufficient."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1012,
+            "excerpt": "\\subsection{Generated Lean and its explicit boundary}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1021,
+            "excerpt": "The real generator shares proof DAG nodes through local \\code{have} declarations and assigns internal identifiers rather than injecting source identifiers into Lean syntax. The files contain no \\code{sorry} placeholders and do not declare the registry's mathematical laws as axioms. The laws are theorem parameters. Thus the generated terms express the verified \\emph{propositional implication structure}; they do not establish that an arbitrary rule name denotes a true fact about integers, derivatives, or roots."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/companion/alder_core.py",
+            "line": 179,
+            "excerpt": "def lean_declaration(name: str, atoms: tuple[str, ...], rules: tuple[Rule, ...],"
+          }
+        ],
+        "qualification": "Independent Python proof replay and generic propositional Lean exports are implemented; rule meanings remain explicit theorem assumptions."
+      },
+      "method_policy": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 450,
+            "excerpt": "\\subsection{A concrete residual trace}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 470,
+            "excerpt": "A positive requirement such as ``this route must contain the designated local-differentiation step'' is different. One principled extension is to annotate derivations with a finite tree-automaton state, compute alternatives for pairs $(q,\\text{state})$, and accept only the permitted terminal states. This is a proposed extension, not implemented in \\Alder{}-0. It checks a defined derivational property, not a person's psychological reasoning process."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1139,
+            "excerpt": "A4 & Required methods? & Restrict helper context and allowed registry before inference. A finite derivation-policy automaton is a possible extension; not implemented. Section~\\ref{sec:inference}.\\\\"
+          }
+        ],
+        "qualification": "Policy must precede destructive support minimization; a finite derivation-policy automaton is proposed, not implemented."
+      },
+      "conservative_kernel": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 939,
+            "excerpt": "\\section{Should Lean's kernel type system change?}\\label{sec:kernel}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 960,
+            "excerpt": "Crucially, $\\AlderRef(A,P)$ must not be definitionally identified with $A$. With $P$ constantly false and $A$ inhabited, such an identification together with a property projection would manufacture a proof of false. Erasing the proof field from compiled runtime representation is not the same as identifying the types in the kernel."
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 984,
+            "excerpt": "\\subsection{Recommended decision}"
+          }
+        ],
+        "qualification": "Recommend Lean elaboration first; primitive refinements and definitional functoriality require separate measured/metatheoretic justification."
+      },
+      "matched_evaluation": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1060,
+            "excerpt": "\\subsection{The first production slice}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1065,
+            "excerpt": "\\subsection{Matched controls}"
+          },
+          {
+            "path": "docs/round-4/ideas/Alder/Alder.tex",
+            "line": 1105,
+            "excerpt": "\\subsection{A legitimate stopping outcome}"
+          }
+        ],
+        "qualification": "L0-L4 and renderer controls with stopping rules are specified; only finite Python model telemetry is measured."
+      }
+    },
+    "Bryony": {
+      "scoped_evidence": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 203,
+            "excerpt": "\\subsection{The authoritative context}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 718,
+            "excerpt": "\\subsection{Context embeddings instead of persistent local names}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 753,
+            "excerpt": "At this model boundary, replay compares the full source snapshot, not only a hash. A changed rule set, branch label, candidate identity, or policy label invalidates an old certificate. This tests exact-snapshot behavior; it is not an implementation of checked Lean context embeddings. The digest is retained for diagnostics and reproducibility, not as a substitute for a semantic proof."
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/prototype/bryony.py",
+            "line": 175,
+            "excerpt": "def replay(p: Program, cert: Mapping, max_nodes: int = 100000) -> FrozenSet[str]:"
+          }
+        ],
+        "qualification": "Certificate replay checks the full exact snapshot, including opaque context/candidate/policy labels; this is not Lean context embedding."
+      },
+      "obligation_telescope": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 212,
+            "excerpt": "A blocked check has a different judgment:"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 218,
+            "excerpt": "The prospective propositions in $S_i$ are well-typed in $\\Gamma$ but are not asserted. The conjunction is shorthand for an ordered sequence of proof parameters in the nondependent fragment. The actual dependent representation is a telescope. This judgment records conditional proof templates; it does not allow an unchecked term into the exported environment."
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 727,
+            "excerpt": "Sibling branches are separate contexts. A nonzero fact from one branch cannot discharge a demand in the other. To join branches, the resulting theorem uses case elimination. To export a fact depending on an introduced witness, retain the existential or dependent package that binds it. An unordered support set is only the nondependent projection of this structure."
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/prototype/bryony.py",
+            "line": 170,
+            "excerpt": "def certificate(p: Program, support: FrozenSet[str], proof: Proof) -> dict:"
+          }
+        ],
+        "qualification": "Dependent interpretation is specified, while executable requirements are finite sets of independent proposition names."
+      },
+      "support_antichain": {
+        "idea": "explicit",
+        "implementation": "implemented_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 253,
+            "excerpt": "\\subsection{The finite problem}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 269,
+            "excerpt": "\\subsection{An algebra of alternatives}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 309,
+            "excerpt": "\\begin{theorem}[Termination and relative completeness]\\label{thm:complete}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/prototype/bryony.py",
+            "line": 123,
+            "excerpt": "def solve(p: Program, max_insertions: Optional[int] = None) -> SearchResult:"
+          }
+        ],
+        "qualification": "Paper soundness/termination/relative completeness plus finite differential execution; first proof retained per equal support, no cost optimization."
+      },
+      "grounding": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 341,
+            "excerpt": "\\subsection{A finite generation protocol}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 346,
+            "excerpt": "For a truly finite protocol, the vocabulary is not allowed to generate new terms indefinitely. A schema that would repeatedly replace $x$ by $f(x)$ cannot grow $\\mathcal T$ inside a closure epoch. A construction may add an explicitly accepted new term and start a new epoch, with a new bound. The fixed-point theorem applies within each epoch. It says nothing about an unbounded succession of constructions."
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 355,
+            "excerpt": "\\subsection{Relative completeness, stated in two layers}"
+          }
+        ],
+        "qualification": "Separate generation and closure budgets/completeness are proposed; executable registry is already ground."
+      },
+      "behavioral_composition": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 173,
+            "excerpt": "\\subsection{Three forms of function interface}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 225,
+            "excerpt": "\\subsection{Behavioral consequence and composition}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 244,
+            "excerpt": "The codomain of $f$ matching the domain of $g$ is not the behavioral bridge. If a construction changes the witness, the next requirements are about the new witness. For dependent operations, replace the simple arrows by dependent functions and preserve the ordered bindings of the intermediate data and proofs."
+          }
+        ],
+        "qualification": "Guarded total functions, refined domains, dependent witness functions and actual-intermediate composition are distinguished in the semantics."
+      },
+      "observation_adequacy": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 571,
+            "excerpt": "\\subsection{Positive abstraction and negative realization}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 592,
+            "excerpt": "\\subsection{Lengths, empty types, and correlated observations}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 774,
+            "excerpt": "The adversarial tests include missing seeds in cycles, seeded cycles, zero-premise rules, dominated supports, duplicate premises, forged supports, altered goals, wrong rule arities, unlicensed leaves, changed snapshots, changed candidates, cyclic certificate objects, and resource limits. A tiny observation-consumer fixture permits a.e. integral congruence while leaving point evaluation unresolved; this tests registry behavior, not measure theory."
+          }
+        ],
+        "qualification": "Positive abstraction and realized refutation have separate theorems; only tiny opaque observation-consumer and arithmetic fixtures execute."
+      },
+      "semantic_binding": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 246,
+            "excerpt": "\\subsection{What a translation theorem must cover}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 621,
+            "excerpt": "\\subsection{What can be shared among checkers}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 748,
+            "excerpt": "This is an actual executed slice of the requirement algorithm, not a parser for the proposed mathematical surface. Its rule declarations are assumptions of a finite propositional model. The model does not verify the mathematical meaning of an atom such as \\code{NumeratorExact}, elaborate dependent Lean expressions, register Mathlib theorems, or invoke Leant. Its exported Lean statements quantify explicitly over proposition variables and rule assumptions. They contain proof terms, but were not compiled here because this preparation environment did not contain a Lean toolchain."
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/prototype/bryony.py",
+            "line": 227,
+            "excerpt": "def export_lean(p: Program, result: SearchResult) -> str:"
+          }
+        ],
+        "qualification": "Generic propositional Lean templates retain rule assumptions; actual arithmetic/analysis denotation binding is an unimplemented gate."
+      },
+      "method_policy": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 736,
+            "excerpt": "\\subsection{Truth, statement fidelity, and method fidelity}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 741,
+            "excerpt": "A required reason should therefore select an explicit rule profile or a small derivation interface, not merely require textual occurrence of a theorem constant. A search hint is different: it guides search but does not constrain the accepted argument. The document should make the mode clear. Whole-proof inspection can supplement this policy, but no system should claim to recover a mathematician's intention from arbitrary proof-term syntax alone."
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 755,
+            "excerpt": "The reference engine stores immutable proof trees and retains only the first proof for an equal support. It can therefore lose a cheaper or method-preferred proof having the same premises. A production system should either filter its method policy before closure, as assumed here, or maintain a separate policy/cost-indexed family. Support inclusion alone is not a valid dominance criterion across different policy guarantees."
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/prototype/bryony.py",
+            "line": 55,
+            "excerpt": "def snapshot(self) -> dict:"
+          }
+        ],
+        "qualification": "Changed policy labels invalidate certificates; a label does not filter rules. Production must prefilter or index supports by policy."
+      },
+      "conservative_kernel": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 649,
+            "excerpt": "\\section{Extending Lean's type system}\\label{sec:kernel}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 668,
+            "excerpt": "\\subsection{A native refinement former, precisely stated}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 707,
+            "excerpt": "The first kernel experiment should therefore be conditional on a measured bottleneck in the best ordinary-Lean implementation. Record the cost attributable to subtype wrappers, transport terms, repeated checking, and evidence storage. Attempt the smallest primitive that addresses that cost, then compare its translated and native versions under the same semantics. A speculative native feature should not delay a property-aware binder that can already be implemented by metaprogramming."
+          }
+        ],
+        "qualification": "Proof-explicit native refinements are a separate optimization experiment; entailment stays outside conversion."
+      },
+      "matched_evaluation": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 796,
+            "excerpt": "\\subsection{Keep the controls equally equipped}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 812,
+            "excerpt": "\\subsection{Measure authoring and implementation costs separately}"
+          },
+          {
+            "path": "docs/round-4/ideas/Bryony/Bryony.tex",
+            "line": 817,
+            "excerpt": "There are no real-file measurements of those quantities in this article. The Python insertions and test timings are not substitutes. After a pilot estimates variability, predeclare thresholds for the main comparison. A negative outcome is useful: retain the libraries or renderer and remove an interface whose gains disappear against the controls."
+          }
+        ],
+        "qualification": "Matched L0-L4/LR controls and stopping thresholds after pilot are proposed; no authoring or real-file index measurements."
+      }
+    },
+    "Clover": {
+      "scoped_evidence": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 548,
+            "excerpt": "\\subsection{Carrier types, property interfaces, and evidence}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1261,
+            "excerpt": "\\subsection{Snapshot-local indexing is the initial lifetime rule}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1278,
+            "excerpt": "This conservative rebuilding policy deliberately misses some reusable work."
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/clover_slice.py",
+            "line": 392,
+            "excerpt": "def elaborate(source: str, max_attempts: int = 50000) -> List[Claim]:"
+          }
+        ],
+        "qualification": "Parser creates fresh binder/assumption identities and lexical scopes; actual dependent Lean context and import changes are not implemented."
+      },
+      "obligation_telescope": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 699,
+            "excerpt": "\\section{Unfinished reasoning as a dependent obligation telescope}\\label{sec:obligations}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 733,
+            "excerpt": "\\subsection{Sequential composition is dependent substitution}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 828,
+            "excerpt": "The first implementation need not find the smallest frontier or the weakest"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/clover_slice.py",
+            "line": 328,
+            "excerpt": "if proof is None:"
+          }
+        ],
+        "qualification": "Dependent telescopes are specified; the executable returns unresolved immediate routes and excludes unresolved claims from known facts."
+      },
+      "support_antichain": {
+        "idea": "partial",
+        "implementation": "not_implemented",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 828,
+            "excerpt": "The first implementation need not find the smallest frontier or the weakest"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1164,
+            "excerpt": "every inserted atom has a valid proof. The selected proof, dependency support,"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1940,
+            "excerpt": "The actual generated identifiers include their unique local identities. The"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/clover_slice.py",
+            "line": 314,
+            "excerpt": "if r.conclusion not in facts and all(p in facts for p in r.premises):"
+          }
+        ],
+        "qualification": "Explicitly does not promise minimal frontiers: one proof per atom, actual support reported, up to eight immediate routes. This is a different scope from Alder/Bryony."
+      },
+      "grounding": {
+        "idea": "explicit",
+        "implementation": "implemented_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1080,
+            "excerpt": "\\subsection{The term arena}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1102,
+            "excerpt": "\\subsection{Goal-triggered grounding}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1202,
+            "excerpt": "The companion supplies a concrete warning. For one composition problem, the"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/clover_slice.py",
+            "line": 225,
+            "excerpt": "def ground(req: Request, max_attempts: int, metrics: Dict[str, int]) -> List[GroundRule]:"
+          }
+        ],
+        "qualification": "Goal-triggered grounding over written/subterm endomorphism syntax is executed; no fresh-term closure or general dependent Lean theorem matching."
+      },
+      "behavioral_composition": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 620,
+            "excerpt": "\\subsection{Pure behavioral contracts}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 645,
+            "excerpt": "Composition preserves the intermediate value. If"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1917,
+            "excerpt": "\\subsection{Seven semantic rules and a separate plan checker}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/CloverCore.lean",
+            "line": 26,
+            "excerpt": "theorem inj_comp {A : Type u} (f g : A -> A)"
+          }
+        ],
+        "qualification": "Full behavioral composition is proposed; the seven concrete endomorphism laws and generated proofs include injective composition."
+      },
+      "observation_adequacy": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1327,
+            "excerpt": "\\subsection{Soundness, completeness, and refutation are different contracts}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1366,
+            "excerpt": "\\begin{definition}[Realizable affine test basis]"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1473,
+            "excerpt": "\\subsection{How this attaches to real candidate semantics}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/affine_basis.py",
+            "line": 1,
+            "excerpt": "#!/usr/bin/env python3"
+          }
+        ],
+        "qualification": "Field-affine coverage and realizers give a paper equivalence; exact finite checks execute without a Leant candidate denotation bridge."
+      },
+      "semantic_binding": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1668,
+            "excerpt": "\\subsection{Checking and reification have different soundness obligations}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1917,
+            "excerpt": "\\subsection{Seven semantic rules and a separate plan checker}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 2025,
+            "excerpt": "\\subsection{Gate one: replace the symbolic boundary with Lean}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/clover_slice.py",
+            "line": 460,
+            "excerpt": "def export_claim(c: Claim) -> str:"
+          }
+        ],
+        "qualification": "Fixed registry has concrete Lean meanings; source parse/plan/export execute. Review probes expose declaration-name export hygiene gaps; generated-source compilation is separately owned by root."
+      },
+      "method_policy": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 514,
+            "excerpt": "A \\code{hint} may guide proof search without constraining the accepted route."
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1947,
+            "excerpt": "The 35 unit-test methods pass. They cover positive composition and transport,"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 2200,
+            "excerpt": "Witness choice and method fidelity & Classify holes by semantic role; permit new data only at construction nodes. Check an explicit derivation skeleton or declared rule policy rather than a decorative method name.\\\\"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/companion/clover_slice.py",
+            "line": 213,
+            "excerpt": "if enforce_root and req.required_root is not None:"
+          }
+        ],
+        "qualification": "Allowed rules and required root are checked through the API. Required root is a syntactic policy, not indispensability; reflexive transport can satisfy it."
+      },
+      "conservative_kernel": {
+        "idea": "explicit",
+        "implementation": "proposed_only",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1752,
+            "excerpt": "\\subsection{Yes to richer source typing; distinguish the kernel question}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1814,
+            "excerpt": "\\subsection{Definitional functoriality is a more specific experiment}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1878,
+            "excerpt": "The practical decision is therefore: implement the richer author-facing type"
+          }
+        ],
+        "qualification": "Ordinary Lean is first implementation; compare library rewriting, proof-producing canonicalization, and kernel conversion on identical workload."
+      },
+      "matched_evaluation": {
+        "idea": "explicit",
+        "implementation": "partial_in_slice",
+        "anchors": [
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 1967,
+            "excerpt": "\\subsection{A small but informative profile experiment}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 2093,
+            "excerpt": "\\section{Evaluation that can disconfirm the language proposal}\\label{sec:evaluation}"
+          },
+          {
+            "path": "docs/round-4/ideas/Clover/Clover.tex",
+            "line": 2163,
+            "excerpt": "\\subsection{Stopping rules}"
+          }
+        ],
+        "qualification": "211 versus 16 ground instances is an executed model profile comparison, not Lean speed or author benefit; full matched evaluation is proposed."
+      }
+    }
+  },
+  "path_case_normalization": {
+    "reason": "Canonical TitleCase report folders from source-register.json; editorial marks, qualifications, line numbers and excerpts are unchanged. No reproduction outputs or receipts were modified.",
+    "paths": {
+      "docs/round-4/ideas/alder/Alder.tex": "docs/round-4/ideas/Alder/Alder.tex",
+      "docs/round-4/ideas/alder/companion/alder_core.py": "docs/round-4/ideas/Alder/companion/alder_core.py",
+      "docs/round-4/ideas/alder/companion/observations.py": "docs/round-4/ideas/Alder/companion/observations.py",
+      "docs/round-4/ideas/bryony/Bryony.tex": "docs/round-4/ideas/Bryony/Bryony.tex",
+      "docs/round-4/ideas/bryony/prototype/bryony.py": "docs/round-4/ideas/Bryony/prototype/bryony.py",
+      "docs/round-4/ideas/clover/Clover.tex": "docs/round-4/ideas/Clover/Clover.tex",
+      "docs/round-4/ideas/clover/companion/clover_slice.py": "docs/round-4/ideas/Clover/companion/clover_slice.py",
+      "docs/round-4/ideas/clover/companion/CloverCore.lean": "docs/round-4/ideas/Clover/companion/CloverCore.lean",
+      "docs/round-4/ideas/clover/companion/affine_basis.py": "docs/round-4/ideas/Clover/companion/affine_basis.py"
+    }
+  }
+}

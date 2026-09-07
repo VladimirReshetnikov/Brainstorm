@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "command": [
+    "C:\\Users\\vresh\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\alder-bryony-clover\\adversarial.py"
+  ],
+  "module": "runs/clover/companion/clover_slice.py",
+  "module_sha256": "edc539b437064d5fbd7a687f62c7ec0ef02ab8243f26058ba071c8456d452af5",
+  "inputs_unchanged": true,
+  "results": [
+    {
+      "name": "KeywordClaim",
+      "source": "adversarial/KeywordClaim.clover",
+      "generated": "adversarial/KeywordClaim.lean",
+      "statuses": [
+        "plan_checked"
+      ],
+      "scope": "Python plan accepted and Lean source exported; Lean execution owned separately by root."
+    },
+    {
+      "name": "ShadowCompose",
+      "source": "adversarial/ShadowCompose.clover",
+      "generated": "adversarial/ShadowCompose.lean",
+      "statuses": [
+        "plan_checked",
+        "plan_checked"
+      ],
+      "scope": "Python plan accepted and Lean source exported; Lean execution owned separately by root."
+    },
+    {
+      "name": "ShadowRule",
+      "source": "adversarial/ShadowRule.clover",
+      "generated": "adversarial/ShadowRule.lean",
+      "statuses": [
+        "plan_checked",
+        "plan_checked"
+      ],
+      "scope": "Python plan accepted and Lean source exported; Lean execution owned separately by root."
+    },
+    {
+      "name": "RequiredTransportMayBeIdentity",
+      "status": "plan_checked",
+      "root": "inj_transport",
+      "support": [
+        "already_2"
+      ],
+      "nodes": [
+        {
+          "kind": "application",
+          "name": "same_refl",
+          "conclusion": "same f_1 f_1"
+        },
+        {
+          "kind": "assumption",
+          "name": "already_2",
+          "conclusion": "injective f_1"
+        },
+        {
+          "kind": "application",
+          "name": "inj_transport",
+          "conclusion": "injective f_1"
+        }
+      ],
+      "scope": "A demanded transport root is satisfied using reflexive same f f and the goal as an existing assumption. This meets the stated root policy, but does not establish the method was indispensable."
+    }
+  ],
+  "artifacts": {
+    "adversarial/KeywordClaim.clover": "80d5447f365aa0be836ac2739717f5f23be58fa03a8f17ce0a47a727d697d796",
+    "adversarial/KeywordClaim.lean": "f26e30aa03a73cf50d1b5b27daef73ca83464df0b6eb2cd76d9fbe9c3397080a",
+    "adversarial/ShadowCompose.clover": "a74d440cb879beb96c4b3a98a12d5ea6032774defd2d899c793d6686d3406e61",
+    "adversarial/ShadowCompose.lean": "79acd6330593ae0077eac18d316a3ccd66595ba074b71f4995d5c0f14d6204e9",
+    "adversarial/ShadowRule.clover": "9be4d7011b7b4d246c199b531f8eee4d255466e19ef837c26e6d46ab619486ba",
+    "adversarial/ShadowRule.lean": "00ed0964fc05eaa4c5e9ab59df6ad4f7bd1aa0ddc4eb703b08ec759ea491a319"
+  },
+  "scope": "Review-authored adversarial inputs with unmodified imported parser/exporter. No Lean compilation, source edits, or behavioral integration."
+}

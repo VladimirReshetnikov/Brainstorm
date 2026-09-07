@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "inputs_unchanged_at_review": true,
+  "changed_reproduced_files": [
+    {
+      "report": "alder",
+      "path": "companion/generated/locality.json",
+      "before_sha256": "ebec128faaeb7436547bd50408aabcbb0fb641d7876cbdd7b2524669bb5a50f3",
+      "after_sha256": "023469800e337f1684decfb40bad494289c11145f2a6b69ce7c4d360a40e1aef",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "alder",
+      "path": "companion/generated/Locality.lean",
+      "before_sha256": "275eec5b59840a5652428f88f14246174ea4fe7633d7a95a5e0d60b8975f92d4",
+      "after_sha256": "fda11d39e9887a9eac58eb8e84fca45f121e95ba77959fd51228f2e44f2e4b65",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "alder",
+      "path": "companion/generated/quotient.json",
+      "before_sha256": "a7325a162aff61e559a065405fabb6d998eebaa056aa6a0e46b1de2bbf230c01",
+      "after_sha256": "ae9c1ae12b6ca04a902ead06513f634392fee48a82ecc460bceb5e5a8a1c3a19",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "alder",
+      "path": "companion/generated/Quotient.lean",
+      "before_sha256": "6e70e7b513bdee374d5fe356ae25ce4843416dffa4f191d178dcdd2448642663",
+      "after_sha256": "e7206a8a5389b0aac7cce13ab00225c29e6704dcb1b2fd50e6aca936a02b493f",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "alder",
+      "path": "evidence/test_results.json",
+      "before_sha256": "cfd12ef70b53fbf99b1eb3375f07994b199d6ba5b7bb965d6cd9a6eaa2a2ffce",
+      "after_sha256": "102d2a9386fa407b12c7e56f8b461b3c12691f1167742c51c1c8a67980176adb",
+      "changed_top_level_keys": [
+        "elapsed_seconds_including_oracles",
+        "python"
+      ],
+      "classification": "runtime metadata only"
+    },
+    {
+      "report": "bryony",
+      "path": "evidence/frey4/requirements.json",
+      "before_sha256": "13caf9523ab7bed1fdc9cd534c851d559a060237bc3d9d061fe2e962995098ab",
+      "after_sha256": "ea556ad4b19c7a74de710047e5e25d1232f6649b27e6c99cf774b613d6c9207c",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "bryony",
+      "path": "evidence/frey4/Requirements.lean",
+      "before_sha256": "79fbd8824baf1d6f7e1a8352d3770fd8104d99ffdf84297986e4434028e12984",
+      "after_sha256": "2a422124d7a3c69cce3edebb325b53dbddce99f1d497269e9b8bdae7fdf48fae",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "bryony",
+      "path": "evidence/results.json",
+      "before_sha256": "5ae776096db305f292a84f30fd00815bdf749244f988e26085b49151925b5e56",
+      "after_sha256": "8aa05d5eed406e4c0fa531b3ea14cff4babf874ace288014f34ec56a553b85ad",
+      "changed_top_level_keys": [
+        "elapsed_seconds",
+        "python"
+      ],
+      "classification": "runtime metadata only"
+    },
+    {
+      "report": "clover",
+      "path": "companion/affine-result.json",
+      "before_sha256": "a1d4d5dad38cb58ba18a0ed9fb26129c5ddcd0eed0ccb78ed9b7d04fc5ab5ef2",
+      "after_sha256": "f665db7af5eae3f8458efdbb93ae662e48836f437ac3d1681fea287aca77d038",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "clover",
+      "path": "companion/demo-result.json",
+      "before_sha256": "272badf399153708d855b6caf007847da706041174697bab0cab46e1e1896eff",
+      "after_sha256": "994cffd86f650b8251f9acfc80c2372e36cae54528920ebcba7803329fd7e32f",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "clover",
+      "path": "companion/GeneratedExamples.lean",
+      "before_sha256": "05c43e524688e1f9750fc88f11c5864029ae35fd5c994889eba0761c6d520f29",
+      "after_sha256": "25a48335c3d9615253def8f567bbbe8cc40319a17dae47fffdcb474a383e9c0c",
+      "classification": "newline-only regeneration under Windows"
+    },
+    {
+      "report": "clover",
+      "path": "companion/profile-comparison.json",
+      "before_sha256": "071049ab047a1c606e2375bcf347f755fc9e49be6eeec2f88d4c85a375094b69",
+      "after_sha256": "f79a9469ebc873b8f7e09dd626fed593f0c14590d37fa7ef8c8524ac9e734704",
+      "classification": "newline-only regeneration under Windows"
+    }
+  ],
+  "cell_count": 30,
+  "anchors_validated": true,
+  "historical_label_caveat": "Copied/generated files retain their authors' no-Lean and kernel_checked:false strings. No program source was edited to change those labels. In particular Alder's no-Lean-executable statement is hard-coded, not current environment detection. The central root-owned Lean receipt governs fresh compilation claims.",
+  "runtime_scope": "All source packages preserved. Only Python reference models and exact finite arithmetic rerun. Root separately owns Lean compilation and adversarial export checks."
+}

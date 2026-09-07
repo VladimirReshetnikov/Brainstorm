@@ -1,0 +1,5 @@
+fix f g r : End
+assume retract : left_inverse r f
+assume outer : injective g
+claim inj_comp : same f f
+claim composite : injective (g . f)

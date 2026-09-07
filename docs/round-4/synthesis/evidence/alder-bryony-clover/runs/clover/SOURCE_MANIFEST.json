@@ -1,0 +1,74 @@
+{
+  "access_date": "2026-09-06",
+  "method": "GitHub connector reads; no repository builds or upstream code execution.",
+  "sources": [
+    {
+      "label": "Brainstorm",
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "commit": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/synthesis/unified-report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/synthesis/unified-report.tex",
+      "scope": "Main report read; generated appendix table not independently audited."
+    },
+    {
+      "label": "Nine Refinements",
+      "repository": "VladimirReshetnikov/Brainstorm",
+      "commit": "bf3333905995060870f8585e297ffc16f3fe7e86",
+      "path": "docs/round-3/unified_report/unified_report.tex",
+      "url": "https://github.com/VladimirReshetnikov/Brainstorm/blob/bf3333905995060870f8585e297ffc16f3fe7e86/docs/round-3/unified_report/unified_report.tex",
+      "scope": "Main report read; appendix catalog not independently rerun."
+    },
+    {
+      "label": "Autonomous derivatives",
+      "repository": "VladimirReshetnikov/ProveIt",
+      "commit": "24ce8bd743eaab64a91ce90725ea00f498d319d2",
+      "path": "Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "url": "https://github.com/VladimirReshetnikov/ProveIt/blob/24ce8bd743eaab64a91ce90725ea00f498d319d2/Analysis/FabiusFunction/Lean/FabiusFunction/AutonomousIteratedDeriv.lean",
+      "scope": "Entire source file read."
+    },
+    {
+      "label": "Frey base change",
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_FreyPackage_freyCurveInt_map.lean",
+      "scope": "Entire source file read."
+    },
+    {
+      "label": "Finite tensor representer",
+      "repository": "anthropics/fermats-last-theorem",
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "path": "P2M/Sol/S_Algebra_exists_algHom_equiv_pi.lean",
+      "url": "https://github.com/anthropics/fermats-last-theorem/blob/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_Algebra_exists_algHom_equiv_pi.lean",
+      "scope": "Entire source file read."
+    },
+    {
+      "label": "Leant callback verification",
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Verification.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Verification.hs",
+      "scope": "Lines 1-225 read; bounded module review."
+    },
+    {
+      "label": "Leant length adapter",
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Length/Adapter.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Length/Adapter.hs",
+      "scope": "Entire source file read."
+    },
+    {
+      "label": "Leant length contracts",
+      "repository": "VladimirReshetnikov/Leant",
+      "commit": "3a40904be8a410d832d9ab6900b3d3e7b425eccb",
+      "path": "src/Leant/Synth/Length/Contract.hs",
+      "url": "https://github.com/VladimirReshetnikov/Leant/blob/3a40904be8a410d832d9ab6900b3d3e7b425eccb/src/Leant/Synth/Length/Contract.hs",
+      "scope": "Entire source file read."
+    }
+  ],
+  "reported_not_directly_reviewed": {
+    "Leant_newer_local_snapshot": "823259f7e3c6d24e990d3f48f78c4f1c4f88059e",
+    "scope": "Reported by both syntheses; not conflated with directly inspected 3a40904b main."
+  }
+}

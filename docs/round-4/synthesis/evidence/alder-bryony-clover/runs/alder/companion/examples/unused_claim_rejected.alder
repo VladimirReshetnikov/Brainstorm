@@ -1,0 +1,6 @@
+atoms premise desired unrelated
+rule step : premise -> desired
+assume premise
+show desired
+# This assertion is not used by the successful claim above; it still fails.
+show unrelated
