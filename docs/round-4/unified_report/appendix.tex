@@ -14,7 +14,7 @@ One paragraph per report: what it proposes, what it proves, what it ran, and wha
 \emph{A Proof Language of Stable Objects and Explicit Requirements.} Frontier labels $L(q)$ with the residual formula $R_q$; the finite frontier theorem; the strict sealing rule (a metavariable-free target); \code{using only} as the first method mechanism; the q-Pochhammer example where the logarithmic form has guards the product form lacks; the two-point basis on \code{List Nat} and its failure on \code{List Empty}. Companion: planner with quotas, independent certificate checker that verifies even unused nodes, exporter; 27 boundary tests, 2,000 graphs, 12,872 comparisons, 1,820 certificates, the exponential family to 1,024 routes. No crosswalk table; the questions are answered in the text. This review: four Lean exports compile (lints only); all counts reproduce.
 
 \subsection*{Heather}
-\emph{Proof-Carrying Mathematical Interfaces.} Facets and rows; the closure proposition (single route); the realizable affine frame over $\Q$ with the rank proposition; the distinction between an empty admissible type and an empty element type; the affine-inequality warning ($1-n$); a Lipschitz enclosure propagation; the behavioural slice as the first deliverable. Companion: a list-length frontend with four fixed frames, certificate rechecker, concrete negative witnesses, a toy use-site resolver; 18 methods, 7,500 comparisons, 466 witnesses, 14 corrupted certificates refused. T1--T10 table. This review: four of the five Mathlib exports compile; \code{even_reverse_length.lean} fails because the template's \code{omega} runs after \code{simp only} has closed the goal, and compiles without that line. All 18 tests reproduce; the use-site demo needs \code{PYTHONUTF8=1} on Windows.
+\emph{Proof-Carrying Mathematical Interfaces.} Facets and rows; the closure proposition (single route); the realizable affine frame over $\Q$ with the rank proposition; the distinction between an empty admissible type and an empty element type; the affine-inequality warning ($1-n$); a Lipschitz enclosure propagation; the behavioural slice as the first deliverable. Companion: a list-length frontend with four fixed frames, certificate rechecker, concrete negative witnesses, a toy use-site resolver; 18 methods, 7,500 comparisons, 466 witnesses, 14 corrupted certificates refused. T1--T10 table. This review: four of the five Mathlib exports compile; \code{even_reverse_length.lean} fails because the template's \code{omega} runs after \code{simp only} has closed the goal, and compiles without that line (the parallel synthesis's repair, \code{all_goals omega}, also compiles and tolerates the case where goals remain). All 18 tests reproduce; the use-site demo needs \code{PYTHONUTF8=1} on Windows.
 
 \subsection*{Juniper}
 \emph{Property-Directed Mathematics with Explicit Obligation Frontiers.} Residual telescopes $(P,\Delta,k)$ with the discharge proposition; the antichain theorem with the frontier certificate theorem and its validator; two completeness flags; the inverse-derivative differential polynomials with proved invariants; quotient descent; the formal-versus-analytic distinction. Companion: parser, solver, validator (closure conditions checked when a result is marked complete), exporter, inverse polynomials to $P_6$; 32 tests, 400 profiles, 6,400 assignments, 2,800 frontiers, 189 Frey triples. Answers in prose. This review: one Lean export compiles cleanly; all counts reproduce.
@@ -29,16 +29,16 @@ One paragraph per report: what it proposes, what it proves, what it ran, and wha
 \emph{Contract-Typed Proof Plans for Human-Scale Mathematics.} Plans $[\Theta;e:T]$ with the conditional elaboration invariant; the support calculus with the residual-frontier theorem $\mathrm{Front}_K(Q)$; policy filtering before minimisation; intensional plan certificates for method fidelity; the Cauchy--CDF formula with the point mass as a positive fixture and the Dirac mass two as a neighbour; the Lean 4.33.0 \code{vcgen} note. Companion: solver, independent plan checker, exporter; 31 tests, 80 systems, 1,280 subsets, 7,680 comparisons, 5,120 valuations. A cluster crosswalk covering both lists. This review: one Lean export compiles cleanly; all counts reproduce.
 
 \section{The consolidated negative suite}\label{app:suite}
-Table~\ref{tab:suite} lists the 52 families. The inherits column names the round-3 family. Per-report tokens: E = executed by the shipped companion; T = listed in the report's own mutation table; P = argued in prose or by a worked counterexample; blank = absent.
+Table~\ref{tab:suite} lists the 57 families: 52 from the nine reports and five (S53--S57) from the parallel synthesis's adversarial probes. The inherits column names the round-3 family. Per-report tokens: E = executed by the shipped companion; T = listed in the report's own mutation table; P = argued in prose or by a worked counterexample; blank = absent. The Syn column marks families the parallel synthesis executed (E) or argued (P). The tokens measure different kinds of support and are not a strength ladder; an E on a broad family does not certify every variant of it.
 
 {\small\setlength{\tabcolsep}{3pt}
-\begin{longtable}{@{}L{6mm}L{50mm}L{40mm}L{7mm}CCCCCCCCC@{}}
-\caption{Consolidated negative suite. Columns: \Al, \Br, \Cl, \Fe, \He, \Ju, \La, \Ro, \So.}\label{tab:suite}\\
+\begin{longtable}{@{}L{6mm}L{47mm}L{38mm}L{7mm}CCCCCCCCCC@{}}
+\caption{Consolidated negative suite. Columns: \Al, \Br, \Cl, \Fe, \He, \Ju, \La, \Ro, \So, and the parallel synthesis.}\label{tab:suite}\\
 \toprule
-Id & Mutation & Required response & R3 & Al & Br & Cl & Fe & He & Ju & La & Ro & So\\\midrule
+Id & Mutation & Required response & R3 & Al & Br & Cl & Fe & He & Ju & La & Ro & So & Syn\\\midrule
 \endfirsthead
 \toprule
-Id & Mutation & Required response & R3 & Al & Br & Cl & Fe & He & Ju & La & Ro & So\\\midrule
+Id & Mutation & Required response & R3 & Al & Br & Cl & Fe & He & Ju & La & Ro & So & Syn\\\midrule
 \endhead
 \bottomrule
 \endfoot
@@ -51,6 +51,7 @@ All Lean runs used a ProveIt checkout at commit \code{24ce8bd7} with toolchain \
 \item the twenty shipped Lean files, copied verbatim from the nine archives and renamed \code{<Report>__<path>.lean}, with the compiler log of each run beside it (\code{.log});
 \item \code{clover/}: \Cl's core compiled to an \code{olean} with \code{lean -o} from inside the ProveIt root (the compiler refuses output paths outside its root) and \code{GeneratedExamples.lean} compiled against it with the directory prepended to \code{LEAN_PATH};
 \item \code{ListImage.lean} and \code{FreyRoutes.lean} with their logs (Sections~\ref{sec:frames-lean} and~\ref{sec:routes});
+\item \code{codex/}: the parallel synthesis's seven follow-up Lean files (its axiom audit of \code{ListImage.lean}, \code{FreySharper.lean}, \code{HeatherEvenRepaired.lean}, \code{SorrelSelectionProbe.lean}, and the three Clover adversarial exports), copied from \code{docs/round-4/synthesis/evidence/} and recompiled here, with logs and \code{summary.txt} (Table~\ref{tab:new});
 \item \code{summary.txt}, the per-file exit codes, elapsed milliseconds, and diagnostic counts.
 \end{itemize}
 The companion reruns are in \code{experiments/companions/}: one log per command (Table~\ref{tab:runs}) and \code{summary.txt} with exit codes and elapsed times. The companions were run from a scratch copy of each archive because several rewrite their own result files; the copies are not included, the archives are unchanged under \code{docs/round-4/ideas/}.

@@ -1,0 +1,8 @@
+file,imports,expected,result,elapsed_ms
+ListImageAxioms.lean,none,accept; four axiom queries,"accepted; length_image and empty_one_point_frame use propext, inhabited_two_point_frame adds Quot.sound, diagonal_frame adds Classical.choice",8075
+FreySharper.lean,Mathlib,accept; cast_a2_sharper under p >= 2,"accepted; four theorems and two examples; four axiom queries report propext and Quot.sound, three of them also Classical.choice",517101
+HeatherEvenRepaired.lean,Mathlib,accept (all_goals omega),"accepted; six lints (unused simp arguments, unused tactic)",36799
+SorrelSelectionProbe.lean,Init,accept (valid conditional theorem),accepted,7001
+KeywordClaim.lean,CloverCore,reject (claim named theorem),rejected as expected (1 error),10404
+ShadowCompose.lean,CloverCore,reject (claim shadows compose),rejected as expected (6 errors),30201
+ShadowRule.lean,CloverCore,reject (claim shadows inj_comp),rejected as expected (1 error),19054

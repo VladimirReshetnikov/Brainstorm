@@ -60,7 +60,7 @@ M = [
  ("E7", "Complete solving needs soundness and coverage of the same predicate; a result kind is not a confidence ladder", "YYYYYYYYY"),
  ("E8", "An enclosure with equal endpoints may prove equality; a generic enclosure may not", "YNNYNNNYN"),
  # F. the residual telescope
- ("F1", "An unfinished step denotes a conditional term over its residual telescope; it enters no fact index until discharged", "YYYYYYYYY"),
+ ("F1", "An unfinished step denotes a conditional term over its residual telescope; it is never indexed as a proof of its unconditional target", "YYYYYYYYY"),
  ("F2", "The residual is an ordered dependent telescope; sequential composition is substitution, not set union", "YYYYYYYYY"),
  ("F3", "Result states are distinct: proved, conditional, no route in the fragment, exhausted, unsupported, refuted", "YYYYYYYYY"),
  ("F4", "Exporting a conditional theorem is an explicit statement change; no hypothesis is added silently", "YYYYYYYYY"),
@@ -76,7 +76,7 @@ M = [
  ("G7", "Offering the goal as its own repair is a tautological route, excluded from the default vocabulary", "YYNNNYYNN"),
  ("G8", "Method or support policy is applied before minimization, or labels are indexed by policy", "YYPYNYYPY"),
  ("G9", "Two completeness flags: grounding coverage of the profile, and frontier closure of the emitted manifest", "YYYYYYYYY"),
- ("G10", "An unseeded cycle proves nothing; a seeded cycle yields only a conditional route", "YYYYYYYYY"),
+ ("G10", "An unseeded cycle proves nothing; an offered seed yields a conditional route and a known seed a closed one", "YYYYYYYYY"),
  ("G11", "A finite certificate characterises frontier completeness and is checked independently of the solver", "NNNNNYNNN"),
  ("G12", "Reopening a removed premise abstracts only the leaves that used it; unused premises add nothing", "NPNPNNYNP"),
  # H. grounding
@@ -116,7 +116,7 @@ M = [
  ("L3", "The four single-premise neighbours (3,2,4), (3,3,5), (3,2,3), (1,2,5) are exhibited", "NYYYYYYYY"),
  ("L4", "The first numerator needs only p >= 2", "NNYPNYPYN"),
  ("L5", "Autonomous derivative: hypotheses only on W(U); induction keeps the point quantified", "YNYYYYPYN"),
- ("L6", "Tensor family: finite free factors are premises; naturality is a law of the family; Q[X] is the obstruction", "YYYYYPNYY"),
+ ("L6", "Tensor family: finite free factors are the theorem's hypotheses; naturality is a law of the family; Q[X] shows finite indexing alone fails", "YYYYYPNYY"),
  ("L7", "Leant 3a40904b is the inspected revision; 823259f7 is attributed to the syntheses and was not retrievable", "YYYYYYYYY"),
  ("L8", "Verified is a callback receipt; epochs seal association; the Length adapter refuses source refutation", "YYYYYYYYY"),
  ("L9", "Whole-file line counts are a misleading baseline; the final wrapper is already short", "YYYYYYYYY"),
@@ -165,8 +165,8 @@ N = [
   dict(Alder="E", Bryony="P", Clover="E", Fennel="T", Heather="E", Juniper="T", Laurel="E", Rowan="E", Sorrel="E")),
  ("S10", "Offer (1,0) as a witness against a law on a list and its reverse", "Not realizable on the diagonal; require joint realization", "N52",
   dict(Alder="E", Bryony="P", Clover="E", Fennel="T", Heather="E", Laurel="E", Rowan="E", Sorrel="P")),
- ("S11", "Reuse the unrestricted frame under a guard (even lengths, length exactly 100, nonempty lists)", "Recompute the frame for the admissible image", "",
-  dict(Clover="P", Heather="E", Laurel="P", Rowan="E")),
+ ("S11", "Reuse the unrestricted frame under a guard (even lengths, length exactly 100, nonempty lists)", "Recompute the frame for the guarded image: dimension may drop or not; old sound covers survive, old negative witnesses may not", "",
+  dict(Clover="P", Heather="E", Laurel="P", Rowan="E", Synthesis="P")),
  ("S12", "Treat an empty admissible domain as an empty element type, or fabricate a base point", "Vacuous case handled by an emptiness proof; no base point", "",
   dict(Alder="P", Clover="P", Heather="P", Laurel="P", Rowan="E")),
  ("S13", "Refute one completion, then reject every completion of the sketch", "Only the completion is refuted", "N24",
@@ -175,10 +175,10 @@ N = [
   dict(Alder="P", Bryony="P", Clover="T", Fennel="P", Heather="T", Juniper="P", Laurel="T", Rowan="P", Sorrel="P")),
  ("S15", "Grant a polymorphic function a free theorem", "Require a uniformity theorem or a restricted grammar", "N23",
   dict(Bryony="P", Clover="P", Fennel="P", Heather="P", Sorrel="P")),
- ("S16", "An unseeded cycle P -> Q -> P", "Proves nothing; both frontiers empty", "",
+ ("S16", "An unseeded cycle P -> Q -> P", "Proves nothing; no closed derivation (a diagnostic engine may still list leaves)", "",
   dict(Alder="E", Bryony="E", Clover="E", Fennel="E", Heather="P", Juniper="E", Laurel="E", Rowan="E", Sorrel="E")),
- ("S17", "A seeded cycle, then deletion of its seed", "Only a conditional route; the deleted seed cannot be justified by its own consequence", "",
-  dict(Alder="P", Bryony="E", Clover="P", Fennel="E", Juniper="E", Laurel="E", Rowan="E", Sorrel="E")),
+ ("S17", "A seeded cycle, then deletion of its seed", "Known seed: closed; offered seed: conditional; deleted seed: nothing, unless reopened as an offer", "",
+  dict(Alder="P", Bryony="E", Clover="P", Fennel="E", Juniper="E", Laurel="E", Rowan="E", Sorrel="E", Synthesis="P")),
  ("S18", "Use a result to justify the guard that authorises it", "Reject the cyclic derivation without a separate well-founded proof", "N10",
   dict(Alder="P", Bryony="P", Clover="P", Fennel="T", Heather="P", Juniper="T", Laurel="P", Rowan="P", Sorrel="P")),
  ("S19", "Offer the goal itself as a repair", "A tautological route, labelled as such, never progress", "",
@@ -186,7 +186,7 @@ N = [
  ("S20", "Forge a support, alter the target, reorder premises, or corrupt a certificate node", "Independent checker rejects", "N14",
   dict(Alder="E", Bryony="E", Clover="E", Fennel="E", Heather="E", Juniper="E", Laurel="E", Rowan="E", Sorrel="E")),
  ("S21", "Omit one alternative route but mark the frontier complete", "Closure certificate fails", "",
-  dict(Fennel="P", Juniper="E")),
+  dict(Fennel="P", Juniper="E", Synthesis="E")),
  ("S22", "Stop enumeration at a budget limit", "Retained routes stay valid; coverage is marked incomplete; never a negation", "",
   dict(Alder="E", Bryony="P", Clover="E", Fennel="E", Heather="P", Juniper="E", Laurel="E", Rowan="E", Sorrel="E")),
  ("S23", "Reverse or shuffle the rule schedule", "Same support antichains or closure set", "",
@@ -196,9 +196,9 @@ N = [
  ("S25", "Replay after a rebuilt context, changed snapshot, or changed rule profile", "Refuse the stale epoch; recheck in the new context", "N51",
   dict(Alder="E", Bryony="E", Clover="E", Fennel="E", Heather="E", Juniper="E", Laurel="E", Rowan="E", Sorrel="E")),
  ("S26", "Remove a used versus an unused premise from a closed derivation", "Only the used premise reopens as a residual", "",
-  dict(Bryony="P", Fennel="P", Laurel="E", Sorrel="E")),
+  dict(Bryony="P", Fennel="P", Laurel="E", Sorrel="P")),
  ("S27", "Filter a method policy after minimization", "A permitted route may have been discarded; filter before, or index labels by policy", "",
-  dict(Alder="P", Clover="E", Fennel="E", Juniper="P", Laurel="P", Rowan="E", Sorrel="E")),
+  dict(Alder="P", Clover="E", Fennel="E", Juniper="P", Laurel="P", Rowan="P", Sorrel="E")),
  ("S28", "Satisfy a required arithmetic method by a global contradiction", "Truth may hold; the method contract is unmet", "N45",
   dict(Alder="P", Bryony="T", Clover="T", Fennel="T", Heather="T", Juniper="T", Laurel="T", Rowan="T", Sorrel="T")),
  ("S29", "Publish an unused false intermediate assertion", "Document is not fully checked", "N42",
@@ -248,7 +248,18 @@ N = [
  ("S51", "Stop sampling when the observed rank stabilises and call it coverage", "Coverage is a theorem, not a stopping criterion", "",
   dict(Laurel="P")),
  ("S52", "Use affine equality at frame points to prove an inequality", "1-n is nonnegative at 0 and 1 only; use a cone certificate", "",
-  dict(Alder="P", Heather="P", Laurel="P")),
+  dict(Alder="P", Heather="P", Laurel="P", Synthesis="P")),
+ # families contributed by the parallel synthesis's adversarial probes
+ ("S53", "Name a claim with a Lean keyword, or shadow an opened core name (compose, inj_comp), in an exported proof", "The plan checker passes and Lean rejects the export; emit hygienic, qualified identifiers and compile the exact output", "",
+  dict(Synthesis="E")),
+ ("S54", "Two routes, one already closed by available facts and one needing a new premise; export the smaller total support", "Rank residual work, not total support; never emit a conditional theorem where a closed proof exists", "",
+  dict(Synthesis="E")),
+ ("S55", "A diagnostic leaf frontier under an unseeded cycle (A -> A, A and B -> G) reports B", "Supplying B leaves G open; an explanation is not a sufficient contract", "",
+  dict(Rowan="P", Synthesis="E")),
+ ("S56", "Reuse an output directory after a later request fails or finds no route", "Old positive .lean files survive beside accurate negative metadata; a manifest must bind file, request, status and hash", "",
+  dict(Synthesis="E")),
+ ("S57", "Read a budgeted antichain as a subset of the final one", "A displayed support may later be dominated by the empty support; only the upward closure grows", "",
+  dict(Laurel="P", Sorrel="P", Synthesis="E")),
 ]
 
 # ---------------------------------------------------------------- the twenty questions
@@ -363,8 +374,19 @@ LEAN = [
 
 # New experiments run by this review: (file, imports, lines, theorems, examples, result, elapsed ms)
 NEW = [
- ("ListImage.lean", "none", 62, 5, 3, "compiles, no warnings; 5 theorems axiom-free", 10522),
- ("FreyRoutes.lean", "Mathlib", 133, 13, 7, "compiles; 4 unused-variable lints; instantiated theorems depend on propext, Classical.choice, Quot.sound", 220514),
+ ("ListImage.lean", "none", 62, 4, 3, "compiles, no warnings; axiom audit below", 10522),
+ ("FreyRoutes.lean", "Mathlib", 133, 13, 7, "compiles; 4 unused-variable lints; the five queried theorems depend on propext, Classical.choice, Quot.sound", 220514),
+]
+
+# The parallel synthesis's follow-up files, recompiled here: (file, imports, expected, result, elapsed ms)
+CODEX = [
+ ("ListImageAxioms.lean", "none", "accept; four axiom queries", "accepted; length_image and empty_one_point_frame use propext, inhabited_two_point_frame adds Quot.sound, diagonal_frame adds Classical.choice", 8075),
+ ("FreySharper.lean", "Mathlib", "accept; cast_a2_sharper under p >= 2", "accepted; four theorems and two examples; four axiom queries report propext and Quot.sound, three of them also Classical.choice", 517101),
+ ("HeatherEvenRepaired.lean", "Mathlib", "accept (all_goals omega)", "accepted; six lints (unused simp arguments, unused tactic)", 36799),
+ ("SorrelSelectionProbe.lean", "Init", "accept (valid conditional theorem)", "accepted", 7001),
+ ("KeywordClaim.lean", "CloverCore", "reject (claim named theorem)", "rejected as expected (1 error)", 10404),
+ ("ShadowCompose.lean", "CloverCore", "reject (claim shadows compose)", "rejected as expected (6 errors)", 30201),
+ ("ShadowRule.lean", "CloverCore", "reject (claim shadows inj_comp)", "rejected as expected (1 error)", 19054),
 ]
 
 # ---------------------------------------------------------------- companion reruns (this review, Python 3.14.4)
@@ -453,14 +475,16 @@ def main():
             new_fam += 1
         if any(v == "E" for v in src.values()):
             executed += 1
-        rows.append([nid, mut, resp, inh, k] + [src.get(r, "") for r in REPORTS])
-    write_csv("negative_suite.csv", ["id", "mutation", "required_response", "inherits_round3", "reports"] + REPORTS, rows)
+        rows.append([nid, mut, resp, inh, k] + [src.get(r, "") for r in REPORTS] + [src.get("Synthesis", "")])
+    write_csv("negative_suite.csv", ["id", "mutation", "required_response", "inherits_round3", "reports"] + REPORTS + ["parallel_synthesis"], rows)
     print("suite families=%d report_incidences=%d singletons=%d new_families=%d executed_somewhere=%d core(>=5)=%d: %s" % (
         len(N), inc, singles, new_fam, executed, len(core), " ".join(core)))
+    print("  from parallel synthesis: E=%d P=%d" % (sum(1 for *_, s in N if s.get("Synthesis") == "E"), sum(1 for *_, s in N if s.get("Synthesis") == "P")))
     per = {r: [0, 0, 0] for r in REPORTS}
     for *_, src in N:
         for r, v in src.items():
-            per[r]["ETP".index(v)] += 1
+            if r in per:
+                per[r]["ETP".index(v)] += 1
     for r in REPORTS:
         print("  %-8s E=%2d T=%2d P=%2d total=%2d" % (r, *per[r], sum(per[r])))
 
@@ -475,6 +499,7 @@ def main():
     # lean
     write_csv("lean_files.csv", ["report", "file", "imports", "lines", "theorems", "result", "warnings", "elapsed_ms"], [list(x) for x in LEAN])
     write_csv("new_experiments.csv", ["file", "imports", "lines", "theorems", "examples", "result", "elapsed_ms"], [list(x) for x in NEW])
+    write_csv("codex_followups.csv", ["file", "imports", "expected", "result", "elapsed_ms"], [list(x) for x in CODEX])
     ok = sum(1 for x in LEAN if x[5].startswith("compiles"))
     print("lean shipped files=%d lines=%d theorems=%d compile=%d warnings=%d" % (
         len(LEAN), sum(x[3] for x in LEAN), sum(x[4] for x in LEAN), ok, sum(x[6] for x in LEAN)))
@@ -514,8 +539,15 @@ def main():
     write_tex("run_rows.tex", lines)
     lines = []
     for nid, mut, resp, inh, src in N:
-        lines.append("%s & %s & %s & %s & %s\\\\" % (nid, tex(mut), tex(resp), inh, " & ".join(src.get(r, "") for r in REPORTS)))
+        lines.append("%s & %s & %s & %s & %s & %s\\\\" % (nid, tex(mut), tex(resp), inh, " & ".join(src.get(r, "") for r in REPORTS), src.get("Synthesis", "")))
     write_tex("suite_rows.tex", lines)
+    lines = []
+    for f, imp, ln, th, ex, res, ms in NEW:
+        lines.append(r"\code{%s} & %s & %d & %d & %d & %s & %s\\" % (f, imp, ln, th, ex, tex(res), "{:,}".format(ms)))
+    lines.append(r"\midrule")
+    for f, imp, exp, res, ms in CODEX:
+        lines.append(r"\code{%s} & %s & & & & %s & %s\\" % (f, imp, tex(exp + "; " + res), "{:,}".format(ms) if ms else ""))
+    write_tex("new_rows.tex", lines)
 
 
 if __name__ == "__main__":

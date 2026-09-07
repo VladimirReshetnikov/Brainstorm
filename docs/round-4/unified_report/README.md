@@ -22,8 +22,16 @@ round-4 reports under `docs/round-4/ideas/`, rendered to `unified_report.pdf`.
   (core Lean, the four list-length frames) and `FreyRoutes.lean` (Mathlib; the generic
   routes exported by Laurel, Bryony and Sorrel instantiated with the round-3 Frey
   arithmetic), with their logs.
+- `experiments/lean/codex/`: the seven follow-up Lean files of the parallel synthesis
+  (`docs/round-4/synthesis/`) recompiled here, with logs and `summary.txt`.
 - `experiments/companions/`: one log per companion command rerun by this review and
   `summary.txt` with exit codes and elapsed times.
+
+The report's Section 10 reconciles this review with the parallel synthesis under
+`docs/round-4/synthesis/`, whose review memos corrected several counts of the first
+version of this report (four list theorems, not five, and not axiom-free; thirteen
+generic export files, not fourteen; three cast identities and one conjunction in
+`FreyRoutes.lean`) and whose adversarial probes are families S53–S57 of the suite.
 
 ## Reproducing the Lean runs
 

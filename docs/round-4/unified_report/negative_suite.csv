@@ -1,53 +1,58 @@
-id,mutation,required_response,inherits_round3,reports,Alder,Bryony,Clover,Fennel,Heather,Juniper,Laurel,Rowan,Sorrel
-S1,Differentiate from equality at one point instead of on a neighbourhood,"Locality obligation stays open; f(t)=t, g(t)=0 at 0",N1,9,T,P,T,T,T,T,T,T,T
-S2,Specialise the induction hypothesis to one point before the successor step,Request the set-wide or neighbourhood assertion,N2,7,T,,T,T,P,T,P,T,
-S3,Invert a nonzero or regular element as if it were a unit; cast a source-nonzero denominator into positive characteristic,Request the destination unit; no ring change,N3,9,P,P,T,P,T,T,T,P,P
-S4,"Cast an inexact integer quotient, or drop one Frey divisibility premise",Exactness obligation stays open; the four neighbours fail the corresponding divisibility,N25,9,T,E,E,E,T,E,E,E,E
-S5,Test an arithmetic contract only inside a contradictory Frey package,"Use the satisfiable helper context with fixture (3,2,5)",N26,9,P,T,P,T,P,P,T,P,T
-S6,Infer a finite free representing algebra from finite indexing alone,Construction contract not established; Q[X] obstruction,N49,8,P,P,T,T,T,P,,T,T
-S7,"Evaluate at a point from an a.e. fact, or change the measure beneath it",Require a new relation or checked transport,N34,9,P,E,T,T,T,P,T,P,T
-S8,Merge an uncountable family of a.e. statements,Uniform-null-set obligation remains,N35,7,,P,T,T,,P,T,P,P
-S9,Refute a List Empty length law with an unrealisable positive length,No source refutation; admit the one-point frame,N22,9,E,P,E,T,E,T,E,E,E
-S10,"Offer (1,0) as a witness against a law on a list and its reverse",Not realizable on the diagonal; require joint realization,N52,8,E,P,E,T,E,,E,E,P
-S11,"Reuse the unrestricted frame under a guard (even lengths, length exactly 100, nonempty lists)",Recompute the frame for the admissible image,,4,,,P,,E,,P,E,
-S12,"Treat an empty admissible domain as an empty element type, or fabricate a base point",Vacuous case handled by an emptiness proof; no base point,,5,P,,P,,P,,P,E,
-S13,"Refute one completion, then reject every completion of the sketch",Only the completion is refuted,N24,9,P,P,P,P,P,P,P,P,P
-S14,Use a passive provider law (Length contract text) as a theorem,"Heuristic only, or a visibly conditional result",N21,9,P,P,T,P,T,P,T,P,P
-S15,Grant a polymorphic function a free theorem,Require a uniformity theorem or a restricted grammar,N23,5,,P,P,P,P,,,,P
-S16,An unseeded cycle P -> Q -> P,Proves nothing; both frontiers empty,,9,E,E,E,E,P,E,E,E,E
-S17,"A seeded cycle, then deletion of its seed",Only a conditional route; the deleted seed cannot be justified by its own consequence,,8,P,E,P,E,,E,E,E,E
-S18,Use a result to justify the guard that authorises it,Reject the cyclic derivation without a separate well-founded proof,N10,9,P,P,P,T,P,T,P,P,P
-S19,Offer the goal itself as a repair,"A tautological route, labelled as such, never progress",,4,P,P,,,,E,E,,
-S20,"Forge a support, alter the target, reorder premises, or corrupt a certificate node",Independent checker rejects,N14,9,E,E,E,E,E,E,E,E,E
-S21,Omit one alternative route but mark the frontier complete,Closure certificate fails,,2,,,,P,,E,,,
-S22,Stop enumeration at a budget limit,Retained routes stay valid; coverage is marked incomplete; never a negation,,9,E,P,E,E,P,E,E,E,E
-S23,Reverse or shuffle the rule schedule,Same support antichains or closure set,,7,,P,E,P,,E,P,E,E
-S24,Reuse a branch-local fact in a sibling branch,Reject context reuse or export a scoped implication,N9,9,E,P,E,P,P,T,E,E,E
-S25,"Replay after a rebuilt context, changed snapshot, or changed rule profile",Refuse the stale epoch; recheck in the new context,N51,9,E,E,E,E,E,E,E,E,E
-S26,Remove a used versus an unused premise from a closed derivation,Only the used premise reopens as a residual,,4,,P,,P,,,E,,E
-S27,Filter a method policy after minimization,"A permitted route may have been discarded; filter before, or index labels by policy",,7,P,,E,E,,P,P,E,E
-S28,Satisfy a required arithmetic method by a global contradiction,Truth may hold; the method contract is unmet,N45,9,P,T,T,T,T,T,T,T,T
-S29,Publish an unused false intermediate assertion,Document is not fully checked,N42,9,E,P,T,P,P,T,T,P,T
-S30,Reuse a fact after simp rewrote its anchor by matching a normalised string,"Require conversion, equality transport, or a consumer theorem",N50,9,P,P,P,P,P,P,P,P,P
-S31,Let proof search fill a meaning-bearing hole to ease the goal,Reject the assignment; report ambiguity,N12,9,P,P,T,P,P,P,P,P,P
-S32,"Change the measure, topology, structure, or index under unchanged notation",Report a statement change; recheck affected evidence,N11,9,T,T,T,T,T,T,T,T,T
-S33,Differentiate a jet and keep the input precision,Require the N+1 to N transformation,N4,8,P,P,,P,P,T,T,P,P
-S34,Return the other exact root branch with a correct residual,Residual passes; the constant-term condition fails,N5,5,E,,P,,,,P,P,P
-S35,Substitute a formal coefficient theorem for an analytic identity,Require the semantic analytic bridge,,3,P,,,P,,T,,,
-S36,"Run the inverse-derivative recipe with f'(0)=0, or with a discontinuous branch",Nonvanishing and branch continuity are premises,,1,,,,,,P,,,
-S37,"Descend along a non-surjective quotient map, or change the topology on the target",Uniqueness or continuity conclusion reopens,,1,,,,,,P,,,
-S38,Request the logarithmic-derivative form at a zero factor,Keep the exact target; expose the nonzero guards,,1,,,,T,,,,,
-S39,Replace the strict subgraph by the non-strict one in weighted Fubini,Statement change; a point mass on the graph detects it,,1,,T,,,,,,,
-S40,Normalise a finite measure to mass one without a probability hypothesis,Dirac mass two detects the change,,1,,,,,,,,,P
-S41,Demand atomlessness for the Cauchy formula,A point mass is a positive fixture; the demand weakens the theorem,,1,,,,,,,,,P
-S42,Present an upper Lipschitz bound as the least constant,Leastness stays open without the lower-bound argument,N39,2,,,,,,,T,,T
-S43,Pair certificate components with a truncating zip,Arity is checked first; use indexed vectors,N14,5,,P,P,P,,,P,P,
-S44,"Replay a rational ideal certificate for an integer ideal, or read coefficient inequality as functional inequality",Preservation is not reflection,N15,5,,P,P,,P,P,,P,
-S45,Accept native bytes without execution evidence,Kernel reduction or reconstruction; native needs its own policy,N17,9,P,P,P,P,P,P,P,P,P
-S46,"Reuse a receipt or hash across an edit, a candidate change, or a toolchain migration","New check, new receipt",N43,9,P,P,T,T,T,T,T,T,T
-S47,Accept a length-preserving candidate as a sorter,Permutation and order are the specification,N19,9,P,P,P,P,P,P,P,P,P
-S48,Return a correct proof of a nearby weaker proposition,Target mismatch; offer an explicit statement edit,N46,9,E,E,E,E,E,E,T,E,E
-S49,Write a cons literal over an empty element type,"Refused as a typing error, not a counterexample",,3,P,,,,E,,,P,
-S50,"Borrow the affine theorem for a branching, filtering, or nonlinear candidate",Outside the grammar; piecewise models need case coverage,,4,,,P,,P,,P,P,
-S51,Stop sampling when the observed rank stabilises and call it coverage,"Coverage is a theorem, not a stopping criterion",,1,,,,,,,P,,
-S52,Use affine equality at frame points to prove an inequality,1-n is nonnegative at 0 and 1 only; use a cone certificate,,3,P,,,,P,,P,,
+id,mutation,required_response,inherits_round3,reports,Alder,Bryony,Clover,Fennel,Heather,Juniper,Laurel,Rowan,Sorrel,parallel_synthesis
+S1,Differentiate from equality at one point instead of on a neighbourhood,"Locality obligation stays open; f(t)=t, g(t)=0 at 0",N1,9,T,P,T,T,T,T,T,T,T,
+S2,Specialise the induction hypothesis to one point before the successor step,Request the set-wide or neighbourhood assertion,N2,7,T,,T,T,P,T,P,T,,
+S3,Invert a nonzero or regular element as if it were a unit; cast a source-nonzero denominator into positive characteristic,Request the destination unit; no ring change,N3,9,P,P,T,P,T,T,T,P,P,
+S4,"Cast an inexact integer quotient, or drop one Frey divisibility premise",Exactness obligation stays open; the four neighbours fail the corresponding divisibility,N25,9,T,E,E,E,T,E,E,E,E,
+S5,Test an arithmetic contract only inside a contradictory Frey package,"Use the satisfiable helper context with fixture (3,2,5)",N26,9,P,T,P,T,P,P,T,P,T,
+S6,Infer a finite free representing algebra from finite indexing alone,Construction contract not established; Q[X] obstruction,N49,8,P,P,T,T,T,P,,T,T,
+S7,"Evaluate at a point from an a.e. fact, or change the measure beneath it",Require a new relation or checked transport,N34,9,P,E,T,T,T,P,T,P,T,
+S8,Merge an uncountable family of a.e. statements,Uniform-null-set obligation remains,N35,7,,P,T,T,,P,T,P,P,
+S9,Refute a List Empty length law with an unrealisable positive length,No source refutation; admit the one-point frame,N22,9,E,P,E,T,E,T,E,E,E,
+S10,"Offer (1,0) as a witness against a law on a list and its reverse",Not realizable on the diagonal; require joint realization,N52,8,E,P,E,T,E,,E,E,P,
+S11,"Reuse the unrestricted frame under a guard (even lengths, length exactly 100, nonempty lists)","Recompute the frame for the guarded image: dimension may drop or not; old sound covers survive, old negative witnesses may not",,4,,,P,,E,,P,E,,P
+S12,"Treat an empty admissible domain as an empty element type, or fabricate a base point",Vacuous case handled by an emptiness proof; no base point,,5,P,,P,,P,,P,E,,
+S13,"Refute one completion, then reject every completion of the sketch",Only the completion is refuted,N24,9,P,P,P,P,P,P,P,P,P,
+S14,Use a passive provider law (Length contract text) as a theorem,"Heuristic only, or a visibly conditional result",N21,9,P,P,T,P,T,P,T,P,P,
+S15,Grant a polymorphic function a free theorem,Require a uniformity theorem or a restricted grammar,N23,5,,P,P,P,P,,,,P,
+S16,An unseeded cycle P -> Q -> P,Proves nothing; no closed derivation (a diagnostic engine may still list leaves),,9,E,E,E,E,P,E,E,E,E,
+S17,"A seeded cycle, then deletion of its seed","Known seed: closed; offered seed: conditional; deleted seed: nothing, unless reopened as an offer",,8,P,E,P,E,,E,E,E,E,P
+S18,Use a result to justify the guard that authorises it,Reject the cyclic derivation without a separate well-founded proof,N10,9,P,P,P,T,P,T,P,P,P,
+S19,Offer the goal itself as a repair,"A tautological route, labelled as such, never progress",,4,P,P,,,,E,E,,,
+S20,"Forge a support, alter the target, reorder premises, or corrupt a certificate node",Independent checker rejects,N14,9,E,E,E,E,E,E,E,E,E,
+S21,Omit one alternative route but mark the frontier complete,Closure certificate fails,,2,,,,P,,E,,,,E
+S22,Stop enumeration at a budget limit,Retained routes stay valid; coverage is marked incomplete; never a negation,,9,E,P,E,E,P,E,E,E,E,
+S23,Reverse or shuffle the rule schedule,Same support antichains or closure set,,7,,P,E,P,,E,P,E,E,
+S24,Reuse a branch-local fact in a sibling branch,Reject context reuse or export a scoped implication,N9,9,E,P,E,P,P,T,E,E,E,
+S25,"Replay after a rebuilt context, changed snapshot, or changed rule profile",Refuse the stale epoch; recheck in the new context,N51,9,E,E,E,E,E,E,E,E,E,
+S26,Remove a used versus an unused premise from a closed derivation,Only the used premise reopens as a residual,,4,,P,,P,,,E,,P,
+S27,Filter a method policy after minimization,"A permitted route may have been discarded; filter before, or index labels by policy",,7,P,,E,E,,P,P,P,E,
+S28,Satisfy a required arithmetic method by a global contradiction,Truth may hold; the method contract is unmet,N45,9,P,T,T,T,T,T,T,T,T,
+S29,Publish an unused false intermediate assertion,Document is not fully checked,N42,9,E,P,T,P,P,T,T,P,T,
+S30,Reuse a fact after simp rewrote its anchor by matching a normalised string,"Require conversion, equality transport, or a consumer theorem",N50,9,P,P,P,P,P,P,P,P,P,
+S31,Let proof search fill a meaning-bearing hole to ease the goal,Reject the assignment; report ambiguity,N12,9,P,P,T,P,P,P,P,P,P,
+S32,"Change the measure, topology, structure, or index under unchanged notation",Report a statement change; recheck affected evidence,N11,9,T,T,T,T,T,T,T,T,T,
+S33,Differentiate a jet and keep the input precision,Require the N+1 to N transformation,N4,8,P,P,,P,P,T,T,P,P,
+S34,Return the other exact root branch with a correct residual,Residual passes; the constant-term condition fails,N5,5,E,,P,,,,P,P,P,
+S35,Substitute a formal coefficient theorem for an analytic identity,Require the semantic analytic bridge,,3,P,,,P,,T,,,,
+S36,"Run the inverse-derivative recipe with f'(0)=0, or with a discontinuous branch",Nonvanishing and branch continuity are premises,,1,,,,,,P,,,,
+S37,"Descend along a non-surjective quotient map, or change the topology on the target",Uniqueness or continuity conclusion reopens,,1,,,,,,P,,,,
+S38,Request the logarithmic-derivative form at a zero factor,Keep the exact target; expose the nonzero guards,,1,,,,T,,,,,,
+S39,Replace the strict subgraph by the non-strict one in weighted Fubini,Statement change; a point mass on the graph detects it,,1,,T,,,,,,,,
+S40,Normalise a finite measure to mass one without a probability hypothesis,Dirac mass two detects the change,,1,,,,,,,,,P,
+S41,Demand atomlessness for the Cauchy formula,A point mass is a positive fixture; the demand weakens the theorem,,1,,,,,,,,,P,
+S42,Present an upper Lipschitz bound as the least constant,Leastness stays open without the lower-bound argument,N39,2,,,,,,,T,,T,
+S43,Pair certificate components with a truncating zip,Arity is checked first; use indexed vectors,N14,5,,P,P,P,,,P,P,,
+S44,"Replay a rational ideal certificate for an integer ideal, or read coefficient inequality as functional inequality",Preservation is not reflection,N15,5,,P,P,,P,P,,P,,
+S45,Accept native bytes without execution evidence,Kernel reduction or reconstruction; native needs its own policy,N17,9,P,P,P,P,P,P,P,P,P,
+S46,"Reuse a receipt or hash across an edit, a candidate change, or a toolchain migration","New check, new receipt",N43,9,P,P,T,T,T,T,T,T,T,
+S47,Accept a length-preserving candidate as a sorter,Permutation and order are the specification,N19,9,P,P,P,P,P,P,P,P,P,
+S48,Return a correct proof of a nearby weaker proposition,Target mismatch; offer an explicit statement edit,N46,9,E,E,E,E,E,E,T,E,E,
+S49,Write a cons literal over an empty element type,"Refused as a typing error, not a counterexample",,3,P,,,,E,,,P,,
+S50,"Borrow the affine theorem for a branching, filtering, or nonlinear candidate",Outside the grammar; piecewise models need case coverage,,4,,,P,,P,,P,P,,
+S51,Stop sampling when the observed rank stabilises and call it coverage,"Coverage is a theorem, not a stopping criterion",,1,,,,,,,P,,,
+S52,Use affine equality at frame points to prove an inequality,1-n is nonnegative at 0 and 1 only; use a cone certificate,,3,P,,,,P,,P,,,P
+S53,"Name a claim with a Lean keyword, or shadow an opened core name (compose, inj_comp), in an exported proof","The plan checker passes and Lean rejects the export; emit hygienic, qualified identifiers and compile the exact output",,0,,,,,,,,,,E
+S54,"Two routes, one already closed by available facts and one needing a new premise; export the smaller total support","Rank residual work, not total support; never emit a conditional theorem where a closed proof exists",,0,,,,,,,,,,E
+S55,"A diagnostic leaf frontier under an unseeded cycle (A -> A, A and B -> G) reports B",Supplying B leaves G open; an explanation is not a sufficient contract,,1,,,,,,,,P,,E
+S56,Reuse an output directory after a later request fails or finds no route,"Old positive .lean files survive beside accurate negative metadata; a manifest must bind file, request, status and hash",,0,,,,,,,,,,E
+S57,Read a budgeted antichain as a subset of the final one,A displayed support may later be dominated by the empty support; only the upward closure grows,,2,,,,,,,P,,P,E

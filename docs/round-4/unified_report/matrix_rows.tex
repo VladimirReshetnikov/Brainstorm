@@ -41,7 +41,7 @@ E6 & Preservation is not reflection: X lies in (2X) over Q[X] but not over Z[X];
 E7 & Complete solving needs soundness and coverage of the same predicate; a result kind is not a confidence ladder & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & $\dagger$\\
 E8 & An enclosure with equal endpoints may prove equality; a generic enclosure may not & \Yy & \Nn & \Nn & \Yy & \Nn & \Nn & \Nn & \Yy & \Nn & $\dagger$\\
 \addlinespace[2pt]
-F1 & An unfinished step denotes a conditional term over its residual telescope; it enters no fact index until discharged & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
+F1 & An unfinished step denotes a conditional term over its residual telescope; it is never indexed as a proof of its unconditional target & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
 F2 & The residual is an ordered dependent telescope; sequential composition is substitution, not set union & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
 F3 & Result states are distinct: proved, conditional, no route in the fragment, exhausted, unsupported, refuted & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
 F4 & Exporting a conditional theorem is an explicit statement change; no hypothesis is added silently & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
@@ -57,7 +57,7 @@ G6 & The exponential worst case (2\^{}k incomparable routes) is stated; a trunca
 G7 & Offering the goal as its own repair is a tautological route, excluded from the default vocabulary & \Yy & \Yy & \Nn & \Nn & \Nn & \Yy & \Yy & \Nn & \Nn & \\
 G8 & Method or support policy is applied before minimization, or labels are indexed by policy & \Yy & \Yy & \Pp & \Yy & \Nn & \Yy & \Yy & \Pp & \Yy & \\
 G9 & Two completeness flags: grounding coverage of the profile, and frontier closure of the emitted manifest & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
-G10 & An unseeded cycle proves nothing; a seeded cycle yields only a conditional route & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
+G10 & An unseeded cycle proves nothing; an offered seed yields a conditional route and a known seed a closed one & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
 G11 & A finite certificate characterises frontier completeness and is checked independently of the solver & \Nn & \Nn & \Nn & \Nn & \Nn & \Yy & \Nn & \Nn & \Nn & \\
 G12 & Reopening a removed premise abstracts only the leaves that used it; unused premises add nothing & \Nn & \Pp & \Nn & \Pp & \Nn & \Nn & \Yy & \Nn & \Pp & \\
 \addlinespace[2pt]
@@ -97,7 +97,7 @@ L2 & The satisfiable fixture (3,2,5) gives -53 and -486; no Fermat equation, pri
 L3 & The four single-premise neighbours (3,2,4), (3,3,5), (3,2,3), (1,2,5) are exhibited & \Nn & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
 L4 & The first numerator needs only p $\ge$ 2 & \Nn & \Nn & \Yy & \Pp & \Nn & \Yy & \Pp & \Yy & \Nn & \\
 L5 & Autonomous derivative: hypotheses only on W(U); induction keeps the point quantified & \Yy & \Nn & \Yy & \Yy & \Yy & \Yy & \Pp & \Yy & \Nn & $\dagger$\\
-L6 & Tensor family: finite free factors are premises; naturality is a law of the family; Q[X] is the obstruction & \Yy & \Yy & \Yy & \Yy & \Yy & \Pp & \Nn & \Yy & \Yy & $\dagger$\\
+L6 & Tensor family: finite free factors are the theorem's hypotheses; naturality is a law of the family; Q[X] shows finite indexing alone fails & \Yy & \Yy & \Yy & \Yy & \Yy & \Pp & \Nn & \Yy & \Yy & $\dagger$\\
 L7 & Leant 3a40904b is the inspected revision; 823259f7 is attributed to the syntheses and was not retrievable & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\
 L8 & Verified is a callback receipt; epochs seal association; the Length adapter refuses source refutation & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & $\dagger$\\
 L9 & Whole-file line counts are a misleading baseline; the final wrapper is already short & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \Yy & \\

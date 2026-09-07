@@ -36,7 +36,7 @@ E5,A residual certificate identifies a jet of the selected root only with the br
 E6,Preservation is not reflection: X lies in (2X) over Q[X] but not over Z[X]; X^2-X vanishes on F_2,N,Y,Y,N,Y,Y,N,Y,N,yes
 E7,Complete solving needs soundness and coverage of the same predicate; a result kind is not a confidence ladder,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
 E8,An enclosure with equal endpoints may prove equality; a generic enclosure may not,Y,N,N,Y,N,N,N,Y,N,yes
-F1,An unfinished step denotes a conditional term over its residual telescope; it enters no fact index until discharged,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+F1,An unfinished step denotes a conditional term over its residual telescope; it is never indexed as a proof of its unconditional target,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
 F2,"The residual is an ordered dependent telescope; sequential composition is substitution, not set union",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
 F3,"Result states are distinct: proved, conditional, no route in the fragment, exhausted, unsupported, refuted",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
 F4,Exporting a conditional theorem is an explicit statement change; no hypothesis is added silently,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
@@ -51,7 +51,7 @@ G6,The exponential worst case (2^k incomparable routes) is stated; a truncated r
 G7,"Offering the goal as its own repair is a tautological route, excluded from the default vocabulary",Y,Y,N,N,N,Y,Y,N,N,no
 G8,"Method or support policy is applied before minimization, or labels are indexed by policy",Y,Y,P,Y,N,Y,Y,P,Y,no
 G9,"Two completeness flags: grounding coverage of the profile, and frontier closure of the emitted manifest",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
-G10,An unseeded cycle proves nothing; a seeded cycle yields only a conditional route,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
+G10,An unseeded cycle proves nothing; an offered seed yields a conditional route and a known seed a closed one,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
 G11,A finite certificate characterises frontier completeness and is checked independently of the solver,N,N,N,N,N,Y,N,N,N,no
 G12,Reopening a removed premise abstracts only the leaves that used it; unused premises add nothing,N,P,N,P,N,N,Y,N,P,no
 H1,"A finite typed term pool (target subterms, locals, named intermediates) bounds rule instantiation",Y,Y,Y,Y,Y,Y,Y,Y,Y,no
@@ -86,7 +86,7 @@ L2,"The satisfiable fixture (3,2,5) gives -53 and -486; no Fermat equation, prim
 L3,"The four single-premise neighbours (3,2,4), (3,3,5), (3,2,3), (1,2,5) are exhibited",N,Y,Y,Y,Y,Y,Y,Y,Y,no
 L4,The first numerator needs only p >= 2,N,N,Y,P,N,Y,P,Y,N,no
 L5,Autonomous derivative: hypotheses only on W(U); induction keeps the point quantified,Y,N,Y,Y,Y,Y,P,Y,N,yes
-L6,Tensor family: finite free factors are premises; naturality is a law of the family; Q[X] is the obstruction,Y,Y,Y,Y,Y,P,N,Y,Y,yes
+L6,Tensor family: finite free factors are the theorem's hypotheses; naturality is a law of the family; Q[X] shows finite indexing alone fails,Y,Y,Y,Y,Y,P,N,Y,Y,yes
 L7,Leant 3a40904b is the inspected revision; 823259f7 is attributed to the syntheses and was not retrievable,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
 L8,Verified is a callback receipt; epochs seal association; the Length adapter refuses source refutation,Y,Y,Y,Y,Y,Y,Y,Y,Y,yes
 L9,Whole-file line counts are a misleading baseline; the final wrapper is already short,Y,Y,Y,Y,Y,Y,Y,Y,Y,no
