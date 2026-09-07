@@ -1,0 +1,101 @@
+{
+  "checked_utc": "2026-09-07T01:37:44.216960+00:00",
+  "version": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "executable": "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+  "source_register_sha256": "40d0dcc71f69d25b355dae29a8ba3db7e0cefdb36442456aba2b7d48532d5c9e",
+  "runner_sha256": "a84e7149234d1e3ed902c3050e39765171bd1974c4344aa00b6faf471dd5fea0",
+  "dependencies": [
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean",
+      "package_head": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "package_status": []
+    },
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+      "package_head": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+      "package_status": []
+    },
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+      "package_head": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "package_status": []
+    },
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+      "package_head": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+      "package_status": []
+    },
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+      "package_head": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+      "package_status": []
+    },
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+      "package_head": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+      "package_status": []
+    },
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+      "package_head": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+      "package_status": []
+    },
+    {
+      "library_path": "C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "package_head": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+      "package_status": []
+    }
+  ],
+  "dependency_scope": "Existing library artifacts, package HEAD/status recorded; no rebuild or dependency compilation audit.",
+  "scope": "Two unchanged peer sources and one separately identified appended-query audit; serial direct Lean, no external writes.",
+  "cases": [
+    {
+      "source": "FreyRoutes.lean",
+      "source_sha256": "80aa41a7923da0f83fa6f2a531fc591b5053657716bd05790b6079a3ab1b5aba",
+      "input": "docs/round-4/unified_report/experiments/lean/FreyRoutes.lean",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "FreyRoutes.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\parallel-review",
+      "LEAN_PATH": "C:\\ProveIt\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\ProveIt\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "LEAN_NUM_THREADS": "0",
+      "exit_code": 0,
+      "seconds": 451.60838990000775,
+      "log": "FreyRoutes.log",
+      "log_sha256": "218489ef67cefafe58079a35935201e1050c2a0f9dda83eba9a8d6dade7aa1ba"
+    },
+    {
+      "source": "ListImage.lean",
+      "source_sha256": "909c18bfedfb7cfbe5e677e9769e0546fcfed998fd586b228b520e9faa371428",
+      "input": "docs/round-4/unified_report/experiments/lean/ListImage.lean",
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "ListImage.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\parallel-review",
+      "LEAN_PATH": null,
+      "LEAN_NUM_THREADS": "0",
+      "exit_code": 0,
+      "seconds": 1.1219012000074144,
+      "log": "ListImage.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "ListImageAxioms.lean",
+      "source_sha256": "ee26e8348c50ffd13142b17de3dd6101f6ff01fbf236150ea07e07fcef8b0fd7",
+      "input": null,
+      "command": [
+        "C:\\Users\\vresh\\.elan\\toolchains\\leanprover--lean4---v4.32.0\\bin\\lean.exe",
+        "ListImageAxioms.lean"
+      ],
+      "cwd": "C:\\Users\\vresh\\.codex\\worktrees\\fae4\\Brainstorm\\docs\\round-4\\synthesis\\evidence\\parallel-review",
+      "LEAN_PATH": null,
+      "LEAN_NUM_THREADS": "0",
+      "exit_code": 0,
+      "seconds": 0.7458203000132926,
+      "log": "ListImageAxioms.log",
+      "log_sha256": "f60a1ff0671c2aebd4f468d416f4861d1b5d749dbfb5bbe09c69e6059d12cbe5"
+    }
+  ]
+}

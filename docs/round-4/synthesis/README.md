@@ -3,11 +3,14 @@
 [Read the PDF](unified-report.pdf) · [TeX source](unified-report.tex) ·
 [Convergence index](convergence.json) · [Validation receipt](validation.json)
 
-This 28-page, self-contained report critically synthesizes all nine round-4 packages:
+This 31-page, self-contained report critically synthesizes all nine round-4 packages:
 Alder, Bryony, Clover, Fennel, Heather, Juniper, Laurel, Rowan, and Sorrel.
 It incorporates the reconciled round-3 conclusions directly, evaluates the
 actual prototypes, develops shared support and observation semantics, and
 proposes ten concrete questions for the next implementation/evaluation round.
+This revision also incorporates the parallel [Nine Frontiers](../unified_report/unified_report.pdf)
+synthesis, its manual Frey route instantiations and concrete list-image lemmas,
+and its useful implementation and evaluation proposals, with explicit qualifications.
 
 The current branch was fast-forwarded to fetched `main` at
 `58ced1ce667b3ba1ed162a0c6280959536c8bc5f` before this work. The
@@ -15,6 +18,13 @@ The current branch was fast-forwarded to fetched `main` at
 (**325 supplied PDF pages**, **20 supplied Lean sources**) and four secondary
 round-3 source/PDF files to that immutable snapshot. Input PDFs were not rebuilt.
 The nine input packages and `C:/ProveIt` and `C:/Leant` were treated as read-only.
+
+For this revision, fetched `main` was merged by fast-forward to
+`c92ef058979fcb8f6c11030ac9ed80c64186e0f8`. A separate
+[parallel source register](evidence/parallel-review/source-register.json) binds
+all **94 files** of the peer synthesis at that snapshot. The earlier input
+register and execution receipts retain their original pins. The peer package
+is secondary analysis, not a tenth independent proposal, and remains unchanged.
 
 ## Findings worth carrying forward
 
@@ -40,6 +50,21 @@ The nine input packages and `C:/ProveIt` and `C:/Leant` were treated as read-onl
   Some tactic-suggestion paths at that pin display replacement text without
   replaying the final spelling. The proposed integration keeps that remaining
   requirement explicit; later live Leant revisions were not audited.
+- The parallel Frey experiment supplies actual mathematical interpretations of
+  four fixed generic route templates. Its manual specializations establish three
+  fourth-coefficient cast identities and one conjunction of divisibilities.
+  They provide a concrete baseline for an automated typed registry and planner.
+- The list-image experiment formalizes the image of length, the empty-element
+  case, an integer affine two-point calculation, and the diagonal criterion.
+  It supplies four named theorems; a general source-language bridge and an
+  even-length completeness theorem remain separate work.
+- A stronger input guard can preserve positive coverage and acceptance proofs,
+  while invalidating old negative witnesses or completeness claims. Guards need
+  not reduce affine dimension. This corrects the earlier blanket invalidation rule.
+- The next experiments should measure nontrivial coverage cost across many
+  candidates and whether revealing a second proof route changes the author's
+  next action. Complete antichains can serve as bounded reference answers while
+  the interactive implementation initially returns one checked route.
 
 ## Exact validation boundaries
 
@@ -91,6 +116,25 @@ the immutable `823259f7...` audit, exact full/partial/hash-only read scopes, and
 timestamped metadata for the later mutable checkout. The report is not an audit
 of that later revision.
 
+The new [parallel-review receipt](evidence/parallel-review/execution-receipt.json)
+is separate from all earlier compiler counts. It records the two unchanged
+peer sources and one distinctly identified copy of `ListImage.lean` with four
+appended axiom queries. It records package HEAD/status and uses existing Lean
+4.32.0 library artifacts; this is not a dependency rebuild or a formalized planner.
+All three checks pass. The five Frey queries report `propext`, `Classical.choice`,
+and `Quot.sound`. For the four list theorems, the image and empty-element proofs
+use `propext`; the two-point proof also uses `Quot.sound`; the diagonal proof
+uses all three. The peer's claim of axiom-freeness is therefore corrected.
+
+The [table-generator receipt](evidence/parallel-evidence/table-receipt.json)
+records an isolated rerun: all eleven generated table texts agree after newline
+normalization; five TeX fragments are byte-identical and six CSVs differ in
+line endings. The 101 feature rows, 62 unanimous marks, 52 negative families,
+and twenty question rows are editorial classifications. Reproducing their
+arithmetic does not independently verify novelty or executed test coverage.
+Three [parallel review memos](review-notes) record precise source anchors,
+incorporated ideas, and corrections to the peer's stronger claims.
+
 ## Reproduction
 
 From this directory, with Python, pdfLaTeX, Poppler, Pillow, and pypdf available:
@@ -99,6 +143,7 @@ From this directory, with Python, pdfLaTeX, Poppler, Pillow, and pypdf available
 python -B scripts/verify_sources.py
 python -B scripts/verify_convergence.py
 python -B scripts/verify_python_evidence.py
+python -B scripts/verify_parallel.py
 ./build.ps1
 python -B scripts/render_review.py
 python -B scripts/verify_report.py
@@ -110,6 +155,11 @@ exact commands. `scripts/check_lean.py` reruns all 20 original attempts serially
 `scripts/check_followups.py` then reruns the six additional cases. Both require
 the recorded toolchain/dependency layout or an explicitly adapted environment.
 Original compiler failures are retained as findings, not silently fixed.
+`scripts/check_parallel_lean.py` reruns only the two new unchanged peer files
+and the separately appended axiom audit. `scripts/verify_parallel.py` checks
+the immutable input inventory and the retained compiler/table receipts without
+rerunning either toolchain. The optional isolated table rerunner is
+`evidence/parallel-evidence/reproduce-tables.py`.
 
 `build.ps1` performs three strict passes without shell escape and rejects final
 reference, glyph, and overflow problems. All pages are rendered and visually

@@ -19,6 +19,14 @@ All 36 documented Python invocations meet expected exits. Nineteen of twenty
 supplied Lean files compile unchanged; the original failure, separately checked
 repair, sharper Frey lemmas, and additional export failures are retained.
 
+The revision incorporates the parallel [Nine Frontiers](docs/round-4/unified_report/unified_report.pdf)
+synthesis at `c92ef05`, including its manual arithmetic route instantiations and
+concrete list-image lemmas. It qualifies the peer's convergence and test counts,
+corrects domain-certificate reuse under stronger guards, and makes the next
+registry, coverage, and authoring experiments more concrete. The additional
+sources, compiler checks, table reproduction, and review decisions have their
+own [provenance and evidence](docs/round-4/synthesis/evidence/parallel-review).
+
 The previous [unified report: From Properties to Proof Obligations](docs/round-3/synthesis/unified-report.pdf)
 is a self-contained synthesis of the nine [round-3 proposals](docs/round-3/ideas):
 Basalt, Fiber, Gneiss, Karst, Moraine, Obsidian, Schist, Tephra, and Trellis.

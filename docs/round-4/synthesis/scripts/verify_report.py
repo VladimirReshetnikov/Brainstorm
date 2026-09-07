@@ -13,6 +13,7 @@ import re
 import subprocess
 import sys
 from pypdf import PdfReader
+from verify_parallel import validate as validate_parallel
 
 HERE=Path(__file__).resolve().parents[1]
 ROOT=HERE.parents[2]
@@ -69,6 +70,7 @@ def main():
         if run.returncode:
             raise RuntimeError(run.stderr.decode('utf-8',errors='replace'))
     lean=check_lean()
+    parallel=validate_parallel()
     tex=HERE/'unified-report.tex'
     pdf=HERE/'unified-report.pdf'
     build=read(HERE/'evidence/build-receipt.json')
@@ -104,7 +106,7 @@ def main():
     result={'verified_utc':datetime.now(timezone.utc).isoformat(),'status':'passed',
             'source_sha256':sha(tex),'pdf_sha256':sha(pdf),'pdf_pages':len(reader.pages),
             'artifact_manifest_sha256':sha(MANIFEST),'artifact_files':len(current),
-            'lean':lean,'python_validation_sha256':sha(HERE/'evidence/python-validation.json'),
+            'lean':lean,'parallel_review':parallel,'python_validation_sha256':sha(HERE/'evidence/python-validation.json'),
             'visual_review_sha256':sha(HERE/'evidence/visual-review.json'),
             'scope':'Source/receipt integrity, completed recorded executions, PDF build/text checks, and hash-bound human visual review. No new Lean/Python experiment or usability measurement.'}
     (HERE/'validation.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')

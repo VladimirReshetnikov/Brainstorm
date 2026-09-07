@@ -68,6 +68,7 @@ Codex \quad | \quad 6 September 2026\par
 {\small\color{muted}Self-contained: no earlier report is required.
 Input snapshot: \code{58ced1ce667b3ba1ed162a0c6280959536c8bc5f}.
 Nine packages, 159 input artifacts, 325 supplied PDF pages.
+Parallel synthesis incorporated at \code{c92ef05}, with its new Lean experiments.
 Fresh Python reproduction and serial Lean checks are reported with their
 precise scope; no controlled productivity study or complete Lean frontend is claimed.}
 \end{titlepage}
@@ -93,6 +94,10 @@ from mathematical registrations, partial search from globally minimal results,
 and valid theorems from faithful completion of a request. The recommended next
 iteration is a shared Lean implementation and matched authoring experiment,
 with explicit stopping conditions for a separate language or kernel extension.
+The revised report also evaluates \emph{Nine Frontiers}: its manual arithmetic
+route instantiations and concrete list-image lemmas provide useful implementation
+baselines, while its convergence counts and proposed test catalogue require
+more limited interpretations.
 \end{abstract}
 \begingroup\small\setlength{\parskip}{0pt}\tableofcontents\endgroup
 \clearpage
@@ -164,6 +169,15 @@ pairs as secondary context. The new \code{main} reconciles those syntheses;
 their corrections are incorporated below rather than treated as additional
 independent proposals. Earlier execution receipts retain their historical
 meaning and are not silently refreshed to describe new bytes.
+
+For this revision, the branch was subsequently fast-forwarded to fetched
+\code{main} at \code{c92ef05} (full revision in the separate register).
+A separate register binds all 94 files of the parallel \emph{Nine Frontiers}
+package at that commit, including its report, appendix, tables, scripts,
+sources, and logs \cite{parallel-r4}. We incorporate its useful conclusions
+and recheck its two new Lean experiments. It is a secondary synthesis of the
+same nine proposals, not another independent vote. The original input register
+and execution receipts retain their earlier pins.
 
 We distinguish five kinds of evidence throughout: a design proposal; a written
 mathematical argument; static source inspection; a fresh executable result;
@@ -319,6 +333,17 @@ Two different kinds of empty result have opposite meanings:
 \end{align*}
 The latter does not prove $\neg q$. An interrupted run cannot even assert that
 no route exists within the full profile.
+
+Sufficiency also says nothing about whether the proposed premises can jointly
+hold. A support interpreted as $n=0$ and $n=1$ may imply the target through
+contradiction, yet give no achievable repair. Likewise, permitting the target
+$q$ itself as an offered atom admits the tautological route $q\Rightarrow q$.
+\emph{Nine Frontiers} usefully calls attention to both cases
+\cite{parallel-r4}. The interface should disclose a self-referential repair and
+any established contradiction. Consistency is a separate question: in general
+it cannot be inferred from the existence of a conditional proof or decided by
+the finite positive Horn engine. An inhabited mathematical fixture is therefore
+valuable evidence about an intended use case, beyond a valid implication.
 
 \subsection{Propagation with proof templates}
 
@@ -499,6 +524,15 @@ construction, and symbolic decision structures may compact some support
 families, but no representation removes every large output or makes the
 choice among alternatives free.
 
+This suggests a concrete implementation order, also advocated by the parallel
+review: first return one checked route; add ranked alternatives when they help
+an author; use complete antichains as reference answers on bounded fixtures.
+The reference calculation and the interactive service need not have the same
+resource policy. One closed proof can complete a request without certifying the
+inventory of all possible proofs. Whether a second route changes an author's
+decision is a measurable benefit, not a reason to require exhaustive output
+at every keystroke \cite{parallel-r4}.
+
 \subsection{Evidence identity under edits and rewriting}
 
 An index entry should refer to a typed expression and the context in which
@@ -529,6 +563,14 @@ nonminimal explanation'' should be read in its stated diagnostic sense.
 The appropriate improvement is to show the unresolved cycle explicitly or
 offer a separately checked support calculation, not to claim Rowan's proof
 checker accepted the goal \cite{rowan}.
+
+A cycle test must distinguish three situations. For rules $A\Rightarrow B$
+and $B\Rightarrow A$, an empty known context and no offered premises establish
+neither atom. Offering $A$ permits a conditional proof of $B$ with residual
+$A$. Having a current proof of $A$ establishes $B$ with an empty residual.
+Thus ``seeded cycle'' is not a single expected status. Cross-engine fixtures
+must specify whether a seed is known, offered, or merely mentioned by a
+diagnostic; they must not compare those outputs as interchangeable frontiers.
 
 \section{Behavioral synthesis on realizable observations}
 \label{sec:frames}
@@ -662,6 +704,24 @@ inequality does not extend through arbitrary signed affine combinations;
 it needs an order-compatible coverage argument, such as convex combinations
 or monotonicity. A language should expose these as distinct proof interfaces.
 
+The parallel review supplies a useful concrete base in \code{ListImage.lean}
+\cite{parallel-r4}. Its image theorem is
+\[
+ (\exists xs:\code{List}\,\alpha,\ |xs|=n)
+ \quad\Longleftrightarrow\quad n=0\ \lor\ \operatorname{Nonempty}(\alpha).
+\]
+The reverse implication constructs an empty list or uses a chosen element
+and replication. This proves why zero is always realizable and positive
+lengths require an inhabited element type. Its other three named theorems
+prove the empty-element case, the integer affine two-point calculation, and
+the diagonal criterion for a list and its reverse. The two-point theorem
+itself quantifies over $n\in\N$; combining it with the image theorem supplies
+the interpretation in terms of realized lists. These are concrete lemmas,
+not a verified reifier for a general list language. The file contains no
+even-length completeness theorem. The general frame theorem and its
+$r+1$-point bound for a full affine class of affine dimension $r$ still need
+their stated hypotheses.
+
 \subsection{The bridge must describe the exact program}
 
 For lists generated from variables, empty lists, cons, append, reverse, and
@@ -754,6 +814,42 @@ registration must connect these rules to the actual divisibility and cast
 lemmas. Heather's use-site theorem proves readiness premises
 $d\ne0\land d\mid n$ from positivity and divisibility; it does not implement
 an exact quotient. These distinctions are central to a fair evaluation.
+
+\subsection{From a conditional route to the actual coefficient theorem}
+\label{sec:route-bridge}
+
+\emph{Nine Frontiers} takes a useful further step in \code{FreyRoutes.lean}:
+it specializes four generic exported route templates with actual mathematical
+propositions and theorem applications \cite{parallel-r4}. Let
+\[
+ N_2=b^p-1-a^p,\qquad N_4=-(a^p b^p),\qquad
+ C_4:\ \iota(N_4/16)=\iota(N_4)/16\quad\text{in }\Q.
+\]
+With $p\ge4$ already known, two Laurel templates support different remaining
+work. The direct route consumes $16\mid N_4$. The evenness route consumes
+$2\mid b$, proves $16\mid N_4$ using the exponent bound, and applies
+\code{Int.cast_div}. Both use the elementary proof that $16\ne0$ in $\Q$.
+The direct theorem itself does not require the exponent bound. A Bryony
+template reaches the same cast identity through an intermediate atom
+interpreted as the very same divisibility proposition; that intermediate
+implication is instantiated by the identity function.
+
+The Sorrel specialization has a different result:
+$4\mid N_2\land16\mid N_4$. It supplies the first conjunct using the
+sharpened $p\ge2$ arithmetic, and combines it with the evenness-based proof
+of the second. It is a theorem about two divisibilities, not another pair
+of rational-cast identities. All statements remain conditional on their
+explicit arithmetic hypotheses, and the $(3,2,5)$ fixture shows these
+hypotheses can hold together.
+
+This closes one semantic gap: the chosen generic implications really can be
+used with the intended arithmetic. The four selections and substitutions
+are written by hand. The file does not read an author's goal, discover a term
+pool, validate a general registry, run a route planner, or establish that an
+exporter preserves arbitrary source meaning. Its value is a concrete baseline
+for those next steps, complementary to Clover's already concrete endomorphism
+registry. A successful implementation should reproduce this proof from the
+original Lean goal and report which work was inferred and which was supplied.
 
 \subsection{A demanded representation can introduce new obligations}
 
@@ -1075,6 +1171,17 @@ revision or its working changes.
 No Haskell build, synthesis
 server run, or full Leant test suite was performed for this synthesis.
 
+The parallel review raises a useful reproducibility distinction: a local Git
+object, an inspected source copy, and a publicly retrievable revision are
+different evidence \cite{parallel-r4}. Our source register verifies the local
+\code{823259f} blobs and retained copies; it does not establish their public
+availability at every author's review time. Consequently the references here
+point to retained sources or explicitly bounded excerpts in this repository.
+The relevant executable source path is \code{src/Main.hs}. We correct the
+earlier bibliography's \code{app/Main.hs} path. A failed lookup would not
+disprove the inspected implementation, just as local existence would not
+establish a reproducible public citation.
+
 \subsection{Existing mechanisms should not be proposed as missing}
 
 Leant's candidate verification can combine an exact rendered candidate's
@@ -1145,6 +1252,9 @@ to its length interpretation, then use a frame certificate to produce an
 ordinary Lean length theorem for the exact candidate. Return both the candidate
 and that theorem in the response. Keep faster unchecked rankings available,
 but report their role accurately.
+The new \code{ListImage.lean} lemmas provide domain-side starting points;
+they do not yet supply the source-constructor interpretation or an exact
+Leant candidate correspondence.
 
 An informative failure is just as important: a model point outside the
 admissible image must remain a model counterexample, and a candidate outside
@@ -1248,6 +1358,61 @@ queries the four theorem axiom sets. The queries report only
 \code{Classical.choice}. This is fresh kernel-acceptance evidence for the
 sharper arithmetic interface; it is not a proof of an entire curve construction.
 
+\subsection{Rechecking the parallel synthesis's additions}
+\label{sec:parallel-evidence}
+
+The separate parallel-review receipt records fresh serial checks of unchanged
+\code{FreyRoutes.lean} and \code{ListImage.lean}, followed by an explicitly
+identified copy of the latter with four appended axiom queries. These cases
+are additional to the twenty original inputs and six earlier follow-ups.
+Both unchanged files and the appended-query audit compile under Lean 4.32.0.
+\code{FreyRoutes.lean} contains thirteen named theorems: five arithmetic
+helpers, four generic templates, and the four concrete specializations
+described in Section~\ref{sec:route-bridge}; it also contains seven examples
+and five axiom queries. \code{ListImage.lean} has four named theorems and
+three examples. The peer table's count of five list theorems and assertion
+that they are all axiom-free are not supported by its empty compiler log.
+Our appended-query audit records the actual dependency sets separately.
+
+All five Frey queries report \code{propext}, \code{Classical.choice}, and
+\code{Quot.sound}. For the list file, \code{length_image} and
+\code{empty_one_point_frame} report \code{propext};
+\code{inhabited_two_point_frame} additionally reports \code{Quot.sound};
+\code{diagonal_frame} reports all three. Thus the four list proofs are
+accepted but are not axiom-free as written. A file's lack of explicit imports
+or new axiom declarations does not establish axiom-freeness of its theorem
+dependencies. These queries characterize the checked proofs, not a claim
+that the same statements cannot be proved with fewer axioms.
+
+The parallel report's table generator reproduces 101 editorial feature rows,
+62 marked unanimous, and 19 marked both new and unanimous. Its 52-family
+negative catalogue marks 21 families as executed somewhere, and its twenty
+question rows mark fourteen as explicitly answered by every report. Our
+isolated rerun reproduces all generated table text after newline normalization;
+the retained receipt distinguishes text parity from byte identity. These counts are
+classifications embedded in the generator; it does not derive them by reading
+the reports or checking execution logs. They are useful navigation, not an
+independent measurement of novelty, correctness, or completed implementation.
+
+The negative catalogue is especially useful as a backlog, provided each family
+is split into an exact input, an expected result status, and a named checker.
+For example, a test that restricts available rules does not necessarily exercise
+loss of an allowed $\{A,B\}$ route after a forbidden $\{A\}$ route dominates
+it. Deleting a seed does not by itself test abstraction of a used versus an
+unused premise. An ``executed'' family mark must not silently certify all
+such variants. We retain the source-level audit and the isolated regeneration
+receipt with the reconciliation notes.
+
+We therefore incorporate the peer's experiments and sharper implementation
+order, while preserving the six/one/one/one implementation split and the exact
+original compiler counts above. The peer's recurring ``fourteen generic
+files'' should read thirteen, of which twelve contain the twenty-two generic
+theorems and one is Laurel's empty cycle file. Its broad cross-engine
+comparison remains a proposal: our actual Fennel/Juniper experiment covers
+128 normalized finite profiles, not all nine implementations or arbitrary
+mathematics. Broader comparisons must align offered vocabularies, known facts,
+method policies, completion flags, and result kinds before comparing outputs.
+
 \subsection{What the adversarial cases test}
 
 \begin{center}\small
@@ -1324,6 +1489,19 @@ The first gate is intentionally mathematical. More proof-plan infrastructure
 without a real registration would repeat the boundary already explored by
 the six opaque-proposition engines.
 
+The parallel synthesis makes the first gate more concrete. Use its manually
+specialized Frey routes as acceptance specimens, then implement the reverse
+direction missing from those files: read a Lean goal, construct a typed local
+term pool, instantiate registered theorem signatures, and emit a checked route
+back to that same goal. Account for candidate instances, fired rules, elaboration
+time, proof size, and rejected mismatches. A separately mechanized frontier
+checker can validate completeness claims in the fixed finite fragment; its
+interface and theorem should be judged by what they establish, not a guessed
+number of implementation lines. The behavioral bridge can proceed independently
+from the four concrete list lemmas. The 52-family catalogue is a feature-indexed
+backlog: the first slice should activate its relevant families and identify
+unsupported requests rather than promise all analytical features at once.
+
 \subsection{A further synthesis: request-relative certificates}
 
 The failures suggest a stronger result interface than ``a checked proof and
@@ -1334,6 +1512,16 @@ available evidence. A coverage response should be indexed by the finite
 profile and policy. A behavior response should name the exact source candidate
 and domain bridge. These indices describe what the evidence means; they
 are not only logging fields.
+
+Rowan's resolve, private discharge, and check-and-commit stages give this
+contract an operational form \cite{rowan,parallel-r4}. Resolution freezes
+the target and intended elaboration choices; speculative inference uses a
+private state; commit checks the result against the frozen request and permits
+only the declared assignments to escape. A failed or conditional attempt must
+not leak data choices or strengthen an ambient theorem. This is an implementation
+proposal requiring an actual Lean state-isolation test. It also gives a useful
+way to compare strict rejection of all unresolved metavariables with explicit
+classification of legitimate parameters and permitted construction holes.
 
 This leads to a useful composition rule: every stage must preserve or
 explicitly refine the request, and the final stage checks that refinement.
@@ -1366,14 +1554,29 @@ observation domain independently from each candidate's denotation proof.
 For a fixed typed input interface, one proved diagonal or empty-domain
 certificate can support many candidate comparisons. Candidate changes then
 rebuild the source-denotation bridge without re-proving the domain theorem.
-Conversely, a change in the input type, guard, or correlation invalidates
-the domain certificate even if the candidate's syntax is unchanged.
+A changed input type, guard, or correlation requires revalidation or checked
+transport of the certificate. It does not always require discarding it.
+In particular, if $D'\subseteq D$, a proof that all observations of $D$ lie
+in a given span remains a sound cover of $D'$. Acceptance proved on $D$
+restricts to $D'$. A realizing input or test point for $D$, however, may fail
+the stronger guard and cannot then refute a contract on $D'$. Completeness
+relative to realized tests may therefore need a new certificate.
+
+For example, restricting lengths to even numbers preserves affine dimension
+one; restricting them to the singleton $\{100\}$ lowers it to zero. Guards
+can reduce dimension but need not do so. This corrects both an overstrong
+invalidation sentence in the earlier version of this report and the parallel
+review's general claim that a guard lowers the number of frame points.
 
 This separation gives a concrete incremental boundary and a useful cost model:
 domain construction, candidate reification, finite checking, and proof
 reconstruction should be timed separately. It also makes the asymmetry of
 acceptance and refutation visible: a negative test needs a realized input,
 whereas positive reasoning may use a sound span overapproximation.
+The next substantial example should have a coverage proof that is not immediate
+from the domain definition. Measure that one-time proof and registration effort
+across many candidates; otherwise an inexpensive finite comparison can hide a
+domain theorem more costly than the original candidate proof.
 
 \section{Kernel changes and a fair experiment}
 \label{sec:evaluation}
@@ -1470,15 +1673,17 @@ The next responses should include code or experiments that answer these
 questions, rather than another broad catalogue of mathematical syntax.
 \begin{enumerate}
 \item \textbf{Which single actual Lean use site will be completed end to end?}
-Choose exact quotient transport or the concrete endomorphism registry, show
-the original target, and produce a closed Lean proof from parsed source with
-the emitted artifact replayed.
+Replace the manual selections in \code{FreyRoutes.lean} by a typed registry
+and planner, or extend the concrete endomorphism registry. Show the original
+Lean goal, inferred instances, and exact replayed proof from parsed source.
 \item \textbf{What is the authority of a conditional route?} Specify its
 ordered residual telescope, how current facts discharge members, and the
 transition that permits publication. Include the Sorrel selection mutation.
 \item \textbf{Which completeness claim is worth paying for?} Separate finding
 one proof, enumerating minimal supports, validating coverage, and generating
-all bounded instances. Report each cost and an honest budgeted result.
+all bounded instances. Mechanize the finite coverage checker and compare
+aligned engine fixtures. Measure whether a second route changes the author's
+action, alongside each algorithmic cost and an honest budgeted result.
 \item \textbf{How does grounding interact with alternatives?} Connect one
 typed term pool to an antichain engine. Show bounds, registration checks,
 dependent arguments rejected or handled, and a case where relevance filtering
@@ -1490,12 +1695,16 @@ examples; do not imply indispensability unless separately established.
 \item \textbf{Which observation-domain theorem is reusable?} Implement free,
 empty, and correlated list domains with exact source bridges. Decide whether
 a frame suffices or an exact semilinear image is needed for the chosen contract.
+Add a nontrivial guarded coverage proof, measure its amortized cost, and test
+which positive proofs and negative witnesses survive a stronger guard.
 \item \textbf{What does Leant retain after acceptance?} Demonstrate an exact
 candidate, its original behavioral target, a proof or replayable evidence,
 and a realized negative case using the committed baseline's existing machinery.
 \item \textbf{How do edits invalidate evidence?} Change a local assumption,
 universe/index, or algebra instance and show correct rebuild or checked
 transport. Explain which cache entries survive and why.
+Include a private-discharge attempt whose failed data assignments must not
+escape, and compare strict versus explicitly classified target sealing.
 \item \textbf{Can mathematicians distinguish an explanation from a theorem?}
 Test comprehension of conditional, incomplete, unsupported, and refuted
 results, including a cyclic diagnostic that is not a sufficient frontier.
@@ -1503,6 +1712,9 @@ results, including a cyclic diagnostic that is not a sufficient frontier.
 Predeclare a measurable advantage beyond equally equipped Lean, identify the
 smallest feature responsible, and accept a library or renderer outcome when
 the experiment supports it.
+Judge further design rounds by reduced uncertainty, useful counterexamples,
+working artifacts, and measured benefit. Counting newly unanimous editorial
+rows would reward a change in the classification scheme rather than progress.
 \end{enumerate}
 
 \appendix
@@ -1522,6 +1734,15 @@ Mathlib dependency paths are machine-specific and must be supplied on another
 host. It deliberately records original compiler failures rather than repairing
 the imported specimens. The companion follow-up runner identifies every
 additional source and expected result separately.
+
+The \code{evidence/parallel-review} directory pins the 94-file secondary
+package and retains the two unchanged new Lean files, the appended-query audit,
+and their fresh compiler receipt. \code{scripts/check_parallel_lean.py} reruns
+only these three cases serially using existing dependencies read-only.
+\code{evidence/parallel-evidence} retains the isolated table generator, its
+outputs, and a receipt recording byte and newline-normalized comparisons.
+The three \code{parallel-*} reading memos preserve exact source anchors and
+the incorporation decisions; the peer report and its inputs remain unchanged.
 
 Run \code{./build.ps1} from PowerShell to compile this report in three strict
 pdfLaTeX passes without shell escape. Run \code{python -B scripts/render_review.py}
@@ -1547,10 +1768,11 @@ are review artifacts, not fixes silently applied to the original proposals.
 \bibitem{sorrel} \textbf{Sorrel.} Round-4 proof-language proposal, 2026. \href{../ideas/Sorrel/sorrel.pdf}{Report}; \href{../ideas/Sorrel/sorrel.tex}{source}. See residual plans, finite support calculus, and Cauchy reconstruction.
 \bibitem{prior-codex} Codex. \emph{From Properties to Proof Obligations.} Revised round-3 synthesis. \href{../../round-3/synthesis/unified-report.pdf}{Report}. Consulted as secondary context; necessary definitions and corrections are restated here.
 \bibitem{prior-peer} \emph{Nine Refinements.} Reconciled round-3 unified report at the current input pin. \href{../../round-3/unified_report/unified_report.pdf}{Report}. Secondary context, not a tenth round-four proposal.
+\bibitem{parallel-r4} \emph{Nine Frontiers: Residual Obligations and Realizable Observations in a Mathematician's Proof Language over Lean.} Parallel round-4 synthesis at \code{c92ef05}. \href{../unified_report/unified_report.pdf}{Report}; \href{../unified_report/unified_report.tex}{source}; \href{../unified_report/experiments/lean/FreyRoutes.lean}{Frey route specializations}; \href{../unified_report/experiments/lean/ListImage.lean}{list-image lemmas}. Incorporated as secondary analysis with the qualifications in Section~\ref{sec:parallel-evidence}.
 \bibitem{lean-elab} Lean Language Reference. \emph{Elaboration and Compilation.} \url{https://lean-lang.org/doc/reference/latest/Elaboration-and-Compilation/}. Consulted 6 September 2026; compiler executions in this review use the separately pinned 4.32.0 toolchain.
 \bibitem{lean-app} Lean Language Reference. \emph{Function Application.} \url{https://lean-lang.org/doc/reference/latest/Terms/Function-Application/}. Implicit, instance, and automatic arguments; consulted 6 September 2026.
 \bibitem{provenance} T. J. Green, G. Karvounarakis, and V. Tannen. \emph{Provenance Semirings.} PODS 2007. \url{https://repository.upenn.edu/bitstreams/b598c0a7-0d24-4162-8279-5f51a17d29c2/download}. Related algebraic provenance background; not a claim that the proposed Lean frontend is already supplied by that work.
-\bibitem{leant-verification} Vladimir Reshetnikov and contributors. \emph{Leant}, committed snapshot \code{823259f}. \href{https://github.com/VladimirReshetnikov/Leant/blob/823259f7e3c6d24e990d3f48f78c4f1c4f88059e/src/Leant/Synth/Verification.hs}{Candidate verification source}. The preserved review records additional behavioral, length-contract, and handoff source boundaries; no fresh Leant runtime test is claimed.
-\bibitem{leant-main} Vladimir Reshetnikov and contributors. \emph{Leant Main.hs}, immutable \code{823259f} snapshot. \href{https://github.com/VladimirReshetnikov/Leant/blob/823259f7e3c6d24e990d3f48f78c4f1c4f88059e/app/Main.hs}{Source}. Candidate acceptance and tactic replacement paths are documented with exact ranges in \code{evidence/leant-review/source-register.json}.
+\bibitem{leant-verification} Vladimir Reshetnikov and contributors. \emph{Leant}, committed snapshot \code{823259f}. \href{../../round-3/synthesis/evidence/leant-review/source/Verification.hs}{Retained candidate verification source}. The preserved review records additional behavioral, length-contract, and handoff source boundaries; no fresh Leant runtime test is claimed.
+\bibitem{leant-main} Vladimir Reshetnikov and contributors. \emph{Leant src/Main.hs}, immutable \code{823259f} snapshot. \href{evidence/leant-review/main-excerpts.txt}{Retained, numbered acceptance and suggestion excerpts}; \href{evidence/leant-review/source-register.json}{source register and exact read scopes}. These are bounded excerpts, not a copy or review of the entire executable module.
 \end{thebibliography}
 \end{document}
